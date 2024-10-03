@@ -1,0 +1,146 @@
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+  font-family: sans-serif;
+}
+
+:root {
+  /* Primary Colors */
+  --primary-bg: linear-gradient(to left, #07c15b, #225629);
+  /* Green gradient for primary sections */
+  --secondary-bg: #c1ff72;
+  /* Light green for secondary sections or highlights */
+
+  /* Neutral Colors */
+  --white-bg: #fff8e6;
+  /* Light background for cards and section dividers */
+  --light-grey: #ececec;
+  /* Light grey for subtle dividers or backgrounds */
+
+  /* Text Colors */
+  --primary-text: #225629;
+  /* Darker green for headings or emphasized text */
+  --secondary-text: #07c15b;
+  /* Light green text for minor headings or accents */
+  --white-text: #ffffff;
+  /* White text for contrast on darker backgrounds */
+
+  /* Padding */
+  --container-padding: 0 10rem;
+  /* Padding for main container layout */
+}
+
+/* ============================= HEADER
+ =============================*/
+header {
+  padding: 0 2rem;
+  background: wheat;
+}
+
+header nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header nav ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .logo img {
+  width: 6rem;
+}
+
+header .user-profile img {
+  width: 3rem;
+  border-radius: 50%;
+}
+
+/* ============================= HERO SECTION
+ =============================*/
+.container {
+  padding: var(--container-padding);
+}
+
+.hero {
+  padding: 5rem 10rem;
+  height: 100%;
+
+  /* Correctly layer the image and background color */
+  background:
+    url(../assets/top-view-plate-healthy-food.png) right -5rem no-repeat,
+    var(--primary-bg);
+  /* or you can use a gradient here if needed */
+
+  background-size: 50rem;
+}
+
+.hero-text {
+  background: red;
+  color: white;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.hero-text h1 {
+  font-size: 5rem;
+}
+
+.hero-text h3 {
+  font-size: 2rem;
+}
+
+.hero-text p {
+  font-size: 1rem;
+}
+
+.hero-text a {
+  color: white;
+  background: lawngreen;
+  width: fit-content;
+  padding: 0.5rem 2rem;
+  border-radius: 50px;
+  border: 2px solid white;
+}
+
+/* ============================= ABOUT SECTION
+ =============================*/
+/* Start coding */
+
+
+/* ============================= FEATURES SECTION
+=============================*/
+/* Start coding */
+
+
+/* ============================= DIET PLAN SECTION
+=============================*/
+/* Start coding */
+
+
+/* ============================= TESTIMONIAL SECTION
+ =============================*/
+/* Start coding */
+
+
+/* ============================= GET STARTED SECTION
+ =============================*/
+/* Start coding */
+
+
+/* ============================= CALL TO ACTION SECTION
+ =============================*/
+/* Start coding */
+
+
+/* ============================= FOOTER SECTION
+ =============================*/
+/* Start coding */
+
