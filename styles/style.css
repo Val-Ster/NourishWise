@@ -27,6 +27,10 @@
   --white-text: #ffffff;
   /* White text for contrast on darker backgrounds */
 
+  /* Button colors */
+  --button-bg: #225629;
+  --button-bg-hover: #07c15b;
+
   /* Padding */
   --container-padding: 0 10rem;
   /* Padding for main container layout */
@@ -35,7 +39,7 @@
 /* ============================= HEADER
  =============================*/
 header {
-  padding: 0 2rem;
+  padding: 0.3rem 2rem;
   background: wheat;
 }
 
@@ -51,10 +55,15 @@ header nav ul {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  gap: 3rem;
+}
+
+header nav ul li:last-child {
+  background: var(--button-bg);
 }
 
 header .logo img {
-  width: 6rem;
+  width: 4rem;
 }
 
 header .user-profile img {
@@ -69,24 +78,43 @@ header .user-profile img {
 }
 
 .hero {
-  padding: 5rem 10rem;
-  height: 100%;
-
+  /* padding: 5rem 10rem; */
+  /* height: 100%; */
   /* Correctly layer the image and background color */
-  background:
-    url(../assets/top-view-plate-healthy-food.png) right -5rem no-repeat,
-    var(--primary-bg);
+  /* background: */
+  /* url(../assets/bg-image.png) right -5rem no-repeat, */
+  /* var(--primary-bg); */
   /* or you can use a gradient here if needed */
 
-  background-size: 50rem;
+  /* background-size: 50rem; */
+}
+
+.hero {
+  padding: 5rem 10rem;
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: red;
+  /* Combine the gradient and the image */
+  background:
+    url(../assets/bg-image.png) right -5rem no-repeat,
+    linear-gradient(to right, rgba(7, 193, 91, 0.9), rgba(34, 86, 41, 0.9));
+
+  background-size: cover;
+  /* background-position: right -5rem; */
+  background-repeat: no-repeat;
 }
 
 .hero-text {
-  background: red;
-  color: white;
+  background: transparent;
   display: inline-flex;
   flex-direction: column;
   gap: 0.7rem;
+  color: white;
+  padding: 2rem;
 }
 
 .hero-text h1 {
@@ -98,14 +126,14 @@ header .user-profile img {
 }
 
 .hero-text p {
-  font-size: 1rem;
+  font-size: 1.1rem;
 }
 
 .hero-text a {
   color: white;
-  background: lawngreen;
+  background: var(--button-bg);
   width: fit-content;
-  padding: 0.5rem 2rem;
+  padding: 0.7rem 2rem;
   border-radius: 50px;
   border: 2px solid white;
 }
@@ -143,4 +171,3 @@ header .user-profile img {
 /* ============================= FOOTER SECTION
  =============================*/
 /* Start coding */
-
