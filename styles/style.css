@@ -3,7 +3,7 @@
   padding: 0;
   text-decoration: none;
   list-style: none;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   transition: all 400ms ease;
 }
 
@@ -162,7 +162,16 @@ header .user-profile img {
 /* ============================= ABOUT SECTION
  =============================*/
 /* Start coding */
+.about h2 {
+  text-align: left;
+  color: var(--primary-text);
+  background: transparent;
+  padding: 2rem 6rem;
+}
 
+.diet-logo {
+  width: 1rem;
+}
 
 /* ============================= FEATURES SECTION
 =============================*/
@@ -207,7 +216,7 @@ header .user-profile img {
   background-color: var(--dark-green-bg);
 }
 /* .feature-card */
-.features .feature-card:nth-child(3):hover{
+.features .feature-card:nth-child(3):hover {
   background: red;
   transform: scale3d(2px);
 }
@@ -219,26 +228,21 @@ header .user-profile img {
   width: 10rem;
 }
 
-
 /* ============================= DIET PLAN SECTION
 =============================*/
 /* Start coding */
-
 
 /* ============================= TESTIMONIAL SECTION
  =============================*/
 /* Start coding */
 
-
 /* ============================= GET STARTED SECTION
  =============================*/
 /* Start coding */
 
-
 /* ============================= CALL TO ACTION SECTION
  =============================*/
 /* Start coding */
-
 
 /* ============================= FOOTER SECTION
  =============================*/
