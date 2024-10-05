@@ -4,7 +4,7 @@
   text-decoration: none;
   list-style: none;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  transition: all 400ms ease;
+  transition: all 300ms ease;
 }
 
 :root {
@@ -32,8 +32,12 @@
   --container-padding: 5rem 10rem;
 }
 
+/* Global style */
+/* This part label as global style
+because is a style apply to all element with this class name */
 .btn {
   background-color: var(--button-bg);
+  cursor: pointer;
 }
 
 .btn:hover {
@@ -45,7 +49,7 @@
 }
 
 .container {
-  padding: 5rem 0;
+  padding: var(--container-padding);
 }
 
 .container header,
@@ -93,21 +97,28 @@ header nav ul li:last-child a {
   border-radius: 100px;
 }
 
+/* Header logo style */
 header .logo img {
   width: 4rem;
 }
 
+/* Header profile image style */
 header .user-profile img {
   width: 3rem;
+  border-radius: 50%;
+  transition: 0.2s ease;
+  border: 3px solid transparent;
+}
+
+header .user-profile img:hover {
+  border: 3px solid var(--button-bg);
+  transform: scale(1.1);
+  overflow: hidden;
   border-radius: 50%;
 }
 
 /* ============================= HERO SECTION
  =============================*/
-.container {
-  padding: var(--container-padding);
-}
-
 .hero {
   background: var(--primary-bg);
   padding: 0rem 0rem;
@@ -152,11 +163,21 @@ header .user-profile img {
 
 .hero-text a {
   color: white;
+}
+
+.hero-text .action-btn {
+  color: white;
+  margin-top: 2rem;
+  font-weight: bold;
   background: var(--button-bg);
   width: fit-content;
   padding: 0.7rem 2rem;
   border-radius: 50px;
   border: 2px solid white;
+}
+
+.hero-text .action-btn:hover {
+  background-color: var(--button-bg-hover);
 }
 
 /* ============================= ABOUT SECTION
@@ -173,8 +194,6 @@ header .user-profile img {
   align-items: center;
   gap: 2rem;
 }
-
-/* .features { */
 
 .features .features-list {
   display: flex;
@@ -197,6 +216,7 @@ header .user-profile img {
 
 .features .feature-card:nth-child(1) {
   background-color: var(--light-green-bg);
+  color: white;
 }
 
 .features .feature-card:nth-child(2) {
@@ -205,12 +225,23 @@ header .user-profile img {
 
 .features .feature-card:nth-child(3) {
   background-color: var(--dark-green-bg);
+  color: white;
+  transition: all 200ms ease;
 }
-/* .feature-card */
-.features .feature-card:nth-child(3):hover{
-  background: red;
-  transform: scale3d(2px);
+
+.features .feature-card:nth-child(1):hover,
+.features .feature-card:nth-child(2):hover,
+.features .feature-card:nth-child(3):hover {
+  background: rgba(0, 0, 0, 0.089);
+  box-shadow: 0px 0px 5px 5px gray;
+  /* box-shadow: 0px 0px 5px 5px gray, inset -4px -3px 2px  gray; */
 }
+
+.features .feature-card:nth-child(1):hover .text,
+.features .feature-card:nth-child(3):hover .text {
+  color: black;
+}
+
 .features .feature-card h4 {
   font-size: 2rem;
 }
