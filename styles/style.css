@@ -3,8 +3,11 @@
   padding: 0;
   text-decoration: none;
   list-style: none;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  <<<<<<< HEAD font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   transition: all 300ms ease;
+  =======font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  transition: all 400ms ease;
+  >>>>>>>87d5e109d559a1884c45c39c0b28412e0fad4de5
 }
 
 :root {
@@ -183,7 +186,16 @@ header .user-profile img:hover {
 /* ============================= ABOUT SECTION
  =============================*/
 /* Start coding */
+.about h2 {
+  text-align: left;
+  color: var(--primary-text);
+  background: transparent;
+  padding: 2rem 6rem;
+}
 
+img {
+  width: 200px;
+}
 
 /* ============================= FEATURES SECTION
 =============================*/
@@ -229,48 +241,50 @@ header .user-profile img:hover {
   transition: all 200ms ease;
 }
 
-.features .feature-card:nth-child(1):hover,
+<<<<<<< HEAD .features .feature-card:nth-child(1):hover,
 .features .feature-card:nth-child(2):hover,
 .features .feature-card:nth-child(3):hover {
   background: rgba(0, 0, 0, 0.089);
   box-shadow: 0px 0px 5px 5px gray;
   /* box-shadow: 0px 0px 5px 5px gray, inset -4px -3px 2px  gray; */
-}
+  =======
 
-.features .feature-card:nth-child(1):hover .text,
-.features .feature-card:nth-child(3):hover .text {
-  color: black;
-}
+  /* .feature-card */
+  .features .feature-card:nth-child(3):hover {
+    background: red;
+    transform: scale3d(2px);
+    >>>>>>>87d5e109d559a1884c45c39c0b28412e0fad4de5
+  }
 
-.features .feature-card h4 {
-  font-size: 2rem;
-}
+  .features .feature-card:nth-child(1):hover .text,
+  .features .feature-card:nth-child(3):hover .text {
+    color: black;
+  }
 
-.features .feature-card img {
-  width: 10rem;
-}
+  .features .feature-card h4 {
+    font-size: 2rem;
+  }
 
+  .features .feature-card img {
+    width: 10rem;
+  }
 
-/* ============================= DIET PLAN SECTION
+  /* ============================= DIET PLAN SECTION
 =============================*/
-/* Start coding */
+  /* Start coding */
 
-
-/* ============================= TESTIMONIAL SECTION
+  /* ============================= TESTIMONIAL SECTION
  =============================*/
-/* Start coding */
+  /* Start coding */
 
-
-/* ============================= GET STARTED SECTION
+  /* ============================= GET STARTED SECTION
  =============================*/
-/* Start coding */
+  /* Start coding */
 
-
-/* ============================= CALL TO ACTION SECTION
+  /* ============================= CALL TO ACTION SECTION
  =============================*/
-/* Start coding */
+  /* Start coding */
 
-
-/* ============================= FOOTER SECTION
+  /* ============================= FOOTER SECTION
  =============================*/
-/* Start coding */
+  /* Start coding */

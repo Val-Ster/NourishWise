@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NourishWise Sign-up</title>
+    <link rel="stylesheet" href="styles/login_sign-up.css" />
+  </head>
+  <body>
+    <div class="signup-container">
+      <h1>
+        Create New <br />
+        Account
+      </h1>
+      <div class="diet-logo">
+        <img src="assets/diet_logo_t.png" alt="diet-logo" />
+      </div>
+      <form action="index.html" class="styled-form">
+        <div>
+          <input
+            type="text"
+            placeholder="Enter your name.."
+            minlength="3"
+            required
+          />
+        </div>
+        <div>
+          <input type="email" placeholder="Enter your email.." required />
+        </div>
+        <div>
+          <input
+            type="password"
+            placeholder="password"
+            minlength="6"
+            required
+          />
+          <input type="number" placeholder="Weight(kg)" />
+          <input type="number" placeholder="Height(cm)" />
+        </div>
+        <div>
+          <input type="submit" value="Sign up" class="submit" />
+        </div>
+      </form>
+      <p class="sign-up-p">
+        Already Registered? Log in <a href="login.html">here!</a>
+      </p>
+    </div>
+  </body>
+</html>
