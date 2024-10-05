@@ -3,17 +3,16 @@
   padding: 0;
   text-decoration: none;
   list-style: none;
-  <<<<<<< HEAD font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   transition: all 300ms ease;
-  =======font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   transition: all 400ms ease;
-  >>>>>>>87d5e109d559a1884c45c39c0b28412e0fad4de5
 }
 
 :root {
   /* Primary Colors */
   --primary-bg: linear-gradient(to right, #07c15b, #225629);
   --secondary-bg: #c1ff72;
+  --extra-bg: #ececec;
 
   /* Neutral Colors */
   --white-bg: #fff8e6;
@@ -58,7 +57,10 @@ because is a style apply to all element with this class name */
 .container header,
 .container h2 {
   color: var(--primary-text);
+  text-align: unset;
+  width: fit-content;
   background: transparent;
+  padding: 0;
 }
 
 /* ============================= HEADER
@@ -113,6 +115,7 @@ header .user-profile img {
   border: 3px solid transparent;
 }
 
+/* Header profile image style on hover*/
 header .user-profile img:hover {
   border: 3px solid var(--button-bg);
   transform: scale(1.1);
@@ -127,6 +130,7 @@ header .user-profile img:hover {
   padding: 0rem 0rem;
 }
 
+/* hero section bg style */
 .hero-bg {
   padding: 0rem 10rem;
   height: 100vh;
@@ -144,7 +148,6 @@ header .user-profile img:hover {
 .hero-text {
   background: transparent;
   display: flex;
-
   flex-direction: column;
   justify-content: center;
   gap: 0.7rem;
@@ -185,16 +188,27 @@ header .user-profile img:hover {
 
 /* ============================= ABOUT SECTION
  =============================*/
-/* Start coding */
+.about-content {
+  display: flex;
+  gap: 10rem;
+  flex-direction: row;
+}
+
 .about h2 {
   text-align: left;
   color: var(--primary-text);
   background: transparent;
-  padding: 2rem 6rem;
+  margin-bottom: 1rem;
 }
 
+.about .aboutTxt,
+.about strong {
+  font-size: larger;
+}
+
+/* I've change the unit from px to rem */
 img {
-  width: 200px;
+  width: 20rem;
 }
 
 /* ============================= FEATURES SECTION
@@ -205,6 +219,7 @@ img {
   flex-direction: column;
   align-items: center;
   gap: 2rem;
+  background-color: var(--extra-bg);
 }
 
 .features .features-list {
@@ -241,50 +256,100 @@ img {
   transition: all 200ms ease;
 }
 
-<<<<<<< HEAD .features .feature-card:nth-child(1):hover,
+.features .feature-card:nth-child(1):hover,
 .features .feature-card:nth-child(2):hover,
 .features .feature-card:nth-child(3):hover {
   background: rgba(0, 0, 0, 0.089);
   box-shadow: 0px 0px 5px 5px gray;
+  background-color: var(--secondary-bg);
   /* box-shadow: 0px 0px 5px 5px gray, inset -4px -3px 2px  gray; */
-  =======
+}
 
-  /* .feature-card */
-  .features .feature-card:nth-child(3):hover {
-    background: red;
-    transform: scale3d(2px);
-    >>>>>>>87d5e109d559a1884c45c39c0b28412e0fad4de5
-  }
+/* .feature-card */
+.features .feature-card:nth-child(3):hover {
+  transform: scale3d(2px);
+}
 
-  .features .feature-card:nth-child(1):hover .text,
-  .features .feature-card:nth-child(3):hover .text {
-    color: black;
-  }
+.features .feature-card:nth-child(1):hover .text,
+.features .feature-card:nth-child(3):hover .text {
+  color: black;
+}
 
-  .features .feature-card h4 {
-    font-size: 2rem;
-  }
+.features .feature-card h4 {
+  font-size: 2rem;
+}
 
-  .features .feature-card img {
-    width: 10rem;
-  }
+.features .feature-card img {
+  width: 10rem;
+}
 
-  /* ============================= DIET PLAN SECTION
+/* ============================= DIET PLAN SECTION
 =============================*/
-  /* Start coding */
+.dietPlan {
+  padding: var(--container-padding);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  /* background-color: var(--extra-bg); */
+}
 
-  /* ============================= TESTIMONIAL SECTION
- =============================*/
-  /* Start coding */
+.dietPlan .dietPlan-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  gap: 3rem;
+}
 
-  /* ============================= GET STARTED SECTION
- =============================*/
-  /* Start coding */
+.dietPlan .dietPlan-card {
+  display: flex;
+  padding: 0rem;
+  width: 100%;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-content: center;
+  text-align: center;
+  border: 1px solid var(--button-bg);
+}
 
-  /* ============================= CALL TO ACTION SECTION
- =============================*/
-  /* Start coding */
+.dietPlan .dietPlan-card:hover {
+  box-shadow: 0px 5px 5px 5px black;
+}
 
-  /* ============================= FOOTER SECTION
+.dietPlan .dietPlan-card .text {
+  padding: 2rem 0;
+}
+
+.dietPlan .dietPlan-card h4 {
+  font-size: 1.5rem;
+  margin-bottom: 0.3rem;
+}
+
+.dietPlan .dietPlan-card img {
+  width: 100%;
+  height: 12rem;
+}
+.dietPlan  .btn{
+padding: 1rem 3rem;
+font-size: large;
+font-weight: bold;
+color: white;
+border-radius:100px;
+}
+
+/* ============================= TESTIMONIAL SECTION
  =============================*/
-  /* Start coding */
+/* Start coding */
+
+/* ============================= GET STARTED SECTION
+ =============================*/
+/* Start coding */
+
+/* ============================= CALL TO ACTION SECTION
+ =============================*/
+/* Start coding */
+
+/* ============================= FOOTER SECTION
+ =============================*/
+/* Start coding */
