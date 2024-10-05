@@ -1,0 +1,142 @@
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  transition: all 400ms ease;
+}
+
+:root {
+  /* Neutral Colors */
+  --dark-green-bg: #225629;
+  --light-green-bg: #07c15b;
+  --light-grey: #ececec;
+
+  /* Text Colors */
+  --primary-text: #225629;
+  --white-text: #ffffff;
+  --dark-text: #8f8ea6;
+  --light-text: #ececec;
+
+  /* Button colors */
+  --button-bg-hover: #225629;
+  --button-bg: #07c15b;
+
+  /* Padding */
+  --container-padding: 50px;
+
+  /* Gradient color*/
+  --gradient-border: linear-gradient(
+    to right,
+    #a8e6cf,
+    #dcedc1,
+    #ffd54f,
+    #ffab91,
+    #ff8c94
+  );
+}
+
+.signup-container {
+  border: 5px solid;
+  border-image: var(--gradient-border) 1;
+  padding: 50px 14px 30px 0;
+  max-width: 300px; /* Limit the maximum width */
+  margin: 40px auto;
+  text-align: center;
+}
+
+.login-container {
+  border: 5px solid;
+  border-image: var(--gradient-border) 1;
+  padding: 40px 14px 10px 0;
+  max-width: 300px; /* Limit the maximum width */
+  margin: 40px auto;
+  text-align: center;
+}
+h1 {
+  color: var(--primary-text);
+  background: transparent;
+  text-align: center;
+}
+
+img {
+  width: 120px;
+  height: auto;
+}
+
+/* General form styling */
+.styled-form {
+  padding: 20px;
+  width: 225px;
+  border-radius: 4px; /* Rounded corners */
+  margin: 0 auto;
+}
+
+/* Input fields and text areas */
+.styled-form input[type="text"],
+.styled-form input[type="email"],
+.styled-form input[type="password"],
+.styled-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  background-color: var(
+    --light-text
+  ); /* Light grey background for the input area */
+  color: #000; /* Black text color */
+  border: 1px solid #555; /* Darker border for the input */
+  border-radius: 5px; /* Rounded corners for fields */
+}
+
+/* Submit button */
+.styled-form .submit {
+  width: 50%;
+  padding: 10px;
+  background-color: var(--button-bg); /* Dark grey button background */
+  color: #fff; /* White text on the button */
+  border: none;
+  border-radius: 20px; /* Rounded corners */
+  cursor: pointer;
+  text-align: center; /* Center text inside the button */
+  font-size: 16px; /* Font size for better readability */
+  transition: background-color 0.3s ease;
+}
+
+/* Button hover effect */
+.styled-form .submit:hover {
+  background-color: var(
+    --button-bg-hover
+  ); /* Slightly lighter grey when hovered */
+}
+
+/* Weight & Height*/
+.styled-form input[type="number"] {
+  width: 38%;
+  padding: 10px;
+  margin-bottom: 15px;
+  background-color: var(
+    --light-text
+  ); /* Light grey background for the input area */
+  color: #000; /* Black text color */
+  border: 1px solid #555; /* Darker border for the input */
+  border-radius: 5px; /* Rounded corners for fields */
+}
+
+.sign-up-p {
+  color: var(--dark-text);
+  padding: 15px 0 0;
+}
+
+.login-p {
+  color: var(--dark-text);
+  padding: 40px 0 0;
+}
+a {
+  color: var(--primary-text);
+  text-decoration: underline;
+}
+a:hover {
+  color: var(--button-bg);
+  text-decoration: none;
+}
