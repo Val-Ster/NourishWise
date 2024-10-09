@@ -132,7 +132,7 @@
     <!-- =========================== HERO SECTION ===========================-->
     <section class="container hero">
       <div class="hero-bg">
-        <div class="hero-text" data-aos="zoom-in-up" data-aos-duration="1000">
+        <div class="hero-text" data-aos="zoom-in-up">
           <h1>NourishWise</h1>
           <h3>Eat Smart, Live Well</h3>
           <p>Your Journey to Wellness Start Here! </p>
@@ -166,7 +166,7 @@
             </strong>
           </div>
         </div>
-        <div class="diet-logo" data-aos="zoom-in-up" data-aos-duration="1000">
+        <div class="diet-logo" data-aos="zoom-in-up">
           <img src="assets/diet_logo_t.png" alt="diet-logo" />
         </div>
       </div>
@@ -179,7 +179,7 @@
       </header>
 
       <!-- Features List container -->
-      <div class="features-list" data-aos="zoom-in-up" data-aos-duration="1000">
+      <div class="features-list" data-aos="zoom-in-up">
         <!-- Feature card -->
         <div class="feature-card">
           <div class="img">
@@ -223,7 +223,7 @@
       </header>
 
       <!-- Features List container -->
-      <div class="dietPlan-list" data-aos="zoom-in-up" data-aos-duration="1000">
+      <div class="dietPlan-list" data-aos="zoom-in-up">
         <!-- Feature card -->
         <div class="dietPlan-card">
           <div class="img"><img src="assets/fresh-salad-wooden-bowl-lunch-generative-ai.jpg" alt=""></div>
@@ -263,7 +263,7 @@
       <div class="swiper-container main-swiper">
         <div class="swiper-wrapper">
           <!-- Testimonial Card Start -->
-          <div class="testimonial-card swiper-slide" data-aos="zoom-in-up" data-aos-duration="1000">
+          <div class="testimonial-card swiper-slide" data-aos="zoom-in-up">
             <div class="img">
               <img src="assets/img-1.jpg" alt="Mohamed Super">
             </div>
@@ -278,7 +278,7 @@
           <!-- Testimonial Card End -->
 
           <!-- Testimonial Card Start -->
-          <div class="testimonial-card swiper-slide" data-aos="zoom-in-up" data-aos-duration="1000">
+          <div class="testimonial-card swiper-slide" data-aos="zoom-in-up">
             <div class="img">
               <img src="assets/img-1.jpg" alt="Val-Sta">
             </div>
@@ -291,7 +291,7 @@
           <!-- Testimonial Card End -->
 
           <!-- Testimonial Card Start -->
-          <div class="testimonial-card swiper-slide" data-aos="zoom-in-up" data-aos-duration="1000">
+          <div class="testimonial-card swiper-slide" data-aos="zoom-in-up">
             <div class="img">
               <img src="assets/img-1.jpg" alt="Ahmed I">
             </div>
@@ -305,7 +305,7 @@
           <!-- Testimonial Card End -->
 
           <!-- Testimonial Card Start -->
-          <div class="testimonial-card swiper-slide" data-aos="zoom-in-up" data-aos-duration="1000">
+          <div class="testimonial-card swiper-slide" data-aos="zoom-in-up">
             <div class="img">
               <img src="assets/img-1.jpg" alt="Progress 4">
             </div>
@@ -317,7 +317,7 @@
           <!-- Testimonial Card End -->
 
           <!-- Testimonial Card Start -->
-          <div class="testimonial-card swiper-slide" data-aos="zoom-in-up" data-aos-duration="1000">
+          <div class="testimonial-card swiper-slide" data-aos="zoom-in-up">
             <div class="img">
               <img src="assets/img-1.jpg" alt="Progress 5">
             </div>
@@ -357,7 +357,7 @@
 
     <!-- =========================== Getting started SECTION ===========================-->
     <section class="container getting-started">
-      <header data-aos="zoom-in-up" data-aos-duration="1000">
+      <header data-aos="zoom-in-up">
         <h2>Getting Started is Easy!</h2>
 
         <p>Join us on a journey to healthier eating! Our user-friendly platform makes it easy to find and customize diet
@@ -374,7 +374,7 @@
         <br><br>
         <a href="sign-up.html" class="btn">Get Started</a>
       </header>
-      <ul class="text" data-aos="zoom-in-up" data-aos-duration="1000">
+      <ul class="text" data-aos="zoom-in-up">
         <li>
           <div class="getting-started-heading">
             <i class="fas fa-user-plus"></i>
@@ -487,9 +487,9 @@
   <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
 
   <script>
-    var thumbSwiper = new Swiper('.thumb-swiper', {
-      spaceBetween: 0.2,
-      slidesPerView: 3, // Default for larger screens
+  var thumbSwiper = new Swiper('.thumb-swiper', {
+      spaceBetween: 10, // Increased space between thumbnails
+      slidesPerView: 4, // Default for larger screens
       freeMode: true,
       watchSlidesProgress: true,
       slideThumbActiveClass: 'swiper-slide-thumb-active', // Class for active thumbnail
@@ -507,16 +507,15 @@
         autoScrollOffset: 3, // Adjusts scrolling when the active slide is near the edge
       },
       breakpoints: {
-        // When the screen is less than or equal to 768px
         768: {
-          slidesPerView: 3, // Show one slide at a time
+          slidesPerView: 3, // Show one slide at a time for smaller screens
         },
-        // When the screen is greater than 768px
         769: {
           slidesPerView: 3, // Adjust based on how many thumbs to show at once
         },
       },
     });
+
 
   </script>
 
