@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NourishWise Dashboard</title>
+  <link rel="stylesheet" href="styles/Style-2.css">
+
+  <!-- Fontawesome Icon link -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMDE8cvdRa7zBbb4T3N6g5RhiB2V1Knq8MkHx6" crossorigin="anonymous" />
+
+  <script src="https://kit.fontawesome.com/f70dd16b18.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <ul>
+      <li><a href="#dashboard" class="active"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+      <li><a href="#diet-plans"><i class="fas fa-utensils"></i> Diet Plans</a></li>
+      <li><a href="#insights"><i class="fas fa-chart-line"></i> Insights</a></li>
+      <li><a href="#dieticians"><i class="fas fa-users"></i> Dieticians</a></li>
+      <li><a href="#settings"><i class="fas fa-cog"></i> Settings</a></li>
+      <li><a href="#logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+    </ul>
+    <div class="user-profile">
+      <img src="assets/img-1.jpg" alt="user-profile">
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="content-header">
+      <h1>Welcome to NourishWise Dashboard</h1>
+      <p>Track your diet plans, get insights, and connect with dieticians.</p>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+      <section class="dashboard-cards">
+        <div class="card">
+          <h2>Total Diet Plans</h2>
+          <p>15 Active Plans</p>
+        </div>
+        <div class="card">
+          <h2>New Insights</h2>
+          <p>5 New Articles</p>
+        </div>
+        <div class="card">
+          <h2>Registered Dieticians</h2>
+          <p>12 Available Experts</p>
+        </div>
+        <div class="card">
+          <h2>User Feedback</h2>
+          <p>98% Positive</p>
+        </div>
+      </section>
+      <!-- Dashboard Section -->
+      <section id="dashboard" class="content-section">
+        <h1>Dashboard</h1>
+        <p>Welcome to your dashboard! Here you can find a quick overview of your recent activity, statistics, and other
+          essential information.</p>
+        <!-- Include graphs, recent activity, summary cards, etc. -->
+      </section>
+
+      <!-- Diet Plans Section -->
+      <section id="diet-plans" class="content-section" style="display: none;">
+        <h1>Diet Plans</h1>
+        <p>Manage your diet plans here. You can create new plans, edit existing ones, or delete them as needed.</p>
+        <button>Create New Diet Plan</button>
+        <a href="index.html#diet-plans" class="explore-btn">Explore More</a>
+
+        <!-- Include a list of diet plans, forms for new plans, etc. -->
+      </section>
+
+      <!-- Insights Section -->
+      <section id="insights" class="content-section" style="display: none;">
+        <h1>Insights</h1>
+        <p>View data-driven insights about your diet plans and user engagement.</p>
+        <!-- Include charts, graphs, and reports -->
+      </section>
+
+      <!-- Dieticians Section -->
+      <section id="dieticians" class="content-section" style="display: none;">
+        <h1>Dieticians</h1>
+        <p>Browse through our list of expert dieticians and connect with them for personalized consultations.</p>
+        <!-- Include a list or cards of dieticians, profile details, and contact options -->
+      </section>
+
+      <!-- Settings Section -->
+      <section id="settings" class="content-section" style="display: none;">
+        <h1>Settings</h1>
+        <p>Manage your account settings, privacy preferences, and other configurations here.</p>
+        <!-- Include account management forms, password change, notification settings, etc. -->
+      </section>
+
+      <!-- Logout Section -->
+      <section id="logout" class="content-section" style="display: none;">
+        <h1>Logout</h1>
+        <p>You have successfully logged out. <a href="login.html">Login again</a> to continue using the dashboard.</p>
+      </section>
+    </main>
+  </main>
+
+  <script src="script.js"></script>
+
+  <script>
+    document.getElementById('mobile-menu').addEventListener('click', function () {
+      document.getElementById('nav-list').classList.toggle('active');
+    });
+  </script>
+
+  <script>
+    document.querySelectorAll('.sidebar a').forEach(link => {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = this.getAttribute('href').substring(1); // Get the target section
+        document.querySelectorAll('.content-section').forEach(section => {
+          section.style.display = 'none'; // Hide all sections
+        });
+        document.getElementById(target).style.display = 'block'; // Show the selected section
+
+        // Update active link
+        document.querySelectorAll('.sidebar a').forEach(a => a.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+  </script>
+
+  <script>
+    window.addEventListener('load', () => {
+      const hash = window.location.hash.substring(1); // Get the hash part (e.g., "diet-plans")
+
+      if (hash) {
+        // Hide all sections by default
+        document.querySelectorAll('.content-section').forEach(section => {
+          section.style.display = 'none';
+        });
+
+        // Show the section that matches the hash
+        const targetSection = document.getElementById(hash);
+        if (targetSection) {
+          targetSection.style.display = 'block';
+
+          // Set the corresponding menu link to active
+          document.querySelectorAll('.sidebar a').forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${hash}`) {
+              link.classList.add('active');
+            }
+          });
+        }
+      } else {
+        // Default to the dashboard section if no hash is provided
+        document.getElementById('dashboard').style.display = 'block';
+      }
+    });
+
+  </script>
+</body>
+
+</html>
