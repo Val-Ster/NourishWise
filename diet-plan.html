@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NourishWise - Diet Plan</title>
+  <link rel="icon" href="assets/diet_logo_t.png">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="styles/siet-plan.css">
+
+  <!-- Fontawesome Icon link -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMDE8cvdRa7zBbb4T3N6g5RhiB2V1Knq8MkHx6" crossorigin="anonymous" />
+
+  <!-- SwiperJS CSS link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+
+  <!-- AOS CSS for animations -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+</head>
+
+<body>
+  <header id="header">
+    <nav>
+      <div class="logo">
+        <img src="assets/diet_logo_t.png" alt="NourishWise logo">
+      </div>
+      <ul class="nav-list" id="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#" id="active">Diet Plan</a></li>
+        <li><a href="insight.html">Insights</a></li>
+        <li><a href="detictian.html">Dieticians</a></li>
+        <li><a href="#" class="btn">Contact Us</a></li>
+      </ul>
+      <div class="action-btn-container">
+        <div class="user-profile">
+          <img src="assets/img-1.jpg" alt="user-profile">
+        </div>
+        <div class="menu-toggle" id="mobile-menu" onclick="toggleNavbar()">
+          <i class="fas fa-bars">=</i>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="dietPlan-mainContainer">
+    <!-- =========================== DIET PLAN SECTION ===========================-->
+    <section class="container dietPlan">
+      <header>
+        <h2>Our Diet Plans</h2>
+        <p>Discover personalized diet plans tailored to your health needs and lifestyle. Whether you're looking to lose
+          weight, build muscle, or simply eat healthier, we have a plan for you.</p>
+      </header>
+
+      <!-- Features List container -->
+      <div class="dietPlan-list" data-aos="zoom-in-up">
+        <!-- Feature card -->
+        <div class="dietPlan-card">
+          <div class="img">
+            <img src="assets/fresh-salad-wooden-bowl-lunch-generative-ai.jpg" alt="">
+          </div>
+          <div class="text">
+            <h4>Keto Diet</h4>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora, labore!</p>
+            <br>
+            <a href="#contact" class="btn">Get Started</a>
+          </div>
+        </div>
+
+        <!-- Feature card -->
+        <div class="dietPlan-card">
+          <div class="img">
+            <img src="assets/fresh-salad-wooden-bowl-lunch-generative-ai.jpg" alt="">
+          </div>
+          <div class="text">
+            <h4>Mediatorial Diet </h4>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora, labore!</p>
+            <br>
+            <a href="#contact" class="btn">Get Started</a>
+          </div>
+        </div>
+
+        <!-- Diet Plan card -->
+        <div class="dietPlan-card">
+          <div class="img"><img src="assets/fresh-salad-wooden-bowl-lunch-generative-ai.jpg" alt=""></div>
+          <div class="text">
+            <h4>Vegan Diet</h4>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora, labore!</p>
+            <br>
+            <a href="#contact" class="btn">Get Started</a>
+          </div>
+        </div>
+
+        <!-- Diet Plan card -->
+        <div class="dietPlan-card">
+          <div class="img"><img src="assets/fresh-salad-wooden-bowl-lunch-generative-ai.jpg" alt=""></div>
+          <div class="text">
+            <h3>Weight Loss Plan</h3>
+            <p>A balanced plan to help you shed those extra pounds.</p>
+            <br>
+            <a href="#contact" class="btn">Get Started</a>
+          </div>
+        </div>
+
+        <!-- Diet Plan card -->
+        <div class="dietPlan-card">
+          <div class="img"><img src="assets/fresh-salad-wooden-bowl-lunch-generative-ai.jpg" alt=""></div>
+          <div class="text">
+            <h3>Keto Diet</h3>
+            <p>High-fat, low-carb meals to help your body enter ketosis.</p>
+            <br>
+            <a href="#contact" class="btn">Get Started</a>
+          </div>
+        </div>
+
+        <!-- Diet Plan card -->
+        <div class="dietPlan-card">
+          <div class="img"><img src="assets/fresh-salad-wooden-bowl-lunch-generative-ai.jpg" alt=""></div>
+          <div class="text">
+            <h3>Mediterranean Diet</h3>
+            <p>Rich in fruits, vegetables, and healthy fats for a balanced lifestyle.</p>
+            <br>
+            <a href="#contact" class="btn">Get Started</a>
+          </div>
+        </div>
+
+        <div class="dietPlan-card">
+          <div class="img">
+            <img src="assets/fresh-salad-wooden-bowl-lunch-generative-ai.jpg" alt="Vegan Diet">
+          </div>
+          <div class="text">
+            <h3>Vegan Diet</h3>
+            <p>Plant-based meals to support your cruelty-free lifestyle.</p>
+            <br>
+            <a href="#contact" class="btn">Get Started</a>
+          </div>
+        </div>
+      </div>
+      <!-- <a href="diet-plan.html" class="btn">Explore More</a> -->
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+      <div class="footer-content">
+        <p>&copy; 2024 NourishWise. All rights reserved.</p>
+        <ul class="footer-links">
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="social-media">
+        <a href="https://linkedin.com" target="_blank" class="fab fa-linkedin"></a>
+        <a href="https://wa.me/" target="_blank" class="fab fa-whatsapp"></a>
+        <a href="https://facebook.com" target="_blank" class="fab fa-facebook"></a>
+        <a href="https://twitter.com" target="_blank" class="fab fa-twitter"></a>
+        <a href="https://instagram.com" target="_blank" class="fab fa-instagram"></a>
+      </div>
+    </footer>
+
+
+    <script src="script/script.js"></script>
+    <!-- fontawesome JS -->
+    <script src="https://kit.fontawesome.com/f70dd16b18.js" crossorigin="anonymous"></script>
+    <!-- JavaScript for Swiper, AOS, and other interactive elements -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script>
+      AOS.init();
+      const swiper = new Swiper('.main-swiper', {
+        loop: true,
+        slidesPerView: 1,
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+      });
+    </script>
+</body>
+
+</html>

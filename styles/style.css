@@ -8,6 +8,23 @@
   transition: all 400ms ease;
 }
 
+/* Initial styles for nav-list */
+.nav-list {
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.menu-toggle {
+  display: none;
+}
+
+/* When the menu is shown */
+.nav-list.show {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
 :root {
   /* Primary Colors */
   --primary-bg: linear-gradient(to right, #07c15b, #225629);
@@ -24,7 +41,7 @@
   --primary-text: #225629;
   --secondary-text: #07c15b;
   --white-text: #ffffff;
-  --dark-text: #000000;
+  --dark-text: #333;
 
   /* Button colors */
   --button-bg: #225629;
@@ -68,7 +85,7 @@ because is a style apply to all element with this class name */
  =============================*/
 #header {
   z-index: 100;
-  /* display: none; */
+  height: 5rem;
 }
 
 header {
@@ -96,9 +113,32 @@ header nav ul {
 }
 
 header nav ul li a {
+  display: block;
   color: var(--dark-text);
   font-weight: bold;
   text-transform: uppercase;
+  border-bottom: 2px solid transparent
+}
+
+.action-btn-container {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
+}
+
+.menu-toggle {
+  font-size: 2.5rem;
+}
+
+nav {
+  display: none;
+}
+
+header nav ul li #active,
+header nav ul li a:hover {
+  border-bottom: 2px solid var(--dark-green-bg);
+  color: var(--dark-green-bg);
 }
 
 header nav ul li:last-child a {
@@ -134,7 +174,6 @@ header .user-profile img:hover {
 .hero {
   background: var(--primary-bg);
   padding: 0rem 0rem;
-  /* display: none; */
 }
 
 /* hero section bg style */
@@ -143,7 +182,6 @@ header .user-profile img:hover {
   height: 100vh;
   background-image: url(../assets/bg-image.png);
   background-position-x: right;
-  /* linear-gradient(to right, rgba(7, 193, 91, 0.9), rgba(34, 86, 41, 0.9)); */
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
@@ -195,9 +233,6 @@ header .user-profile img:hover {
 
 /* ============================= ABOUT SECTION
  =============================*/
-.about{
-    /* display: none; */
-}
 .about-content {
   display: flex;
   gap: 10rem;
@@ -231,7 +266,6 @@ img {
   align-items: center;
   gap: 2rem;
   background-color: var(--extra-bg);
-    /* display: none; */
 }
 
 .features .features-list {
@@ -305,16 +339,15 @@ img {
   flex-direction: column;
   align-items: center;
   gap: 2rem;
-    /* display: none; */
+  /* display: none; */
 }
 
 .dietPlan .dietPlan-list {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   justify-content: center;
   align-content: center;
   gap: 3rem;
-
 }
 
 .dietPlan .dietPlan-card {
@@ -373,24 +406,27 @@ img {
   justify-content: center;
   gap: 0rem;
   background-color: var(--extra-bg);
-    /* display: none; */
 }
 
 .testimonials .testimonial-card {
   display: flex;
-  padding: 0rem;
-  width: 80%;
+  padding: 2rem 0;
+  background: #ffffff;
+  width: 100%;
   flex-direction: column;
   justify-content: center;
   align-content: center;
   text-align: center;
-  border: 1px solid var(--button-bg);
   margin: auto;
+  border-radius: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  transition: opacity 0.3s;
 }
 
-
 .testimonials .testimonial-card:hover {
-  box-shadow: 0px 5px 5px 5px black;
+  transform: translateY(-0.5rem);
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.5);
 }
 
 .testimonials .testimonial-card .text {
@@ -403,7 +439,6 @@ img {
 }
 
 .testimonials h1 {
-  /* background: red; */
   padding: 1rem;
   height: 1rem;
 }
@@ -417,18 +452,21 @@ img {
 }
 
 .testimonials .testimonial-card img {
-  width: 80%;
+  width: 50%;
   border-radius: 50%;
-  /* width: 10%; */
-  /* height: 12rem; */
+  object-fit: cover;
 }
 
-.testimonials .btn {
-  padding: 1rem 3rem;
-  font-size: large;
-  font-weight: bold;
-  color: white;
-  border-radius: 100px;
+.testimonial-card .text h4 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.testimonial-card .text p {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.5;
 }
 
 /* ============================= GET STARTED SECTION
@@ -503,7 +541,6 @@ img {
   color: var(--button-bg);
 }
 
-
 /* ============================= CALL TO ACTION SECTION
  =============================*/
 /* CTA Section */
@@ -547,49 +584,6 @@ img {
 .cta-button:hover {
   background-color: var(--button-bg-hover);
   color: var(--white-text);
-}
-
-/* =============================*/
-*/
-
-/* Initial styles for nav-list */
-.nav-list {
-  display: none;
-  /* Hide by default */
-  opacity: 0;
-  /* Start hidden */
-  transform: translateY(-10px);
-  /* Start slightly above */
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  /* Smooth transition for opacity and transform */
-}
-
-/* When the menu is shown */
-.nav-list.show {
-  display: block;
-  /* Make the menu block */
-  opacity: 1;
-  /* Fully visible */
-  transform: translateY(0);
-  /* Move to original position */
-}
-
-/* Responsive styles */
-@media (max-width: 768px) {
-  .nav-list {
-    position: absolute;
-    /* Adjust based on your design */
-    background-color: #fff;
-    /* Background color */
-    top: 60px;
-    /* Adjust based on your header height */
-    right: 0;
-    /* Align to the right */
-    width: 100%;
-    /* Full width */
-    z-index: 10;
-    /* Stack above other content */
-  }
 }
 
 /* ============================= FOOTER SECTION
@@ -640,45 +634,4 @@ img {
 
 .social-media a:hover {
   color: #4CAF50;
-}
-
-
-
-/* Base styles for the navigation */
-
-/* Mobile menu toggle button */
-.menu-toggle {
-  display: none;
-  /* Hidden by default */
-  font-size: 24px;
-  cursor: pointer;
-}
-
-/* Media query for mobile screens */
-@media (max-width: 768px) {
-  .nav-list {
-    display: none;
-    /* Hide the menu on small screens */
-    flex-direction: column;
-    /* Stack the menu items */
-    position: absolute;
-    /* Position it absolutely */
-    background-color: #fff;
-    /* Match with your design */
-    top: 60px;
-    /* Position it below the header */
-    right: 0;
-    width: 100%;
-    z-index: 10;
-  }
-
-  .nav-list.show {
-    display: flex;
-    /* Show the menu when active */
-  }
-
-  .menu-toggle {
-    display: block;
-    /* Show the toggle button */
-  }
 }

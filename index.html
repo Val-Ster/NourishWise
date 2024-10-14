@@ -33,54 +33,20 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.6/lottie.min.js"></script>
 
   <style>
-    .thumb-swiper .swiper-slide-thumb-active {
-      opacity: 1;
-      margin: auto;
-    }
-
     .swiper-container {
       overflow: hidden;
       margin: auto;
       margin: auto;
+      width: 100%;
+      padding: 1rem;
+      padding-bottom: 1.5rem;
     }
 
     .main-swiper {
-      height: 300px;
       width: 100%;
-      padding: 0 1rem;
       height: auto;
       margin: auto;
       margin-bottom: 0;
-    }
-
-    .thumb-swiper .swiper-slide {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: center;
-      width: 80px;
-      height: auto;
-      opacity: 0.4;
-      padding: 0;
-      margin: 0;
-      transition: opacity 0.3s;
-      margin: auto;
-    }
-
-    .thumb-swiper .swiper-slide {
-      width: 80px;
-      margin: auto;
-      height: auto;
-      opacity: 0.4;
-      transition: opacity 0.3s;
-      font-size: 2rem;
-      padding: 0;
-      margin: 0;
-    }
-
-    .thumb-swiper .swiper-slide-thumb-active {
-      opacity: 1;
-      color: #225629;
     }
   </style>
 </head>
@@ -89,45 +55,32 @@
 
   <!-- =========================== HEADER SECTION ===========================-->
   <header id="header">
-    <!-- <nav>
-      <div class="logo">
-        <img src="assets/diet_logo_t.png" alt="NourishWise logo">
-      </div>
-      <ul>
-        <li><a href="">Home</a></li>
-        <li><a href="">Diet Plan</a></li>
-        <li><a href="">Insights</a></li>
-        <li><a href="">Dieticians</a></li>
-        <li><a href="" class="btn">Contact Us</a></li>
-      </ul>
-      <div class="user-profile">
-        <img src="assets/img-1.jpg" alt="user-profile">
-      </div>
-    </nav> -->
-
-  </header>
-  <header id="header">
     <nav>
       <div class="logo">
         <img src="assets/diet_logo_t.png" alt="NourishWise logo">
       </div>
-      <div class="menu-toggle" id="mobile-menu">
-        <i class="fas fa-bars">=</i>
-      </div>
       <ul class="nav-list" id="nav-list">
-        <li><a href="">Home</a></li>
-        <li><a href="">Diet Plan</a></li>
-        <li><a href="">Insights</a></li>
+        <li>
+          <!-- <i class="fas fa-bars"></i> -->
+          <a href="" id="active">Home</a>
+        </li>
+        <li><a href="diet-plan.html">Diet Plan</a></li>
+        <li><a href="insight.html">Insights</a></li>
         <li><a href="">Dieticians</a></li>
         <li><a href="" class="btn">Contact Us</a></li>
       </ul>
-      <div class="user-profile">
-        <img src="assets/img-1.jpg" alt="user-profile">
+      <div class="action-btn-container">
+        <div class="user-profile">
+          <img src="assets/img-1.jpg" alt="user-profile">
+        </div>
+        <div class="menu-toggle" id="mobile-menu" onclick="toggleNavbar()">
+          <i class="fas fa-bars">=</i>
+        </div>
       </div>
     </nav>
   </header>
 
-  <main>
+  <main id="mainContainer">
 
     <!-- =========================== HERO SECTION ===========================-->
     <section class="container hero">
@@ -252,7 +205,7 @@
           </div>
         </div>
       </div>
-      <a href="" class="btn">Explore More</a>
+      <a href="diet-plan.html" class="btn">Explore More</a>
     </section>
 
     <!-- =========================== Testimonial SECTION ===========================-->
@@ -260,10 +213,10 @@
       <header>
         <h2>What Our Users Are Saying</h2>
       </header>
-      <div class="swiper-container main-swiper">
+      <div class="swiper-container main-swiper" data-aos="zoom-in-up">
         <div class="swiper-wrapper">
           <!-- Testimonial Card Start -->
-          <div class="testimonial-card swiper-slide" data-aos="zoom-in-up">
+          <div class="testimonial-card swiper-slide">
             <div class="img">
               <img src="assets/img-1.jpg" alt="Mohamed Super">
             </div>
@@ -278,7 +231,7 @@
           <!-- Testimonial Card End -->
 
           <!-- Testimonial Card Start -->
-          <div class="testimonial-card swiper-slide" data-aos="zoom-in-up">
+          <div class="testimonial-card swiper-slide">
             <div class="img">
               <img src="assets/img-1.jpg" alt="Val-Sta">
             </div>
@@ -305,54 +258,32 @@
           <!-- Testimonial Card End -->
 
           <!-- Testimonial Card Start -->
-          <div class="testimonial-card swiper-slide" data-aos="zoom-in-up">
+          <div class="testimonial-card swiper-slide">
             <div class="img">
               <img src="assets/img-1.jpg" alt="Progress 4">
             </div>
             <div class="text">
-              <h4>Progress 4</h4>
+              <h4>Isha</h4>
               <p>"The diet plans are simple yet effective. I love how it's tailored just for my needs!"</p>
             </div>
           </div>
           <!-- Testimonial Card End -->
 
           <!-- Testimonial Card Start -->
-          <div class="testimonial-card swiper-slide" data-aos="zoom-in-up">
+          <!-- <div class="testimonial-card>
             <div class="img">
               <img src="assets/img-1.jpg" alt="Progress 5">
             </div>
             <div class="text">
-              <h4>Progress 5</h4>
+              <h4>James</h4>
               <p>"Thanks to NourishWise, I’ve achieved my health goals without any of the confusion I used to feel
                 about
                 nutrition."</p>
             </div>
-          </div>
+          </div> -->
           <!-- Testimonial Card End -->
         </div>
       </div>
-
-      <div class="swiper-container thumb-swiper">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <h1>.</h1>
-          </div>
-          <div class="swiper-slide">
-            <h1>.</h1>
-          </div>
-          <div class="swiper-slide">
-            <h1>.</h1>
-          </div>
-          <div class="swiper-slide">
-            <h1>.</h1>
-          </div>
-          <div class="swiper-slide">
-            <h1>.</h1>
-          </div>
-          <!-- Add more thumbnails corresponding to the main slides -->
-        </div>
-      </div>
-
     </section>
 
     <!-- =========================== Getting started SECTION ===========================-->
@@ -487,37 +418,33 @@
   <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
 
   <script>
-  var thumbSwiper = new Swiper('.thumb-swiper', {
-      spaceBetween: 10, // Increased space between thumbnails
-      slidesPerView: 4, // Default for larger screens
-      freeMode: true,
-      watchSlidesProgress: true,
-      slideThumbActiveClass: 'swiper-slide-thumb-active', // Class for active thumbnail
-    });
-
-    var mainSwiper = new Swiper('.main-swiper', {
-      spaceBetween: 40,
-      loop: true,
-      autoplay: {
-        delay: 4500,
-        disableOnInteraction: false,
-      },
-      thumbs: {
-        swiper: thumbSwiper, // Connect main swiper with thumbnail swiper
-        autoScrollOffset: 3, // Adjusts scrolling when the active slide is near the edge
-      },
-      breakpoints: {
-        768: {
-          slidesPerView: 3, // Show one slide at a time for smaller screens
+    document.addEventListener('DOMContentLoaded', function () {
+      var swiper = new Swiper('.main-swiper', {
+        slidesPerView: 1, // Default number of slides
+        spaceBetween: 10, // Space between slides in pixels
+        breakpoints: {
+          640: {
+            slidesPerView: 2, // Number of slides for screens 640px and up (tablets)
+          },
+          1024: {
+            slidesPerView: 3, // Number of slides for screens 1024px and up (desktops)
+          }
         },
-        769: {
-          slidesPerView: 3, // Adjust based on how many thumbs to show at once
+        loop: true, // Enable continuous loop mode
+        autoplay: {
+          delay: 3000,
+          disableOnInteraction: false,
         },
-      },
-    });
-
-
-  </script>
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+      });
+    });  </script>
 
 </body>
 
