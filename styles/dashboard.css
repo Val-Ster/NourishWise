@@ -1,0 +1,463 @@
+:root {
+  /* Primary Colors */
+
+  --primary-bg: linear-gradient(to right, #07c15b, #225629);
+  --secondary-bg: #c1ff72;
+  --secondary-bg: wheat;
+  --extra-bg: #f4f4f4;
+
+  /* Neutral Colors */
+
+  --white-bg: #fff8e6;
+  --dark-green-bg: #225629;
+  --light-green-bg: #07c15b;
+  --light-grey: #ececec;
+
+  /* Text Colors */
+
+  --primary-text: #225629;
+  --secondary-text: #07c15b;
+  --white-text: #ffffff;
+  --dark-text: #333;
+
+  /* Button colors */
+  --button-bg: #225629;
+  --button-bg-hover: #07c15b;
+
+  /* Padding */
+
+  --container-padding: 5rem 10rem;
+  --small-container-padding: 2rem;
+}
+
+.main-content {
+  flex-grow: 1;
+  background-color: var(--extra-bg);
+  padding: 0;
+  margin: 0;
+}
+
+/* Remove padding from containers */
+.dashboard-container,
+.insight,
+.dietPlan {
+  padding: 0;
+}
+
+#header {
+  background: white;
+  /* padding: 0.5rem; */
+  border-radius: 0.5rem;
+  /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
+  display: flex;
+  flex-direction: row;
+  height: fit-content;
+  gap: 1rem;
+  /* margin: 1.5rem 0; */
+  align-items: center;
+}
+
+.sidebar-toggle {
+  padding: 1rem;
+  display: block;
+}
+
+/*============================= Sidebar Styles =============================*/
+.sidebar {
+  width: 250px;
+  height: 100vh;
+  color: #fff;
+  position: fixed;
+  transition: width 0.3s;
+  gap: 2rem;
+  overflow: hidden;
+  z-index: 1000;
+  transition: all 400ms ease;
+  background: var(--secondary-bg);
+  color: var(--dark-text);
+  padding: 1.5rem;
+  box-sizing: border-box;
+}
+
+.close-btn,
+.open-btn {
+  display: none;
+}
+
+.sidebar ul li {
+  list-style: none;
+  margin: 20px 0;
+}
+
+.sidebar ul li a {
+  color: var(--dark-text);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: large;
+}
+
+.sidebar ul li a.active {
+  font-weight: bold;
+  background-color: var(--button-bg);
+  color: var(--white-text);
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+
+.sidebar ul li a:hover {
+  background-color: var(--button-bg-hover);
+}
+
+.logo img {
+  height: 40px;
+}
+
+.nav-list {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-list a {
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+}
+
+.nav-list .btn {
+  background-color: #fff;
+  color: #4CAF50;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.menu-toggle {
+  display: none;
+}
+
+.user-profile img {
+  width: 5rem;
+  border-radius: 50%;
+}
+
+/*============================= profile heading =============================*/
+.profile-header {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--button-bg);
+  padding-bottom: 1rem;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+}
+
+.profile-pic {
+  border-radius: 50%;
+  margin-right: 1rem;
+}
+
+/*============================= Progress section =============================*/
+.progress-section {
+  margin: 20px 0;
+}
+
+.progress-bar {
+  width: 100%;
+  background: #e0e0e0;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.progress {
+  height: 20px;
+  background: #4caf50;
+}
+
+.progress-bar .progress {
+  transition: width 1s ease-in-out;
+}
+
+
+/*============================= toast (notification) =============================*/
+.toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #4CAF50;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.toast.show {
+  opacity: 1;
+}
+
+/*============================= dashboard cards =============================*/
+.dashboard-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.dashboard-cards .card {
+  padding: 1.7rem;
+  margin: 1rem 0;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Meal form */
+#mealForm {
+  display: grid;
+  gap: 0 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+}
+
+.diet-log {
+  margin: 2rem 0;
+  gap: 10px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+#meal-log {
+  padding: 1.8rem;
+  background: #fff;
+  margin: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  flex: 1 1 calc(25% - 20px);
+}
+
+/* Weight tracking container style */
+#weight-tracking-container {
+  background: #fff;
+  padding: 20px;
+  margin: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  flex: 1 1 calc(25% - 20px);
+}
+
+#progress-summary {
+  background: #fff;
+  padding: 20px;
+  margin: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  flex: 1 1 calc(25% - 20px);
+}
+
+.diet-log button {
+  color: white;
+  font-weight: bold;
+  border: 0.2rem solid transparent;
+
+}
+
+/*============================= Dashboard dietPlan =============================*/
+#diet-plans #header {
+  padding: 0;
+  margin-bottom: 2rem;
+}
+
+h2,
+h3 {
+  color: #333;
+}
+
+label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+
+input[type="text"],
+input[type="number"],
+input[type="time"],
+textarea {
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  margin-top: 10px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+.remove-meal-btn {
+  background-color: #f44336;
+}
+
+.remove-meal-btn:hover {
+  background-color: #e53935;
+
+}
+
+.meal-entry {
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+
+/*============================= Main Content Styles =============================*/
+.main-content {
+  margin-left: 250px;
+  padding: 20px;
+  transition: margin-left 0.3s;
+}
+
+.main-content .content-section {
+  display: none;
+}
+
+.main-content .content-section.active {
+  display: block;
+}
+
+.content-header h1 {
+  font-size: 24px;
+}
+
+.dashboard-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.card {
+  background: #fff;
+  padding: 20px;
+  margin: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  flex: 1 1 calc(25% - 20px);
+  /*============================= 4 cards in a row =============================*/
+
+}
+
+/*============================= Activity Feed =============================*/
+
+.activity-feed {
+  margin-top: 20px;
+  background: #fff;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/*============================= Chart Section =============================*/
+
+canvas {
+  margin-top: 20px;
+  max-width: 100%;
+}
+
+@media (max-width: 768px) {
+
+  .close-btn,
+  .open-btn {
+    display: block;
+  }
+
+  .menu-toggle {
+    display: block;
+    color: white;
+  }
+
+  .nav-list {
+    display: none;
+    flex-direction: column;
+    /*============================= background: #333; =============================*/
+
+    position: absolute;
+    right: 0;
+    top: 50px;
+    width: 200px;
+  }
+
+  .nav-list a {
+    color: white;
+    padding: 10px;
+  }
+
+  .menu-toggle.active+.nav-list {
+    display: flex;
+  }
+
+  #mainContainer,
+  .main-content {
+    margin-left: 0;
+  }
+
+  .dashboard-cards {
+    flex-direction: column;
+  }
+
+  .card {
+    flex: 1 1 100%;
+    /*============================= Full width for cards =============================*/
+
+  }
+
+  .sidebar-toggle {
+    display: block;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+}
+
+@media (max-width: 480px) {
+  .sidebar {
+    display: none;
+    /*============================= Hide sidebar on small screens =============================*/
+
+  }
+
+  .main-content {
+    margin-left: 0;
+    /*============================= Full width for main content =============================*/
+
+    padding: 10px;
+    /*============================= Reduced padding =============================*/
+
+  }
+
+  .content-header h1 {
+    font-size: 20px;
+    /*============================= Smaller font size =============================*/
+
+  }
+
+  .card {
+    padding: 15px;
+    /*============================= Reduced padding =============================*/
+
+  }
+}
