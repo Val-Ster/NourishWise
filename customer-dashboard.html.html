@@ -1,0 +1,434 @@
+<!-- implement it here -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NourishWise - Dashboard</title>
+
+  <link rel="icon" href="assets/diet_logo_t.png">
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="styles/siet-plan.css">
+  <link rel="stylesheet" href="styles/insight.css">
+  <link rel="stylesheet" href="styles/test.css">
+  <link rel="stylesheet" href="styles/dashboard.css">
+
+  <!-- Fontawesome Icon link -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMDE8cvdRa7zBbb4T3N6g5RhiB2V1Knq8MkHx6" crossorigin="anonymous" />
+  <script src="https://kit.fontawesome.com/f70dd16b18.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+  <style>
+    #progress-container {
+      background: #e0e0e0;
+      border-radius: 5px;
+      overflow: hidden;
+      height: 20px;
+      margin: 10px 0;
+    }
+
+    #progress-bar {
+      background: #4CAF50;
+      height: 100%;
+      width: 0;
+      transition: width 0.5s ease;
+    }
+
+    #progress-summary {
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidePanel">
+    <button class="close-btn" id="close-menu-btn">&times;</button>
+    <ul>
+      <li><a href="#dashboard" class="active"><i class="fas fa-tachometer-alt"></i> Dashboard </a></li>
+      <li><a href="#diet-plans"><i class="fas fa-utensils"></i> Diet Plans</a></li>
+      <li><a href="#insights"><i class="fas fa-chart-line"></i> Insights</a></li>
+      <li><a href="#dieticians"><i class="fas fa-users"></i> Dieticians</a></li>
+      <li><a href="#settings"><i class="fas fa-cog"></i> Settings</a></li>
+      <li><a href="#logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+    </ul>
+    <div class="user-profile">
+      <img src="assets/img-1.jpg" alt="user-profile">
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content" id="mainContainer">
+    <!-- =========================== Dashboard SECTION ===========================-->
+    <section id="dashboard" class="content-section">
+      <div class="dashboard-container">
+        <div id="header">
+          <button class="open-btn" id="open-menu-btn"><i class="bx bx-menu"></i></button>
+
+          <i class="fas fa-bars"></i>
+          </button>
+          <div class="text">
+            <!-- <h1>NourishWise Dashboard</h1> -->
+            <!-- <p>Welcome to your dashboard! Here you can find a quick overview of your recent activity, statistics, and
+              other
+              essential information.</p> -->
+          </div>
+        </div>
+
+        <!--=========================== Profile Header ===========================-->
+        <div class="profile-header">
+          <div class="user-profile">
+            <img src="assets/img-1.jpg" alt="User Profile Picture" class="profile-pic">
+            <h2 id="userName">Welcome, User Name</h2>
+          </div>
+          <div class="progress-section">
+            <!-- <h3>Your Progress</h3> -->
+            <h2>Your Progress</h2>
+            <div id="progress-container">
+              <div id="progress-bar"></div>
+            </div>
+            <p>Calories Remaining: <span id="calories-remaining">2000</span></p>
+          </div>
+        </div>
+
+        <div id="toast" class="toast">Meal logged successfully!</div>
+
+        <!--=========================== Diet Logs ===========================-->
+        <div class="diet-log">
+          <div id="meal-log">
+            <h3>Log Your Meal</h3>
+            <form id="mealForm">
+              <input type="text" id="meal-name" placeholder="Enter meal name" required>
+              <input type="number" id="calories" placeholder="Enter calories (optional)" min="0">
+              <button type="button" class="btn" id="lookup-calories">Lookup Calories</button>
+              <button type="submit" class="btn">Log Meal</button>
+            </form>
+            <div id="food-suggestions" style="display: none;"></div>
+          </div>
+
+          <!-- Weight Tracker -->
+          <div id="weight-tracking-container">
+            <h3>Weight Loss Tracker</h3>
+            <input type="number" id="weight" placeholder="Current weight (kg)" required>
+            <button id="update-weight" class="btn">Update Weight</button>
+            <p>Your weight: <span id="weight-display">0</span> kg</p>
+          </div>
+
+          <!-- Progress-summary -->
+          <div id="progress-summary">
+            <h3>Progress Summary</h3>
+            <p>Total Calories Consumed: <span id="totalCalories">0</span></p>
+            <p>Calories Burned: <span id="caloriesBurned">0</span></p>
+            <p>Progress Towards Goal: <span id="progressPercentage">0%</span></p>
+          </div>
+
+        </div>
+        <!-- <canvas id="calorieChart" width="500" height="100"></canvas> -->
+        <h2>Calories Consumed</h2>
+        <canvas id="calories-chart"></canvas>
+
+        <!--=========================== Chart Section ===========================-->
+        <!-- <canvas id="myChart" width="400" height="80"></canvas> -->
+        <!-- <button id="updateChartBtn">Update Chart Data</button> -->
+      </div>
+    </section>
+
+    <!--=========================== Diet Plans Section ===========================-->
+    <section id="diet-plans" class="content-section" style="display: none;">
+      <div id="header">
+        <h1>Diet Plans</h1>
+        <p>Manage your diet plans here. You can create new plans, edit existing ones, or delete them as needed.</p>
+        <button>Create New Diet Plan</button>
+        <a href="index.html#diet-plans" class="explore-btn">Explore More</a>
+      </div>
+
+      <!-- =========================== DIET PLAN SECTION ===========================-->
+      <div class="dietPlan">
+        <!-- DietPlan List container -->
+        <div id="createDietPlanForm" class="diet-plan-form">
+          <h2>Create New Diet Plan</h2>
+        </div>
+
+        <div class="dietPlan-list" data-aos="zoom-in-up">
+          <!-- DietPlan card -->
+          <div class="dietPlan-card">
+            <div class="img">
+              <img src="assets/fresh-salad-wooden-bowl-lunch-generative-ai.jpg" alt="">
+            </div>
+            <div class="text">
+              <h4>Keto Diet</h4>
+              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora, labore!</p>
+              <br>
+              <a href="#contact" class="btn">Get Started</a>
+            </div>
+          </div>
+
+          <!-- DietPlan card -->
+          <div class="dietPlan-card">
+            <div class="img">
+              <img src="assets/fresh-salad-wooden-bowl-lunch-generative-ai.jpg" alt="">
+            </div>
+            <div class="text">
+              <h4>Mediatorial Diet </h4>
+              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora, labore!</p>
+              <br>
+              <a href="#contact" class="btn">Get Started</a>
+            </div>
+          </div>
+
+          <!-- Diet Plan card -->
+          <div class="dietPlan-card">
+            <div class="img"><img src="assets/fresh-salad-wooden-bowl-lunch-generative-ai.jpg" alt=""></div>
+            <div class="text">
+              <h4>Vegan Diet</h4>
+              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora, labore!</p>
+              <br>
+              <a href="#contact" class="btn">Get Started</a>
+            </div>
+          </div>
+
+          <!-- Diet Plan card -->
+          <div class="dietPlan-card">
+            <div class="img"><img src="assets/fresh-salad-wooden-bowl-lunch-generative-ai.jpg" alt=""></div>
+            <div class="text">
+              <h3>Mediterranean Diet</h3>
+              <p>Rich in fruits, vegetables, and healthy fats for a balanced lifestyle.</p>
+              <br>
+              <a href="#contact" class="btn">Get Started</a>
+            </div>
+          </div>
+
+          <div class="dietPlan-card">
+            <div class="img">
+              <img src="assets/fresh-salad-wooden-bowl-lunch-generative-ai.jpg" alt="Vegan Diet">
+            </div>
+            <div class="text">
+              <h3>Vegan Diet</h3>
+              <p>Plant-based meals to support your cruelty-free lifestyle.</p>
+              <br>
+              <a href="#contact" class="btn">Get Started</a>
+            </div>
+          </div>
+        </div>
+        <!-- <a href="diet-plan.html" class="btn">Explore More</a> -->
+      </div>
+    </section>
+
+    <!-- Insights Section -->
+    <section id="insights" class="content-section" style="display: none;">
+      <h1>Insights</h1>
+      <p>View data-driven insights about your diet plans and user engagement.</p>
+      <main>
+        <section class="container insight">
+          <header>
+            <h2>Nutrition Insights</h2>
+            <p>Stay informed with the latest nutrition tips, healthy recipes, and expert advice.</p>
+          </header>
+          <div class="insight-list">
+            <article class="insight-card">
+              <h3>What is dieting</h3>
+              <p>Dieting is more than just a temporary change in eating habits; it’s a structured approach to nourishing
+                your body...</p>
+              <a href="dieting_intro.html" class="btn">Read More</a>
+            </article>
+            <article class="insight-card">
+              <h3>5 Foods to Boost Your Immune System</h3>
+              <p>Discover nutrient-rich foods that help keep your immune system strong.</p>
+              <a href="#read-more" class="btn">Read More</a>
+            </article>
+            <article class="insight-card">
+              <h3>The Benefits of a Balanced Diet</h3>
+              <p>Learn why a balanced diet is crucial for overall health and well-being.</p>
+              <a href="#read-more" class="btn">Read More</a>
+            </article>
+            <article class="insight-card">
+              <h3>Healthy Snack Ideas for Busy Days</h3>
+              <p>Find quick and nutritious snack ideas that keep you energized on the go.</p>
+              <a href="#read-more" class="btn">Read More</a>
+            </article>
+            <article class="insight-card">
+              <h3>How to Hydrate Properly</h3>
+              <p>Learn the best practices for staying hydrated throughout the day.</p>
+              <a href="#read-more" class="btn">Read More</a>
+            </article>
+          </div>
+        </section>
+      </main>
+    </section>
+
+    <!-- Dieticians Section -->
+    <section id="dieticians" class="content-section" style="display: none;">
+      <h1>Dieticians</h1>
+      <p>Browse through our list of expert dieticians and connect with them for personalized consultations.</p>
+    </section>
+
+    <!-- Settings Section -->
+    <section id="settings" class="content-section" style="display: none;">
+      <h1>Settings</h1>
+      <p>Manage your account settings, privacy preferences, and other configurations here.</p>
+    </section>
+
+    <!-- Logout Section -->
+    <section id="logout" class="content-section" style="display: none;">
+      <h1>Logout</h1>
+      <p>You have successfully logged out. <a href="login.html">Login again</a> to continue using the dashboard.</p>
+    </section>
+  </main>
+  <script>
+    let dietLog = []; // Array to hold the food data
+    let foodData = []; // Array to hold the food data from JSON
+
+
+    // Load the food data from JSON file
+    fetch('foodCalories.json')
+      .then(response => response.json())
+      .then(data => {
+        foodData = data; // Assign the data to the foodData array
+      })
+      .catch(error => {
+        console.error('Error loading food data:', error);
+      });
+
+    // // JavaScript for Chart and Dynamic Updates
+    const ctx = document.getElementById('calories-chart').getContext('2d');
+
+    const caloriesChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+        datasets: [{
+          label: 'Weekly Calories',
+          data: [1500, 2000, 1800, 2200, 2100, 1900, 1700], // Example data
+          backgroundColor: 'rgba(153, 102, 255, 0.2)',
+          borderColor: 'rgba(153, 102, 255, 1)',
+          borderWidth: 2,
+          fill: true,
+          tension: 0.3,
+          pointBackgroundColor: 'rgba(255, 99, 132, 1)',
+          pointRadius: 5
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: {
+            beginAtZero: true,
+            title: {
+              display: true,
+              text: 'Calories'
+            },
+            ticks: {
+              stepSize: 200
+            }
+          },
+          x: {
+            title: {
+              display: true,
+              text: 'Days of the Week'
+            }
+          }
+        },
+        animation: {
+          duration: 100,
+          easing: 'easeInOutBounce'
+        }
+      }
+    });
+
+
+    // Function to add new data points to the chart
+    function addData(label, data) {
+      caloriesChart.data.labels.push(label);
+      caloriesChart.data.datasets[0].data.push(data);
+      caloriesChart.update();
+    }
+
+    // Example: Add new data after 3 seconds
+    setTimeout(() => {
+      addData('Next Monday', 1800);
+    }, 3000);
+
+
+    // Functions to show toast notifications
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      toast.textContent = message;
+      toast.style.opacity = 1;
+      setTimeout(() => {
+        toast.style.opacity = 0;
+      }, 3000);
+    }
+
+    // Handle meal logging
+    document.getElementById('mealForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const mealName = document.getElementById('meal-name').value;
+      const calories = document.getElementById('calories').value || 0;
+
+      // Update progress bar and calories remaining
+      const progressBar = document.getElementById('progress-bar');
+      const caloriesRemaining = document.getElementById('calories-remaining');
+      const currentCalories = parseInt(caloriesRemaining.textContent) - parseInt(calories);
+      caloriesRemaining.textContent = currentCalories;
+      progressBar.style.width = (2000 - currentCalories) / 20 + '%'; // Example logic to calculate width
+
+      // Show toast message
+      showToast(`Logged meal: ${mealName} with ${calories} calories.`);
+    });
+
+    // Handle calorie lookup
+    document.getElementById('lookup-calories').addEventListener('click', () => {
+      const mealName = document.getElementById('meal-name').value.toLowerCase();
+      const foodItem = foodData.find(item => item.name.toLowerCase() === mealName);
+
+      if (foodItem) {
+        document.getElementById('calories').value = foodItem.calories;
+        showToast(`Calories for ${foodItem.name}: ${foodItem.calories}`);
+      } else {
+        showToast(`No calories information found for "${mealName}".`);
+      }
+    });
+
+
+    // Handle weight update
+    document.getElementById('update-weight').addEventListener('click', () => {
+      const weight = document.getElementById('weight').value;
+      document.getElementById('weight-display').textContent = weight;
+      showToast(`Updated weight: ${weight} kg`);
+    });
+
+
+    function updateProgressSummary() {
+      const totalCalories = dietLog.reduce((sum, entry) => sum + entry.calories, 0);
+      const caloriesBurned = 2000; // Example static value, replace with real data
+      const goalCalories = 3500; // Example goal for the week
+
+      document.getElementById("totalCalories").textContent = totalCalories;
+      document.getElementById("caloriesBurned").textContent = caloriesBurned;
+      const progress = ((totalCalories / goalCalories) * 100).toFixed(2);
+      document.getElementById("progressPercentage").textContent = `${progress}%`;
+    }
+
+
+    document.getElementById('mealForm').addEventListener('submit', function (event) {
+      event.preventDefault();
+      const mealName = document.getElementById('mealName').value;
+      const calories = parseInt(document.getElementById('calories').value);
+
+      dietLog.push({ calories: calories });
+      document.getElementById('mealForm').reset();
+      updateProgressSummary();
+    });
+
+  </script>
+
+  <!-- <script src="script.js"></script> -->
+  <script src="script/test.js"></script>
+</body>
+
+</html>
