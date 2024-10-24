@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NourishWise - Dashboard</title>
+
+  <link rel="icon" href="assets/diet_logo_t.png">
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="styles/siet-plan.css">
+  <link rel="stylesheet" href="styles/insight.css">
+  <!-- <link rel="stylesheet" href="styles/test.css"> -->
+  <link rel="stylesheet" href="styles/dashboard/dashboard.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMDE8cvdRa7zBbb4T3N6g5RhiB2V1Knq8MkHx6" crossorigin="anonymous" />
+  <script src="https://kit.fontawesome.com/f70dd16b18.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <style>
+    #progress-container {
+      background: #e0e0e0;
+      border-radius: 5px;
+      overflow: hidden;
+      height: 20px;
+      margin: 10px 0;
+    }
+
+    #progress-bar {
+      background: #4CAF50;
+      height: 100%;
+      width: 0;
+      transition: width 0.5s ease;
+    }
+
+    #progress-summary {
+      /* margin-bottom: 20px; */
+    }
+
+    .day-section {
+      margin-bottom: 20px;
+      /* background-color: red; */
+    }
+
+    .meal-log {
+      margin-top: 10px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+    }
+
+    table {
+      /* width: 100%; */
+      border-collapse: collapse;
+    }
+
+    th,
+    td {
+      padding: 10px;
+      text-align: left;
+      border-bottom: 1px solid #ccc;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      /* text-align: center; */
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th,
+    td {
+      border: 1px solid #000;
+      padding: 8px;
+      text-align: left;
+    }
+
+    #app {
+      width: 80%;
+      margin: auto;
+    }
+
+    #print-button {
+      display: block;
+      /* margin: 20px auto; */
+      /* padding: 10px 20px; */
+      /* font-size: 16px; */
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+  <aside class="sidebar" id="sidePanel">
+    <div class="aside-top">
+      <img src="assets/diet_logo_t.png" alt="">
+      <h1>NourishWise</h1>
+      <button class="close-btn" id="close-menu-btn">&times;</button>
+    </div>
+    <ul>
+      <li><a href="#dashboard" class="active" onclick="showSection('dashboard')"><i class="fas fa-tachometer-alt"></i>
+          Dashboard </a></li>
+      <li><a href="#diet-plans" onclick="showSection('diet-plans')"><i class="fas fa-utensils"></i> Diet Plans</a></li>
+      <li><a href="#insights" onclick="showSection('insights')"><i class="fas fa-chart-line"></i> Insights</a></li>
+      <li><a href="#dieticians" onclick="showSection('dieticians')"><i class="fas fa-users"></i> Dieticians</a></li>
+      <li><a href="#settings" onclick="showSection('settings')"><i class="fas fa-cog"></i> Settings</a></li>
+      <li><a href="#logout" onclick="showSection('logout')"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+    </ul>
+    <div class="user-profile">
+      <img src="assets/img-1.jpg" alt="user-profile">
+    </div>
+  </aside>
+
+  <main class="main-content" id="mainContainer">
+    <section id="dashboard" class="content-section">
+      <div class="dashboard-container">
+        <div id="header">
+          <button class="open-btn" id="open-menu-btn"><i class="bx bx-menu"></i></button>
+          <div class="text">
+            <h2>NourishWise Dashboard</h2>
+            <p>Welcome to your dashboard! Here you can find a quick overview of your recent activity, statistics, and
+              essential information.</p>
+          </div>
+        </div>
+
+        <div class="after-header-contents">
+          <div class="profile-header">
+            <div class="user-profile">
+              <img src="assets/img-1.jpg" alt="User Profile Picture" class="profile-pic">
+              <h2 id="userName">Welcome, User Name</h2>
+            </div>
+            <div class="progress-section">
+              <h2>Your Progress</h2>
+              <div id="progress-container">
+                <div id="progress-bar"></div>
+              </div>
+              <p>Calories Remaining: <span id="calories-remaining">2000</span></p>
+            </div>
+          </div>
+
+          <div id="toast" class="toast">Meal logged successfully!</div>
+
+          <div class="diet-log">
+            <div class="meal-log card">
+              <h3>Log Your Meal</h3>
+              <form id="mealForm">
+                <input type="text" id="meal-name" placeholder="Enter meal name" required>
+                <input type="number" id="calories" placeholder="Enter calories (optional)" min="0">
+                <button type="button" class="btn" id="lookup-calories">Lookup Calories</button>
+                <button type="submit" class="btn">Log Meal</button>
+              </form>
+              <div id="food-suggestions" style="display: none;"></div>
+            </div>
+
+            <div id="weight-tracking-container" class="card">
+              <h3>Weight Loss Tracker</h3>
+              <input type="number" id="weight" placeholder="Current weight (kg)" required>
+              <button id="update-weight" class="btn">Update Weight</button>
+              <p>Your weight: <span id="weight-display">0</span> kg</p>
+            </div>
+
+            <div id="progress-summary" class="card">
+              <h3>Progress Summary</h3>
+              <p>Total Calories Consumed: <span id="totalCalories">0</span></p>
+              <p>Calories Burned: <span id="caloriesBurned">0</span></p>
+              <p>Progress Towards Goal: <span id="progressPercentage">0%</span></p>
+            </div>
+          </div>
+
+          <!-- Day section - this display all food log for a particular day -->
+          <div class="day-section">
+            <div class="day-section-header">
+              <h3>Food Log by Day</h3>
+              <button id="print-button" class="btn">Print Food Log</button>
+              <button id="reset-button" class="btn">Reset Food Log</button>
+            </div>
+            <table id="mealLogsContainer">
+              <thead>
+                <tr>
+                  <th>Day</th>
+                  <th>Meals</th>
+                  <th>Calories</th>
+                </tr>
+              </thead>
+              <tbody id="food-log">
+                <tr>
+                  <td>Monday</td>
+                  <td id="monday-meals"></td>
+                  <td id="monday-calories">0</td>
+                </tr>
+                <tr>
+                  <td>Tuesday</td>
+                  <td id="tuesday-meals"></td>
+                  <td id="tuesday-calories">0</td>
+                </tr>
+                <tr>
+                  <td>Wednesday</td>
+                  <td id="wednesday-meals"></td>
+                  <td id="wednesday-calories">0</td>
+                </tr>
+                <tr>
+                  <td>Thursday</td>
+                  <td id="thursday-meals"></td>
+                  <td id="thursday-calories">0</td>
+                </tr>
+                <tr>
+                  <td>Friday</td>
+                  <td id="friday-meals"></td>
+                  <td id="friday-calories">0</td>
+                </tr>
+                <tr>
+                  <td>Saturday</td>
+                  <td id="saturday-meals"></td>
+                  <td id="saturday-calories">0</td>
+                </tr>
+                <tr>
+                  <td>Sunday</td>
+                  <td id="sunday-meals"></td>
+                  <td id="sunday-calories">0</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <h2>Calories Consumed</h2>
+        <canvas id="calories-chart"></canvas>
+      </div>
+      </div>
+    </section>
+
+    <!--=========================== Diet Plans Section Content ===========================-->
+    <section id="diet-plans" class="content-section" style="display: none;">
+      <div id="header">
+        <h1>Diet Plans</h1>
+        <p>Manage your diet plans here. You can create new plans, edit existing ones, or delete them as needed.</p>
+        <button>Create New Diet Plan</button>
+        <a href="index.html#diet-plans" class="explore-btn">Explore More</a>
+      </div>
+
+      <!-- =========================== DIET PLAN SECTION ===========================-->
+      <div class="after-header-contents">
+        <div class="dietPlan">
+          <!-- DietPlan List container -->
+          <div id="createDietPlanForm" class="diet-plan-form">
+            <h2>Create New Diet Plan</h2>
+          </div>
+
+          <div class="dietPlan-list" data-aos="zoom-in-up">
+            <!-- DietPlan card -->
+            <div class="dietPlan-card">
+              <div class="img">
+                <img src="assets/fresh-salad-wooden-bowl-lunch-generative-ai.jpg" alt="">
+              </div>
+              <div class="text">
+                <h4>Keto Diet</h4>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora, labore!</p>
+                <br>
+                <a href="#contact" class="btn">Get Started</a>
+              </div>
+            </div>
+
+            <!-- DietPlan card -->
+            <div class="dietPlan-card">
+              <div class="img">
+                <img src="assets/fresh-salad-wooden-bowl-lunch-generative-ai.jpg" alt="">
+              </div>
+              <div class="text">
+                <h4>Mediatorial Diet </h4>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora, labore!</p>
+                <br>
+                <a href="#contact" class="btn">Get Started</a>
+              </div>
+            </div>
+
+            <!-- Diet Plan card -->
+            <div class="dietPlan-card">
+              <div class="img"><img src="assets/fresh-salad-wooden-bowl-lunch-generative-ai.jpg" alt=""></div>
+              <div class="text">
+                <h4>Vegan Diet</h4>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora, labore!</p>
+                <br>
+                <a href="#contact" class="btn">Get Started</a>
+              </div>
+            </div>
+
+            <!-- Diet Plan card -->
+            <div class="dietPlan-card">
+              <div class="img"><img src="assets/fresh-salad-wooden-bowl-lunch-generative-ai.jpg" alt=""></div>
+              <div class="text">
+                <h3>Mediterranean Diet</h3>
+                <p>Rich in fruits, vegetables, and healthy fats for a balanced lifestyle.</p>
+                <br>
+                <a href="#contact" class="btn">Get Started</a>
+              </div>
+            </div>
+
+            <div class="dietPlan-card">
+              <div class="img">
+                <img src="assets/fresh-salad-wooden-bowl-lunch-generative-ai.jpg" alt="Vegan Diet">
+              </div>
+              <div class="text">
+                <h3>Vegan Diet</h3>
+                <p>Plant-based meals to support your cruelty-free lifestyle.</p>
+                <br>
+                <a href="#contact" class="btn">Get Started</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="insights" class="content-section" style="display: none;">
+      <h2>Insights Section</h2>
+      <!-- Insights Content -->
+    </section>
+
+    <section id="dieticians" class="content-section" style="display: none;">
+      <h2>Dieticians Section</h2>
+      <!-- Dieticians Content -->
+    </section>
+
+    <section id="settings" class="content-section" style="display: none;">
+      <h2>Settings Section</h2>
+      <!-- Settings Content -->
+    </section>
+
+    <section id="logout" class="content-section" style="display: none;">
+      <h2>Logout Section</h2>
+      <!-- Logout Content -->
+    </section>
+  </main>
+
+  <script>
+    // Sample JSON data (foodCalories.json)
+    const foodCaloriesData = {
+      "apple": 95,
+      "banana": 105,
+      "chicken breast": 165,
+      "broccoli": 55,
+      "rice": 206
+    };
+
+    // Initialize calories variables
+    let totalCaloriesConsumed = 0;
+    let caloriesGoal = 2000; // Set this to your goal calories
+
+    // Function to lookup calories from JSON data
+    document.getElementById('lookup-calories').addEventListener('click', function () {
+      const mealName = document.getElementById('meal-name').value.toLowerCase();
+      const caloriesInput = document.getElementById('calories');
+      if (foodCaloriesData[mealName]) {
+        caloriesInput.value = foodCaloriesData[mealName];
+      } else {
+        alert('Food item not found!');
+        caloriesInput.value = '';
+      }
+    });
+
+    // Form submission
+    document.getElementById('mealForm').addEventListener('submit', function (event) {
+      event.preventDefault();
+      const mealName = document.getElementById('meal-name').value;
+      const calories = document.getElementById('calories').value || '0';
+      const currentDay = new Date().toLocaleString('en-US', { weekday: 'long' }).toLowerCase();
+      const mealContainer = document.getElementById(`${currentDay}-meals`);
+      const calorieContainer = document.getElementById(`${currentDay}-calories`);
+
+      // Add meal to the day's meals
+      if (mealContainer.innerHTML === '') {
+        mealContainer.innerHTML = mealName;
+      } else {
+        mealContainer.innerHTML += `, ${mealName}`;
+      }
+      calorieContainer.innerHTML = parseInt(calorieContainer.innerHTML) + parseInt(calories);
+      totalCaloriesConsumed += parseInt(calories);
+
+      // Update progress summary
+      document.getElementById('totalCalories').innerText = totalCaloriesConsumed;
+      const caloriesRemaining = caloriesGoal - totalCaloriesConsumed;
+      document.getElementById('calories-remaining').innerText = caloriesRemaining;
+      const progressPercentage = Math.min((totalCaloriesConsumed / caloriesGoal) * 100, 100);
+      document.getElementById('progress-bar').style.width = `${progressPercentage}%`;
+      document.getElementById('progressPercentage').innerText = `${Math.round(progressPercentage)}%`;
+
+      // Update the chart data
+      updateChart();
+
+      // Show toast message
+      const toast = document.getElementById('toast');
+      toast.style.opacity = 1;
+      setTimeout(() => {
+        toast.style.opacity = 0;
+      }, 3000);
+
+      // Reset form
+      document.getElementById('meal-name').value = '';
+      document.getElementById('calories').value = '';
+    });
+
+    // Chart.js setup
+    const ctx = document.getElementById('calories-chart').getContext('2d');
+    let caloriesChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+        datasets: [{
+          label: 'Calories Consumed',
+          data: Array(7).fill(0), // Initialize with zeros
+          backgroundColor: 'rgba(75, 192, 192, 0.6)',
+          borderColor: 'rgba(75, 192, 192, 1)',
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+
+    // Update chart function
+    function updateChart() {
+      const caloriesData = [];
+      for (let day = 1; day <= 7; day++) {
+        const caloriesCell = document.getElementById(`${['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'][day - 1]}-calories`);
+        caloriesData.push(parseInt(caloriesCell.innerHTML));
+      }
+      caloriesChart.data.datasets[0].data = caloriesData;
+      caloriesChart.update();
+    }
+
+    // Weight tracking functionality
+    document.getElementById('update-weight').addEventListener('click', function () {
+      const weightInput = document.getElementById('weight').value;
+      if (weightInput) {
+        document.getElementById('weight-display').innerText = weightInput;
+      }
+    });
+  </script>
+
+
+  <script src="script/chart.js"></script>
+  <script>
+    // Function to show selected section and hide others
+    function showSection(sectionId) {
+      const sections = document.querySelectorAll('.content-section');
+      sections.forEach(section => {
+        section.style.display = 'none';
+      });
+      document.getElementById(sectionId).style.display = 'block';
+    }
+
+    // Initial setup
+    showSection('dashboard');
+  </script>
+
+  <script>
+    function printFoodLog() {
+      const printWindow = window.open('', '_blank');
+      const content = document.getElementById('printable-area').innerHTML;
+
+      printWindow.document.write(`
+    <html>
+      <head>
+        <title>Print Food Log</title>
+        <style>
+          @media print {
+            body { font-family: Arial; margin: 20px; }
+            table { width: 100%; border-collapse: collapse; }
+            th, td { border: 1px solid #000; padding: 8px; }
+          }
+        </style>
+      </head>
+      <body>
+        <h1>Daily Food Log Summary</h1>
+        ${content}
+      </body>
+    </html>
+  `);
+
+      printWindow.document.close();
+      printWindow.print();
+    }
+
+  </script>
+
+
+  <script>
+    function addFoodLog(date, meal, calories) {
+      const foodLogTable = document.getElementById('food-log');
+      const newRow = document.createElement('tr');
+
+      newRow.innerHTML = `<td>${date}</td><td>${meal}</td><td>${calories}</td>`;
+      foodLogTable.appendChild(newRow);
+
+      // Update total calories
+      const totalCaloriesElement = document.getElementById('total-calories');
+      const currentTotal = parseInt(totalCaloriesElement.textContent) || 0;
+      totalCaloriesElement.textContent = currentTotal + calories;
+    }
+
+    // Example usage:
+    // addFoodLog('2024-10-23', 'Snack: Protein Bar', 200);
+
+  </script>
+</body>
+
+</html>
