@@ -10,8 +10,8 @@
   <link rel="stylesheet" href="styles/style.css">
   <link rel="stylesheet" href="styles/siet-plan.css">
   <link rel="stylesheet" href="styles/insight.css">
-  <!-- <link rel="stylesheet" href="styles/test.css"> -->
-  <link rel="stylesheet" href="styles/dashboard/dashboard.css">
+  <link rel="stylesheet" href="styles/test.css">
+  <link rel="stylesheet" href="styles/dashboard.css">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMDE8cvdRa7zBbb4T3N6g5RhiB2V1Knq8MkHx6" crossorigin="anonymous" />
@@ -94,9 +94,9 @@
 
     #print-button {
       display: block;
-      /* margin: 20px auto; */
-      /* padding: 10px 20px; */
-      /* font-size: 16px; */
+      margin: 20px auto;
+      padding: 10px 20px;
+      font-size: 16px;
       cursor: pointer;
     }
   </style>
@@ -105,11 +105,7 @@
 <body>
 
   <aside class="sidebar" id="sidePanel">
-    <div class="aside-top">
-      <img src="assets/diet_logo_t.png" alt="">
-      <h1>NourishWise</h1>
-      <button class="close-btn" id="close-menu-btn">&times;</button>
-    </div>
+    <button class="close-btn" id="close-menu-btn">&times;</button>
     <ul>
       <li><a href="#dashboard" class="active" onclick="showSection('dashboard')"><i class="fas fa-tachometer-alt"></i>
           Dashboard </a></li>
@@ -136,192 +132,113 @@
           </div>
         </div>
 
-        <div class="after-header-contents">
-          <div class="profile-header">
-            <div class="user-profile">
-              <img src="assets/img-1.jpg" alt="User Profile Picture" class="profile-pic">
-              <h2 id="userName">Welcome, User Name</h2>
-            </div>
-            <div class="progress-section">
-              <h2>Your Progress</h2>
-              <div id="progress-container">
-                <div id="progress-bar"></div>
-              </div>
-              <p>Calories Remaining: <span id="calories-remaining">2000</span></p>
-            </div>
+        <div class="profile-header">
+          <div class="user-profile">
+            <img src="assets/img-1.jpg" alt="User Profile Picture" class="profile-pic">
+            <h2 id="userName">Welcome, User Name</h2>
           </div>
-
-          <div id="toast" class="toast">Meal logged successfully!</div>
-
-          <div class="diet-log">
-            <div class="meal-log card">
-              <h3>Log Your Meal</h3>
-              <form id="mealForm">
-                <input type="text" id="meal-name" placeholder="Enter meal name" required>
-                <input type="number" id="calories" placeholder="Enter calories (optional)" min="0">
-                <button type="button" class="btn" id="lookup-calories">Lookup Calories</button>
-                <button type="submit" class="btn">Log Meal</button>
-              </form>
-              <div id="food-suggestions" style="display: none;"></div>
+          <div class="progress-section">
+            <h2>Your Progress</h2>
+            <div id="progress-container">
+              <div id="progress-bar"></div>
             </div>
-
-            <div id="weight-tracking-container" class="card">
-              <h3>Weight Loss Tracker</h3>
-              <input type="number" id="weight" placeholder="Current weight (kg)" required>
-              <button id="update-weight" class="btn">Update Weight</button>
-              <p>Your weight: <span id="weight-display">0</span> kg</p>
-            </div>
-
-            <div id="progress-summary" class="card">
-              <h3>Progress Summary</h3>
-              <p>Total Calories Consumed: <span id="totalCalories">0</span></p>
-              <p>Calories Burned: <span id="caloriesBurned">0</span></p>
-              <p>Progress Towards Goal: <span id="progressPercentage">0%</span></p>
-            </div>
-          </div>
-
-          <!-- Day section - this display all food log for a particular day -->
-          <div class="day-section">
-            <div class="day-section-header">
-              <h3>Food Log by Day</h3>
-              <button id="print-button" class="btn">Print Food Log</button>
-              <button id="reset-button" class="btn">Reset Food Log</button>
-            </div>
-            <table id="mealLogsContainer">
-              <thead>
-                <tr>
-                  <th>Day</th>
-                  <th>Meals</th>
-                  <th>Calories</th>
-                </tr>
-              </thead>
-              <tbody id="food-log">
-                <tr>
-                  <td>Monday</td>
-                  <td id="monday-meals"></td>
-                  <td id="monday-calories">0</td>
-                </tr>
-                <tr>
-                  <td>Tuesday</td>
-                  <td id="tuesday-meals"></td>
-                  <td id="tuesday-calories">0</td>
-                </tr>
-                <tr>
-                  <td>Wednesday</td>
-                  <td id="wednesday-meals"></td>
-                  <td id="wednesday-calories">0</td>
-                </tr>
-                <tr>
-                  <td>Thursday</td>
-                  <td id="thursday-meals"></td>
-                  <td id="thursday-calories">0</td>
-                </tr>
-                <tr>
-                  <td>Friday</td>
-                  <td id="friday-meals"></td>
-                  <td id="friday-calories">0</td>
-                </tr>
-                <tr>
-                  <td>Saturday</td>
-                  <td id="saturday-meals"></td>
-                  <td id="saturday-calories">0</td>
-                </tr>
-                <tr>
-                  <td>Sunday</td>
-                  <td id="sunday-meals"></td>
-                  <td id="sunday-calories">0</td>
-                </tr>
-              </tbody>
-            </table>
+            <p>Calories Remaining: <span id="calories-remaining">2000</span></p>
           </div>
         </div>
 
-        <h2>Calories Consumed</h2>
-        <canvas id="calories-chart"></canvas>
+        <div id="toast" class="toast">Meal logged successfully!</div>
+
+        <div class="diet-log">
+          <div class="meal-log">
+            <h3>Log Your Meal</h3>
+            <form id="mealForm">
+              <input type="text" id="meal-name" placeholder="Enter meal name" required>
+              <input type="number" id="calories" placeholder="Enter calories (optional)" min="0">
+              <button type="button" class="btn" id="lookup-calories">Lookup Calories</button>
+              <button type="submit" class="btn">Log Meal</button>
+            </form>
+            <div id="food-suggestions" style="display: none;"></div>
+          </div>
+
+          <div id="weight-tracking-container">
+            <h3>Weight Loss Tracker</h3>
+            <input type="number" id="weight" placeholder="Current weight (kg)" required>
+            <button id="update-weight" class="btn">Update Weight</button>
+            <p>Your weight: <span id="weight-display">0</span> kg</p>
+          </div>
+
+          <div id="progress-summary">
+            <h3>Progress Summary</h3>
+            <p>Total Calories Consumed: <span id="totalCalories">0</span></p>
+            <p>Calories Burned: <span id="caloriesBurned">0</span></p>
+            <p>Progress Towards Goal: <span id="progressPercentage">0%</span></p>
+          </div>
+        </div>
+
+
+        <div class="day-section">
+          <div class="action-button">
+            <button id="print-button">Print Food Log</button>
+            <button id="print-button">Print Food Log</button>
+          </div>
+          <h3>Food Log by Day</h3>
+          <table id="mealLogsContainer">
+            <thead>
+              <tr>
+                <th>Day</th>
+                <th>Meals</th>
+                <th>Calories</th>
+              </tr>
+            </thead>
+            <tbody id="food-log">
+              <tr>
+                <td>Monday</td>
+                <td id="monday-meals"></td>
+                <td id="monday-calories">0</td>
+              </tr>
+              <tr>
+                <td>Tuesday</td>
+                <td id="tuesday-meals"></td>
+                <td id="tuesday-calories">0</td>
+              </tr>
+              <tr>
+                <td>Wednesday</td>
+                <td id="wednesday-meals"></td>
+                <td id="wednesday-calories">0</td>
+              </tr>
+              <tr>
+                <td>Thursday</td>
+                <td id="thursday-meals"></td>
+                <td id="thursday-calories">0</td>
+              </tr>
+              <tr>
+                <td>Friday</td>
+                <td id="friday-meals"></td>
+                <td id="friday-calories">0</td>
+              </tr>
+              <tr>
+                <td>Saturday</td>
+                <td id="saturday-meals"></td>
+                <td id="saturday-calories">0</td>
+              </tr>
+              <tr>
+                <td>Sunday</td>
+                <td id="sunday-meals"></td>
+                <td id="sunday-calories">0</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
+
+      <h2>Calories Consumed</h2>
+      <canvas id="calories-chart"></canvas>
       </div>
     </section>
 
-    <!--=========================== Diet Plans Section Content ===========================-->
     <section id="diet-plans" class="content-section" style="display: none;">
-      <div id="header">
-        <h1>Diet Plans</h1>
-        <p>Manage your diet plans here. You can create new plans, edit existing ones, or delete them as needed.</p>
-        <button>Create New Diet Plan</button>
-        <a href="index.html#diet-plans" class="explore-btn">Explore More</a>
-      </div>
-
-      <!-- =========================== DIET PLAN SECTION ===========================-->
-      <div class="after-header-contents">
-        <div class="dietPlan">
-          <!-- DietPlan List container -->
-          <div id="createDietPlanForm" class="diet-plan-form">
-            <h2>Create New Diet Plan</h2>
-          </div>
-
-          <div class="dietPlan-list" data-aos="zoom-in-up">
-            <!-- DietPlan card -->
-            <div class="dietPlan-card">
-              <div class="img">
-                <img src="assets/fresh-salad-wooden-bowl-lunch-generative-ai.jpg" alt="">
-              </div>
-              <div class="text">
-                <h4>Keto Diet</h4>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora, labore!</p>
-                <br>
-                <a href="#contact" class="btn">Get Started</a>
-              </div>
-            </div>
-
-            <!-- DietPlan card -->
-            <div class="dietPlan-card">
-              <div class="img">
-                <img src="assets/fresh-salad-wooden-bowl-lunch-generative-ai.jpg" alt="">
-              </div>
-              <div class="text">
-                <h4>Mediatorial Diet </h4>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora, labore!</p>
-                <br>
-                <a href="#contact" class="btn">Get Started</a>
-              </div>
-            </div>
-
-            <!-- Diet Plan card -->
-            <div class="dietPlan-card">
-              <div class="img"><img src="assets/fresh-salad-wooden-bowl-lunch-generative-ai.jpg" alt=""></div>
-              <div class="text">
-                <h4>Vegan Diet</h4>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora, labore!</p>
-                <br>
-                <a href="#contact" class="btn">Get Started</a>
-              </div>
-            </div>
-
-            <!-- Diet Plan card -->
-            <div class="dietPlan-card">
-              <div class="img"><img src="assets/fresh-salad-wooden-bowl-lunch-generative-ai.jpg" alt=""></div>
-              <div class="text">
-                <h3>Mediterranean Diet</h3>
-                <p>Rich in fruits, vegetables, and healthy fats for a balanced lifestyle.</p>
-                <br>
-                <a href="#contact" class="btn">Get Started</a>
-              </div>
-            </div>
-
-            <div class="dietPlan-card">
-              <div class="img">
-                <img src="assets/fresh-salad-wooden-bowl-lunch-generative-ai.jpg" alt="Vegan Diet">
-              </div>
-              <div class="text">
-                <h3>Vegan Diet</h3>
-                <p>Plant-based meals to support your cruelty-free lifestyle.</p>
-                <br>
-                <a href="#contact" class="btn">Get Started</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <h2>Diet Plans Section</h2>
+      <!-- Diet Plans Content -->
     </section>
 
     <section id="insights" class="content-section" style="display: none;">

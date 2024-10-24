@@ -3,6 +3,32 @@
     --container-padding: var(--small-container-padding);
   }
 
+  /* Media query for mobile screens */
+  .nav-list {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    background-color: #fff;
+    top: 4.9rem;
+    right: 0;
+    width: 100%;
+    z-index: 10;
+  }
+
+  .nav-list li {
+    padding: 0.8rem 2rem;
+  }
+
+  .nav-list.show {
+    display: flex;
+    /* Show the menu when active */
+  }
+
+  .menu-toggle {
+    display: block;
+    /* Show the toggle button */
+  }
+
   /* ============================= HERO SECTION
  =============================*/
   .hero {
@@ -125,34 +151,56 @@
 
   /* ============================= TESTIMONIAL SECTION
      =============================*/
+  .swiper-container {
+    overflow: hidden;
+    margin: auto;
+    margin: auto;
+    width: 100%;
+    padding: 1rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .main-swiper {
+    width: 100%;
+    height: auto;
+    margin: auto;
+    margin-bottom: 0;
+  }
+
   .testimonials {
-    padding: var(--small-container-padding);
+    padding: var(--container-padding);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 0rem;
     background-color: var(--extra-bg);
+    /* display: none; */
   }
 
   .testimonials .testimonial-card {
     display: flex;
-    padding: 0rem;
-    width: 50%;
+    padding: 2rem 0;
+    width: 0%;
     flex-direction: column;
     justify-content: center;
     align-content: center;
     text-align: center;
-    border: 1px solid var(--button-bg);
     margin: auto;
+    border-radius: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transition: opacity 0.3s;
   }
 
+
   .testimonials .testimonial-card:hover {
-    box-shadow: 0px 5px 5px 5px black;
+    transform: translateY(-0.5rem);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.5);
   }
 
   .testimonials .testimonial-card .text {
-    padding: 0rem 0rem;
+    padding: 1rem 1rem;
   }
 
   .testimonials .testimonial-card h4 {
@@ -161,18 +209,8 @@
   }
 
   .testimonials h1 {
-    /* background: red; */
     padding: 1rem;
     height: 1rem;
-  }
-
-  .testimonials .text {
-    width: 20%;
-  }
-
-  .testimonials .text p {
-    background: red;
-    width: 20%;
   }
 
   .testimonials .testimonial-card .img {
@@ -186,8 +224,14 @@
   .testimonials .testimonial-card img {
     width: 50%;
     border-radius: 50%;
-    /* width: 10%; */
-    /* height: 12rem; */
+  }
+
+  .testimonials .btn {
+    padding: 1rem 3rem;
+    font-size: large;
+    font-weight: bold;
+    color: white;
+    border-radius: 100px;
   }
 
   .testimonials .btn {
@@ -207,43 +251,12 @@
 
   .main-swiper {
     height: 300px;
-    width: 50%;
+    width: 20%;
     padding: 0 1rem;
     height: auto;
     margin: auto;
     margin-bottom: 0;
   }
-
-  .thumb-swiper .swiper-slide {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    width: 50px;
-    height: auto;
-    opacity: 0.4;
-    padding: 0;
-    margin: 0;
-    transition: opacity 0.3s;
-    margin: auto;
-  }
-
-  .thumb-swiper .swiper-slide {
-    width: 50px;
-    margin: auto;
-    height: auto;
-    opacity: 0.4;
-    transition: opacity 0.3s;
-    font-size: 2rem;
-    padding: 0;
-    margin: 0;
-  }
-
-  .thumb-swiper .swiper-slide-thumb-active {
-    opacity: 1;
-    color: #225629;
-  }
-
 
   /* ============================= GET STARTED SECTION
         =============================*/
@@ -282,6 +295,7 @@
   }
 }
 
+/* mobile responsive */
 @media (max-width: 480px) {
 
   /* ============================= HERO SECTION
@@ -306,7 +320,7 @@
     background-position-x: right;
     background-position-y: 3rem;
   }
-  
+
   .hero-text {
     height: 100vh;
     display: unset;
@@ -362,6 +376,7 @@
   .features .feature-card h4 {
     font-size: 1.9rem;
   }
+
   .features .feature-card p {
     font-size: large;
   }
@@ -401,7 +416,8 @@
     font-size: 1.9rem;
     margin-bottom: 0.5rem;
   }
-  .dietPlan .dietPlan-card p{
+
+  .dietPlan .dietPlan-card p {
     font-size: large;
   }
 
@@ -428,127 +444,19 @@
     background-color: var(--extra-bg);
   }
 
-  .testimonials .testimonial-card {
-    display: flex;
-    padding: 0rem;
-    width: 50%;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
-    text-align: center;
-    border: 1px solid var(--button-bg);
-    margin: auto;
-  }
-
-  .testimonials .testimonial-card:hover {
-    box-shadow: 0px 5px 5px 5px black;
-  }
-
-  .testimonials .testimonial-card .text {
-    padding: 0rem 0rem;
-  }
-
-  .testimonials .testimonial-card h4 {
-    font-size: 1.5rem;
-    margin-bottom: 0.3rem;
-  }
-
-  .testimonials h1 {
-    /* background: red; */
-    padding: 1rem;
-    height: 1rem;
-  }
-
-  .testimonials .text {
-    width: 20%;
-  }
-
-  .testimonials .text p {
-    background: red;
-    width: 20%;
-  }
-
-  .testimonials .testimonial-card .img {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 50%;
-  }
-
-  .testimonials .testimonial-card img {
-    width: 50%;
-    border-radius: 50%;
-    /* width: 10%; */
-    /* height: 12rem; */
-  }
-
-  .testimonials .btn {
-    padding: 1rem 3rem;
-    font-size: large;
-    font-weight: bold;
-    color: white;
-    border-radius: 100px;
-  }
-
-
-  .swiper-container {
-    overflow: hidden;
-    margin: auto;
-    margin: auto;
-  }
-
-  .main-swiper {
-    height: 300px;
-    width: 50%;
-    padding: 0 1rem;
-    height: auto;
-    margin: auto;
-    margin-bottom: 0;
-  }
-
-  .thumb-swiper .swiper-slide {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    width: 50px;
-    height: auto;
-    opacity: 0.4;
-    padding: 0;
-    margin: 0;
-    transition: opacity 0.3s;
-    margin: auto;
-  }
-
-  .thumb-swiper .swiper-slide {
-    width: 50px;
-    margin: auto;
-    height: auto;
-    opacity: 0.4;
-    transition: opacity 0.3s;
-    font-size: 2rem;
-    padding: 0;
-    margin: 0;
-  }
-
-  .thumb-swiper .swiper-slide-thumb-active {
-    opacity: 1;
-    color: #225629;
-  }
-
-
   /* ============================= GET STARTED SECTION
           =============================*/
   .getting-started {
     grid-template-columns: 1fr;
     gap: 5rem;
   }
-.getting-started ul {
-  display: grid;
-  gap: 2rem;
-  grid-template-columns: repeat(1, 1fr);
-}
+
+  .getting-started ul {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(1, 1fr);
+  }
+
   /* ============================= CALL TO ACTION SECTION
    =============================*/
   /* CTA Section */
@@ -578,20 +486,21 @@
   .cta p {
     font-size: larger;
   }
-/* ============================= FOOTER SECTION
+
+  /* ============================= FOOTER SECTION
  =============================*/
-.footer {
-  background-color: #333;
-  background: var(--primary-bg);
-  /* background: wheat; */
-  color: white;
-  text-align: center;
-  display: flex;
-  padding: var(--container-padding);
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-}
+  .footer {
+    background-color: #333;
+    background: var(--primary-bg);
+    /* background: wheat; */
+    color: white;
+    text-align: center;
+    display: flex;
+    padding: var(--container-padding);
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
 }

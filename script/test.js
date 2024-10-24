@@ -5,31 +5,32 @@ document.addEventListener('DOMContentLoaded', function () {
   const closeBtn = document.getElementById('close-menu-btn');
 
   openBtn.addEventListener('click', function () {
-    sidePanel.style.left = '0';
-    // sidePanel.style.display = 'block'; // Ensure nav bar is visible
+    sidePanel.style.left = '0'; // Show the side panel by setting its left position to 0
   });
 
   closeBtn.addEventListener('click', function () {
-    sidePanel.style.left = '-250px';
-    // sidePanel.style.display = 'none'; // Hide nav bar when closed
+    sidePanel.style.left = '-250px'; // Hide the side panel by moving it out of view
   });
 });
-
 
 // Toggle content sections
 const sections = document.querySelectorAll('.content-section');
 const sidebarLinks = document.querySelectorAll('.sidebar a');
 
 sidebarLinks.forEach(link => {
-  link.addEventListener('click', function () {
+  link.addEventListener('click', function (event) {
+    event.preventDefault(); // Prevent default link behavior
+
+    // Hide all content sections
     sections.forEach(section => {
       section.style.display = 'none';
-      // sidePanel.style.display ='block'
     });
+
+    // Show the target section based on the link's href attribute
     const target = this.getAttribute('href');
     document.querySelector(target).style.display = 'block';
-    // sidePanel.style.display ='none'
 
+    // Update active class for sidebar links
     sidebarLinks.forEach(link => {
       link.classList.remove('active');
     });
@@ -38,55 +39,32 @@ sidebarLinks.forEach(link => {
 });
 
 // Diet Log Form Handling
-// document.getElementById('dietForm').addEventListener('submit', function (e) {
-//   e.preventDefault();
-//   const mealInput = document.getElementById('mealInput').value;
-//   const mealList = document.getElementById('mealList');
-//   const listItem = document.createElement('li');
-//   listItem.textContent = mealInput;
-//   mealList.appendChild(listItem);
-//   document.getElementById('mealInput').value = ''; // Clear input
-// });
+document.getElementById('dietForm')?.addEventListener('submit', function (e) {
+  e.preventDefault();
+  const mealInput = document.getElementById('mealInput').value;
+  const mealList = document.getElementById('mealList');
 
-// Weight Chart
-// const ctx = document.getElementById('weightChart').getContext('2d');
-// const weightChart = new Chart(ctx, {
-//   type: 'line',
-//   data: {
-//     labels: ['January', 'February', 'March', 'April', 'May', 'June'],
-//     datasets: [{
-//       label: 'Weight (kg)',
-//       data: [70, 68, 66, 65, 64, 63],
-//       borderColor: 'rgba(75, 192, 192, 1)',
-//       borderWidth: 2,
-//       fill: false,
-//     }]
-//   },
-//   options: {
-//     responsive: true,
-//     scales: {
-//       y: {
-//         beginAtZero: true
-//       }
-//     }
-//   }
-// });
+  // Create a new list item for the meal and add it to the list
+  const listItem = document.createElement('li');
+  listItem.textContent = mealInput;
+  mealList.appendChild(listItem);
 
-// // Update chart data
-// document.getElementById('updateChartBtn').addEventListener('click', function () {
-//   const newWeight = Math.random() * 10 + 60; // Simulated new weight
-//   weightChart.data.datasets[0].data.push(newWeight);
-//   weightChart.data.labels.push(`Month ${weightChart.data.labels.length + 1}`);
-//   weightChart.update();
-// });
+  // Clear the input field after adding the meal
+  document.getElementById('mealInput').value = '';
+});
 
-// // Chat Form Handling
-// document.getElementById('chatForm').addEventListener('submit', function (e) {
-//   e.preventDefault();
-//   const userInput = document.getElementById('userInput').value;
-//   const chatBox = document.getElementById('chatBox');
-//   const message = document.createElement('div');
-//   message.textContent = `You: ${userInput}`;
-//   chatBox.appendChild(message);
-//   document.getElementById('userInput').value = ''; // Clear input
-// });
+
+// Chat Form Handling
+document.getElementById('chatForm')?.addEventListener('submit', function (e) {
+  e.preventDefault();
+  const userInput = document.getElementById('userInput').value;
+  const chatBox = document.getElementById('chatBox');
+
+  // Create a new message div and add it to the chat box
+  const message = document.createElement('div');
+  message.textContent = `You: ${userInput}`;
+  chatBox.appendChild(message);
+
+  // Clear the input field after sending the message
+  document.getElementById('userInput').value = '';
+});

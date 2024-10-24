@@ -10,40 +10,113 @@
 
 <body>
   <div class="signup-container">
-    <h1>
-      Create New <br />
-      Account
-    </h1>
+    <h1>Create Your Account</h1>
     <div class="diet-logo">
-      <img src="assets/diet_logo_t.png" alt="diet-logo" />
+      <img src="assets/diet_logo_t.png" alt="NourishWise Logo" />
     </div>
+
     <form action="index.html" class="styled-form">
-      <div>
-        <input type="text" placeholder="Enter your name.." minlength="3" required />
+      <!-- Name field -->
+      <div class="form-group">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" placeholder="Enter your full name" minlength="3" required />
       </div>
-      <div>
-        <input type="email" placeholder="Enter your email.." required />
+
+      <!-- Email field -->
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" placeholder="Enter your email" required />
       </div>
-      <div>
-        <input type="password" placeholder="password" minlength="6" required />
-        <input type="number" placeholder="Weight(kg)" />
-        <input type="number" placeholder="Height(cm)" />
+
+      <!-- Password and personal info fields -->
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Password" minlength="6" required />
       </div>
-      <div>
+      <div class="form-group">
+        <label for="weight">Weight (kg)</label>
+        <input type="number" id="weight" placeholder="Your weight (kg)" />
+      </div>
+      <div class="form-group">
+        <label for="height">Height (cm)</label>
+        <input type="number" id="height" placeholder="Your height (cm)" />
+      </div>
+
+      <!-- User role selection -->
+      <div class="form-group">
+        <label for="role">I am a:</label>
+        <select id="role" required>
+          <option value="" disabled selected>Select role</option>
+          <option value="customer">Customer</option>
+          <option value="dietitian">Dietitian</option>
+        </select>
+      </div>
+
+      <!-- Submit button -->
+      <div class="form-group">
         <input type="submit" value="Sign up" class="submit" />
       </div>
     </form>
+
     <p class="sign-up-p">
-      Already Registered? Log in <a href="login.html">here!</a>
+      Already registered? <a href="login.html">Log in here!</a>
     </p>
   </div>
 
   <script>
-    document.getElementById('signUpButton').addEventListener('click', function () {
-      // Simulate sign-up success and redirect to Index-2.html
-      window.location.href = 'Index-2.html';
+    document.querySelector('.styled-form').addEventListener('submit', function (event) {
+      event.preventDefault();
+      // Simulate sign-up success
+      window.location.href = 'index-2.html';
     });
   </script>
+
+  <script>
+  document.querySelector('.styled-form').addEventListener('submit', function (event) {
+    event.preventDefault(); // Prevent form submission
+    
+    const selectedRole = document.getElementById('role').value;
+
+    // Simulate role-based redirection
+    if (selectedRole === 'customer') {
+      // Redirect to customer dashboard
+      window.location.href = 'customer-dashboard.html';
+    } else if (selectedRole === 'dietitian') {
+      // Redirect to dietitian dashboard
+      window.location.href = 'dietitian-dashboard.html';
+    } else {
+      alert('Please select a valid role.');
+    }
+  });
+</script>
+
+
+<script>
+  document.getElementById('role').addEventListener('change', function () {
+    const selectedRole = this.value;
+
+    if (selectedRole === 'dietitian') {
+      // Show additional fields for dietitians
+      document.getElementById('dietitianFields').style.display = 'block';
+    } else {
+      // Hide dietitian-specific fields for customers
+      document.getElementById('dietitianFields').style.display = 'none';
+    }
+  });
+</script>
+
+<!-- Additional Fields (initially hidden) -->
+<div id="dietitianFields" style="display: none;">
+  <div class="form-group">
+    <label for="experience">Years of Experience</label>
+    <input type="number" id="experience" placeholder="Your experience in years" />
+  </div>
+  <div class="form-group">
+    <label for="specialty">Specialty</label>
+    <input type="text" id="specialty" placeholder="Your area of specialty" />
+  </div>
+</div>
+
 </body>
 
 </html>
