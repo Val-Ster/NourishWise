@@ -7,6 +7,7 @@ document.getElementById('print-button').addEventListener('click', function () {
 function printFoodLog() {
   const printWindow = window.open('', '_blank');
   const content = document.getElementById('printable-area').innerHTML;
+  const currentWeight = document.getElementById('weight-display').innerText;
 
   printWindow.document.write(`
     <html>
@@ -18,12 +19,17 @@ function printFoodLog() {
               font - family: Arial;
               margin: 20px;
             }
+            
+            .logo {
+              width: 5rem;
+              display: block;
+            }
 
-            h1,
-            h2,
-            h3,
-            h4{
-              text - align: center;
+            .log-heading{
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-contents: center;
             }
 
             table {
@@ -42,11 +48,17 @@ function printFoodLog() {
       </head>
 
       <body>
-        <h1>NourishWise Daily Food Log Summary</h1>
-        <h4>This is your daily food log by Day</h4>
+        <div class="log-heading">
+          <h1>NourishWise Daily Food Log Summary</h1>
+          <img src="assets/diet_logo_t.png" class="logo">
+          <h4>This is your daily food log by Day</h4>
+        </div>
+        <h2>Current Weight: ${currentWeight}</h2>
+
         ${content}
   `);
 
+  // printWindow.document.write(content);
   printWindow.document.close();
   printWindow.print();
 }
