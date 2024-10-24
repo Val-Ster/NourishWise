@@ -67,13 +67,6 @@
       background-color: #f2f2f2;
     }
 
-    h1,
-    h2,
-    h3,
-    h4 {
-      /* text-align: center; */
-    }
-
     table {
       width: 100%;
       border-collapse: collapse;
@@ -94,9 +87,6 @@
 
     #print-button {
       display: block;
-      /* margin: 20px auto; */
-      /* padding: 10px 20px; */
-      /* font-size: 16px; */
       cursor: pointer;
     }
   </style>
@@ -174,7 +164,7 @@
 
             <div id="progress-summary" class="card">
               <h3>Progress Summary</h3>
-              <p>Total Calories Consumed: <span id="totalCalories">0</span></p>
+              <p>Total Calories Consumed: <span id="totalCalories" id="total-calories">0</span></p>
               <p>Calories Burned: <span id="caloriesBurned">0</span></p>
               <p>Progress Towards Goal: <span id="progressPercentage">0%</span></p>
             </div>
@@ -187,52 +177,54 @@
               <button id="print-button" class="btn">Print Food Log</button>
               <button id="reset-button" class="btn">Reset Food Log</button>
             </div>
-            <table id="mealLogsContainer">
-              <thead>
-                <tr>
-                  <th>Day</th>
-                  <th>Meals</th>
-                  <th>Calories</th>
-                </tr>
-              </thead>
-              <tbody id="food-log">
-                <tr>
-                  <td>Monday</td>
-                  <td id="monday-meals"></td>
-                  <td id="monday-calories">0</td>
-                </tr>
-                <tr>
-                  <td>Tuesday</td>
-                  <td id="tuesday-meals"></td>
-                  <td id="tuesday-calories">0</td>
-                </tr>
-                <tr>
-                  <td>Wednesday</td>
-                  <td id="wednesday-meals"></td>
-                  <td id="wednesday-calories">0</td>
-                </tr>
-                <tr>
-                  <td>Thursday</td>
-                  <td id="thursday-meals"></td>
-                  <td id="thursday-calories">0</td>
-                </tr>
-                <tr>
-                  <td>Friday</td>
-                  <td id="friday-meals"></td>
-                  <td id="friday-calories">0</td>
-                </tr>
-                <tr>
-                  <td>Saturday</td>
-                  <td id="saturday-meals"></td>
-                  <td id="saturday-calories">0</td>
-                </tr>
-                <tr>
-                  <td>Sunday</td>
-                  <td id="sunday-meals"></td>
-                  <td id="sunday-calories">0</td>
-                </tr>
-              </tbody>
-            </table>
+            <div id="printable-area">
+              <table id="mealLogsContainer">
+                <thead>
+                  <tr>
+                    <th>Day</th>
+                    <th>Meals</th>
+                    <th>Calories</th>
+                  </tr>
+                </thead>
+                <tbody id="food-log">
+                  <tr>
+                    <td>Monday</td>
+                    <td id="monday-meals"></td>
+                    <td id="monday-calories">0</td>
+                  </tr>
+                  <tr>
+                    <td>Tuesday</td>
+                    <td id="tuesday-meals"></td>
+                    <td id="tuesday-calories">0</td>
+                  </tr>
+                  <tr>
+                    <td>Wednesday</td>
+                    <td id="wednesday-meals"></td>
+                    <td id="wednesday-calories">0</td>
+                  </tr>
+                  <tr>
+                    <td>Thursday</td>
+                    <td id="thursday-meals"></td>
+                    <td id="thursday-calories">0</td>
+                  </tr>
+                  <tr>
+                    <td>Friday</td>
+                    <td id="friday-meals"></td>
+                    <td id="friday-calories">0</td>
+                  </tr>
+                  <tr>
+                    <td>Saturday</td>
+                    <td id="saturday-meals"></td>
+                    <td id="saturday-calories">0</td>
+                  </tr>
+                  <tr>
+                    <td>Sunday</td>
+                    <td id="sunday-meals"></td>
+                    <td id="sunday-calories">0</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
 
@@ -251,7 +243,7 @@
         <a href="index.html#diet-plans" class="explore-btn">Explore More</a>
       </div>
 
-      <!-- =========================== DIET PLAN SECTION ===========================-->
+      <!-- =========================== DIET PLAN SECTION CONTAINERs ===========================-->
       <div class="after-header-contents">
         <div class="dietPlan">
           <!-- DietPlan List container -->
@@ -357,7 +349,7 @@
 
     // Initialize calories variables
     let totalCaloriesConsumed = 0;
-    let caloriesGoal = 2000; // Set this to your goal calories
+    let caloriesGoal = 2000; // We will set this to your goal calories (when user select a particular goal)
 
     // Function to lookup calories from JSON data
     document.getElementById('lookup-calories').addEventListener('click', function () {
@@ -371,46 +363,6 @@
       }
     });
 
-    // Form submission
-    document.getElementById('mealForm').addEventListener('submit', function (event) {
-      event.preventDefault();
-      const mealName = document.getElementById('meal-name').value;
-      const calories = document.getElementById('calories').value || '0';
-      const currentDay = new Date().toLocaleString('en-US', { weekday: 'long' }).toLowerCase();
-      const mealContainer = document.getElementById(`${currentDay}-meals`);
-      const calorieContainer = document.getElementById(`${currentDay}-calories`);
-
-      // Add meal to the day's meals
-      if (mealContainer.innerHTML === '') {
-        mealContainer.innerHTML = mealName;
-      } else {
-        mealContainer.innerHTML += `, ${mealName}`;
-      }
-      calorieContainer.innerHTML = parseInt(calorieContainer.innerHTML) + parseInt(calories);
-      totalCaloriesConsumed += parseInt(calories);
-
-      // Update progress summary
-      document.getElementById('totalCalories').innerText = totalCaloriesConsumed;
-      const caloriesRemaining = caloriesGoal - totalCaloriesConsumed;
-      document.getElementById('calories-remaining').innerText = caloriesRemaining;
-      const progressPercentage = Math.min((totalCaloriesConsumed / caloriesGoal) * 100, 100);
-      document.getElementById('progress-bar').style.width = `${progressPercentage}%`;
-      document.getElementById('progressPercentage').innerText = `${Math.round(progressPercentage)}%`;
-
-      // Update the chart data
-      updateChart();
-
-      // Show toast message
-      const toast = document.getElementById('toast');
-      toast.style.opacity = 1;
-      setTimeout(() => {
-        toast.style.opacity = 0;
-      }, 3000);
-
-      // Reset form
-      document.getElementById('meal-name').value = '';
-      document.getElementById('calories').value = '';
-    });
 
     // Chart.js setup
     const ctx = document.getElementById('calories-chart').getContext('2d');
@@ -456,70 +408,11 @@
   </script>
 
 
-  <script src="script/chart.js"></script>
-  <script>
-    // Function to show selected section and hide others
-    function showSection(sectionId) {
-      const sections = document.querySelectorAll('.content-section');
-      sections.forEach(section => {
-        section.style.display = 'none';
-      });
-      document.getElementById(sectionId).style.display = 'block';
-    }
-
-    // Initial setup
-    showSection('dashboard');
-  </script>
-
-  <script>
-    function printFoodLog() {
-      const printWindow = window.open('', '_blank');
-      const content = document.getElementById('printable-area').innerHTML;
-
-      printWindow.document.write(`
-    <html>
-      <head>
-        <title>Print Food Log</title>
-        <style>
-          @media print {
-            body { font-family: Arial; margin: 20px; }
-            table { width: 100%; border-collapse: collapse; }
-            th, td { border: 1px solid #000; padding: 8px; }
-          }
-        </style>
-      </head>
-      <body>
-        <h1>Daily Food Log Summary</h1>
-        ${content}
-      </body>
-    </html>
-  `);
-
-      printWindow.document.close();
-      printWindow.print();
-    }
-
-  </script>
-
-
-  <script>
-    function addFoodLog(date, meal, calories) {
-      const foodLogTable = document.getElementById('food-log');
-      const newRow = document.createElement('tr');
-
-      newRow.innerHTML = `<td>${date}</td><td>${meal}</td><td>${calories}</td>`;
-      foodLogTable.appendChild(newRow);
-
-      // Update total calories
-      const totalCaloriesElement = document.getElementById('total-calories');
-      const currentTotal = parseInt(totalCaloriesElement.textContent) || 0;
-      totalCaloriesElement.textContent = currentTotal + calories;
-    }
-
-    // Example usage:
-    // addFoodLog('2024-10-23', 'Snack: Protein Bar', 200);
-
-  </script>
+  <!-- <script src="script/chart.js"></script> -->
+  
+  <script src="script/print_food_log.js"></script>
+  <script src="script/food_log_form.js"></script>
+  <script src="script/dashboard.js"></script>
 </body>
 
 </html>
