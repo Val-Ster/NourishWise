@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NourishWise Login</title>
+  <title>NourishWise | Login</title>
   <link rel="stylesheet" href="styles/login_sign-up.css" />
 </head>
 
@@ -25,13 +25,19 @@
         <a href="forget-form.html" id="forgotLabel">Forgot password?</a>
       </span>
 
-      <input type="submit" value="Login" class="submit" />
+      <input type="button" class="button loginbtn" value="Login">
 
       <p class="login-p">
         New to NourishWise? <br />Sign Up <a href="sign-up.html">here!</a>
       </p>
     </form>
   </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="script/Login.js" type="module"></script>
+
 </body>
 
 </html>

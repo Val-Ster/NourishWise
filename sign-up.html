@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NourishWise Sign-up</title>
+  <title>NourishWise | Sign-up</title>
   <link rel="stylesheet" href="styles/login_sign-up.css" />
 </head>
 
@@ -32,9 +32,6 @@
 
       <div class="form-group">
         <input type="number" id="weight" placeholder="Your weight (kg)" />
-      <!-- </div> -->
-
-      <!-- <div class="form-group"> -->
         <input type="number" id="height" placeholder="Your height (cm)" />
       </div>
 
@@ -47,7 +44,6 @@
       </div>
 
       <div class="form-group">
-        <!-- <button type="submit">Sign Up</button> -->
         <input type="button" class="button signupbtn" value="Signup">
       </div>
     </form>
@@ -56,54 +52,12 @@
       Already registered? <a href="login.html">Log in here!</a>
     </p>
   </div>
-  <!-- Include Signup.js as a module -->
-  <script type="module">
-    import { db, auth } from './Signup.js'; // Import db and auth from Signup.js
 
-    // Check if Firebase is initialized correctly
-    console.log("Firebase initialized", db, auth);
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+  <script src="script/Signup.js" type="module"></script>
 
-    // Form submit event listener
-    document.querySelector('.styled-form').addEventListener('submit', async function (event) {
-      event.preventDefault();
-
-      const fullName = document.getElementById('name').value;
-      const email = document.getElementById('email').value;
-      const password = document.getElementById('password').value;
-      const weight = document.getElementById('weight').value;
-      const height = document.getElementById('height').value;
-      const role = document.getElementById('role').value;
-      const experience = document.getElementById('experience') ? document.getElementById('experience').value : '';
-      const specialty = document.getElementById('specialty') ? document.getElementById('specialty').value : '';
-
-      try {
-        // Create a new user with email and password
-        const userCredential = await auth.createUserWithEmailAndPassword(email, password);
-        const user = userCredential.user;
-
-        // Save user data to Firestore
-        await db.collection("users").doc(user.uid).set({
-          name: fullName,
-          email: email,
-          weight: weight,
-          height: height,
-          role: role,
-          experience: experience,
-          specialty: specialty
-        });
-
-        // Redirect based on role
-        if (role === 'customer') {
-          window.location.href = 'customer-dashboard.html';
-        } else if (role === 'dietitian') {
-          window.location.href = 'dietitian-dashboard.html';
-        }
-      } catch (error) {
-        console.error("Error creating user:", error);
-        alert("Error signing up. Please try again.");
-      }
-    });
-  </script>
 </body>
 
 </html>
