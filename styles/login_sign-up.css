@@ -1,28 +1,38 @@
+/* Import Google font - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
 * {
   margin: 0;
   padding: 0;
-  text-decoration: none;
-  list-style: none;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  transition: all 400ms ease;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
 :root {
+  /* Primary Colors */
+  --primary-bg: linear-gradient(to right, #07c15b, #225629);
+  --secondary-bg: #c1ff72;
+  --extra-bg: #ececec;
+
   /* Neutral Colors */
+  --white-bg: #fff8e6;
   --dark-green-bg: #225629;
   --light-green-bg: #07c15b;
   --light-grey: #ececec;
 
   /* Text Colors */
   --primary-text: #225629;
+  --secondary-text: #07c15b;
   --white-text: #ffffff;
-  --dark-text: #8f8ea6;
-  --light-text: #ececec;
+  --dark-text: #333;
 
   /* Button colors */
-  --button-bg-hover: #225629;
-  --button-bg: #07c15b;
+  --button-bg: #225629;
+  --button-bg-hover: #07c15b;
 
+  /* Padding */
+  --container-padding: 5rem 10rem;
+  --small-container-padding: 2rem;
   /* Padding */
   --container-padding: 50px;
 
@@ -35,30 +45,33 @@
       #ff8c94);
 }
 
-.signup-container {
-  border: 5px solid;
-  border-image: var(--gradient-border) 1;
-  padding: 50px 14px 30px 0;
-  max-width: 300px;
-  /* Limit the maximum width */
-  margin: 40px auto;
-  text-align: center;
+body {
+  min-height: 100vh;
+  width: 100%;
+  background: white;
 }
 
-.login-container {
-  border: 5px solid;
-  border-image: var(--gradient-border) 1;
-  padding: 40px 14px 10px 0;
-  max-width: 300px;
-  /* Limit the maximum width */
-  margin: 40px auto;
-  text-align: center;
-}
-
-h1 {
-  color: var(--primary-text);
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 430px;
+  width: 100%;
+  background: #fff;
   background: transparent;
-  text-align: center;
+  /* border-radius: 7px; */
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+  padding: 2rem;
+  border: 5px solid;
+  border-image: var(--gradient-border) 1;
+}
+
+.form-header {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
 }
 
 img {
@@ -66,89 +79,53 @@ img {
   height: auto;
 }
 
-/* General form styling */
-.styled-form {
-  padding: 20px;
-  width: 225px;
-  border-radius: 4px;
-  /* Rounded corners */
-  margin: 0 auto;
+
+.form-group:nth-child(4) {
+  gap: 0.5rem;
+  display: flex;
+  flex-direction: row;
 }
 
-/* Input fields and text areas */
-.styled-form input[type="text"],
-.styled-form input[type="email"],
-.styled-form input[type="password"],
-.styled-form textarea {
+select,
+input {
+  height: 50px;
   width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
-  background-color: var(--light-text);
-  /* Light grey background for the input area */
-  color: #000;
-  /* Black text color */
-  border: 1px solid #555;
-  /* Darker border for the input */
-  border-radius: 5px;
-  /* Rounded corners for fields */
+  padding: 0 15px;
+  font-size: 17px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  outline: none;
 }
 
-/* Submit button */
-.styled-form .submit {
-  width: 50%;
-  padding: 10px;
-  background-color: var(--button-bg);
-  /* Dark grey button background */
+select:focus,
+input:focus {
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+}
+
+input.button {
   color: #fff;
-  /* White text on the button */
-  border: none;
-  border-radius: 20px;
-  /* Rounded corners */
+  background: var(--button-bg);
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  margin-top: 15px;
   cursor: pointer;
-  text-align: center;
-  /* Center text inside the button */
-  font-size: 16px;
-  /* Font size for better readability */
-  transition: background-color 0.3s ease;
+  transition: 0.4s;
 }
 
-/* Button hover effect */
-.styled-form .submit:hover {
-  background-color: var(--button-bg-hover);
-  /* Slightly lighter grey when hovered */
-}
-
-/* Weight & Height*/
-.styled-form input[type="number"] {
-  width: 38%;
-  padding: 10px;
-  margin-bottom: 15px;
-  background-color: var(--light-text);
-  /* Light grey background for the input area */
-  color: #000;
-  /* Black text color */
-  border: 1px solid #555;
-  /* Darker border for the input */
-  border-radius: 5px;
-  /* Rounded corners for fields */
-}
-
-.sign-up-p {
-  color: var(--dark-text);
-  padding: 15px 0 0;
-}
-
-.login-p {
-  color: var(--dark-text);
-  padding: 40px 0 0;
+input.button:hover {
+  background: var(--button-bg-hover);
 }
 
 a {
-  color: var(--primary-text);
-  text-decoration: underline;
+  color: var(--button-bg-hover);
+  cursor: pointer;
 }
 
 a:hover {
-  color: var(--button-bg);
-  text-decoration: none;
+  text-decoration: underline;
+}
+.signup{
+  margin-bottom: 5rem;
 }
