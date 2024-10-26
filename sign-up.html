@@ -9,42 +9,36 @@
 </head>
 
 <body>
-  <div class="signup-container">
-    <h1>Create Your Account</h1>
-    <div class="diet-logo">
-      <img src="assets/diet_logo_t.png" alt="NourishWise Logo" />
+  <div class="container signup-container">
+    <div class="form-header">
+      <h1>Create Your Account</h1>
+      <div class="diet-logo">
+        <img src="assets/diet_logo_t.png" alt="NourishWise Logo" />
+      </div>
     </div>
 
-    <form action="index.html" class="styled-form">
-      <!-- Name field -->
+    <form class="styled-form">
       <div class="form-group">
-        <label for="name">Full Name</label>
         <input type="text" id="name" placeholder="Enter your full name" minlength="3" required />
       </div>
 
-      <!-- Email field -->
       <div class="form-group">
-        <label for="email">Email Address</label>
         <input type="email" id="email" placeholder="Enter your email" required />
       </div>
 
-      <!-- Password and personal info fields -->
       <div class="form-group">
-        <label for="password">Password</label>
         <input type="password" id="password" placeholder="Password" minlength="6" required />
       </div>
+
       <div class="form-group">
-        <label for="weight">Weight (kg)</label>
         <input type="number" id="weight" placeholder="Your weight (kg)" />
-      </div>
-      <div class="form-group">
-        <label for="height">Height (cm)</label>
+      <!-- </div> -->
+
+      <!-- <div class="form-group"> -->
         <input type="number" id="height" placeholder="Your height (cm)" />
       </div>
 
-      <!-- User role selection -->
       <div class="form-group">
-        <label for="role">I am a:</label>
         <select id="role" required>
           <option value="" disabled selected>Select role</option>
           <option value="customer">Customer</option>
@@ -52,9 +46,9 @@
         </select>
       </div>
 
-      <!-- Submit button -->
       <div class="form-group">
-        <input type="submit" value="Sign up" class="submit" />
+        <!-- <button type="submit">Sign Up</button> -->
+        <input type="button" class="button signupbtn" value="Signup">
       </div>
     </form>
 
@@ -62,61 +56,54 @@
       Already registered? <a href="login.html">Log in here!</a>
     </p>
   </div>
+  <!-- Include Signup.js as a module -->
+  <script type="module">
+    import { db, auth } from './Signup.js'; // Import db and auth from Signup.js
 
-  <script>
-    document.querySelector('.styled-form').addEventListener('submit', function (event) {
+    // Check if Firebase is initialized correctly
+    console.log("Firebase initialized", db, auth);
+
+    // Form submit event listener
+    document.querySelector('.styled-form').addEventListener('submit', async function (event) {
       event.preventDefault();
-      // Simulate sign-up success
-      window.location.href = 'index-2.html';
+
+      const fullName = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      const weight = document.getElementById('weight').value;
+      const height = document.getElementById('height').value;
+      const role = document.getElementById('role').value;
+      const experience = document.getElementById('experience') ? document.getElementById('experience').value : '';
+      const specialty = document.getElementById('specialty') ? document.getElementById('specialty').value : '';
+
+      try {
+        // Create a new user with email and password
+        const userCredential = await auth.createUserWithEmailAndPassword(email, password);
+        const user = userCredential.user;
+
+        // Save user data to Firestore
+        await db.collection("users").doc(user.uid).set({
+          name: fullName,
+          email: email,
+          weight: weight,
+          height: height,
+          role: role,
+          experience: experience,
+          specialty: specialty
+        });
+
+        // Redirect based on role
+        if (role === 'customer') {
+          window.location.href = 'customer-dashboard.html';
+        } else if (role === 'dietitian') {
+          window.location.href = 'dietitian-dashboard.html';
+        }
+      } catch (error) {
+        console.error("Error creating user:", error);
+        alert("Error signing up. Please try again.");
+      }
     });
   </script>
-
-  <script>
-  document.querySelector('.styled-form').addEventListener('submit', function (event) {
-    event.preventDefault(); // Prevent form submission
-    
-    const selectedRole = document.getElementById('role').value;
-
-    // Simulate role-based redirection
-    if (selectedRole === 'customer') {
-      // Redirect to customer dashboard
-      window.location.href = 'customer-dashboard.html';
-    } else if (selectedRole === 'dietitian') {
-      // Redirect to dietitian dashboard
-      window.location.href = 'dietitian-dashboard.html';
-    } else {
-      alert('Please select a valid role.');
-    }
-  });
-</script>
-
-
-<script>
-  document.getElementById('role').addEventListener('change', function () {
-    const selectedRole = this.value;
-
-    if (selectedRole === 'dietitian') {
-      // Show additional fields for dietitians
-      document.getElementById('dietitianFields').style.display = 'block';
-    } else {
-      // Hide dietitian-specific fields for customers
-      document.getElementById('dietitianFields').style.display = 'none';
-    }
-  });
-</script>
-
-<!-- Additional Fields (initially hidden) -->
-<div id="dietitianFields" style="display: none;">
-  <div class="form-group">
-    <label for="experience">Years of Experience</label>
-    <input type="number" id="experience" placeholder="Your experience in years" />
-  </div>
-  <div class="form-group">
-    <label for="specialty">Specialty</label>
-    <input type="text" id="specialty" placeholder="Your area of specialty" />
-  </div>
-</div>
-
 </body>
 
 </html>
