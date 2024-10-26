@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NourishWise - Dashboard</title>
+  <title>NourishWise | Dashboard</title>
 
   <link rel="icon" href="assets/diet_logo_t.png">
   <link rel="stylesheet" href="styles/style.css">
@@ -88,6 +88,135 @@
     #print-button {
       display: block;
       cursor: pointer;
+    }
+
+
+
+
+    /* ============== */
+    /* Diet Plan Section */
+    .diet-plan-container {
+      max-width: 500px;
+      margin: auto;
+      padding: 20px;
+      background-color: #f5f5f5;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .diet-plan-container h2 {
+      text-align: center;
+      font-size: 24px;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    #diet-plan-form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 16px;
+      font-weight: bold;
+      color: #555;
+      margin-bottom: 5px;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="number"] {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .checkbox-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .checkbox-group label {
+      font-weight: normal;
+      color: #333;
+      margin-bottom: 5px;
+    }
+
+    .save-plan-btn {
+      width: 100%;
+      padding: 12px;
+      font-size: 18px;
+      color: #fff;
+      background-color: #28a745;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .save-plan-btn:hover {
+      background-color: #218838;
+    }
+
+    .content-section {
+      padding: 20px;
+    }
+
+    #header {
+      margin-bottom: 20px;
+    }
+
+    button {
+      margin-top: 10px;
+      padding: 10px 15px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    #dietPlanList {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .dietPlan-card {
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 15px;
+      width: 200px;
+    }
+
+    .dietPlan-card .img img {
+      max-width: 100%;
+      border-radius: 5px;
+    }
+
+    .dietPlan-card .text h3 {
+      margin: 10px 0;
+    }
+
+    .dietPlan-card button {
+      background-color: red;
+      border: none;
+      color: white;
+      padding: 5px;
+      cursor: pointer;
+    }
+
+    .dietPlan-card button:hover {
+      background-color: darkred;
     }
   </style>
 </head>
@@ -238,82 +367,28 @@
       <div id="header">
         <h1>Diet Plans</h1>
         <p>Manage your diet plans here. You can create new plans, edit existing ones, or delete them as needed.</p>
-        <button>Create New Diet Plan</button>
-        <a href="index.html#diet-plans" class="explore-btn">Explore More</a>
-      </div>
+        <button onclick="toggleCreateDietPlanForm()">Create New Diet Plan</button>
 
-      <!-- =========================== DIET PLAN SECTION CONTAINERs ===========================-->
-      <div class="after-header-contents">
-        <div class="dietPlan">
-          <!-- DietPlan List container -->
-          <div id="createDietPlanForm" class="diet-plan-form">
-            <h2>Create New Diet Plan</h2>
-          </div>
+        <div id="createDietPlanForm" style="display: block;">
+          <h2>Create New Diet Plan</h2>
+          <form id="dietPlanForm">
+            <input type="text" id="plan-name" placeholder="Diet Plan Name" required />
+            <textarea id="plan-description" placeholder="Diet Plan Description"></textarea>
+            <button type="submit">Save Diet Plan</button>
+          </form>
+        </div>
 
-          <div class="dietPlan-list" data-aos="zoom-in-up">
-            <!-- DietPlan card -->
-            <div class="dietPlan-card">
-              <div class="img">
-                <img src="assets/fresh-salad-wooden-bowl-lunch-generative-ai.jpg" alt="">
-              </div>
-              <div class="text">
-                <h4>Keto Diet</h4>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora, labore!</p>
-                <br>
-                <a href="#contact" class="btn">Get Started</a>
-              </div>
-            </div>
+        <div class="dietPlan-list" id="dietPlanList"></div>
 
-            <!-- DietPlan card -->
-            <div class="dietPlan-card">
-              <div class="img">
-                <img src="assets/fresh-salad-wooden-bowl-lunch-generative-ai.jpg" alt="">
-              </div>
-              <div class="text">
-                <h4>Mediatorial Diet </h4>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora, labore!</p>
-                <br>
-                <a href="#contact" class="btn">Get Started</a>
-              </div>
-            </div>
-
-            <!-- Diet Plan card -->
-            <div class="dietPlan-card">
-              <div class="img"><img src="assets/fresh-salad-wooden-bowl-lunch-generative-ai.jpg" alt=""></div>
-              <div class="text">
-                <h4>Vegan Diet</h4>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora, labore!</p>
-                <br>
-                <a href="#contact" class="btn">Get Started</a>
-              </div>
-            </div>
-
-            <!-- Diet Plan card -->
-            <div class="dietPlan-card">
-              <div class="img"><img src="assets/fresh-salad-wooden-bowl-lunch-generative-ai.jpg" alt=""></div>
-              <div class="text">
-                <h3>Mediterranean Diet</h3>
-                <p>Rich in fruits, vegetables, and healthy fats for a balanced lifestyle.</p>
-                <br>
-                <a href="#contact" class="btn">Get Started</a>
-              </div>
-            </div>
-
-            <div class="dietPlan-card">
-              <div class="img">
-                <img src="assets/fresh-salad-wooden-bowl-lunch-generative-ai.jpg" alt="Vegan Diet">
-              </div>
-              <div class="text">
-                <h3>Vegan Diet</h3>
-                <p>Plant-based meals to support your cruelty-free lifestyle.</p>
-                <br>
-                <a href="#contact" class="btn">Get Started</a>
-              </div>
-            </div>
-          </div>
+        <div class="dashboards">
+          <h3>Your Diet Plan</h3>
+          <p><strong>Goal:</strong> <span id="dashboard-goal">No goal set</span></p>
+          <p><strong>Calories:</strong> <span id="dashboard-calories">-</span> kcal/day</p>
+          <p><strong>Preferences:</strong> <span id="dashboard-preferences">None</span></p>
         </div>
       </div>
     </section>
+
 
     <section id="insights" class="content-section" style="display: none;">
       <h2>Insights Section</h2>
@@ -335,6 +410,75 @@
       <!-- Logout Content -->
     </section>
   </main>
+
+
+
+  <script>
+    document.getElementById('mealForm').addEventListener('submit', function (event) {
+      event.preventDefault(); // Prevent the form from submitting the traditional way
+
+      const mealName = document.getElementById('meal-name').value;
+      const calories = document.getElementById('calories').value || 0; // Use 0 if not provided
+
+      // Generate a unique ID for each meal log
+      const mealId = Date.now();
+
+      // Save meal log to Firebase
+      set(ref(db, 'mealLogs/' + mealId), {
+        mealName: mealName,
+        calories: calories,
+        timestamp: mealId
+      }).then(() => {
+        console.log('Meal logged successfully');
+        document.getElementById('mealForm').reset(); // Reset the form after submission
+        showToast('Meal logged successfully!'); // Function to display a toast message
+      }).catch((error) => {
+        console.error('Error logging meal: ', error);
+      });
+    });
+
+  </script>
+
+
+  <!-- weight -->
+  <script>
+    document.getElementById('update-weight').addEventListener('click', function () {
+      const weight = document.getElementById('weight').value;
+
+      // Save weight to Firebase
+      set(ref(db, 'users/userId/weight'), {
+        weight: weight
+      }).then(() => {
+        console.log('Weight updated successfully');
+        document.getElementById('weight-display').innerText = weight; // Update the displayed weight
+      }).catch((error) => {
+        console.error('Error updating weight: ', error);
+      });
+    });
+
+  </script>
+
+
+  <script>
+    // Fetch meal logs from Firebase
+    onValue(ref(db, 'mealLogs'), (snapshot) => {
+      const mealLogs = snapshot.val();
+      // Process and display mealLogs as needed
+    });
+
+    // Fetch user's weight
+    onValue(ref(db, 'users/userId/weight'), (snapshot) => {
+      const weightData = snapshot.val();
+      if (weightData) {
+        document.getElementById('weight-display').innerText = weightData.weight; // Update weight display
+      }
+    });
+
+  </script>
+
+
+
+
 
   <script>
     // Sample JSON data (foodCalories.json)
@@ -409,9 +553,138 @@
 
   <!-- <script src="script/chart.js"></script> -->
 
+  <script src="script/script.js"></script>
   <script src="script/print_food_log.js"></script>
   <script src="script/food_log_form.js"></script>
   <script src="script/dashboard.js"></script>
-</body>
 
+  <script>
+    // Import necessary functions from Firebase
+      import { firebaseConfig } from './path/to/your/firebaseConfig.js'; // Adjust the path accordingly
+      import { initializeApp } from "firebase/app";
+      import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc } from "firebase/firestore";
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const db = getFirestore(app);
+
+      // Elements
+      const dietPlanForm = document.getElementById("dietPlanForm");
+      const planNameInput = document.getElementById("plan-name");
+      const planDescriptionInput = document.getElementById("plan-description");
+      const dietPlanList = document.getElementById("dietPlanList");
+
+      // Toggle Create Diet Plan Form
+      function toggleCreateDietPlanForm() {
+        const form = document.getElementById("createDietPlanForm");
+        form.style.display = form.style.display === "none" ? "block" : "none";
+      }
+
+      // Save Diet Plan
+      async function saveDietPlan(event) {
+        event.preventDefault(); // Prevent form submission
+
+        const planName = planNameInput.value;
+        const planDescription = planDescriptionInput.value;
+
+        // Create a diet plan object
+        const dietPlan = {
+          name: planName,
+          description: planDescription
+        };
+
+        // Save to Firebase
+        try {
+          const docRef = await addDoc(collection(db, "dietPlans"), dietPlan);
+          console.log("Diet plan saved with ID:", docRef.id);
+
+          // Save to local storage
+          saveToLocalStorage(docRef.id, dietPlan);
+
+          // Clear input fields
+          planNameInput.value = "";
+          planDescriptionInput.value = "";
+
+          // Refresh the diet plan list
+          fetchDietPlans();
+        } catch (error) {
+          console.error("Error adding document: ", error);
+        }
+      }
+
+      // Save to Local Storage
+      function saveToLocalStorage(id, dietPlan) {
+        let dietPlans = JSON.parse(localStorage.getItem("dietPlans")) || {};
+        dietPlans[id] = dietPlan;
+        localStorage.setItem("dietPlans", JSON.stringify(dietPlans));
+      }
+
+      // Fetch Diet Plans
+      async function fetchDietPlans() {
+        dietPlanList.innerHTML = ""; // Clear the existing list
+
+        // Get from Firebase
+        try {
+          const querySnapshot = await getDocs(collection(db, "dietPlans"));
+          querySnapshot.forEach((doc) => {
+            const dietPlan = { id: doc.id, ...doc.data() };
+            displayDietPlan(dietPlan);
+          });
+        } catch (error) {
+          console.error("Error fetching documents: ", error);
+        }
+
+        // Get from Local Storage
+        const localPlans = JSON.parse(localStorage.getItem("dietPlans")) || {};
+        for (const id in localPlans) {
+          if (!document.getElementById(id)) {
+            displayDietPlan({ id, ...localPlans[id] });
+          }
+        }
+
+        // Display Diet Plan
+        function displayDietPlan(dietPlan) {
+          const dietPlanCard = document.createElement("div");
+          dietPlanCard.className = "dietPlan-card";
+          dietPlanCard.id = dietPlan.id; // Use ID for easy access
+
+          dietPlanCard.innerHTML = `
+    <div class="img">
+      <img src="assets/fresh-salad-wooden-bowl-lunch-generative-ai.jpg" alt="${dietPlan.name}">
+    </div>
+    <div class="text">
+      <h3>${dietPlan.name}</h3>
+      <p>${dietPlan.description}</p>
+      <button onclick="deleteDietPlan('${dietPlan.id}')">Delete</button>
+    </div>
+  `;
+
+          dietPlanList.appendChild(dietPlanCard);
+        }
+
+        // Delete Diet Plan
+        async function deleteDietPlan(id) {
+          try {
+            // Delete from Firebase
+            await deleteDoc(doc(db, "dietPlans", id));
+
+            // Delete from local storage
+            let dietPlans = JSON.parse(localStorage.getItem("dietPlans")) || {};
+            delete dietPlans[id];
+            localStorage.setItem("dietPlans", JSON.stringify(dietPlans));
+
+            // Refresh the diet plan list
+            fetchDietPlans();
+          } catch (error) {
+            console.error("Error deleting document: ", error);
+          }
+        }
+
+        // Event Listeners
+        dietPlanForm.addEventListener("submit", saveDietPlan);
+        fetchDietPlans(); // Fetch existing diet plans on page load
+
+  </script>
+
+</body>
 </html>
