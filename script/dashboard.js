@@ -1,3 +1,4 @@
+// Dashboard
 document.querySelectorAll('.sidebar a').forEach(link => {
   link.addEventListener('click', function (e) {
     e.preventDefault();
@@ -12,7 +13,6 @@ document.querySelectorAll('.sidebar a').forEach(link => {
     this.classList.add('active');
   });
 });
-
 
 
 window.addEventListener('load', () => {
@@ -42,3 +42,16 @@ window.addEventListener('load', () => {
     document.getElementById('dashboard').style.display = 'block';
   }
 });
+
+
+// Function to show dashboard section as default
+function showSection(sectionId) {
+  const sections = document.querySelectorAll('.content-section');
+  sections.forEach(section => {
+    section.style.display = 'none';
+  });
+  document.getElementById(sectionId).style.display = 'block';
+}
+
+// Initial setup
+showSection('dashboard');

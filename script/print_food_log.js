@@ -16,7 +16,7 @@ function printFoodLog() {
         <style>
           @media print {
             body {
-              font - family: Arial;
+              font-family: Arial;
               margin: 20px;
             }
             

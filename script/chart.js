@@ -4,7 +4,7 @@ function printFoodLog() {
 
   // Get the current state of the food log table
   const foodLogTable = document.getElementById('food-log').innerHTML;
-  const currentWeight = document.getElementById('current-weight').innerText;
+  const currentWeight = document.getElementById('weight-display').innerText;
   const totalCalories = document.getElementById('total-calories').innerText;
 
   // Create the printable content
