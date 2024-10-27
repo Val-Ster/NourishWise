@@ -1,3 +1,8 @@
+// Import Firebase components
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
+import { getAuth } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
+import { getFirestore } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
+
 const firebaseConfig = {
   apiKey: "AIzaSyAgdDRikWVnieInU_C6GLRQxL_u8mwuqxI",
   authDomain: "nourishwise-fdc37.firebaseapp.com",
@@ -8,3 +13,12 @@ const firebaseConfig = {
   measurementId: "G-TJENJWS1JX"
 };
 export { firebaseConfig };
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);  // Firestore instance
+const auth = getAuth(app);  // Authentication instance
+// const auth = firebase.auth();  // Initialize Firebase Auth
+
+// Export these instances
+export { db, auth };
