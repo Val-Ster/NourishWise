@@ -8,7 +8,7 @@
 
   <link rel="icon" href="assets/diet_logo_t.png">
   <link rel="stylesheet" href="styles/style.css">
-  <link rel="stylesheet" href="styles/siet-plan.css">
+  <link rel="stylesheet" href="styles/diet-plan.css">
   <link rel="stylesheet" href="styles/insight.css">
   <!-- <link rel="stylesheet" href="styles/test.css"> -->
   <link rel="stylesheet" href="styles/dashboard/dashboard.css">
@@ -218,6 +218,49 @@
     .dietPlan-card button:hover {
       background-color: darkred;
     }
+
+
+
+
+
+
+
+
+
+
+
+
+    .dietPlan-card {
+  display: flex;
+  flex-direction: row;
+  margin: 10px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.dietPlan-card .img {
+  width: 100px;
+  height: 100px;
+  margin-right: 15px;
+}
+
+.dietPlan-card .img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.dietPlan-card .text h4 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.dietPlan-card .text p {
+  margin: 5px 0;
+}
+
   </style>
 </head>
 
@@ -275,6 +318,8 @@
           <div class="diet-log">
             <div class="meal-log card">
               <h3>Log Your Meal</h3>
+              <div id="dietPlansContainer"></div>
+
               <form id="mealForm">
                 <input type="text" id="meal-name" placeholder="Enter meal name" required>
                 <input type="number" id="calories" placeholder="Enter calories (optional)" min="0">
@@ -356,10 +401,20 @@
             </div>
           </div>
 
+          <!-- Dashboard Section -->
+          <div id="dashboard">
+            <h2>Your Diet Plans</h2>
+            <div id="dietPlansContainer"></div>
+          </div>
+
           <h2>Calories Consumed</h2>
           <canvas id="calories-chart"></canvas>
         </div>
       </div>
+
+      <!-- Diet Plan Section -->
+
+
     </section>
 
     <!--=========================== Diet Plans Section Content ===========================-->
@@ -369,14 +424,24 @@
         <p>Manage your diet plans here. You can create new plans, edit existing ones, or delete them as needed.</p>
         <button onclick="toggleCreateDietPlanForm()">Create New Diet Plan</button>
 
-        <div id="createDietPlanForm" style="display: block;">
-          <h2>Create New Diet Plan</h2>
-          <form id="dietPlanForm">
-            <input type="text" id="plan-name" placeholder="Diet Plan Name" required />
-            <textarea id="plan-description" placeholder="Diet Plan Description"></textarea>
-            <button type="submit">Save Diet Plan</button>
+        <div id="dietPlanSection">
+          <form class="diet-plan-form">
+            <input type="text" id="planName" placeholder="Diet Plan Name" required>
+            <textarea id="description" placeholder="Description" required></textarea>
+            <input type="text" id="meals" placeholder="Meals (comma separated)" required>
+            <button type="submit">Add Diet Plan</button>
           </form>
         </div>
+
+        <!-- <div id="createDietPlanForm" style="display: block;">
+          <h1>Create Diet Plan</h1>
+          <form class="diet-plan-form">
+            <input type="text" id="planName" placeholder="Plan Name" required />
+            <textarea id="description" placeholder="Plan Description" required></textarea>
+            <input type="text" id="meals" placeholder="Meals (comma-separated)" required />
+            <button type="submit">Save Plan</button>
+          </form>
+        </div> -->
 
         <div class="dietPlan-list" id="dietPlanList"></div>
 
@@ -388,96 +453,18 @@
         </div>
       </div>
     </section>
-
-
-    <section id="insights" class="content-section" style="display: none;">
-      <h2>Insights Section</h2>
-      <!-- Insights Content -->
-    </section>
-
-    <section id="dieticians" class="content-section" style="display: none;">
-      <h2>Dieticians Section</h2>
-      <!-- Dieticians Content -->
-    </section>
-
-    <section id="settings" class="content-section" style="display: none;">
-      <h2>Settings Section</h2>
-      <!-- Settings Content -->
-    </section>
-
-    <section id="logout" class="content-section" style="display: none;">
-      <h2>Logout Section</h2>
-      <!-- Logout Content -->
-    </section>
   </main>
 
+  <!-- Add Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/9.x.x/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.x.x/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.x.x/firebase-firestore.js"></script>
 
+  <!-- Your custom scripts -->
+  <script src="./store-data.js"></script>
 
-  <script>
-    document.getElementById('mealForm').addEventListener('submit', function (event) {
-      event.preventDefault(); // Prevent the form from submitting the traditional way
-
-      const mealName = document.getElementById('meal-name').value;
-      const calories = document.getElementById('calories').value || 0; // Use 0 if not provided
-
-      // Generate a unique ID for each meal log
-      const mealId = Date.now();
-
-      // Save meal log to Firebase
-      set(ref(db, 'mealLogs/' + mealId), {
-        mealName: mealName,
-        calories: calories,
-        timestamp: mealId
-      }).then(() => {
-        console.log('Meal logged successfully');
-        document.getElementById('mealForm').reset(); // Reset the form after submission
-        showToast('Meal logged successfully!'); // Function to display a toast message
-      }).catch((error) => {
-        console.error('Error logging meal: ', error);
-      });
-    });
-
-  </script>
-
-
-  <!-- weight -->
-  <script>
-    document.getElementById('update-weight').addEventListener('click', function () {
-      const weight = document.getElementById('weight').value;
-
-      // Save weight to Firebase
-      set(ref(db, 'users/userId/weight'), {
-        weight: weight
-      }).then(() => {
-        console.log('Weight updated successfully');
-        document.getElementById('weight-display').innerText = weight; // Update the displayed weight
-      }).catch((error) => {
-        console.error('Error updating weight: ', error);
-      });
-    });
-
-  </script>
-
-
-  <script>
-    // Fetch meal logs from Firebase
-    onValue(ref(db, 'mealLogs'), (snapshot) => {
-      const mealLogs = snapshot.val();
-      // Process and display mealLogs as needed
-    });
-
-    // Fetch user's weight
-    onValue(ref(db, 'users/userId/weight'), (snapshot) => {
-      const weightData = snapshot.val();
-      if (weightData) {
-        document.getElementById('weight-display').innerText = weightData.weight; // Update weight display
-      }
-    });
-
-  </script>
-
-
-
+  <script type="module" src="script/store-data.js"></script>
+  <!-- ==================================================== -->
 
 
   <script>
@@ -558,133 +545,6 @@
   <script src="script/food_log_form.js"></script>
   <script src="script/dashboard.js"></script>
 
-  <script>
-    // Import necessary functions from Firebase
-      import { firebaseConfig } from './path/to/your/firebaseConfig.js'; // Adjust the path accordingly
-      import { initializeApp } from "firebase/app";
-      import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc } from "firebase/firestore";
-
-      // Initialize Firebase
-      const app = initializeApp(firebaseConfig);
-      const db = getFirestore(app);
-
-      // Elements
-      const dietPlanForm = document.getElementById("dietPlanForm");
-      const planNameInput = document.getElementById("plan-name");
-      const planDescriptionInput = document.getElementById("plan-description");
-      const dietPlanList = document.getElementById("dietPlanList");
-
-      // Toggle Create Diet Plan Form
-      function toggleCreateDietPlanForm() {
-        const form = document.getElementById("createDietPlanForm");
-        form.style.display = form.style.display === "none" ? "block" : "none";
-      }
-
-      // Save Diet Plan
-      async function saveDietPlan(event) {
-        event.preventDefault(); // Prevent form submission
-
-        const planName = planNameInput.value;
-        const planDescription = planDescriptionInput.value;
-
-        // Create a diet plan object
-        const dietPlan = {
-          name: planName,
-          description: planDescription
-        };
-
-        // Save to Firebase
-        try {
-          const docRef = await addDoc(collection(db, "dietPlans"), dietPlan);
-          console.log("Diet plan saved with ID:", docRef.id);
-
-          // Save to local storage
-          saveToLocalStorage(docRef.id, dietPlan);
-
-          // Clear input fields
-          planNameInput.value = "";
-          planDescriptionInput.value = "";
-
-          // Refresh the diet plan list
-          fetchDietPlans();
-        } catch (error) {
-          console.error("Error adding document: ", error);
-        }
-      }
-
-      // Save to Local Storage
-      function saveToLocalStorage(id, dietPlan) {
-        let dietPlans = JSON.parse(localStorage.getItem("dietPlans")) || {};
-        dietPlans[id] = dietPlan;
-        localStorage.setItem("dietPlans", JSON.stringify(dietPlans));
-      }
-
-      // Fetch Diet Plans
-      async function fetchDietPlans() {
-        dietPlanList.innerHTML = ""; // Clear the existing list
-
-        // Get from Firebase
-        try {
-          const querySnapshot = await getDocs(collection(db, "dietPlans"));
-          querySnapshot.forEach((doc) => {
-            const dietPlan = { id: doc.id, ...doc.data() };
-            displayDietPlan(dietPlan);
-          });
-        } catch (error) {
-          console.error("Error fetching documents: ", error);
-        }
-
-        // Get from Local Storage
-        const localPlans = JSON.parse(localStorage.getItem("dietPlans")) || {};
-        for (const id in localPlans) {
-          if (!document.getElementById(id)) {
-            displayDietPlan({ id, ...localPlans[id] });
-          }
-        }
-
-        // Display Diet Plan
-        function displayDietPlan(dietPlan) {
-          const dietPlanCard = document.createElement("div");
-          dietPlanCard.className = "dietPlan-card";
-          dietPlanCard.id = dietPlan.id; // Use ID for easy access
-
-          dietPlanCard.innerHTML = `
-    <div class="img">
-      <img src="assets/fresh-salad-wooden-bowl-lunch-generative-ai.jpg" alt="${dietPlan.name}">
-    </div>
-    <div class="text">
-      <h3>${dietPlan.name}</h3>
-      <p>${dietPlan.description}</p>
-      <button onclick="deleteDietPlan('${dietPlan.id}')">Delete</button>
-    </div>
-  `;
-
-          dietPlanList.appendChild(dietPlanCard);
-        }
-
-        // Delete Diet Plan
-        async function deleteDietPlan(id) {
-          try {
-            // Delete from Firebase
-            await deleteDoc(doc(db, "dietPlans", id));
-
-            // Delete from local storage
-            let dietPlans = JSON.parse(localStorage.getItem("dietPlans")) || {};
-            delete dietPlans[id];
-            localStorage.setItem("dietPlans", JSON.stringify(dietPlans));
-
-            // Refresh the diet plan list
-            fetchDietPlans();
-          } catch (error) {
-            console.error("Error deleting document: ", error);
-          }
-        }
-
-        // Event Listeners
-        dietPlanForm.addEventListener("submit", saveDietPlan);
-        fetchDietPlans(); // Fetch existing diet plans on page load
-
-  </script>
-
 </body>
+
 </html>

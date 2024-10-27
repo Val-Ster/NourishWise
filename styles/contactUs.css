@@ -1,0 +1,233 @@
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+  transition: all 400ms ease;
+}
+
+:root {
+  /* Neutral Colors */
+  --primary-bg: linear-gradient(to right, #07c15b, #225629);
+  --dark-green-bg: #225629;
+  --light-green-bg: #07c15b;
+  --light-grey: #ececec;
+
+  /* Text Colors */
+  --primary-text: #225629;
+  --white-text: #ffffff;
+  --dark-text: #333;
+  --light-text: #ececec;
+
+  /* Button colors */
+  --button-bg-hover: #07c15b;
+  --button-bg: #225629;
+
+  /* Padding */
+  --container-padding: 5rem 10rem;
+
+  /* Gradient color*/
+  --gradient-border: linear-gradient(
+    to right,
+    #a8e6cf,
+    #dcedc1,
+    #ffd54f,
+    #ffab91,
+    #ff8c94
+  );
+}
+
+/* =================== HEADER ====================*/
+#header {
+  z-index: 100;
+  height: 5rem;
+}
+
+header {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  padding: 0.3rem 2rem;
+  background: wheat;
+}
+
+header nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header nav ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 3rem;
+}
+
+header nav ul li a {
+  display: block;
+  color: var(--dark-text);
+  font-weight: bold;
+  text-transform: uppercase;
+  border-bottom: 2px solid transparent;
+}
+
+.action-btn-container {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
+}
+
+.menu-toggle {
+  font-size: 2.5rem;
+}
+
+nav {
+  display: none;
+}
+
+header nav ul li #active,
+header nav ul li a:hover {
+  border-bottom: 2px solid var(--dark-green-bg);
+  color: var(--dark-green-bg);
+}
+
+header nav ul li:last-child a {
+  background: var(--button-bg);
+  padding: 0.7rem 1rem;
+  color: var(--white-text);
+  border-radius: 100px;
+}
+
+/* Header logo style */
+header .logo img {
+  width: 4rem;
+}
+
+/* Header profile image style */
+header .user-profile img {
+  width: 3rem;
+  border-radius: 50%;
+  transition: 0.2s ease;
+  border: 3px solid transparent;
+}
+
+/* Header profile image style on hover*/
+header .user-profile img:hover {
+  border: 3px solid var(--button-bg);
+  transform: scale(1.1);
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+/* =================== FORM ====================*/
+
+.background-container {
+  background-image: url(../assets/bg-image.png); /*here*/
+}
+
+h1 {
+  color: var(--light-green-bg);
+  padding: 0 0 20px 0;
+  text-align: center;
+}
+.contact-container {
+  text-align: left;
+  padding: 120px 50px 30px 50px;
+  width: 300px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.field-container {
+  padding: 20px 0;
+}
+
+input[type="text"],
+input[type="email"] {
+  width: 100%; /* Full width of the container */
+  height: 40px; /* Height of the field */
+  padding: 6px 8px; /* Add padding for better readability */
+  font-size: 16px; /* Increase font size if needed */
+  border-radius: 6px;
+  border: 1px solid var(--dark-green-bg);
+}
+
+input[type="submit"] {
+  width: 50%;
+  padding: 10px;
+  background-color: var(--light-green-bg);
+  /* Dark grey button background */
+  color: #fff;
+  /* White text on the button */
+  border: none;
+  border-radius: 20px;
+  /* Rounded corners */
+  cursor: pointer;
+  text-align: center;
+  /* Center text inside the button */
+  font-size: 14px;
+  /* Font size for better readability */
+  transition: background-color 0.3s ease;
+}
+
+#message {
+  padding: 50px 7px; /* Increase padding for message field */
+  text-align: left;
+}
+
+
+/* ============================= FOOTER SECTION
+ =============================*/
+.footer {
+  background-color: #333;
+  background: var(--primary-bg);
+  /* background: wheat; */
+  color: white;
+  text-align: center;
+  display: flex;
+  padding: var(--container-padding);
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.footer-links {
+  padding: 0;
+}
+
+.footer-links li {
+  display: inline;
+}
+
+.footer-links a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover {
+  color: #4caf50;
+}
+
+.social-media {
+  margin-top: 10px;
+}
+
+.social-media a {
+  color: white;
+  margin: 0 10px;
+  font-size: 1.5em;
+  transition: color 0.3s;
+}
+
+.social-media a:hover {
+  color: #4caf50;
+}
