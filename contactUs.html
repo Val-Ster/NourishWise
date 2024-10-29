@@ -37,38 +37,53 @@
     </header>
 
     <!-- =========================== FORM SECTION ===========================-->
-      <div class="contact-container">
-        <h1>Contact Us</h1>
-        <form action="index.html" class="contactUs-form">
-          <div class="field-container">
-            <input
-              type="text"
-              name="name"
-              placeholder="Enter your Fullname..."
-              required
-            />
-          </div>
-          <div class="field-container">
-            <input
-              type="email"
-              name="email"
-              placeholder="Enter your Email..."
-              required
-            />
-          </div>
-          <div class="field-container message">
-            <input
-              type="text"
-              name="message"
-              id="message"
-              placeholder="What would you like to say..."
-              required
-            />
-          </div>
-          <div class="field-container">
-            <input type="submit" value="Send your message" required />
-          </div>
-        </form>
-      </div>
+    <div class="contact-container">
+      <h1>Contact Us</h1>
+      <form action="index.html" class="contactUs-form">
+        <div class="field-container">
+          <input
+            type="text"
+            name="name"
+            placeholder="Enter your Fullname..."
+            required
+          />
+        </div>
+        <div class="field-container">
+          <input
+            type="email"
+            name="email"
+            placeholder="Enter your Email..."
+            required
+          />
+        </div>
+        <div class="field-container message">
+          <input
+            type="text"
+            name="message"
+            id="message"
+            placeholder="What would you like to say..."
+            required
+          />
+        </div>
+        <div class="field-container">
+          <input
+            type="submit"
+            value="Send your message"
+            id="sendMessageButton"
+            required
+          />
+        </div>
+      </form>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        document
+          .getElementById("sendMessageButton")
+          .addEventListener("click", function () {
+            alert("Sent successfully");
+          });
+      });
+    </script>
   </body>
 </html>

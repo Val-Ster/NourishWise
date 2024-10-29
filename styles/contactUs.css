@@ -139,7 +139,9 @@ h1 {
   text-align: center;
 }
 .contact-container {
-  border: 2px solid blue;
+  border: 2px solid ;
+  /*box-shadow: 5px 3px #fff;*/
+  background-color: rgba(255, 255, 255, 0.1);
   text-align: left;
   padding: 120px 50px 30px 50px;
   width: 300px;
