@@ -206,18 +206,6 @@
     .dietPlan-card button:hover {
       background-color: darkred;
     }
-
-
-
-
-
-
-
-
-
-
-
-
   </style>
 </head>
 
@@ -241,6 +229,7 @@
     </ul>
     <a class="user-profile">
       <img src="assets/img-1.jpg" alt="user-profile">
+      <!-- <img src="assets/default-user.jpg" alt="user-profile" /> -->
     </a>
     </ul>
   </aside>
@@ -622,9 +611,20 @@
 
 
 
-  <!-- store log -->
+  <!-- Display image -->
   <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      const user = auth.currentUser;
+      if (user) {
+        // Fetch user data from Firestore
+        const userDoc = await firestore.collection('users').doc(user.uid).get();
+        const userData = userDoc.data();
 
+        // Display user profile image and name
+        document.getElementById('userName').textContent = `Welcome, ${userData.userName}`;
+        document.querySelector('.user-profile img').src = userData.profileImageUrl;
+      }
+    });
   </script>
 </body>
 
