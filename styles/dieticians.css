@@ -7,15 +7,23 @@ body {
   margin: 0;
 }
 
-h1 {
+body {
   display: block;
   text-align: center;
-  font-size: 90px;
+  font-size: 50px;
   color: #0a0a0a;
   width: 100%;
 
   /* Add pulse animation */
   animation: pulse 2s infinite; /* Animation duration is 2 seconds, repeating infinitely */
+}
+
+a {
+  text-decoration: underline;
+  color: rgb(22, 68, 22);
+}
+a:hover {
+  text-decoration: none;
 }
 
 /* Keyframes for pulse effect */

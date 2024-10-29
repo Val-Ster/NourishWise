@@ -127,10 +127,12 @@ header .user-profile img:hover {
 
 /* =================== FORM ====================*/
 
-.background-container {
-  background-image: url(../assets/bg-image.png); /*here*/
+body {
+  background-image: url("../assets/contact-us.jpeg");
+  background-size: cover; /* Scales the image to cover the entire area */
+  background-position: center; /* Centers the image */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
 }
-
 h1 {
   color: var(--light-green-bg);
   padding: 0 0 20px 0;
@@ -179,7 +181,6 @@ input[type="submit"] {
   padding: 50px 7px; /* Increase padding for message field */
   text-align: left;
 }
-
 
 /* ============================= FOOTER SECTION
  =============================*/
