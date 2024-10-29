@@ -172,18 +172,6 @@
       margin-bottom: 20px;
     }
 
-    button {
-      margin-top: 10px;
-      padding: 10px 15px;
-      background-color: #007bff;
-      color: white;
-      border: none;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background-color: #0056b3;
-    }
 
     #dietPlanList {
       display: flex;
@@ -231,36 +219,35 @@
 
 
     .dietPlan-card {
-  display: flex;
-  flex-direction: row;
-  margin: 10px;
-  padding: 15px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-}
+      display: flex;
+      flex-direction: row;
+      margin: 10px;
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
 
-.dietPlan-card .img {
-  width: 100px;
-  height: 100px;
-  margin-right: 15px;
-}
+    .dietPlan-card .img {
+      width: 100px;
+      height: 100px;
+      margin-right: 15px;
+    }
 
-.dietPlan-card .img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+    .dietPlan-card .img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
 
-.dietPlan-card .text h4 {
-  margin: 0;
-  font-size: 18px;
-  font-weight: bold;
-}
+    .dietPlan-card .text h4 {
+      margin: 0;
+      font-size: 18px;
+      font-weight: bold;
+    }
 
-.dietPlan-card .text p {
-  margin: 5px 0;
-}
-
+    .dietPlan-card .text p {
+      margin: 5px 0;
+    }
   </style>
 </head>
 
@@ -270,7 +257,8 @@
     <div class="aside-top">
       <img src="assets/diet_logo_t.png" alt="">
       <h1>NourishWise</h1>
-      <button class="close-btn" id="close-menu-btn">&times;</button>
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNavPanel()">×</a>
+      <!-- <button class="close-btn" id="close-menu-btn">&times;</button> -->
     </div>
     <ul>
       <li><a href="#dashboard" class="active" onclick="showSection('dashboard')"><i class="fas fa-tachometer-alt"></i>
@@ -290,7 +278,8 @@
     <section id="dashboard" class="content-section">
       <div class="dashboard-container">
         <div id="header">
-          <button class="open-btn" id="open-menu-btn"><i class="bx bx-menu"></i></button>
+          <span style="font-size:30px;cursor:pointer" onclick="openNavPanel()">☰</span>
+          <!-- <button class="open-btn" id="open-menu-btn"><i class="bx bx-menu">aaa</i>sss</button> -->
           <div class="text">
             <h2>NourishWise Dashboard</h2>
             <p>Welcome to your dashboard! Here you can find a quick overview of your recent activity, statistics, and
@@ -318,7 +307,6 @@
           <div class="diet-log">
             <div class="meal-log card">
               <h3>Log Your Meal</h3>
-              <div id="dietPlansContainer"></div>
 
               <form id="mealForm">
                 <input type="text" id="meal-name" placeholder="Enter meal name" required>
@@ -326,7 +314,7 @@
                 <button type="button" class="btn" id="lookup-calories">Lookup Calories</button>
                 <button type="submit" class="btn">Log Meal</button>
               </form>
-              <div id="food-suggestions" style="display: none;"></div>
+              <div id="food-suggestions" style="display: block;"></div>
             </div>
 
             <div id="weight-tracking-container" class="card">
@@ -402,56 +390,122 @@
           </div>
 
           <!-- Dashboard Section -->
-          <div id="dashboard">
-            <h2>Your Diet Plans</h2>
-            <div id="dietPlansContainer"></div>
-          </div>
 
           <h2>Calories Consumed</h2>
           <canvas id="calories-chart"></canvas>
         </div>
       </div>
-
-      <!-- Diet Plan Section -->
-
-
     </section>
 
     <!--=========================== Diet Plans Section Content ===========================-->
     <section id="diet-plans" class="content-section" style="display: none;">
       <div id="header">
-        <h1>Diet Plans</h1>
-        <p>Manage your diet plans here. You can create new plans, edit existing ones, or delete them as needed.</p>
+        <span style="font-size:30px;cursor:pointer" onclick="openNavPanel()">☰</span>
+        <div class="text">
+          <h1>Diet Plans</h1>
+          <p>Manage your diet plans here. You can create new plans, edit existing ones, or delete them as needed.</p>
+        </div>
         <button onclick="toggleCreateDietPlanForm()">Create New Diet Plan</button>
-
-        <div id="dietPlanSection">
-          <form class="diet-plan-form">
-            <input type="text" id="planName" placeholder="Diet Plan Name" required>
-            <textarea id="description" placeholder="Description" required></textarea>
-            <input type="text" id="meals" placeholder="Meals (comma separated)" required>
-            <button type="submit">Add Diet Plan</button>
-          </form>
-        </div>
-
-        <!-- <div id="createDietPlanForm" style="display: block;">
-          <h1>Create Diet Plan</h1>
-          <form class="diet-plan-form">
-            <input type="text" id="planName" placeholder="Plan Name" required />
-            <textarea id="description" placeholder="Plan Description" required></textarea>
-            <input type="text" id="meals" placeholder="Meals (comma-separated)" required />
-            <button type="submit">Save Plan</button>
-          </form>
-        </div> -->
-
-        <div class="dietPlan-list" id="dietPlanList"></div>
-
-        <div class="dashboards">
-          <h3>Your Diet Plan</h3>
-          <p><strong>Goal:</strong> <span id="dashboard-goal">No goal set</span></p>
-          <p><strong>Calories:</strong> <span id="dashboard-calories">-</span> kcal/day</p>
-          <p><strong>Preferences:</strong> <span id="dashboard-preferences">None</span></p>
-        </div>
       </div>
+      <!-- =========================== DIET PLAN SECTION ===========================-->
+      <section class="container dietPlan" id="diet-plans">
+        <header>
+          <h2>Explore Our Popular Diet Plans</h2>
+        </header>
+
+        <!-- Features List container -->
+        <div class="dietPlan-list" data-aos="zoom-in-up">
+          <!-- Feature card -->
+          <div class="dietPlan-card">
+            <div class="img">
+              <img src="assets/Keto-Diet.jpg" alt="" />
+            </div>
+            <div class="text">
+              <h4>Keto Diet</h4>
+              <p>High-fat, low-carb meals to help your body enter ketosis!</p>
+            </div>
+          </div>
+
+          <!-- Feature card -->
+          <div class="dietPlan-card">
+            <div class="img">
+              <img src="assets/Mediterranean-diet.jpeg" alt="" />
+            </div>
+            <div class="text">
+              <h4>Mediatorial Diet</h4>
+              <p>
+                Rich in fruits, vegetables, and healthy fats for a balanced
+                lifestyle!
+              </p>
+            </div>
+          </div>
+
+          <!-- Diet Plan card -->
+          <div class="dietPlan-card">
+            <div class="img">
+              <img src="assets/vegan-diet.jpeg" alt="" />
+            </div>
+            <div class="text">
+              <h4>Vegan Diet</h4>
+              <p>Plant-based meals to support your cruelty-free lifestyle!</p>
+            </div>
+          </div>
+        </div>
+        <!-- <a href="diet-plan.html" class="btn">Explore More</a> -->
+      </section>
+
+      <div id="dietPlanSection">
+        <form id="dietPlanForm" class="diet-plan-form">
+          <h3>Create Your Diet Plan</h3>
+
+          <!-- Diet Plan Name -->
+          <label for="planName">Diet Plan Name:</label>
+          <input type="text" id="planName" placeholder="Enter Diet Plan Name" required />
+
+          <!-- Diet Plan Description -->
+          <label for="description">Description:</label>
+          <textarea id="description" placeholder="Enter a short description of your diet plan" required></textarea>
+
+          <!-- Goal Calories -->
+          <label for="goalCalories">Daily Caloric Goal (kcal):</label>
+          <input type="number" id="goalCalories" placeholder="Enter your daily caloric goal" min="0" required />
+
+          <!-- Preferred Meals -->
+          <label for="meals">Meals (comma separated):</label>
+          <input type="text" id="meals" placeholder="e.g., Breakfast, Lunch, Dinner" required />
+
+          <!-- Submit Button -->
+          <button type="submit">Create Diet Plan</button>
+        </form>
+      </div>
+
+      <div>
+        <h2>Your Diet Plans</h2>
+        <div id="dietPlansContainer"></div>
+      </div>
+
+      <div class="dietPlan-list" id="dietPlanList"></div>
+
+    </section>
+
+    <section id="insights" class="content-section" style="display: none;">
+      <h2>Insights Section</h2>
+      <!-- Insights Content -->
+    </section>
+
+    <section id="dieticians" class="content-section" style="display: none;">
+      <h2>Dieticians Section</h2>
+      <!-- Dieticians Content -->
+    </section>
+
+    <section id="settings" class="content-section" style="display: none;">
+      <h2>Settings Section</h2>
+      <!-- Settings Content -->
+    </section>
+
+    <section id="logout" class="content-section" style="display: none;">
+      <h2>Logout Section</h2>
+      <!-- Logout Content -->
     </section>
   </main>
 
@@ -461,7 +515,7 @@
   <script src="https://www.gstatic.com/firebasejs/9.x.x/firebase-firestore.js"></script>
 
   <!-- Your custom scripts -->
-  <script src="./store-data.js"></script>
+  <!-- <script src="./store-data.js"></script> -->
 
   <script type="module" src="script/store-data.js"></script>
   <!-- ==================================================== -->
@@ -545,6 +599,62 @@
   <script src="script/food_log_form.js"></script>
   <script src="script/dashboard.js"></script>
 
+
+  <script>
+    document.getElementById("mealForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const mealName = document.getElementById("meal-name").value;
+      const calories = parseInt(document.getElementById("calories").value) || 0;
+
+      // Update total and remaining calories
+      const totalCaloriesElem = document.getElementById("totalCalories");
+      const caloriesRemainingElem = document.getElementById("calories-remaining");
+      let totalCalories = parseInt(totalCaloriesElem.textContent) || 0;
+      let caloriesRemaining = parseInt(caloriesRemainingElem.textContent) || 2000;
+
+      totalCalories += calories;
+      caloriesRemaining -= calories;
+
+      totalCaloriesElem.textContent = totalCalories;
+      caloriesRemainingElem.textContent = caloriesRemaining;
+
+      // Log meal to the respective day
+      const today = new Date().toLocaleDateString('en-US', { weekday: 'long' }).toLowerCase();
+      document.getElementById(`${today}-meals`).textContent += `${mealName}, `;
+      const dayCaloriesElem = document.getElementById(`${today}-calories`);
+      dayCaloriesElem.textContent = parseInt(dayCaloriesElem.textContent) + calories;
+
+      document.getElementById("mealForm").reset();
+    });
+
+    // Weight tracking
+    document.getElementById("update-weight").addEventListener("click", function () {
+      const weight = document.getElementById("weight").value;
+      document.getElementById("weight-display").textContent = weight;
+      document.getElementById("weight").value = '';
+    });
+
+    // Optional: Function to calculate progress and update progress bar
+    function updateProgress() {
+      const goalCalories = 2000; // Example goal, adjust as needed
+      const consumedCalories = parseInt(document.getElementById("totalCalories").textContent);
+      const progress = Math.min((consumedCalories / goalCalories) * 100, 100);
+
+      document.getElementById("progress-bar").style.width = `${progress}%`;
+      document.getElementById("progressPercentage").textContent = `${Math.round(progress)}%`;
+    }
+
+    // Call updateProgress after updating total calories
+    document.getElementById("mealForm").addEventListener("submit", updateProgress);
+
+  </script>
+
+
+
+  <!-- store log -->
+  <script>
+
+  </script>
 </body>
 
 </html>

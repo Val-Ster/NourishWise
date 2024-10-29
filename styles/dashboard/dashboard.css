@@ -152,7 +152,7 @@ button {
 
 .sidebar ul li {
   list-style: none;
-  margin: 20px 0;
+  margin: 2rem 0;
 }
 
 .sidebar ul li a {
@@ -163,6 +163,36 @@ button {
   gap: 10px;
   font-size: large;
 }
+.closebtn{
+  font-size: 2rem;
+  color: var(--button-bg);
+}
+.closebtn:hover{
+  color: var(--button-bg-hover);
+}
+.main-content {
+  transition: margin-left 0.5s ease-in-out;
+}
+
+.sidebar {
+  height: 100%;
+  width: 250px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  /* left: -250px; */
+  left: 0;
+  padding-top: 20px;
+  overflow-x: hidden;
+  transition: 0.5s;
+}
+
+.content {
+  margin-left: 0;
+  transition: margin-left 0.5s ease-in-out;
+  padding: 16px;
+}
+
 
 .sidebar ul li a.active {
   font-weight: bold;
@@ -174,6 +204,7 @@ button {
 
 .sidebar ul li a:hover {
   background-color: var(--button-bg-hover);
+  color: #f1f1f1;
 }
 
 .nav-list {
@@ -266,7 +297,7 @@ button {
 /*============================= dashboard cards =============================*/
 .diet-log {
   margin: 2rem 0;
-  gap:1rem;
+  gap: 1rem;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 }
@@ -302,17 +333,21 @@ button {
 }
 
 /*============================= Dashboard dietPlan =============================*/
-.day-section .day-section-header{
+.day-section .day-section-header {
   gap: 2rem;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: left;
 }
+
 /*============================= Dashboard dietPlan =============================*/
 #diet-plans #header {
-  padding: 0;
-  margin-bottom: 2rem;
+  /* padding: 0; */
+  /* margin-bottom: 2rem; */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 h2,

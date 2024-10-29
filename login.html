@@ -17,27 +17,24 @@
     <div class="diet-logo">
       <img src="assets/diet_logo_t.png" alt="diet-logo" />
     </div>
-    <form action="dashboard.html" class="styled-form">
-      <input type="email" id="inUsr" placeholder="Enter your email">
-      <!-- <input type="password" placeholder="Enter your password.." minlength="6" required /> -->
-      <input type="password" id="inPass" placeholder="Enter your password">
+    <form class="styled-form">
+      <input type="email" id="inUsr" placeholder="Enter your email" required>
+      <input type="password" id="inPass" placeholder="Enter your password" required>
 
-      
       <span class="signup">
-        <button class="loginbtn">Login</button>
-        <!-- <a href="forget-form.html" id="forgotLabel">Forgot password?</a> -->
+        <a href="forget-form.html" id="forgotLabel">Forgot password?</a>
       </span>
 
-      <input type="button" class="button loginbtn" value="Login">
+      <button type="button" class="loginbtn button">Login</button>
 
       <p class="login-p">
-        <!-- New to NourishWise? <br />Sign Up <a href="sign-up.html">here!</a> -->
+        New to NourishWise? <br />Sign Up <a href="sign-up.html">here!</a>
       </p>
     </form>
   </div>
 
   <script>
-    
+
   </script>
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
