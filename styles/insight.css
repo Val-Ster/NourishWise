@@ -13,7 +13,6 @@ body {
 
 .insight {
   border-radius: 8px;
-  /*box-shadow: 0 2px 5px rgb(255, 251, 251);*/
   margin-bottom: 20px;
   display: flex;
   flex-direction: column;
