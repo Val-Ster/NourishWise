@@ -168,10 +168,13 @@ header .user-profile i {
   font-size: 3rem;
   color: var(--button-bg);
   border: 3px solid var(--button-bg);
+  /* border: 3px solid transparent; */
+  padding: 0.2rem;
 }
 
 header .user-profile i:hover {
   color: var(--button-bg-hover);
+  border: 3px solid var(--button-bg-hover);
   transform: scale(1.1);
   overflow: hidden;
   border-radius: 50%;
