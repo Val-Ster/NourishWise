@@ -54,7 +54,6 @@ document.querySelector('.diet-plan-form').addEventListener('submit', async funct
 });
 
 // Function to load diet plans
-// Function to load diet plans
 async function loadDietPlans() {
   const user = auth.currentUser;
 

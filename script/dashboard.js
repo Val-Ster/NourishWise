@@ -4,9 +4,7 @@ document.querySelectorAll('.sidebar a').forEach(link => {
     e.preventDefault();
     const target = this.getAttribute('href').substring(1); // Get the target section
     document.querySelectorAll('.content-section').forEach(section => {
-      section.style.display = 'none'; // Hide all sections
     });
-    document.getElementById(target).style.display = 'block'; // Show the selected section
 
     // Update active link
     document.querySelectorAll('.sidebar a').forEach(a => a.classList.remove('active'));
@@ -41,6 +39,7 @@ window.addEventListener('load', () => {
     // Default to the dashboard section if no hash is provided
     document.getElementById('dashboard').style.display = 'block';
   }
+
 });
 
 
@@ -55,3 +54,16 @@ function showSection(sectionId) {
 
 // Initial setup
 showSection('dashboard');
+
+
+// Function to open and close side bar
+const main_content = document.getElementById('mainContainer')
+function openNavPanel() {
+  document.getElementById("sidePanel").style.left = "0";
+  main_content.style.marginLeft = "250px"; /* Adjust margin based on nav panel width */
+}
+
+function closeNavPanel() {
+  document.getElementById("sidePanel").style.left = "-250px";
+  main_content.style.marginLeft = "0";
+}
