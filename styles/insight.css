@@ -13,7 +13,7 @@ body {
 
 .insight {
   border-radius: 8px;
-  box-shadow: 0 2px 5px rgb(255, 251, 251);
+  /*box-shadow: 0 2px 5px rgb(255, 251, 251);*/
   margin-bottom: 20px;
   display: flex;
   flex-direction: column;
@@ -26,15 +26,16 @@ body {
   padding: 0 12%;
 }
 
-.insight header h2 {
+.insight header h1 {
   width: 100%;
   text-align: center;
-  color: #f5deb3;
+  color: white;
+  font-weight: 900;
 }
 
 .insight header p {
   font-size: large;
-  color: rgb(255, 247, 247);
+  color: white;
 }
 
 .insight-list {
@@ -61,7 +62,7 @@ body {
 
 .insight-card:hover {
   transform: translateY(-0.5rem);
-  box-shadow: 0px 8px 16px rgb(34, 209, 104);
+  box-shadow: 0px 8px 16px black;
 }
 
 .insight-card h3 {
