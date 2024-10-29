@@ -1,5 +1,9 @@
 import { firebaseConfig } from './firebaseConfig.js';
-const firebaseApp = firebase.initializeApp(firebaseConfig);
+
+// Initialize Firebase with your configuration
+firebase.initializeApp(firebaseConfig);
+
+// Initialize Firebase services
 const auth = firebase.auth();
 const firestore = firebase.firestore();
 
