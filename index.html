@@ -1,300 +1,309 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NourishWise</title>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NourishWise</title>
+    <link rel="icon" href="assets/diet_logo_t.png" />
 
-  <link rel="icon" href="assets/diet_logo_t.png" />
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="styles/responsive.css" />
 
-  <!-- Stylesheets -->
-  <link rel="stylesheet" href="styles/style.css" />
-  <link rel="stylesheet" href="styles/responsive.css" />
+    <!-- Fontawesome Icon link -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMDE8cvdRa7zBbb4T3N6g5RhiB2V1Knq8MkHx6"
+      crossorigin="anonymous"
+    />
 
-  <!-- Fontawesome Icon link -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-    integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMDE8cvdRa7zBbb4T3N6g5RhiB2V1Knq8MkHx6" crossorigin="anonymous" />
+    <script
+      src="https://kit.fontawesome.com/f70dd16b18.js"
+      crossorigin="anonymous"
+    ></script>
 
-  <script src="https://kit.fontawesome.com/f70dd16b18.js" crossorigin="anonymous"></script>
+    <!-- SwiperJS CSS link -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"
+    />
 
-  <!-- SwiperJS CSS link -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+    <!-- SwiperJS JS link -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
 
-  <!-- SwiperJS JS link -->
-  <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
-  <!-- AOS -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.6/lottie.min.js"></script>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.6/lottie.min.js"></script>
+    <style>
+      .swiper-container {
+        overflow: hidden;
+        margin: auto;
+        margin: auto;
+        width: 100%;
+        padding: 1rem;
+        padding-bottom: 1.5rem;
+      }
 
-  <style>
-    .swiper-container {
-      overflow: hidden;
-      margin: auto;
-      margin: auto;
-      width: 100%;
-      padding: 1rem;
-      padding-bottom: 1.5rem;
-    }
+      .main-swiper {
+        width: 100%;
+        height: auto;
+        margin: auto;
+        margin-bottom: 0;
+      }
+    </style>
+  </head>
 
-    .main-swiper {
-      width: 100%;
-      height: auto;
-      margin: auto;
-      margin-bottom: 0;
-    }
-  </style>
-</head>
-
-<body>
-  <!-- =========================== HEADER SECTION ===========================-->
-  <header id="header">
-    <nav>
-      <div class="logo">
-        <img src="assets/diet_logo_t.png" alt="NourishWise logo" />
-      </div>
-      <ul class="nav-list" id="nav-list">
-        <li>
-          <!-- <i class="fas fa-bars"></i> -->
-          <a href="" id="active">Home</a>
-        </li>
-        <li><a href="sign-up.html">Diet Plan</a></li>
-        <li><a href="sign-up.html">Insights</a></li>
-        <li><a href="sign-up.html">Dieticians</a></li>
-        <li><a href="contactUs.html" class="btn">Contact Us</a></li>
-      </ul>
-      <div class="action-btn-container">
-        <a href="customer-dashboard.html" class="user-profile">
-          <!-- <img src="assets/img-1.jpg" alt="user-profile" /> -->
-          <i class="fas fa-user"></i>
-        </a>
-        <div class="menu-toggle" id="mobile-menu" onclick="toggleNavbar()">
-          <i class="fas fa-bars">=</i>
+  <body>
+    <!-- =========================== HEADER SECTION ===========================-->
+    <header id="header">
+      <nav>
+        <div class="logo">
+          <img src="assets/diet_logo_t.png" alt="NourishWise logo" />
         </div>
-      </div>
-    </nav>
-  </header>
-
-  <main id="mainContainer">
-    <!-- =========================== HERO SECTION ===========================-->
-    <section class="container hero">
-      <div class="hero-bg">
-        <div class="hero-text" data-aos="zoom-in-up">
-          <h1>NourishWise</h1>
-          <h3>Eat Smart, Live Well</h3>
-          <p>Your Journey to Wellness Start Here!</p>
-          <div class="btn action-btn">
-            <a href="sign-up.html">GET STARTED</a>
-            <i class="fa-solid fa-arrow-right"></i>
+        <ul class="nav-list" id="nav-list">
+          <li>
+            <!-- <i class="fas fa-bars"></i> -->
+            <a href="" id="active">Home</a>
+          </li>
+          <li><a href="sign-up.html">Diet Plan</a></li>
+          <li><a href="sign-up.html">Insights</a></li>
+          <li><a href="sign-up.html">Dieticians</a></li>
+          <li><a href="sign-up.html" class="btn">Contact Us</a></li>
+        </ul>
+        <div class="action-btn-container">
+          <a href="login.html" class="user-profile">
+            <!-- <img src="assets/img-1.jpg" alt="user-profile" /> -->
+            <i class="fas fa-user"></i>
+          </a>
+          <div class="menu-toggle" id="mobile-menu" onclick="toggleNavbar()">
+            <i class="fas fa-bars">=</i>
           </div>
         </div>
-      </div>
-    </section>
+      </nav>
+    </header>
 
-    <!-- =========================== WELCOME SECTION ===========================-->
-    <section class="container about">
-      <div class="about-content">
-        <div class="text-content">
-          <div>
-            <!-- About header -->
-            <header>
-              <h2>Welcome to NourishWise!</h2>
-            </header>
-
-            <p class="aboutTxt">
-              NourishWise is your go-to app for finding personalized diet
-              plans that fit your lifestyle and health goals. Whether you're
-              looking to lose weight, gain muscle, or simply eat healthier, we
-              offer a range of diet plans designed by experienced dieticians
-              just for you.
-            </p>
-            <br />
-            <strong>
-              Join a community of health-conscious individuals who are
-              committed to making positive changes in their lives through
-              smart nutrition.
-            </strong>
+    <main id="mainContainer">
+      <!-- =========================== HERO SECTION ===========================-->
+      <section class="container hero">
+        <div class="hero-bg">
+          <div class="hero-text" data-aos="zoom-in-up">
+            <h1>NourishWise</h1>
+            <h3>Eat Smart, Live Well</h3>
+            <p>Your Journey to Wellness Start Here!</p>
+            <div class="btn action-btn">
+              <a href="sign-up.html">GET STARTED</a>
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
           </div>
         </div>
-        <div class="diet-logo" data-aos="zoom-in-up">
-          <img src="assets/diet_logo_t.png" alt="diet-logo" />
-        </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- =========================== Features SECTION ===========================-->
-    <section class="container features">
-      <header>
-        <h2>Why Choose NourishWise?</h2>
-      </header>
+      <!-- =========================== WELCOME SECTION ===========================-->
+      <section class="container about">
+        <div class="about-content">
+          <div class="text-content">
+            <div>
+              <!-- About header -->
+              <header>
+                <h2>Welcome to NourishWise!</h2>
+              </header>
 
-      <!-- Features List container -->
-      <div class="features-list" data-aos="zoom-in-up">
-        <!-- Feature card -->
-        <div class="feature-card">
-          <div class="img">
-            <i class="fas fa-apple-alt"></i>
+              <p class="aboutTxt">
+                NourishWise is your go-to app for finding personalized diet
+                plans that fit your lifestyle and health goals. Whether you're
+                looking to lose weight, gain muscle, or simply eat healthier, we
+                offer a range of diet plans designed by experienced dieticians
+                just for you.
+              </p>
+              <br />
+              <strong>
+                Join a community of health-conscious individuals who are
+                committed to making positive changes in their lives through
+                smart nutrition.
+              </strong>
+            </div>
           </div>
-          <div class="text">
-            <h4>Personalized Diet Plan</h4>
-            <p>
-              Create a diet plan tailored to your individual health goals and
-              dietary needs.
-            </p>
-          </div>
-        </div>
-
-        <!-- Feature card -->
-        <div class="feature-card">
-          <div class="img">
-            <i class="fas fa-chart-line"></i>
-          </div>
-          <div class="text">
-            <h4>Progress Tracking</h4>
-            <p>
-              Monitor your fitness journey with detailed progress tracking and
-              analytics.
-            </p>
+          <div class="diet-logo" data-aos="zoom-in-up">
+            <img src="assets/diet_logo_t.png" alt="diet-logo" />
           </div>
         </div>
+      </section>
 
-        <!-- Feature card -->
-        <div class="feature-card">
-          <div class="img">
-            <i class="fas fa-utensils"></i>
-          </div>
-          <div class="text">
-            <h4>Access to Expert Dieticians</h4>
-            <p>
-              Access a variety of healthy recipes to support your diet and
-              fitness goals.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
+      <!-- =========================== Features SECTION ===========================-->
+      <section class="container features">
+        <header>
+          <h2>Why Choose NourishWise?</h2>
+        </header>
 
-    <!-- =========================== DIET PLAN SECTION ===========================-->
-    <section class="container dietPlan" id="diet-plans">
-      <header>
-        <h2>Explore Our Popular Diet Plans</h2>
-      </header>
-
-      <!-- Features List container -->
-      <div class="dietPlan-list" data-aos="zoom-in-up">
-        <!-- Feature card -->
-        <div class="dietPlan-card">
-          <div class="img">
-            <img src="assets/Keto-Diet.jpg" alt="" />
-          </div>
-          <div class="text">
-            <h4>Keto Diet</h4>
-            <p>High-fat, low-carb meals to help your body enter ketosis!</p>
-          </div>
-        </div>
-
-        <!-- Feature card -->
-        <div class="dietPlan-card">
-          <div class="img">
-            <img src="assets/Mediterranean-diet.jpeg" alt="" />
-          </div>
-          <div class="text">
-            <h4>Mediatorial Diet</h4>
-            <p>
-              Rich in fruits, vegetables, and healthy fats for a balanced
-              lifestyle!
-            </p>
-          </div>
-        </div>
-
-        <!-- Diet Plan card -->
-        <div class="dietPlan-card">
-          <div class="img">
-            <img src="assets/vegan-diet.jpeg" alt="" />
-          </div>
-          <div class="text">
-            <h4>Vegan Diet</h4>
-            <p>Plant-based meals to support your cruelty-free lifestyle!</p>
-          </div>
-        </div>
-      </div>
-      <a href="sign-up.html" class="btn">Explore More</a>
-    </section>
-
-    <!-- =========================== Testimonial SECTION ===========================-->
-    <section class="container testimonials">
-      <header>
-        <h2>What Our Users Are Saying</h2>
-      </header>
-      <div class="swiper-container main-swiper" data-aos="zoom-in-up">
-        <div class="swiper-wrapper">
-          <!-- Testimonial Card Start -->
-          <div class="testimonial-card swiper-slide">
+        <!-- Features List container -->
+        <div class="features-list" data-aos="zoom-in-up">
+          <!-- Feature card -->
+          <div class="feature-card">
             <div class="img">
-              <img src="assets/img-1.jpg" alt="Mohammed Super" />
+              <i class="fas fa-apple-alt"></i>
             </div>
             <div class="text">
-              <h4>Mohammed Super</h4>
+              <h4>Personalized Diet Plan</h4>
               <p>
-                "NourishWise has completely transformed my diet. The
-                personalized plans and insightful advice have been a
-                game-changer!"
+                Create a diet plan tailored to your individual health goals and
+                dietary needs.
               </p>
             </div>
           </div>
-          <!-- Testimonial Card End -->
 
-          <!-- Testimonial Card Start -->
-          <div class="testimonial-card swiper-slide">
+          <!-- Feature card -->
+          <div class="feature-card">
             <div class="img">
-              <img src="assets/img-1.jpg" alt="Igbokwe Valerie" />
+              <i class="fas fa-chart-line"></i>
             </div>
             <div class="text">
-              <h4>Igbokwe Valerie</h4>
+              <h4>Progress Tracking</h4>
               <p>
-                "I've never felt more confident in my food choices. This
-                platform makes healthy eating easy and fun!"
+                Monitor your fitness journey with detailed progress tracking and
+                analytics.
               </p>
             </div>
           </div>
-          <!-- Testimonial Card End -->
 
-          <!-- Testimonial Card Start -->
-          <div class="testimonial-card swiper-slide" data-aos="zoom-in-up">
+          <!-- Feature card -->
+          <div class="feature-card">
             <div class="img">
-              <img src="assets/img-1.jpg" alt="Ahmed.I" />
+              <i class="fas fa-search"></i>
             </div>
             <div class="text">
-              <h4>Ahmed.I</h4>
+              <h4>Access To Insights</h4>
               <p>
-                "The community and support here are unmatched. It feels great
-                to be part of a group that genuinely cares about wellness."
+                Access a variety of proven health tips to guide you through to
+                your diet and fitness goals.
               </p>
             </div>
           </div>
-          <!-- Testimonial Card End -->
+        </div>
+      </section>
 
-          <!-- Testimonial Card Start -->
-          <div class="testimonial-card swiper-slide">
+      <!-- =========================== DIET PLAN SECTION ===========================-->
+      <section class="container dietPlan" id="diet-plans">
+        <header>
+          <h2>Explore Our Popular Diet Plans</h2>
+        </header>
+
+        <!-- Features List container -->
+        <div class="dietPlan-list" data-aos="zoom-in-up">
+          <!-- Feature card -->
+          <div class="dietPlan-card">
             <div class="img">
-              <img src="assets/img-1.jpg" alt="Progress 4" />
+              <img src="assets/Keto-Diet.jpg" alt="" />
             </div>
             <div class="text">
-              <h4>Isha</h4>
+              <h4>Keto Diet</h4>
+              <p>High-fat, low-carb meals to help your body enter ketosis!</p>
+            </div>
+          </div>
+
+          <!-- Feature card -->
+          <div class="dietPlan-card">
+            <div class="img">
+              <img src="assets/Mediterranean-diet.jpeg" alt="" />
+            </div>
+            <div class="text">
+              <h4>Mediatorial Diet</h4>
               <p>
-                "The diet plans are simple yet effective. I love how it's
-                tailored just for my needs!"
+                Rich in fruits, vegetables, and healthy fats for a balanced
+                lifestyle!
               </p>
             </div>
           </div>
-          <!-- Testimonial Card End -->
 
-          <!-- Testimonial Card Start -->
-          <!-- <div class="testimonial-card>
+          <!-- Diet Plan card -->
+          <div class="dietPlan-card">
+            <div class="img">
+              <img src="assets/vegan-diet.jpeg" alt="" />
+            </div>
+            <div class="text">
+              <h4>Vegan Diet</h4>
+              <p>Plant-based meals to support your cruelty-free lifestyle!</p>
+            </div>
+          </div>
+        </div>
+        <a href="sign-up.html" class="btn">Explore More</a>
+      </section>
+
+      <!-- =========================== Testimonial SECTION ===========================-->
+      <section class="container testimonials">
+        <header>
+          <h2>What Our Users Are Saying</h2>
+        </header>
+        <div class="swiper-container main-swiper" data-aos="zoom-in-up">
+          <div class="swiper-wrapper">
+            <!-- Testimonial Card Start -->
+            <div class="testimonial-card swiper-slide">
+              <div class="img">
+                <img src="assets/img-1.jpg" alt="Mohammed Super" />
+              </div>
+              <div class="text">
+                <h4>Mohammed Super</h4>
+                <p>
+                  "NourishWise has completely transformed my diet. The
+                  personalized plans and insightful advice have been a
+                  game-changer!"
+                </p>
+              </div>
+            </div>
+            <!-- Testimonial Card End -->
+
+            <!-- Testimonial Card Start -->
+            <div class="testimonial-card swiper-slide">
+              <div class="img">
+                <img src="assets/img-1.jpg" alt="Igbokwe Valerie" />
+              </div>
+              <div class="text">
+                <h4>Igbokwe Valerie</h4>
+                <p>
+                  "I've never felt more confident in my food choices. This
+                  platform makes healthy eating easy and fun!"
+                </p>
+              </div>
+            </div>
+            <!-- Testimonial Card End -->
+
+            <!-- Testimonial Card Start -->
+            <div class="testimonial-card swiper-slide" data-aos="zoom-in-up">
+              <div class="img">
+                <img src="assets/img-1.jpg" alt="Ahmed.I" />
+              </div>
+              <div class="text">
+                <h4>Ahmed.I</h4>
+                <p>
+                  "The community and support here are unmatched. It feels great
+                  to be part of a group that genuinely cares about wellness."
+                </p>
+              </div>
+            </div>
+            <!-- Testimonial Card End -->
+
+            <!-- Testimonial Card Start -->
+            <div class="testimonial-card swiper-slide">
+              <div class="img">
+                <img src="assets/img-1.jpg" alt="Progress 4" />
+              </div>
+              <div class="text">
+                <h4>Isha</h4>
+                <p>
+                  "The diet plans are simple yet effective. I love how it's
+                  tailored just for my needs!"
+                </p>
+              </div>
+            </div>
+            <!-- Testimonial Card End -->
+
+            <!-- Testimonial Card Start -->
+            <!-- <div class="testimonial-card>
             <div class="img">
               <img src="assets/img-1.jpg" alt="Progress 5">
             </div>
@@ -305,167 +314,136 @@
                 nutrition."</p>
             </div>
           </div> -->
-          <!-- Testimonial Card End -->
+            <!-- Testimonial Card End -->
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- =========================== Getting started SECTION ===========================-->
-    <section class="container getting-started">
-      <header data-aos="zoom-in-up">
-        <h2>Getting Started is Easy!</h2>
+      <!-- =========================== Getting started SECTION ===========================-->
+      <section class="container getting-started">
+        <header data-aos="zoom-in-up">
+          <h2>Getting Started is Easy!</h2>
 
-        <p>
-          Join us on a journey to healthier eating! Our user-friendly platform
-          makes it easy to find and customize diet plans tailored to your
-          needs. Let's take the first step towards a healthier you!
-        </p>
-        <ol>
-          <li>Sign up for a free account.</li>
-          <li>Explore our diverse diet plans.</li>
-          <li>Select a plan that suits your goals.</li>
-          <li>Start your journey to a healthier lifestyle!</li>
-        </ol>
-        <p></p>
-        <p>
-          Ready to transform your eating habits? Click the button below to
-          sign up and get started today!
-        </p>
-        <br /><br />
-        <a href="sign-up.html" class="btn">Get Started</a>
-      </header>
-      <ul class="text" data-aos="zoom-in-up">
-        <li>
-          <div class="getting-started-heading">
-            <i class="fas fa-user-plus"></i>
-            <h1>1</h1>
-          </div>
           <p>
-            <strong>Signup: </strong>Create your free account in just a few
-            minutes.
+            Join us on a journey to healthier eating! Our user-friendly platform
+            makes it easy to find and customize diet plans tailored to your
+            needs. Let's take the first step towards a healthier you!
           </p>
-        </li>
-        <li>
-          <div class="getting-started-heading">
-            <i class="fas fa-bullseye"></i>
-            <h1>2</h1>
-          </div>
+          <ol>
+            <li>Sign up for a free account.</li>
+            <li>Explore our diverse diet plans.</li>
+            <li>Select a plan that suits your goals.</li>
+            <li>Start your journey to a healthier lifestyle!</li>
+          </ol>
+          <p></p>
           <p>
-            <strong>Prepare your target goals: </strong>Make sure to keep inmind what exactly you are looking for.
+            Ready to transform your eating habits? Click the button below to
+            sign up and get started today!
           </p>
-        </li>
-        <li>
-          <div class="getting-started-heading">
-            <i class="fas fa-clipboard-list"></i>
-            <h1>3</h1>
-          </div>
-          <p>
-            <strong>Get your plan: </strong>Create a custom plan tailored for
-            you.
-          </p>
-        </li>
-        <li>
-          <div class="getting-started-heading">
-            <i class="fas fa-walking"></i>
-            <h1>4</h1>
-          </div>
-          <p>
-            <strong>Start your journey: </strong>Begin tracking your meals,
-            progress, and enjoy the journey to better health.
-          </p>
-        </li>
-      </ul>
-    </section>
-
-    <!-- =========================== Testimonial SECTION ===========================-->
-    <!-- CTA Section -->
-    <section class="container cta">
-      <div class="cta-content">
-        <div class="left">
-          <h2>Join Us Today!</h2>
-          <p>
-            Sign up now and take the first step towards achieving your goals!
-          </p>
-        </div>
-        <div class="right">
-          <a href="sign-up.html" class="cta-button">Get Started</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- =========================== Testimonial SECTION ===========================-->
-    <!-- Footer Section -->
-    <footer class="footer">
-      <div class="footer-content">
-        <p>&copy; 2024 Your Company. All rights reserved.</p>
-        <ul class="footer-links">
-          <li><a href="privacy.html">Privacy Policy</a></li>
-          <li><a href="terms.html">Terms of Service</a></li>
-          <li><a href="contactUs.html">Contact Us</a></li>
+          <br /><br />
+          <a href="sign-up.html" class="btn">Get Started</a>
+        </header>
+        <ul class="text" data-aos="zoom-in-up">
+          <li>
+            <div class="getting-started-heading">
+              <i class="fas fa-user-plus"></i>
+              <h1>1</h1>
+            </div>
+            <p>
+              <strong>Signup: </strong>Create your free account in just a few
+              minutes.
+            </p>
+          </li>
+          <li>
+            <div class="getting-started-heading">
+              <i class="fas fa-bullseye"></i>
+              <h1>2</h1>
+            </div>
+            <p>
+              <strong>Prepare your target goals: </strong>Make sure to keep
+              inmind what exactly you are looking for.
+            </p>
+          </li>
+          <li>
+            <div class="getting-started-heading">
+              <i class="fas fa-clipboard-list"></i>
+              <h1>3</h1>
+            </div>
+            <p>
+              <strong>Get your plan: </strong>Create a custom plan tailored for
+              you.
+            </p>
+          </li>
+          <li>
+            <div class="getting-started-heading">
+              <i class="fas fa-walking"></i>
+              <h1>4</h1>
+            </div>
+            <p>
+              <strong>Start your journey: </strong>Begin tracking your meals,
+              progress, and enjoy the journey to better health.
+            </p>
+          </li>
         </ul>
-      </div>
-      <div class="social-media">
-        <a href="https://linkedin.com" target="_blank" class="fab fa-linkedin-f"></a>
-        <a href="https://wa.me/" target="_blank" class="fab fa-whatsapp"></a>
-        <a href="https://facebook.com" target="_blank" class="fab fa-facebook-f"></a>
-        <a href="https://twitter.com" target="_blank" class="fab fa-twitter"></a>
-        <a href="https://instagram.com" target="_blank" class="fab fa-instagram"></a>
-      </div>
-    </footer>
-  </main>
-  <script>
-    AOS.init();
-    const swiper = new Swiper(".main-swiper", {
-      loop: true,
-      slidesPerView: 1,
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      },
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-    });
-  </script>
-  <script src="script/script.js"></script>
-  <script>
-    AOS.init();
-  </script>
+      </section>
 
-  <script>
-    // Get current URL
-    const currentUrl = window.location.pathname;
-    const navLinks = document.querySelectorAll(".nav-link");
+      <!-- =========================== Testimonial SECTION ===========================-->
+      <!-- CTA Section -->
+      <section class="container cta">
+        <div class="cta-content">
+          <div class="left">
+            <h2>Join Us Today!</h2>
+            <p>
+              Sign up now and take the first step towards achieving your goals!
+            </p>
+          </div>
+          <div class="right">
+            <a href="sign-up.html" class="cta-button">Get Started</a>
+          </div>
+        </div>
+      </section>
 
-    navLinks.forEach((link) => {
-      if (link.href.includes(currentUrl)) {
-        link.classList.add("active");
-      }
-    });
-  </script>
-
-  <script src="https://kit.fontawesome.com/f70dd16b18.js" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      var swiper = new Swiper(".main-swiper", {
-        slidesPerView: 1, // Default number of slides
-        spaceBetween: 10, // Space between slides in pixels
-        breakpoints: {
-          640: {
-            slidesPerView: 2, // Number of slides for screens 640px and up (tablets)
-          },
-          1024: {
-            slidesPerView: 3, // Number of slides for screens 1024px and up (desktops)
-          },
-        },
-        loop: true, // Enable continuous loop mode
-        autoplay: {
-          delay: 3000,
-          disableOnInteraction: false,
-        },
+      <!-- =========================== Testimonial SECTION ===========================-->
+      <!-- Footer Section -->
+      <footer class="footer">
+        <div class="footer-content">
+          <p>&copy; 2024 Your Company. All rights reserved.</p>
+          <ul class="footer-links">
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="contactUs.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="social-media">
+          <a
+            href="https://linkedin.com"
+            target="_blank"
+            class="fab fa-linkedin-f"
+          ></a>
+          <a href="https://wa.me/" target="_blank" class="fab fa-whatsapp"></a>
+          <a
+            href="https://facebook.com"
+            target="_blank"
+            class="fab fa-facebook-f"
+          ></a>
+          <a
+            href="https://twitter.com"
+            target="_blank"
+            class="fab fa-twitter"
+          ></a>
+          <a
+            href="https://instagram.com"
+            target="_blank"
+            class="fab fa-instagram"
+          ></a>
+        </div>
+      </footer>
+    </main>
+    <script>
+      AOS.init();
+      const swiper = new Swiper(".main-swiper", {
+        loop: true,
+        slidesPerView: 1,
         pagination: {
           el: ".swiper-pagination",
           clickable: true,
@@ -475,8 +453,58 @@
           prevEl: ".swiper-button-prev",
         },
       });
-    });
-  </script>
-</body>
+    </script>
+    <script src="script/script.js"></script>
+    <script>
+      AOS.init();
+    </script>
 
+    <script>
+      // Get current URL
+      const currentUrl = window.location.pathname;
+      const navLinks = document.querySelectorAll(".nav-link");
+
+      navLinks.forEach((link) => {
+        if (link.href.includes(currentUrl)) {
+          link.classList.add("active");
+        }
+      });
+    </script>
+
+    <script
+      src="https://kit.fontawesome.com/f70dd16b18.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var swiper = new Swiper(".main-swiper", {
+          slidesPerView: 1, // Default number of slides
+          spaceBetween: 10, // Space between slides in pixels
+          breakpoints: {
+            640: {
+              slidesPerView: 2, // Number of slides for screens 640px and up (tablets)
+            },
+            1024: {
+              slidesPerView: 3, // Number of slides for screens 1024px and up (desktops)
+            },
+          },
+          loop: true, // Enable continuous loop mode
+          autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+          },
+          pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+          },
+          navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+          },
+        });
+      });
+    </script>
+  </body>
 </html>
