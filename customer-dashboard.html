@@ -407,6 +407,52 @@
         </div>
         <button onclick="toggleCreateDietPlanForm()">Create New Diet Plan</button>
       </div>
+      <!-- =========================== DIET PLAN SECTION ===========================-->
+      <section class="container dietPlan" id="diet-plans">
+        <header>
+          <h2>Explore Our Popular Diet Plans</h2>
+        </header>
+
+        <!-- Features List container -->
+        <div class="dietPlan-list" data-aos="zoom-in-up">
+          <!-- Feature card -->
+          <div class="dietPlan-card">
+            <div class="img">
+              <img src="assets/Keto-Diet.jpg" alt="" />
+            </div>
+            <div class="text">
+              <h4>Keto Diet</h4>
+              <p>High-fat, low-carb meals to help your body enter ketosis!</p>
+            </div>
+          </div>
+
+          <!-- Feature card -->
+          <div class="dietPlan-card">
+            <div class="img">
+              <img src="assets/Mediterranean-diet.jpeg" alt="" />
+            </div>
+            <div class="text">
+              <h4>Mediatorial Diet</h4>
+              <p>
+                Rich in fruits, vegetables, and healthy fats for a balanced
+                lifestyle!
+              </p>
+            </div>
+          </div>
+
+          <!-- Diet Plan card -->
+          <div class="dietPlan-card">
+            <div class="img">
+              <img src="assets/vegan-diet.jpeg" alt="" />
+            </div>
+            <div class="text">
+              <h4>Vegan Diet</h4>
+              <p>Plant-based meals to support your cruelty-free lifestyle!</p>
+            </div>
+          </div>
+        </div>
+        <!-- <a href="diet-plan.html" class="btn">Explore More</a> -->
+      </section>
 
       <div id="dietPlanSection">
         <form id="dietPlanForm" class="diet-plan-form">
@@ -433,21 +479,6 @@
         </form>
       </div>
 
-      <div id="dietPlanSection">
-        <form class="diet-plan-form">
-          <input type="text" id="planName" placeholder="Diet Plan Name" required>
-          <textarea id="description" placeholder="Description" required></textarea>
-          <input type="text" id="meals" placeholder="Meals (comma separated)" required>
-          <div>
-            <h3>Your Diet Plan</h3>
-            <!-- <p><strong>Goal:</strong> <span id="dashboard-goal">No goal set</span></p> -->
-            <!-- <p><strong>Calories:</strong> <span id="dashboard-calories">-</span> kcal/day</p> -->
-            <!-- <p><strong>Preferences:</strong> <span id="dashboard-preferences">None</span></p> -->
-          </div>
-          <button type="submit">Add Diet Plan</button>
-        </form>
-      </div>
-
       <div>
         <h2>Your Diet Plans</h2>
         <div id="dietPlansContainer"></div>
@@ -455,6 +486,26 @@
 
       <div class="dietPlan-list" id="dietPlanList"></div>
 
+    </section>
+
+    <section id="insights" class="content-section" style="display: none;">
+      <h2>Insights Section</h2>
+      <!-- Insights Content -->
+    </section>
+
+    <section id="dieticians" class="content-section" style="display: none;">
+      <h2>Dieticians Section</h2>
+      <!-- Dieticians Content -->
+    </section>
+
+    <section id="settings" class="content-section" style="display: none;">
+      <h2>Settings Section</h2>
+      <!-- Settings Content -->
+    </section>
+
+    <section id="logout" class="content-section" style="display: none;">
+      <h2>Logout Section</h2>
+      <!-- Logout Content -->
     </section>
   </main>
 
@@ -595,6 +646,13 @@
 
     // Call updateProgress after updating total calories
     document.getElementById("mealForm").addEventListener("submit", updateProgress);
+
+  </script>
+
+
+
+  <!-- store log -->
+  <script>
 
   </script>
 </body>
