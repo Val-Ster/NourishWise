@@ -332,55 +332,6 @@ button {
   font-weight: bold;
 }
 
-/*============================= Dashboard dietPlan =============================*/
-.day-section .day-section-header {
-  gap: 2rem;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: left;
-}
-
-/*============================= Dashboard dietPlan =============================*/
-#diet-plans #header {
-  /* padding: 0; */
-  /* margin-bottom: 2rem; */
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
-h2,
-h3 {
-  color: #333;
-}
-
-label {
-  display: block;
-  margin-top: 10px;
-  font-weight: bold;
-}
-
-button:hover {
-  background-color: #45a049;
-}
-
-.remove-meal-btn {
-  background-color: #f44336;
-}
-
-.remove-meal-btn:hover {
-  background-color: #e53935;
-
-}
-
-.meal-entry {
-  margin-bottom: 20px;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  background-color: #fff;
-}
 
 /*============================= Activity Feed =============================*/
 
