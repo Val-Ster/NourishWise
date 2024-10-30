@@ -1,11 +1,11 @@
 /* Import Google font - Poppins */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 :root {
@@ -37,12 +37,14 @@
   --container-padding: 50px;
 
   /* Gradient color*/
-  --gradient-border: linear-gradient(to right,
-      #a8e6cf,
-      #dcedc1,
-      #ffd54f,
-      #ffab91,
-      #ff8c94);
+  --gradient-border: linear-gradient(
+    to right,
+    #a8e6cf,
+    #dcedc1,
+    #ffd54f,
+    #ffab91,
+    #ff8c94
+  );
 }
 
 body {
@@ -53,7 +55,7 @@ body {
 
 .container {
   position: absolute;
-  top: 50%;
+  top: 68%;
   left: 50%;
   transform: translate(-50%, -50%);
   max-width: 430px;
@@ -78,7 +80,6 @@ img {
   width: 120px;
   height: auto;
 }
-
 
 .form-group:nth-child(5) {
   gap: 0.5rem;
