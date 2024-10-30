@@ -1,5 +1,5 @@
 /* Import Google font - Poppins */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
 
 * {
   margin: 0;
@@ -120,7 +120,7 @@ header nav ul li a {
   color: var(--dark-text);
   font-weight: bold;
   text-transform: uppercase;
-  border-bottom: 2px solid transparent
+  border-bottom: 2px solid transparent;
 }
 
 .action-btn-container {
@@ -643,7 +643,7 @@ img {
 }
 
 .footer-links a:hover {
-  color: #4CAF50;
+  color: #4caf50;
 }
 
 .social-media {
@@ -658,5 +658,5 @@ img {
 }
 
 .social-media a:hover {
-  color: #4CAF50;
+  color: #4caf50;
 }
