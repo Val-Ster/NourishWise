@@ -1,6 +1,6 @@
 body {
   background-color: #ffffff;
-  display: flex; /* Enables flexbox on the body */
+  display: flex;
   justify-content: center;
   align-items: center; /* Centers content vertically */
   height: 100vh; /* Full viewport height */
