@@ -174,12 +174,11 @@ input[type="submit"] {
   text-align: center;
   /* Center text inside the button */
   font-size: 14px;
-  /* Font size for better readability */
   transition: background-color 0.3s ease;
 }
 
 #message {
-  padding: 50px 7px; /* Increase padding for message field */
+  padding: 50px 7px;
   text-align: left;
 }
 
