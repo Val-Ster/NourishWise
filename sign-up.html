@@ -5,7 +5,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>NourishWise | Sign-up</title>
+  <link rel="icon" href="assets/diet_logo_t.png" />
+
   <link rel="stylesheet" href="styles/login_sign-up.css" />
+
 </head>
 
 <body>
@@ -18,10 +21,6 @@
     </div>
 
     <form action="index-2.html" class="styled-form" id="signup-form">
-      <div class="form-group">
-        <!-- <input type="file" id="profileImage" accept="image/*" required /> -->
-      </div>
-
       <div class="form-group">
         <input type="text" id="name" placeholder="Enter your full name" minlength="3" required />
       </div>
@@ -105,9 +104,9 @@
           height: height,
         });
 
-        alert('Signup successful! Redirecting to your dashboard...');
+        alert('Signup successful! Redirecting to your main personal page...');
 
-        // Redirect to the customer dashboard
+        // Redirect to the customer index-2.html
         window.location.href = 'index-2.html'; // Change to your actual dashboard page
 
       } catch (error) {
