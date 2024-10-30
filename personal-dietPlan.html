@@ -5,92 +5,108 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NourishWise | Personalized Plan</title>
-  <link rel="icon" href="./assets/diet_logo_t.png">
-<link rel="stylesheet" href="styles/diet-plan.css">
-<link rel="stylesheet" href="styles/dashboard/">
+  <link rel="icon" href="assets/diet_logo_t.png">
 
-<style>
-  /*============================= Dashboard dietPlan =============================*/
-.day-section .day-section-header {
-  gap: 2rem;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: left;
-}
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="styles/diet-plan.css">
 
-/*============================= Dashboard dietPlan =============================*/
-#diet-plans #header {
-  /* padding: 0; */
-  /* margin-bottom: 2rem; */
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
+  <!-- Fontawesome Icon link -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMDE8cvdRa7zBbb4T3N6g5RhiB2V1Knq8MkHx6" crossorigin="anonymous" />
 
-h2,
-h3 {
-  color: #333;
-}
+  <!-- SwiperJS CSS link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
 
-label {
-  display: block;
-  margin-top: 10px;
-  font-weight: bold;
-}
+  <!-- AOS CSS for animations -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-button:hover {
-  background-color: #45a049;
-}
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-.remove-meal-btn {
-  background-color: #f44336;
-}
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
 
-.remove-meal-btn:hover {
-  background-color: #e53935;
+    :root {
+      /* Primary Colors */
+      --primary-bg: linear-gradient(to right, #07c15b, #225629);
+      --secondary-bg: #c1ff72;
+      --extra-bg: #ececec;
 
-}
+      /* Neutral Colors */
+      --white-bg: #fff8e6;
+      --dark-green-bg: #225629;
+      --light-green-bg: #07c15b;
+      --light-grey: #ececec;
 
-.meal-entry {
-  margin-bottom: 20px;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  background-color: #fff;
-}
+      /* Text Colors */
+      --primary-text: #225629;
+      --secondary-text: #07c15b;
+      --white-text: #ffffff;
+      --dark-text: #333;
 
+      /* Button colors */
+      --button-bg: #225629;
+      --button-bg-hover: #07c15b;
 
+      /* Padding */
+      --container-padding: 5rem 10rem;
+      --small-container-padding: 2rem;
+      /* Padding */
 
-.dietPlan-list{
-  display: flex;
-  flex-direction: row;
-}
+      /* Gradient color*/
+      --gradient-border: linear-gradient(to right,
+          #a8e6cf,
+          #dcedc1,
+          #ffd54f,
+          #ffab91,
+          #ff8c94);
+    }
+
+    h2,
+    h3 {
+      color: #333;
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    #dietPlansContainer {
+      margin-top: 6rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
 
     .dietPlan-card {
       display: flex;
-      flex-direction:column;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
       margin: 10px;
       padding: 15px;
       border: 1px solid #ddd;
       border-radius: 5px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     }
 
-    .dietPlan-card .img {
-      width: 100px;
-      height: 100px;
-      margin-right: 15px;
+    .dietPlan-card:hover {
+      transform: translateY(-0.5rem);
+      box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.5);
     }
 
-    .dietPlan-card .img img {
+    .dietPlan-card img {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
     }
 
-    .dietPlan-card .text h4 {
+    .dietPlan-card .text h3 {
       margin: 0;
       font-size: 18px;
       font-weight: bold;
@@ -99,101 +115,277 @@ button:hover {
     .dietPlan-card .text p {
       margin: 5px 0;
     }
-</style>
+
+    #dietPlanForm {
+      z-index: 200;
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      flex-direction: column;
+      background-color: #00000059;
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+    }
+
+    .form-container {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      width: 50%;
+      justify-content: center;
+      max-width: 430px;
+      background: #fff;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+      padding: 2rem;
+      border: 5px solid;
+      border-image: var(--gradient-border) 1;
+    }
+
+    .form-container textarea {
+      resize: vertical;
+      height: 80px;
+      font-size: 17px;
+      padding: 0 15px;
+      margin-bottom: 10px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      outline: none;
+    }
+
+    .form-container input {
+      height: 50px;
+      padding: 0 15px;
+      font-size: 17px;
+      margin-bottom: 10px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      outline: none;
+    }
+
+    #header button,
+    .form-container button {
+      color: #fff;
+      background: var(--button-bg);
+      font-size: 1.2rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: 0.4s;
+      padding: 0.7rem;
+      border: none;
+      margin-top: 1rem;
+    }
+
+    .closeDietPlanForm {
+      position: absolute;
+      top: 4rem;
+      right: 30rem;
+      padding: 0.5rem;
+      color: var(--button-bg);
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    main {
+
+      padding: var(--container-padding);
+    }
+  </style>
+
 </head>
 
 <body>
-  <!--=========================== Diet Plans Section Content ===========================-->
-  <section id="diet-plans" class="content-section">
-    <div id="header">
-      <span style="font-size:30px;cursor:pointer" onclick="openNavPanel()">☰</span>
-      <div class="text">
-        <h1>Diet Plans</h1>
-        <p>Manage your diet plans here. You can create new plans, edit existing ones, or delete them as needed.</p>
+  <header id="header">
+    <nav>
+      <div class="logo">
+        <img src="assets/diet_logo_t.png" alt="NourishWise logo">
       </div>
-      <button onclick="toggleCreateDietPlanForm()">Create New Diet Plan</button>
-    </div>
-    <!-- =========================== DIET PLAN SECTION ===========================-->
-    <section class="container dietPlan" id="diet-plans">
-      <header>
-        <h2>Explore Our Popular Diet Plans</h2>
-      </header>
-
-      <!-- Features List container -->
-      <div class="dietPlan-list" data-aos="zoom-in-up">
-        <!-- Feature card -->
-        <div class="dietPlan-card">
-          <div class="img">
-            <img src="assets/Keto-Diet.jpg" alt="" />
-          </div>
-          <div class="text">
-            <h4>Keto Diet</h4>
-            <p>High-fat, low-carb meals to help your body enter ketosis!</p>
-          </div>
-        </div>
-
-        <!-- Feature card -->
-        <div class="dietPlan-card">
-          <div class="img">
-            <img src="assets/Mediterranean-diet.jpeg" alt="" />
-          </div>
-          <div class="text">
-            <h4>Mediatorial Diet</h4>
-            <p>
-              Rich in fruits, vegetables, and healthy fats for a balanced
-              lifestyle!
-            </p>
-          </div>
-        </div>
-
-        <!-- Diet Plan card -->
-        <div class="dietPlan-card">
-          <div class="img">
-            <img src="assets/vegan-diet.jpeg" alt="" />
-          </div>
-          <div class="text">
-            <h4>Vegan Diet</h4>
-            <p>Plant-based meals to support your cruelty-free lifestyle!</p>
-          </div>
+      <ul class="nav-list" id="nav-list">
+        <li><a href="index-2.html">Home</a></li>
+        <li><a href="#" id="active">Diet Plan</a></li>
+        <li><a href="insight.html">Insights</a></li>
+        <li><a href="detictian.html">Dieticians</a></li>
+        <li><a href="contactUs.html" class="btn">Contact Us</a></li>
+      </ul>
+      <div class="action-btn-container">
+        <a href="customer-dashboard.html" class="user-profile">
+          <!-- <img src="assets/img-1.jpg" alt="user-profile" /> -->
+          <i class="fas fa-user"></i>
+        </a>
+        <div class="menu-toggle" id="mobile-menu" onclick="toggleNavbar()">
+          <i class="fas fa-bars">=</i>
         </div>
       </div>
-      <!-- <a href="diet-plan.html" class="btn">Explore More</a> -->
+    </nav>
+  </header>
+
+  <main>
+    <!--=========================== Diet Plans Section Content ===========================-->
+    <section id="dietPlanSection">
+      <div id="header">
+        <!-- <span style="font-size:30px;cursor:pointer" onclick="openNavPanel()">☰</span> -->
+        <div class="text">
+          <h1>Personal Diet Plans</h1>
+          <p>Manage your diet plans here. You can create new plans, edit existing ones, or delete them as needed.</p>
+        </div>
+        <button onclick="toggleCreateDietPlanForm()">Create New Diet Plan</button>
+      </div>
+
+      <form id="dietPlanForm" class="diet-plan-form">
+        <div class="form-container">
+          <h3>Create Your Diet Plan</h3>
+          
+          <!-- Diet Plan Name -->
+          <label for="planName">Diet Plan Name:</label>
+          <input type="text" id="planName" placeholder="Enter Diet Plan Name" required />
+
+          <!-- Diet Plan Description -->
+          <label for="description">Description:</label>
+          <textarea id="description" placeholder="Enter a short description of your diet plan" required></textarea>
+
+          <!-- Goal Calories -->
+          <label for="goalCalories">Daily Caloric Goal (kcal):</label>
+          <input type="number" id="goalCalories" placeholder="Enter your daily caloric goal" min="0" required />
+
+          <!-- Preferred Meals -->
+          <label for="meals">Meals (comma separated):</label>
+          <input type="text" id="meals" placeholder="e.g., Breakfast, Lunch, Dinner" required />
+
+          <!-- Submit Button -->
+          <button type="submit" class="btn">Create Diet Plan</button>
+        </div>
+        <button class="closeDietPlanForm" onclick="closeDietPlanForm()">X</button>
+      </form>
     </section>
 
-    <div id="dietPlanSection">
-      <form id="dietPlanForm" class="diet-plan-form">
-        <h3>Create Your Diet Plan</h3>
-
-        <!-- Diet Plan Name -->
-        <label for="planName">Diet Plan Name:</label>
-        <input type="text" id="planName" placeholder="Enter Diet Plan Name" required />
-
-        <!-- Diet Plan Description -->
-        <label for="description">Description:</label>
-        <textarea id="description" placeholder="Enter a short description of your diet plan" required></textarea>
-
-        <!-- Goal Calories -->
-        <label for="goalCalories">Daily Caloric Goal (kcal):</label>
-        <input type="number" id="goalCalories" placeholder="Enter your daily caloric goal" min="0" required />
-
-        <!-- Preferred Meals -->
-        <label for="meals">Meals (comma separated):</label>
-        <input type="text" id="meals" placeholder="e.g., Breakfast, Lunch, Dinner" required />
-
-        <!-- Submit Button -->
-        <button type="submit">Create Diet Plan</button>
-      </form>
-    </div>
-
     <div>
-      <h2>Your Diet Plans</h2>
+      <!-- <h2>Your Diet Plans</h2> -->
       <div id="dietPlansContainer"></div>
     </div>
 
     <div class="dietPlan-list" id="dietPlanList"></div>
+  </main>
 
-  </section>
+  <script>
+    function toggleCreateDietPlanForm() {
+      document.getElementById('dietPlanForm').style.display = 'flex'
+    }
+    function closeDietPlanForm() {
+      // document.getElementById('closeDietPlanForm').style.display = 'none'
+      document.getElementById('dietPlanForm').style.display = 'none'
+    }
+  </script>
 
+  <!-- Firebase SDKs -->
+  <script type="module">
+    // Import Firebase modules
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js';
+    import { getAuth, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js';
+    import { getFirestore, collection, doc, setDoc, query, where, getDocs, addDoc, serverTimestamp } from 'https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js';
+
+    // Initialize Firebase
+    const firebaseConfig = {
+      apiKey: "AIzaSyAgdDRikWVnieInU_C6GLRQxL_u8mwuqxI",
+      authDomain: "nourishwise-fdc37.firebaseapp.com",
+      projectId: "nourishwise-fdc37",
+      storageBucket: "nourishwise-fdc37.appspot.com",
+      messagingSenderId: "948685887114",
+      appId: "1:948685887114:web:6fa1ab201e36680e7cff73",
+      measurementId: "G-TJENJWS1JX"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+
+    // Initialize an empty array to hold diet plans (for display purposes)
+    let dietPlans = [];
+    let currentUser = null;
+
+    // Check if user is authenticated
+    onAuthStateChanged(auth, user => {
+      if (user) {
+        currentUser = user; // Store the current user
+        console.log("Current User:", currentUser.email);
+        loadDietPlans(); // Load existing diet plans
+      } else {
+        console.log("No user is signed in.");
+      }
+    });
+
+    // Function to load diet plans from Firestore
+    async function loadDietPlans() {
+      if (currentUser) {
+        const q = query(collection(db, 'dietPlans'), where('userId', '==', currentUser.uid));
+        const querySnapshot = await getDocs(q);
+        querySnapshot.forEach(doc => {
+          dietPlans.push(doc.data()); // Push the diet plan to the array
+        });
+        displayDietPlans(); // Display the loaded diet plans
+      }
+    }
+
+    // Handle form submission
+    document.getElementById('dietPlanForm').addEventListener('submit', async function (e) {
+      e.preventDefault(); // Prevent the default form submission behavior
+
+      document.getElementById('dietPlanForm').style.display = 'none'
+
+      const planName = document.getElementById('planName').value;
+      const description = document.getElementById('description').value;
+      const goalCalories = parseInt(document.getElementById('goalCalories').value) || 0;
+      const meals = document.getElementById('meals').value.split(',').map(meal => meal.trim());
+
+      const newDietPlan = {
+        name: planName,
+        description: description,
+        goalCalories: goalCalories,
+        meals: meals,
+        userId: currentUser.uid, // Add user ID for reference
+        createdAt: serverTimestamp() // Timestamp
+      };
+
+      // Store the new diet plan in Firestore
+      try {
+        await addDoc(collection(db, 'dietPlans'), newDietPlan);
+        console.log("Diet plan added successfully!");
+        dietPlans.push(newDietPlan); // Add the plan to the local array
+        displayDietPlans(); // Update the display
+        document.getElementById('dietPlanForm').reset(); // Reset the form
+      } catch (error) {
+        console.error("Error adding diet plan: ", error);
+      }
+    });
+
+    // Function to display the diet plans in the dashboard
+    function displayDietPlans() {
+      const dietPlansContainer = document.getElementById('dietPlansContainer');
+      dietPlansContainer.innerHTML = ''; // Clear previous content
+
+      // Create a list of diet plans
+      dietPlans.forEach(plan => {
+        const dietPlanDiv = document.createElement('div');
+        dietPlanDiv.className = 'dietPlan-card';
+
+        dietPlanDiv.innerHTML = `
+      <div class="img">
+        <img src="assets/weight-loss.jpeg" alt="${plan.name}" />
+      </div>
+      <div class="text">
+        <h3>${plan.name}</h3>
+        <p>${plan.description}</p>
+      </div>
+    `;
+
+        dietPlansContainer.appendChild(dietPlanDiv);
+      });
+    }
+  </script>
 </body>
 
 </html>
