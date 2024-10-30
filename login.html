@@ -1,52 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>NourishWise | Login</title>
-    <link rel="stylesheet" href="styles/login_sign-up.css" />
-  </head>
 
-  <body>
-    <div class="container login-container">
-      <h1>
-        Welcome Back To <br />
-        NourishWise!
-      </h1>
-      <div class="diet-logo">
-        <img src="assets/diet_logo_t.png" alt="diet-logo" />
-      </div>
-      <form class="styled-form">
-        <input
-          type="email"
-          id="inUsr"
-          placeholder="Enter your email"
-          required
-        />
-        <input
-          type="password"
-          id="inPass"
-          placeholder="Enter your password"
-          required
-        />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NourishWise | Login</title>
+  <style>
+    /* Add CSS directly here for login styling */
+    .container {
+      text-align: center;
+      max-width: 400px;
+      margin: auto;
+      padding: 2rem;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
 
-        <span class="signup">
-          <a href="forget-form.html" id="forgotLabel">Forgot password?</a>
-        </span>
-        <br />
-        <br />
-        <input type="submit" class="loginbtn button" value="Login" />
-        <br />
-        <p class="login-p">
-          New to NourishWise? Sign Up <a href="sign-up.html">here!</a>
-        </p>
-      </form>
+    h1 {
+      font-size: 24px;
+      margin-bottom: 1rem;
+    }
+
+    .diet-logo img {
+      max-width: 100px;
+      margin-bottom: 1rem;
+    }
+
+    .styled-form input {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+    }
+
+    .loginbtn {
+      background-color: #4caf50;
+      color: white;
+      padding: 10px;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .loginbtn:hover {
+      background-color: #45a049;
+    }
+
+    .login-p {
+      font-size: 14px;
+    }
+
+    .signup a {
+      color: #4caf50;
+      text-decoration: none;
+    }
+
+    .signup a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Login Container -->
+  <div class="container login-container">
+    <h1>
+      Welcome Back To <br />
+      NourishWise!
+    </h1>
+    <div class="diet-logo">
+      <img src="assets/diet_logo_t.png" alt="diet-logo" />
     </div>
+    <form class="styled-form" id="loginForm">
+      <input type="email" id="inUsr" placeholder="Enter your email" required />
+      <input type="password" id="inPass" placeholder="Enter your password" required />
 
-    <script></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
-    <script src="script/Login.js" type="module"></script>
-  </body>
+      <span class="signup">
+        <a href="forget-form.html" id="forgotLabel">Forgot password?</a>
+      </span>
+      <br /><br />
+      <input type="submit" class="loginbtn button" value="Login" />
+      <br />
+      <p class="login-p">
+        New to NourishWise? Sign Up <a href="sign-up.html">here!</a>
+      </p>
+    </form>
+  </div>
+
+  <!-- Firebase and Script -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+  <script>
+    // Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyAgdDRikWVnieInU_C6GLRQxL_u8mwuqxI",
+      authDomain: "nourishwise-fdc37.firebaseapp.com",
+      projectId: "nourishwise-fdc37",
+      storageBucket: "nourishwise-fdc37.appspot.com",
+      messagingSenderId: "948685887114",
+      appId: "1:948685887114:web:6fa1ab201e36680e7cff73",
+      measurementId: "G-TJENJWS1JX"
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+
+    // Handle Login
+    document.getElementById("loginForm").addEventListener("submit", async (event) => {
+      event.preventDefault(); // Prevent form from submitting normally
+
+      const email = document.querySelector('#inUsr').value.trim();
+      const password = document.querySelector('#inPass').value;
+
+      try {
+        // Authenticate user with Firebase
+        const userCredential = await auth.signInWithEmailAndPassword(email, password);
+        const user = userCredential.user;
+
+        // Redirect to the dashboard on successful login
+        console.log("User is signed in.");
+        window.location.href = "index-2.html"; // Redirect to dashboard
+      } catch (error) {
+        console.error("Error signing in:", error);
+        alert("Error signing in: " + error.message);
+      }
+    });
+  </script>
+</body>
+
 </html>
