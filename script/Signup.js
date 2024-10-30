@@ -1,50 +1,61 @@
-import { firebaseConfig } from './firebaseConfig.js';
+// script/Signup.js
 
-// Initialize Firebase with your configuration
-firebase.initializeApp(firebaseConfig);
+// Import Firebase config and initialize Firebase
+import { firebaseConfig } from "./firebaseConfig.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+import { getAuth, createUserWithEmailAndPassword, updateProfile } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
+import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
+import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-storage.js";
 
-// Initialize Firebase services
-const auth = firebase.auth();
-const firestore = firebase.firestore();
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+const storage = getStorage(app);
 
-const signupBtn = document.querySelector('.signupbtn');
+// Form submission handler
+document.querySelector(".styled-form").addEventListener("submit", async (e) => {
+  e.preventDefault(); // Prevents form reload
 
-signupBtn.addEventListener('click', async () => {
-  const name = document.querySelector('#name').value;
-  const email = document.querySelector('#email').value.trim();
-  const password = document.querySelector('#password').value;
-  const weight = document.querySelector('#weight').value;
-  const height = document.querySelector('#height').value;
-  const role = document.getElementById('role').value;
+  // Get form values
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+  const role = document.getElementById("role").value;
+  const weight = document.getElementById("weight").value;
+  const height = document.getElementById("height").value;
+  const profileImage = document.getElementById("profileImage").files[0];
 
   try {
-    // Create user with email and password
-    const userCredential = await auth.createUserWithEmailAndPassword(email, password);
+    // Create a new user in Firebase Authentication
+    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
     const user = userCredential.user;
 
-    // Send email verification
-    await user.sendEmailVerification();
-    alert('Verification email sent. Please check your inbox and verify your email before signing in.');
+    // Upload the profile image to Firebase Storage
+    const imageRef = ref(storage, `profileImages/${user.uid}`);
+    await uploadBytes(imageRef, profileImage);
 
-    // Save user data to Firestore
-    await firestore.collection('users').doc(user.uid).set({
+    // Get the image URL
+    const imageUrl = await getDownloadURL(imageRef);
+
+    // Update user's profile with name and image URL
+    await updateProfile(user, { displayName: name, photoURL: imageUrl });
+
+    // Save user information in Firestore
+    await setDoc(doc(db, "users", user.uid), {
       name: name,
       email: email,
+      role: role,
       weight: weight,
       height: height,
-      role: role,
+      imageUrl: imageUrl,
+      createdAt: new Date()
     });
 
-    console.log('User data saved to Firestore and successfully signed up.');
-
-    // Redirect based on role after saving user data
-    if (role === 'customer') {
-      window.location.href = 'customer-dashboard.html';
-    } else if (role === 'dietitian') {
-      window.location.href = 'dietitian-dashboard.html';
-    }
+    alert("Account created successfully!");
+    window.location.href = "customer-dashboard.html"; // Redirect to login page
   } catch (error) {
-    console.error('Error signing up:', error);
-    alert('Error signing up: ' + error.message);
+    console.error("Error creating account:", error.message);
+    alert("Error creating account: " + error.message);
   }
 });

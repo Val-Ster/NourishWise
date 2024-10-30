@@ -16,7 +16,7 @@ loginBtn.addEventListener('click', async () => {
 
     // Redirect to customer-dashboard.html upon successful login
     console.log('User is signed in.');
-    location.href = "customer-dashboard.html"; // Redirect to the customer dashboard page
+    location.href = "index-2.html"; // Redirect to the customer dashboard page
   } catch (error) {
     console.error('Error signing in:', error);
     alert('Error signing in: ' + error.message);
