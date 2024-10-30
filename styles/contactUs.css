@@ -168,10 +168,8 @@ input[type="submit"] {
   background-color: var(--light-green-bg);
   /* Dark grey button background */
   color: #fff;
-  /* White text on the button */
   border: none;
   border-radius: 20px;
-  /* Rounded corners */
   cursor: pointer;
   text-align: center;
   /* Center text inside the button */
