@@ -221,14 +221,10 @@
       <li><a href="#dashboard" class="active" onclick="showSection('dashboard')"><i class="fas fa-tachometer-alt"></i>
           Dashboard </a></li>
       <li><a href="index-2.html" onclick="showSection('index-2.html')"><i class="fas fa-house"></i> Home </a></li>
-      <!-- <li><a href="#insights" onclick="showSection('insights')"><i class="fas fa-chart-line"></i> Insights</a></li> -->
-      <!-- <li><a href="#dieticians" onclick="showSection('dieticians')"><i class="fas fa-users"></i> Dieticians</a></li> -->
-      <!-- <li><a href="#settings" onclick="showSection('settings')"><i class="fas fa-cog"></i> Settings</a></li> -->
       <li><a href="login.html" onclick="showSection('logout')"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
     </ul>
     <a class="user-profile">
       <img src="assets/img-1.jpg" alt="user-profile">
-      <!-- <img src="assets/default-user.jpg" alt="user-profile" /> -->
     </a>
     </ul>
   </aside>
@@ -238,7 +234,6 @@
       <div class="dashboard-container">
         <div id="header">
           <span style="font-size:30px;cursor:pointer" onclick="openNavPanel()">☰</span>
-          <!-- <button class="open-btn" id="open-menu-btn"><i class="bx bx-menu">aaa</i>sss</button> -->
           <div class="text">
             <h2>NourishWise Dashboard</h2>
             <p>Welcome to your dashboard! Here you can find a quick overview of your recent activity, statistics, and
@@ -250,10 +245,19 @@
           <div class="profile-header">
             <div class="user-profile">
               <img src="assets/img-1.jpg" alt="User Profile Picture" class="profile-pic">
-              <h2 id="userName">Welcome, User Name</h2>
+              <div class="welcome-message">
+                <h2>Welcome, <span id="userName">User Name</span></h2>
+              </div>
             </div>
             <div class="progress-section">
               <h2>Your Progress</h2>
+              <div>
+                <div id="progressBarContainer" style="background-color: #ddd; width: 100%; height: 30px;">
+                  <div id="progressBar"
+                    style="height: 100%; background-color: #4caf50; text-align: center; color: white;"></div>
+                </div>
+              </div>
+
               <div id="progress-container">
                 <div id="progress-bar"></div>
               </div>
@@ -261,12 +265,9 @@
             </div>
           </div>
 
-          <div id="toast" class="toast">Meal logged successfully!</div>
-
           <div class="diet-log">
             <div class="meal-log card">
               <h3>Log Your Meal</h3>
-
               <form id="mealForm">
                 <input type="text" id="meal-name" placeholder="Enter meal name" required>
                 <input type="number" id="calories" placeholder="Enter calories (optional)" min="0">
@@ -285,13 +286,12 @@
 
             <div id="progress-summary" class="card">
               <h3>Progress Summary</h3>
-              <p>Total Calories Consumed: <span id="totalCalories" id="total-calories">0</span></p>
+              <p>Total Calories Consumed: <span id="totalCalories">0</span></p>
               <p>Calories Burned: <span id="caloriesBurned">0</span></p>
               <p>Progress Towards Goal: <span id="progressPercentage">0%</span></p>
             </div>
           </div>
 
-          <!-- Day section - this display all food log for a particular day -->
           <div class="day-section">
             <div class="day-section-header">
               <h3>Food Log by Day</h3>
@@ -299,7 +299,7 @@
               <button id="reset-button" class="btn">Reset Food Log</button>
             </div>
             <div id="printable-area">
-              <table id="mealLogsContainer">
+              <table id="foodLogTable">
                 <thead>
                   <tr>
                     <th>Day</th>
@@ -347,284 +347,83 @@
               </table>
             </div>
           </div>
-
-          <!-- Dashboard Section -->
-
-          <h2>Calories Consumed</h2>
-          <canvas id="calories-chart"></canvas>
+          </table>
         </div>
       </div>
-    </section>
 
-    <!--=========================== Diet Plans Section Content ===========================-->
-    <section id="diet-plans" class="content-section" style="display: none;">
-      <div id="header">
-        <span style="font-size:30px;cursor:pointer" onclick="openNavPanel()">☰</span>
-        <div class="text">
-          <h1>Diet Plans</h1>
-          <p>Manage your diet plans here. You can create new plans, edit existing ones, or delete them as needed.</p>
-        </div>
-        <button onclick="toggleCreateDietPlanForm()">Create New Diet Plan</button>
+      <h2>Calories Consumed</h2>
+      <canvas id="calories-chart"></canvas>
       </div>
-      <!-- =========================== DIET PLAN SECTION ===========================-->
-      <section class="container dietPlan" id="diet-plans">
-        <header>
-          <h2>Explore Our Popular Diet Plans</h2>
-        </header>
-
-        <!-- Features List container -->
-        <div class="dietPlan-list" data-aos="zoom-in-up">
-          <!-- Feature card -->
-          <div class="dietPlan-card">
-            <div class="img">
-              <img src="assets/Keto-Diet.jpg" alt="" />
-            </div>
-            <div class="text">
-              <h4>Keto Diet</h4>
-              <p>High-fat, low-carb meals to help your body enter ketosis!</p>
-            </div>
-          </div>
-
-          <!-- Feature card -->
-          <div class="dietPlan-card">
-            <div class="img">
-              <img src="assets/Mediterranean-diet.jpeg" alt="" />
-            </div>
-            <div class="text">
-              <h4>Mediatorial Diet</h4>
-              <p>
-                Rich in fruits, vegetables, and healthy fats for a balanced
-                lifestyle!
-              </p>
-            </div>
-          </div>
-
-          <!-- Diet Plan card -->
-          <div class="dietPlan-card">
-            <div class="img">
-              <img src="assets/vegan-diet.jpeg" alt="" />
-            </div>
-            <div class="text">
-              <h4>Vegan Diet</h4>
-              <p>Plant-based meals to support your cruelty-free lifestyle!</p>
-            </div>
-          </div>
-        </div>
-        <!-- <a href="diet-plan.html" class="btn">Explore More</a> -->
-      </section>
-
-      <div id="dietPlanSection">
-        <form id="dietPlanForm" class="diet-plan-form">
-          <h3>Create Your Diet Plan</h3>
-
-          <!-- Diet Plan Name -->
-          <label for="planName">Diet Plan Name:</label>
-          <input type="text" id="planName" placeholder="Enter Diet Plan Name" required />
-
-          <!-- Diet Plan Description -->
-          <label for="description">Description:</label>
-          <textarea id="description" placeholder="Enter a short description of your diet plan" required></textarea>
-
-          <!-- Goal Calories -->
-          <label for="goalCalories">Daily Caloric Goal (kcal):</label>
-          <input type="number" id="goalCalories" placeholder="Enter your daily caloric goal" min="0" required />
-
-          <!-- Preferred Meals -->
-          <label for="meals">Meals (comma separated):</label>
-          <input type="text" id="meals" placeholder="e.g., Breakfast, Lunch, Dinner" required />
-
-          <!-- Submit Button -->
-          <button type="submit">Create Diet Plan</button>
-        </form>
       </div>
-
-      <div>
-        <h2>Your Diet Plans</h2>
-        <div id="dietPlansContainer"></div>
-      </div>
-
-      <div class="dietPlan-list" id="dietPlanList"></div>
-
-    </section>
-
-    <section id="insights" class="content-section" style="display: none;">
-      <h2>Insights Section</h2>
-      <!-- Insights Content -->
-    </section>
-
-    <section id="dieticians" class="content-section" style="display: none;">
-      <h2>Dieticians Section</h2>
-      <!-- Dieticians Content -->
-    </section>
-
-    <section id="settings" class="content-section" style="display: none;">
-      <h2>Settings Section</h2>
-      <!-- Settings Content -->
-    </section>
-
-    <section id="logout" class="content-section" style="display: none;">
-      <h2>Logout Section</h2>
-      <!-- Logout Content -->
     </section>
   </main>
 
-  <!-- Add Firebase SDKs -->
-  <script src="https://www.gstatic.com/firebasejs/9.x.x/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.x.x/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.x.x/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js"></script>
 
   <!-- Your custom scripts -->
-  <!-- <script src="./store-data.js"></script> -->
-
   <script type="module" src="script/store-data.js"></script>
-  <!-- ==================================================== -->
-
-
-  <script>
-    // Sample JSON data (foodCalories.json)
-    const foodCaloriesData = {
-      "apple": 95,
-      "banana": 105,
-      "chicken breast": 165,
-      "broccoli": 55,
-      "rice": 206
-    };
-
-    // Initialize calories variables
-    let totalCaloriesConsumed = 0;
-    let caloriesGoal = 2000; // We will set this to your goal calories (when user select a particular goal)
-
-    // Function to lookup calories from JSON data
-    document.getElementById('lookup-calories').addEventListener('click', function () {
-      const mealName = document.getElementById('meal-name').value.toLowerCase();
-      const caloriesInput = document.getElementById('calories');
-      if (foodCaloriesData[mealName]) {
-        caloriesInput.value = foodCaloriesData[mealName];
-      } else {
-        alert('Food item not found!');
-        caloriesInput.value = '';
-      }
-    });
-
-
-    // Chart.js setup
-    const ctx = document.getElementById('calories-chart').getContext('2d');
-    let caloriesChart = new Chart(ctx, {
-      type: 'bar',
-      data: {
-        labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
-        datasets: [{
-          label: 'Calories Consumed',
-          data: Array(7).fill(0), // Initialize with zeros
-          backgroundColor: 'rgba(75, 192, 192, 0.6)',
-          borderColor: 'rgba(75, 192, 192, 1)',
-          borderWidth: 1
-        }]
-      },
-      options: {
-        scales: {
-          y: {
-            beginAtZero: true
-          }
-        }
-      }
-    });
-
-    // Update chart function
-    function updateChart() {
-      const caloriesData = [];
-      for (let day = 1; day <= 7; day++) {
-        const caloriesCell = document.getElementById(`${['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'][day - 1]}-calories`);
-        caloriesData.push(parseInt(caloriesCell.innerHTML));
-      }
-      caloriesChart.data.datasets[0].data = caloriesData;
-      caloriesChart.update();
-    }
-
-    // Weight tracking functionality
-    document.getElementById('update-weight').addEventListener('click', function () {
-      const weightInput = document.getElementById('weight').value;
-      if (weightInput) {
-        document.getElementById('weight-display').innerText = weightInput;
-      }
-    });
-  </script>
-
-
-  <!-- <script src="script/chart.js"></script> -->
-
   <script src="script/script.js"></script>
   <script src="script/print_food_log.js"></script>
   <script src="script/food_log_form.js"></script>
   <script src="script/dashboard.js"></script>
+  <script src="script/chart.js"></script>
+
+  <!-- Firebase SDKs -->
+  <script type="module">
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js';
+    import { getAuth, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js';
+    import { getFirestore, doc, getDoc } from 'https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js';
 
 
-  <script>
-    document.getElementById("mealForm").addEventListener("submit", function (e) {
-      e.preventDefault();
-      const mealName = document.getElementById("meal-name").value;
-      const calories = parseInt(document.getElementById("calories").value) || 0;
+    // Initialize Firebase
+    const firebaseConfig = {
+      apiKey: "AIzaSyAgdDRikWVnieInU_C6GLRQxL_u8mwuqxI",
+      authDomain: "nourishwise-fdc37.firebaseapp.com",
+      projectId: "nourishwise-fdc37",
+      storageBucket: "nourishwise-fdc37.appspot.com",
+      messagingSenderId: "948685887114",
+      appId: "1:948685887114:web:6fa1ab201e36680e7cff73",
+      measurementId: "G-TJENJWS1JX"
+    };
 
-      // Update total and remaining calories
-      const totalCaloriesElem = document.getElementById("totalCalories");
-      const caloriesRemainingElem = document.getElementById("calories-remaining");
-      let totalCalories = parseInt(totalCaloriesElem.textContent) || 0;
-      let caloriesRemaining = parseInt(caloriesRemainingElem.textContent) || 2000;
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
 
-      totalCalories += calories;
-      caloriesRemaining -= calories;
-
-      totalCaloriesElem.textContent = totalCalories;
-      caloriesRemainingElem.textContent = caloriesRemaining;
-
-      // Log meal to the respective day
-      const today = new Date().toLocaleDateString('en-US', { weekday: 'long' }).toLowerCase();
-      document.getElementById(`${today}-meals`).textContent += `${mealName}, `;
-      const dayCaloriesElem = document.getElementById(`${today}-calories`);
-      dayCaloriesElem.textContent = parseInt(dayCaloriesElem.textContent) + calories;
-
-      document.getElementById("mealForm").reset();
-    });
-
-    // Weight tracking
-    document.getElementById("update-weight").addEventListener("click", function () {
-      const weight = document.getElementById("weight").value;
-      document.getElementById("weight-display").textContent = weight;
-      document.getElementById("weight").value = '';
-    });
-
-    // Optional: Function to calculate progress and update progress bar
-    function updateProgress() {
-      const goalCalories = 2000; // Example goal, adjust as needed
-      const consumedCalories = parseInt(document.getElementById("totalCalories").textContent);
-      const progress = Math.min((consumedCalories / goalCalories) * 100, 100);
-
-      document.getElementById("progress-bar").style.width = `${progress}%`;
-      document.getElementById("progressPercentage").textContent = `${Math.round(progress)}%`;
-    }
-
-    // Call updateProgress after updating total calories
-    document.getElementById("mealForm").addEventListener("submit", updateProgress);
-
-  </script>
-
-
-
-  <!-- Display image -->
-  <script>
-    document.addEventListener('DOMContentLoaded', async () => {
-      const user = auth.currentUser;
+    // Fetch user data and display name
+    const fetchUserData = async (user) => {
       if (user) {
-        // Fetch user data from Firestore
-        const userDoc = await firestore.collection('users').doc(user.uid).get();
-        const userData = userDoc.data();
+        console.log("Current User:", user); // Log the user object
+        try {
+          const userDoc = await getDoc(doc(db, 'users', user.uid));
 
-        // Display user profile image and name
-        document.getElementById('userName').textContent = `Welcome, ${userData.userName}`;
-        document.querySelector('.user-profile img').src = userData.profileImageUrl;
+          if (userDoc.exists()) {
+            const userData = userDoc.data();
+            console.log("Fetched User Data:", userData); // Log the user data
+            document.getElementById('userName').innerText = userData.name; // Update the user name
+          } else {
+            console.error("No such document!");
+          }
+        } catch (error) {
+          console.error("Error fetching user data:", error);
+        }
+      } else {
+        console.log("No user is signed in.");
+      }
+    };
+
+    // Listen for changes in the user's sign-in state
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        fetchUserData(user);
+      } else {
+        console.log("No user is signed in.");
       }
     });
   </script>
+
+
 </body>
 
 </html>
