@@ -172,7 +172,6 @@ input[type="submit"] {
   border-radius: 20px;
   cursor: pointer;
   text-align: center;
-  /* Center text inside the button */
   font-size: 14px;
   transition: background-color 0.3s ease;
 }
