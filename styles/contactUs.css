@@ -155,7 +155,7 @@ h1 {
 input[type="text"],
 input[type="email"] {
   width: 100%; /* Full width of the container */
-  height: 40px;
+  height: 40px; /* Height of the field */
   padding: 6px 8px;
   font-size: 16px; 
   border-radius: 6px;
