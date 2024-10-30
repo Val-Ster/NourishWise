@@ -349,7 +349,6 @@
     font-size: 15px;
   }
 
-  /* I've change the unit from px to rem */
   img {
     width: 15rem;
   }
