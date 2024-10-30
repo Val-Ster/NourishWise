@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Diet Plan</title>
+</head>
+
+<body>
+  <h1>Create Diet Plan</h1>
+  <form class="diet-plan-form">
+    <input type="text" id="planName" placeholder="Plan Name" required />
+    <textarea id="description" placeholder="Plan Description" required></textarea>
+    <input type="text" id="meals" placeholder="Meals (comma-separated)" required />
+    <button type="submit">Save Plan</button>
+  </form>
+
+
+  <script>
+    // Function to handle diet plan creation
+      async function saveDietPlan(planName, description, meals) {
+        const user = auth.currentUser;  // Get the current logged-in user
+
+        if (user) {
+          try {
+            // Save the diet plan to Firestore under "dietPlans" collection
+            await db.collection("dietPlans").add({
+              planName: planName,
+              description: description,
+              meals: meals,
+              userId: user.uid,  // Link the plan to the logged-in user
+              createdAt: new Date()  // Add a timestamp
+            });
+
+            alert("Diet plan saved successfully!");
+          } catch (error) {
+            console.error("Error saving diet plan:", error);
+            alert("Failed to save diet plan. Please try again.");
+          }
+        } else {
+          alert("You must be signed in to create a diet plan.");
+        }
+      }
+
+      // Example of how you might call this function:
+      saveDietPlan("Keto Diet", "Low carb high fat meals", ["Eggs", "Avocado", "Chicken"]);
+
+  </script>
+  <script type="module">
+    import { db, auth } from './script/firebaseConfig.js';  // Import db and auth
+    import { collection, addDoc } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";  // Import Firestore functions
+
+    // Handle the form submit event to save diet plan
+    document.querySelector('.diet-plan-form').addEventListener('submit', async function (event) {
+      event.preventDefault();
+
+      const planName = document.getElementById('planName').value;
+      const description = document.getElementById('description').value;
+      const meals = document.getElementById('meals').value.split(',').map(meal => meal.trim());
+
+      try {
+        const user = auth.currentUser;  // Get the current authenticated user
+        if (user) {
+          // Use collection and addDoc to add a new document to Firestore
+          await addDoc(collection(db, "dietPlans"), {
+            userId: user.uid,
+            planName: planName,
+            description: description,
+            meals: meals,
+            createdAt: new Date()
+          });
+
+          alert("Diet Plan saved successfully!");
+          window.location.href = 'test-2.html';  // Redirect to dashboard
+        } else {
+          alert("You must be signed in to create a diet plan.");
+        }
+      } catch (error) {
+        console.error("Error saving diet plan:", error);
+        alert("Error saving the diet plan. Please try again.");
+      }
+    });
+
+    console.log("Firestore instance: ", db);
+
+  </script>
+</body>
+
+</html>
