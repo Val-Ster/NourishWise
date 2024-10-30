@@ -215,12 +215,11 @@
       <img src="assets/diet_logo_t.png" alt="">
       <h1>NourishWise</h1>
       <a href="javascript:void(0)" class="closebtn" onclick="closeNavPanel()">×</a>
-      <!-- <button class="close-btn" id="close-menu-btn">&times;</button> -->
     </div>
     <ul>
       <li><a href="#dashboard" class="active" onclick="showSection('dashboard')"><i class="fas fa-tachometer-alt"></i>
           Dashboard </a></li>
-      <li><a href="index-2.html" onclick="showSection('index-2.html')"><i class="fas fa-house"></i> Home </a></li>
+      <li><a href="#home" onclick="showSection('home')"><i class="fas fa-house"></i> Home </a></li>
       <li><a href="login.html" onclick="showSection('logout')"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
     </ul>
     <a class="user-profile">
@@ -246,7 +245,7 @@
             <div class="user-profile">
               <img src="assets/img-1.jpg" alt="User Profile Picture" class="profile-pic">
               <div class="welcome-message">
-                <h2>Welcome, <span id="userName"></span></h2>
+                <h2>Welcome, ....<span id="userName"></span></h2>
               </div>
             </div>
             <div class="progress-section">
@@ -356,12 +355,21 @@
       </div>
       </div>
     </section>
+
+    <!-- Home Section (index-2.html) -->
+    <section id="home" class="content-section" style="display: none;">
+      <h2>Want to go back home?</h2>
+      <h4>Click <a href="index-2.html"> here</a> to go back to your main personal page.</h4>
+    </section>
+    
+    <!-- Logout section -->
+    <section id="logout" class="content-section" style="display: none;">
+      <h2>Want to logout or sign-in into other account?</h2>
+      <h4>Click <a href="login.html"> here</a> to logout.</h4>
+    </section>
   </main>
 
-  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js"></script>
-
-  <!-- Your custom scripts -->
+  <!-- Custom scripts -->
   <script type="module" src="script/store-data.js"></script>
   <script src="script/script.js"></script>
   <script src="script/print_food_log.js"></script>
@@ -370,11 +378,13 @@
   <script src="script/chart.js"></script>
 
   <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js"></script>
+
   <script type="module">
     import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js';
     import { getAuth, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js';
     import { getFirestore, doc, getDoc } from 'https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js';
-
 
     // Initialize Firebase
     const firebaseConfig = {
@@ -422,8 +432,6 @@
       }
     });
   </script>
-
-
 </body>
 
 </html>
