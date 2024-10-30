@@ -1,6 +1,6 @@
 # NourishWise
 
-NourishWise is a web-based platform designed to help users manage their diet and nutrition effectively. Built using HTML, CSS, and JavaScript, it allows users to plan their meals, track daily nutritional intake, and receive tailored diet recommendations.
+NourishWise is a web-based platform designed to help users manage their diet and nutrition effectively. Built using HTML, CSS, JavaScript and firebase;for backend, it allows users to plan their meals, track daily nutritional intake, and receive tailored diet recommendations.
 
 ![NourishWise Banner](./assets/hero.png)
 
