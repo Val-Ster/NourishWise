@@ -38,7 +38,7 @@ NourishWise is aimed at individuals who want to improve their health through bet
 
 - **Frontend**: HTML, CSS, JavaScript
 - **Styling**: CSS for styling and responsiveness
-- **Data Storage**: Local Storage to save user data and preferences locally
+- **Firebase**: Local Storage to save user data and preferences locally
 - **API Integration**: Optionally, integration with external nutrition APIs for detailed food data
 
 ## Getting Started
