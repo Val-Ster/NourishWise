@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NourishWise - DASH Diet</title>
+    <link rel="icon" href="assets/diet_logo_t.png" />
+
+    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="styles/responsive.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMDE8cvdRa7zBbb4T3N6g5RhiB2V1Knq8MkHx6"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://kit.fontawesome.com/f70dd16b18.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <style>
+      * {
+        scroll-behavior: smooth;
+      }
+
+      img {
+        float: right;
+        margin: 0.5rem;
+        /* width: 25rem; */
+      }
+
+      .article-container {
+        flex-direction: row;
+        padding: 100px 200px 50px 20px;
+      }
+
+      .article {
+        width: 84%;
+      }
+
+      .nav-panel {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        width: 20rem;
+      }
+
+      .nav-panel ul {
+        display: flex;
+        height: 100%;
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        padding: 2rem 0;
+      }
+
+      .nav-panel hr {
+        width: 1px;
+        height: 10rem;
+        background: gray;
+      }
+
+      .nav-panel ul li {
+        padding: 0.5rem;
+      }
+
+      .nav-panel ul li a {
+        color: black;
+      }
+
+      .nav-panel ul li a:hover {
+        color: darkgreen;
+      }
+
+      /* Responsive styles */
+      /* Media query for mobile screens */
+      @media (max-width: 768px) {
+        main {
+          padding: 2rem 0;
+        }
+
+        .container {
+          padding: 2rem;
+        }
+
+        .article {
+          width: 100%;
+        }
+
+        .nav-panel {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header id="header">
+      <nav>
+        <div class="logo">
+          <img src="assets/diet_logo_t.png" alt="NourishWise logo" />
+        </div>
+        <ul class="nav-list" id="nav-list">
+          <li>
+            <a href="index-2.html">Home</a>
+          </li>
+          <li><a href="diet-plan.html">Diet Plan</a></li>
+          <li><a href="insight.html" id="active">Insights</a></li>
+          <li><a href="dieticians.html">Dieticians</a></li>
+          <li><a href="contactUs.html" class="btn">Contact Us</a></li>
+        </ul>
+        <div class="action-btn-container">
+          <a href="customer-dashboard.html" class="user-profile">
+            <!-- <img src="assets/img-1.jpg" alt="user-profile" /> -->
+            <i class="fas fa-user"></i>
+          </a>
+          <div class="menu-toggle" id="mobile-menu" onclick="toggleNavbar()">
+            <i class="fas fa-bars">=</i>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <div class="container article-container">
+        <div class="article">
+          <article id="intro">
+            <h1>Flexitarian Diet:</h1>
+            <br />
+            <img src="assets/flax-diet.jpg" alt="" />
+            <h2>Understanding the Flexitarian Diet</h2>
+            <p>
+              Welcome to the world of the Flexitarian diet—a deliciously
+              flexible way to eat that lets you savor plant-based foods while
+              still enjoying your favorite meats! If you're looking to improve
+              your health without completely cutting out your beloved burgers
+              and bacon, the Flexitarian diet is just for you. Let’s dive in and
+              explore how you can enjoy a healthier lifestyle while indulging in
+              a variety of delicious meals!
+            </p>
+            <br />
+            <br />
+            <h2>What is the Flexitarian Diet?</h2>
+            <p>
+              The Flexitarian diet is all about flexibility, making it easier to
+              embrace a predominantly plant-based diet while still allowing for
+              the occasional meat dish. It’s a blend of the words "flexible" and
+              "vegetarian," reflecting its core philosophy: eat mostly plants,
+              but don’t stress about it. The Flexitarian diet encourages you to
+              focus on whole, nutrient-rich foods while also providing the
+              freedom to enjoy meat in moderation.
+            </p>
+            <br />
+            <p>
+              Think of it as a way to dip your toes into the world of
+              vegetarianism without diving in headfirst. You can experiment with
+              new flavors and textures while still enjoying the comfort of your
+              favorite meals. Sounds liberating, right?
+            </p>
+          </article>
+          <br />
+          <br />
+          <h2 id="How">How Does the Flexitarian Diet Work?</h2>
+          <img src="assets/flax-pyramid.jpg" alt="" />
+          <br />
+          <p>
+            The Flexitarian diet works by encouraging you to prioritize
+            plant-based foods—think fruits, vegetables, whole grains, nuts, and
+            seeds—while allowing for moderate amounts of meat, fish, and dairy.
+            This approach helps reduce your overall meat consumption while
+            boosting your intake of essential nutrients and fiber.
+          </p>
+          <br />
+          <p>
+            One of the best aspects of the Flexitarian diet is its adaptability.
+            You can customize it to suit your taste preferences, dietary
+            restrictions, and lifestyle, making it easy to follow and
+            sustainable in the long run. The goal is to nourish your body while
+            still enjoying food. After all, food should be a source of joy, not
+            stress!
+          </p>
+          <br />
+          <br />
+          <h2 id="started">Scheduling: How to Get Started with Flexitarian</h2>
+          <img src="assets/flax-1.png" alt="" />
+          <br />
+          <p>
+            Getting started on the Flexitarian diet is simple and enjoyable!
+            Here’s a straightforward guide to help you ease into this vibrant
+            way of eating:
+          </p>
+          <ul>
+            <br />
+            <li>
+              1. <strong>Set Your Intentions:</strong> Decide why you want to
+              adopt the Flexitarian diet—whether it’s to improve health, lose
+              weight, or explore new foods.
+            </li>
+            <br />
+            <li>
+              2. <strong>Plan Your Meals:</strong> Create a weekly meal plan
+              focused on plant-based dishes. Include some of your favorite
+              meat-based meals to ease the transition.
+            </li>
+            <br />
+            <li>
+              3. <strong>Grocery Shopping:</strong> Stock up on fresh produce,
+              whole grains, legumes, and healthy snacks. Check out new
+              plant-based products that excite you!
+            </li>
+            <br />
+            <li>
+              4. <strong>Prep Your Meals:</strong> Meal prepping can save you
+              time during the week. Chop veggies, cook grains, and prepare
+              snacks in advance for quick access.
+            </li>
+            <br />
+            <li>
+              5. <strong>Mindful Eating:</strong> Enjoy each bite and pay
+              attention to how different foods make you feel. Savor the flavors
+              of plant-based dishes!
+            </li>
+            <br />
+            <li>
+              6. <strong>Track Your Progress:</strong> Log your daily meals here
+              on NourishWise. Keeping track of what you eat can help you stay
+              motivated and accountable, it also helps you notice any missteps
+              to be able to solve them early.
+            </li>
+          </ul>
+          <br />
+          <br />
+          <h2 id="foods-you-can-eat">
+            Foods You Can Eat on the Flexitarian Diet
+          </h2>
+          <img src="assets/flax-2.jpg" alt="" />
+          <p>
+            Embrace a variety of delicious foods as part of your Flexitarian
+            journey:
+          </p>
+          <ul>
+            <br />
+            <li>
+              1. <strong>Fruits and Vegetables:</strong> Aim for 5 or more
+              servings a day. Think berries, leafy greens, carrots, and colorful
+              bell peppers.
+            </li>
+            <br />
+            <li>
+              2. <strong>Whole Grains:</strong> Choose whole-grain bread,
+              quinoa, brown rice, and oatmeal. Aim for at least 3 servings
+              daily.
+            </li>
+            <br />
+            <li>
+              3. <strong>Plant-Based Proteins:</strong> Incorporate beans,
+              lentils, tofu, and tempeh as your primary sources of protein.
+            </li>
+            <br />
+            <li>
+              4. <strong>Nuts and Seeds:</strong> Snack on unsalted nuts and
+              seeds, aiming for about 4 servings per week.
+            </li>
+            <br />
+            <li>
+              5. <strong>Dairy Alternatives:</strong> Opt for low-fat dairy or
+              plant-based alternatives like almond milk or coconut yogurt.
+            </li>
+            <br />
+            <li>
+              6. <strong>Moderate Meat Consumption:</strong> Enjoy lean meats,
+              poultry, and fish occasionally—think 1-2 servings per week.
+            </li>
+          </ul>
+          <br />
+          <br />
+          <h2 id="foods-to-limit">Foods to Limit or Avoid</h2>
+          <img src="assets/flax-3.jpg" alt="" />
+          <p>
+            While the Flexitarian diet is about enjoying a variety of foods,
+            here are some items you should limit:
+          </p>
+          <ul>
+            <br />
+            <li>
+              1. <strong>Processed Foods:</strong> Cut back on sugary snacks,
+              processed meals, and high-calorie beverages.
+            </li>
+            <br />
+            <li>
+              2. <strong>Red and Processed Meats:</strong> Limit consumption of
+              these meats, focusing instead on lean proteins.
+            </li>
+            <br />
+            <li>
+              3. <strong>High-Sugar Foods:</strong> Avoid sweets and desserts
+              that offer little nutritional value.
+            </li>
+          </ul>
+          <br />
+          <br />
+          <h2 id="fun-tips">Fun Tips to Enjoy the Flexitarian Diet</h2>
+          <img src="assets/flax-4.jpeg" alt="" />
+          <p>Here are some enjoyable ways to embrace the Flexitarian diet:</p>
+          <ul>
+            <br />
+            <li>
+              1. <strong>Experiment with New Recipes:</strong> Try your hand at
+              cooking plant-based versions of your favorite meals!
+            </li>
+            <br />
+            <li>
+              2. <strong>Join a Cooking Group:</strong> Collaborate with friends
+              or family to explore new recipes and techniques.
+            </li>
+            <br />
+            <li>
+              3. <strong>Make it Colorful:</strong> Aim for a colorful plate
+              filled with a variety of nutrients to keep meals interesting.
+            </li>
+            <br />
+            <li>
+              4. <strong>Try Meatless Mondays:</strong> Designate one day a week
+              to go fully meat-free as a fun challenge.
+            </li>
+          </ul>
+          <br />
+          <br />
+          <h2 id="conclusion">Conclusion</h2>
+          <p>
+            Embarking on the Flexitarian diet is a delightful journey toward
+            better health and a more balanced lifestyle. With its emphasis on
+            whole foods and flexible eating, the Flexitarian diet allows you to
+            enjoy a diverse array of meals while improving your overall
+            well-being.
+            <br />
+            So, what are you waiting for? Embrace the flexibility of the
+            Flexitarian diet, savor new flavors, and watch as you take
+            meaningful strides toward a healthier you. Remember, it’s all about
+            balance and enjoyment—so dig in and have fun along the way!
+          </p>
+
+          <div class="nav-panel">
+            <ul>
+              <div class="lists">
+                <li>
+                  <a href="#intro"
+                    >Introduction: What is the Flexitarian Diet?</a
+                  >
+                </li>
+                <li><a href="#How">How Does the Flexitarian Diet Work?</a></li>
+                <li>
+                  <a href="#started"
+                    >Scheduling: How to Get Started with Flexitarian</a
+                  >
+                </li>
+                <li>
+                  <a href="#foods-you-can-eat"
+                    >Foods You Can Eat on the Flexitarian Diet</a
+                  >
+                </li>
+                <li>
+                  <a href="#foods-to-limit">Foods to Limit or Avoid</a>
+                </li>
+                <li>
+                  <a href="#fun-tips">Fun Tips to Enjoy the Flexitarian Diet</a>
+                </li>
+                <li><a href="#conclusion">Conclusion</a></li>
+              </div>
+              <div class="line">
+                <hr />
+              </div>
+            </ul>
+          </div>
+          <script src="script/script.js"></script>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

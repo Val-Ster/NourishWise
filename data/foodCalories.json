@@ -1,198 +1,538 @@
 [
-    {
-        "name": "Apple",
-        "calories": 95
-    },
-    {
-        "name": "Banana",
-        "calories": 105
-    },
-    {
-        "name": "Chicken Breast",
-        "calories": 165
-    },
-    {
-        "name": "Broccoli",
-        "calories": 55
-    },
-    {
-        "name": "Rice",
-        "calories": 206
-    },
-    {
-        "name": "Pizza",
-        "calories": 285
-    },
-    {
-        "name": "Pasta",
-        "calories": 220
-    },
-    {
-        "name": "Salmon",
-        "calories": 206
-    },
-    {
-        "name": "Egg",
-        "calories": 68
-    },
-    {
-        "name": "Almonds",
-        "calories": 164
-    },
-    {
-        "name": "Jollof Rice",
-        "calories": 250
-    },
-    {
-        "name": "Fufu",
-        "calories": 200
-    },
-    {
-        "name": "Foofoo",
-        "calories": 200
-    },
-    {
-        "name": "Injera",
-        "calories": 140
-    },
-    {
-        "name": "Bunny Chow",
-        "calories": 350
-    },
-    {
-        "name": "Biltong",
-        "calories": 250
-    },
-    {
-        "name": "Tagine",
-        "calories": 300
-    },
-    {
-        "name": "Ugali",
-        "calories": 220
-    },
-    {
-        "name": "Sadza",
-        "calories": 200
-    },
-    {
-        "name": "Pap",
-        "calories": 170
-    },
-    {
-        "name": "Nkwobi",
-        "calories": 350
-    },
-    {
-        "name": "Suya",
-        "calories": 250
-    },
-    {
-        "name": "Pepper Soup",
-        "calories": 150
-    },
-    {
-        "name": "Groundnut Soup",
-        "calories": 350
-    },
-    {
-        "name": "Koshari",
-        "calories": 400
-    },
-    {
-        "name": "Apple",
-        "calories": 95
-    },
-    {
-        "name": "Banana",
-        "calories": 105
-    },
-    {
-        "name": "Chicken Breast",
-        "calories": 165
-    },
-    {
-        "name": "Broccoli",
-        "calories": 55
-    },
-    {
-        "name": "Rice",
-        "calories": 206
-    },
-    {
-        "name": "Pizza",
-        "calories": 285
-    },
-    {
-        "name": "Pasta",
-        "calories": 220
-    },
-    {
-        "name": "Salmon",
-        "calories": 206
-    },
-    {
-        "name": "Egg",
-        "calories": 68
-    },
-    {
-        "name": "Almonds",
-        "calories": 164
-    },
-    {
-        "name": "Jollof Rice",
-        "calories": 250
-    },
-    {
-        "name": "Fufu",
-        "calories": 200
-    },
-    {
-        "name": "Injera",
-        "calories": 140
-    },
-    {
-        "name": "Bunny Chow",
-        "calories": 350
-    },
-    {
-        "name": "Biltong",
-        "calories": 250
-    },
-    {
-        "name": "Tagine",
-        "calories": 300
-    },
-    {
-        "name": "Ugali",
-        "calories": 220
-    },
-    {
-        "name": "Sadza",
-        "calories": 200
-    },
-    {
-        "name": "Pap",
-        "calories": 170
-    },
-    {
-        "name": "Nkwobi",
-        "calories": 350
-    },
-    {
-        "name": "Suya",
-        "calories": 250
-    },
-    {
-        "name": "Pepper Soup",
-        "calories": 150
-    },
-    {
-        "name": "Groundnut Soup",
-        "calories": 350
-    },
-    {
-        "name": "Koshari",
-        "calories": 400
-    }
+  {
+    "name": "Apple",
+    "calories": 95
+  },
+  {
+    "name": "Banana",
+    "calories": 105
+  },
+  {
+    "name": "Chicken Breast",
+    "calories": 165
+  },
+  {
+    "name": "Broccoli",
+    "calories": 55
+  },
+  {
+    "name": "Rice",
+    "calories": 206
+  },
+  {
+    "name": "Pizza",
+    "calories": 285
+  },
+  {
+    "name": "Pasta",
+    "calories": 220
+  },
+  {
+    "name": "Salmon",
+    "calories": 206
+  },
+  {
+    "name": "Egg",
+    "calories": 68
+  },
+  {
+    "name": "Almonds",
+    "calories": 164
+  },
+  {
+    "name": "Jollof Rice",
+    "calories": 250
+  },
+  {
+    "name": "Fufu",
+    "calories": 200
+  },
+  {
+    "name": "Foofoo",
+    "calories": 200
+  },
+  {
+    "name": "Injera",
+    "calories": 140
+  },
+  {
+    "name": "Bunny Chow",
+    "calories": 350
+  },
+  {
+    "name": "Biltong",
+    "calories": 250
+  },
+  {
+    "name": "Tagine",
+    "calories": 300
+  },
+  {
+    "name": "Ugali",
+    "calories": 220
+  },
+  {
+    "name": "Sadza",
+    "calories": 200
+  },
+  {
+    "name": "Pap",
+    "calories": 170
+  },
+  {
+    "name": "Nkwobi",
+    "calories": 350
+  },
+  {
+    "name": "Suya",
+    "calories": 250
+  },
+  {
+    "name": "Pepper Soup",
+    "calories": 150
+  },
+  {
+    "name": "Groundnut Soup",
+    "calories": 350
+  },
+  {
+    "name": "Koshari",
+    "calories": 400
+  },
+  {
+    "name": "Chicken Breast",
+    "calories": 165
+  },
+  {
+    "name": "Broccoli",
+    "calories": 55
+  },
+  {
+    "name": "Pizza",
+    "calories": 285
+  },
+  {
+    "name": "Pasta",
+    "calories": 220
+  },
+  {
+    "name": "Salmon",
+    "calories": 206
+  },
+  {
+    "name": "Egg",
+    "calories": 68
+  },
+  {
+    "name": "Almonds",
+    "calories": 164
+  },
+  {
+    "name": "Jollof Rice",
+    "calories": 250
+  },
+  {
+    "name": "Fufu",
+    "calories": 200
+  },
+  {
+    "name": "Injera",
+    "calories": 140
+  },
+  {
+    "name": "Bunny Chow",
+    "calories": 350
+  },
+  {
+    "name": "Biltong",
+    "calories": 250
+  },
+  {
+    "name": "Tagine",
+    "calories": 300
+  },
+  {
+    "name": "Ugali",
+    "calories": 220
+  },
+  {
+    "name": "Sadza",
+    "calories": 200
+  },
+  {
+    "name": "Pap",
+    "calories": 170
+  },
+  {
+    "name": "Nkwobi",
+    "calories": 350
+  },
+  {
+    "name": "Suya",
+    "calories": 250
+  },
+  {
+    "name": "Pepper Soup",
+    "calories": 150
+  },
+  {
+    "name": "Groundnut Soup",
+    "calories": 350
+  },
+  {
+    "name": "Koshari",
+    "calories": 400
+  },
+  {
+    "name": "Avocado",
+    "calories": 234
+  },
+  {
+    "name": "Sweet Potato",
+    "calories": 112
+  },
+  {
+    "name": "Beef Steak",
+    "calories": 679
+  },
+  {
+    "name": "Yogurt (plain, unsweetened)",
+    "calories": 150
+  },
+  {
+    "name": "Greek Yogurt",
+    "calories": 100
+  },
+  {
+    "name": "Tofu",
+    "calories": 94
+  },
+  {
+    "name": "Oatmeal",
+    "calories": 154
+  },
+  {
+    "name": "Orange",
+    "calories": 62
+  },
+  {
+    "name": "Strawberries",
+    "calories": 49
+  },
+  {
+    "name": "Baked potato",
+    "calories": 161
+  },
+  {
+    "name": "Mashed potato",
+    "calories": 237
+  },
+  {
+    "name": "French fries",
+    "calories": 365
+  },
+  {
+    "name": "Boiled potato",
+    "calories": 135
+  },
+  {
+    "name": "Spinach",
+    "calories": 41
+  },
+  {
+    "name": "Shrimp",
+    "calories": 99
+  },
+  {
+    "name": "Carrot",
+    "calories": 25
+  },
+  {
+    "name": "Grapes",
+    "calories": 104
+  },
+  {
+    "name": "Whole milk",
+    "calories": 149
+  },
+  {
+    "name": "Skim milk",
+    "calories": 149
+  },
+  {
+    "name": "Fat-free milk",
+    "calories": 149
+  },
+  {
+    "name": "Fat free milk",
+    "calories": 149
+  },
+  {
+    "name": "Turkey Breast",
+    "calories": 135
+  },
+  {
+    "name": "Lentils",
+    "calories": 230
+  },
+  {
+    "name": "Peanut Butter",
+    "calories": 188
+  },
+  {
+    "name": "Chickpeas",
+    "calories": 269
+  },
+  {
+    "name": "Blueberries",
+    "calories": 84
+  },
+  {
+    "name": "Cauliflower",
+    "calories": 25
+  },
+  {
+    "name": "Bell Pepper",
+    "calories": 24
+  },
+  {
+    "name": "Mango",
+    "calories": 99
+  },
+  {
+    "name": "Pork",
+    "calories": 206
+  },
+  {
+    "name": "Green Beans",
+    "calories": 31
+  },
+  {
+    "name": "Quinoa",
+    "calories": 222
+  },
+  {
+    "name": "Zucchini",
+    "calories": 33
+  },
+  {
+    "name": "Beans",
+    "calories": 150
+  },
+  {
+    "name": "Cucumber",
+    "calories": 16
+  },
+  {
+    "name": "Raspberries",
+    "calories": 52
+  },
+  {
+    "name": "Pineapple",
+    "calories": 82
+  },
+  {
+    "name": "Yam",
+    "calories": 158
+  },
+  {
+    "name": "Egusi Soup",
+    "calories": 330
+  },
+  {
+    "name": "Okro Soup",
+    "calories": 150
+  },
+  {
+    "name": "Water",
+    "calories": 0
+  },
+  {
+    "name": "Bread",
+    "calories": 79
+  },
+  {
+    "name": "Cheese",
+    "calories": 113
+  },
+  {
+    "name": "Corn",
+    "calories": 86
+  },
+  {
+    "name": "Tomato",
+    "calories": 22
+  },
+  {
+    "name": "Eggplant",
+    "calories": 25
+  },
+  {
+    "name": "Rice Cake",
+    "calories": 35
+  },
+  {
+    "name": "Sausage",
+    "calories": 345
+  },
+  {
+    "name": "Pumpkin",
+    "calories": 26
+  },
+  {
+    "name": "Bagel",
+    "calories": 245
+  },
+  {
+    "name": "Peas",
+    "calories": 62
+  },
+  {
+    "name": "Watermelon",
+    "calories": 85
+  },
+  {
+    "name": "Papaya",
+    "calories": 55
+  },
+  {
+    "name": "Kiwi",
+    "calories": 42
+  },
+  {
+    "name": "Peach",
+    "calories": 59
+  },
+  {
+    "name": "Pear",
+    "calories": 101
+  },
+  {
+    "name": "Cherry",
+    "calories": 50
+  },
+  {
+    "name": "Pomegranate",
+    "calories": 234
+  },
+  {
+    "name": "Plum",
+    "calories": 30
+  },
+  {
+    "name": "Cantaloupe",
+    "calories": 60
+  },
+  {
+    "name": "Blackberry",
+    "calories": 62
+  },
+  {
+    "name": "Lemon",
+    "calories": 17
+  },
+  {
+    "name": "Grapefruit",
+    "calories": 52
+  },
+  {
+    "name": "Nectarine",
+    "calories": 60
+  },
+  {
+    "name": "Apricot",
+    "calories": 17
+  },
+  {
+    "name": "Guava",
+    "calories": 112
+  },
+  {
+    "name": "Passion Fruit",
+    "calories": 229
+  },
+  {
+    "name": "Cranberry",
+    "calories": 46
+  },
+  {
+    "name": "Mulberry",
+    "calories": 60
+  },
+  {
+    "name": "Lamb",
+    "calories": 294
+  },
+  {
+    "name": "Duck",
+    "calories": 337
+  },
+  {
+    "name": "Veal",
+    "calories": 172
+  },
+  {
+    "name": "Rabbit",
+    "calories": 173
+  },
+  {
+    "name": "Venison",
+    "calories": 158
+  },
+  {
+    "name": "Goat Meat",
+    "calories": 143
+  },
+  {
+    "name": "Bison",
+    "calories": 124
+  },
+  {
+    "name": "Elk",
+    "calories": 129
+  },
+  {
+    "name": "Boar",
+    "calories": 196
+  },
+  {
+    "name": "Pheasant",
+    "calories": 239
+  },
+  {
+    "name": "Chocolate Cake",
+    "calories": 235
+  },
+  {
+    "name": "Brownie",
+    "calories": 112
+  },
+  {
+    "name": "Cookie",
+    "calories": 78
+  },
+  {
+    "name": "Doughnut",
+    "calories": 195
+  },
+  {
+    "name": "Cupcake",
+    "calories": 131
+  },
+  {
+    "name": "Coca-Cola",
+    "calories": 140
+  },
+  {
+    "name": "Pepsi",
+    "calories": 150
+  },
+  {
+    "name": "Sprite",
+    "calories": 140
+  },
+  {
+    "name": "Fanta",
+    "calories": 160
+  }
 ]

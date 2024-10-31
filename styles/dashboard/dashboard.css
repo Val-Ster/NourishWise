@@ -67,7 +67,6 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   flex: 1 1 calc(25% - 20px);
   /*============================= 4 cards in a row =============================*/
-
 }
 
 input[type="text"],
@@ -85,7 +84,7 @@ button {
   padding: 10px 15px;
   border: none;
   border-radius: 5px;
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
   cursor: pointer;
 }
@@ -96,7 +95,6 @@ button {
 .dietPlan {
   padding: 0;
 }
-
 
 #header {
   background: white;
@@ -113,7 +111,6 @@ button {
   padding: 1rem;
   display: block;
 }
-
 
 .after-header-contents {
   padding: 1rem;
@@ -166,11 +163,11 @@ button {
   gap: 10px;
   font-size: large;
 }
-.closebtn{
+.closebtn {
   font-size: 2rem;
   color: var(--button-bg);
 }
-.closebtn:hover{
+.closebtn:hover {
   color: var(--button-bg-hover);
 }
 .main-content {
@@ -195,7 +192,6 @@ button {
   transition: margin-left 0.5s ease-in-out;
   padding: 16px;
 }
-
 
 .sidebar ul li a.active {
   font-weight: bold;
@@ -223,7 +219,7 @@ button {
 
 .nav-list .btn {
   background-color: #fff;
-  color: #4CAF50;
+  color: #4caf50;
   padding: 5px 10px;
   border-radius: 5px;
 }
@@ -279,13 +275,12 @@ button {
   transition: width 1s ease-in-out;
 }
 
-
 /*============================= toast (notification) =============================*/
 .toast {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background: #4CAF50;
+  background: #4caf50;
   color: #fff;
   padding: 10px 20px;
   border-radius: 5px;
@@ -335,7 +330,6 @@ button {
   font-weight: bold;
 }
 
-
 /*============================= Activity Feed =============================*/
 
 .activity-feed {
@@ -354,7 +348,6 @@ canvas {
 }
 
 @media (max-width: 768px) {
-
   .close-btn,
   .open-btn {
     display: block;
@@ -381,7 +374,7 @@ canvas {
     padding: 10px;
   }
 
-  .menu-toggle.active+.nav-list {
+  .menu-toggle.active + .nav-list {
     display: flex;
   }
 
@@ -397,7 +390,6 @@ canvas {
   .card {
     flex: 1 1 100%;
     /*============================= Full width for cards =============================*/
-
   }
 
   .sidebar-toggle {
@@ -413,7 +405,6 @@ canvas {
   .sidebar {
     display: none;
     /*============================= Hide sidebar on small screens =============================*/
-
   }
 
   .main-content {
@@ -422,18 +413,15 @@ canvas {
 
     padding: 10px;
     /*============================= Reduced padding =============================*/
-
   }
 
   .content-header h1 {
     font-size: 20px;
     /*============================= Smaller font size =============================*/
-
   }
 
   .card {
     padding: 15px;
     /*============================= Reduced padding =============================*/
-
   }
 }

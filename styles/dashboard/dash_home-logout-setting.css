@@ -1,0 +1,10 @@
+#home,
+#setting,
+#logout {
+  text-align: center;
+  height: 300px; /* Adjust height as needed */
+  background-image: url("../assets/insights.jpeg");
+  background-size: cover; /* Scales the image to cover the entire area */
+  background-position: center; /* Centers the image */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+}
