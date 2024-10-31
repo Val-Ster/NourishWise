@@ -1,130 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>NourishWise - DASH Diet</title>
-    <link rel="icon" href="assets/diet_logo_t.png" />
 
-    <link rel="stylesheet" href="styles/style.css" />
-    <link rel="stylesheet" href="styles/responsive.css" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NourishWise - DASH Diet</title>
+  <link rel="icon" href="assets/diet_logo_t.png" />
 
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-      integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMDE8cvdRa7zBbb4T3N6g5RhiB2V1Knq8MkHx6"
-      crossorigin="anonymous"
-    />
-    <script
-      src="https://kit.fontawesome.com/f70dd16b18.js"
-      crossorigin="anonymous"
-    ></script>
+  <link rel="stylesheet" href="styles/style.css" />
+  <link rel="stylesheet" href="styles/responsive.css" />
 
-    <style>
-      * {
-        scroll-behavior: smooth;
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMDE8cvdRa7zBbb4T3N6g5RhiB2V1Knq8MkHx6" crossorigin="anonymous" />
+  <script src="https://kit.fontawesome.com/f70dd16b18.js" crossorigin="anonymous"></script>
+
+  <style>
+    * {
+      scroll-behavior: smooth;
+    }
+
+    img {
+      float: right;
+      margin: 0.5rem;
+      /* width: 25rem; */
+    }
+
+    .article-container {
+      flex-direction: row;
+      padding: 100px 200px 50px 20px;
+    }
+
+    .article {
+      width: 84%;
+    }
+
+    .nav-panel {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      width: 20rem;
+    }
+
+    .nav-panel ul {
+      display: flex;
+      height: 100%;
+      display: flex;
+      flex-direction: row-reverse;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      padding: 2rem;
+    }
+
+    .nav-panel hr {
+      width: 1px;
+      height: 10rem;
+      background: gray;
+    }
+
+    .nav-panel ul li {
+      padding: 0.5rem;
+    }
+
+    .nav-panel ul li a {
+      color: black;
+    }
+
+    .nav-panel ul li a:hover {
+      color: darkgreen;
+    }
+
+    /* Responsive styles */
+    /* Media query for mobile screens */
+    @media (max-width: 768px) {
+      main {
+        padding: 2rem 0;
       }
 
-      img {
-        float: right;
-        margin: 0.5rem;
-        /* width: 25rem; */
-      }
-
-      .article-container {
-        flex-direction: row;
-        padding: 100px 200px 50px 20px;
-      }
-
-      .article {
-        width: 84%;
-      }
-
-      .nav-panel {
-        position: fixed;
-        top: 0;
-        bottom: 0;
-        right: 0;
-        width: 20rem;
-      }
-
-      .nav-panel ul {
-        display: flex;
-        height: 100%;
-        display: flex;
-        flex-direction: row-reverse;
-        align-items: center;
-        justify-content: center;
-        gap: 1rem;
+      .container {
         padding: 2rem;
       }
 
-      .nav-panel hr {
-        width: 1px;
-        height: 10rem;
-        background: gray;
+      .article {
+        width: 100%;
       }
 
-      .nav-panel ul li {
-        padding: 0.5rem;
+      .nav-panel {
+        display: none;
       }
+    }
+  </style>
+</head>
 
-      .nav-panel ul li a {
-        color: black;
-      }
-
-      .nav-panel ul li a:hover {
-        color: darkgreen;
-      }
-
-      /* Responsive styles */
-      /* Media query for mobile screens */
-      @media (max-width: 768px) {
-        main {
-          padding: 2rem 0;
-        }
-
-        .container {
-          padding: 2rem;
-        }
-
-        .article {
-          width: 100%;
-        }
-
-        .nav-panel {
-          display: none;
-        }
-      }
-    </style>
-  </head>
-
-  <body>
-    <header id="header">
-      <nav>
-        <div class="logo">
-          <img src="assets/diet_logo_t.png" alt="NourishWise logo" />
+<body>
+  <header id="header">
+    <nav>
+      <div class="logo">
+        <img src="assets/diet_logo_t.png" alt="NourishWise logo" />
+      </div>
+      <ul class="nav-list" id="nav-list">
+        <div class="aside-top">
+          <img src="assets/diet_logo_t.png" alt="">
+          <h1>NourishWise</h1>
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNavPanel()">×</a>
         </div>
-        <ul class="nav-list" id="nav-list">
-          <li>
-            <a href="index-2.html">Home</a>
-          </li>
-          <li><a href="diet-plan.html">Diet Plan</a></li>
-          <li><a href="insight.html" id="active">Insights</a></li>
-          <li><a href="dieticians.html">Dieticians</a></li>
-          <li><a href="contactUs.html" class="btn">Contact Us</a></li>
-        </ul>
-        <div class="action-btn-container">
-          <a href="customer-dashboard.html" class="user-profile">
-            <!-- <img src="assets/img-1.jpg" alt="user-profile" /> -->
-            <i class="fas fa-user"></i>
-          </a>
-          <div class="menu-toggle" id="mobile-menu" onclick="toggleNavbar()">
-            <i class="fas fa-bars">=</i>
-          </div>
+
+        <li>
+          <a href="index-2.html">Home</a>
+        </li>
+        <li><a href="diet-plan.html">Diet Plan</a></li>
+        <li><a href="insight.html" id="active">Insights</a></li>
+        <li><a href="dieticians.html">Dieticians</a></li>
+        <li><a href="contactUs.html" class="btn">Contact Us</a></li>
+      </ul>
+      <div class="action-btn-container">
+        <a href="customer-dashboard.html" class="user-profile">
+          <img class="profileImage" src="" class="profile-pic" alt="Profile Picture"
+            style="width: 50px; height: 50px;" />
+        </a>
+        <div class="menu-toggle">
+          <span style="font-size:30px;cursor:pointer" onclick="openNavPanel()">☰</span>
         </div>
-      </nav>
-    </header>
+      </div>
+    </nav>
+  </header>
 
     <main>
       <div class="container article-container">
@@ -371,57 +371,71 @@
             </li>
           </ul>
 
+        <br />
+        <br />
+        <h2 id="conclusion">Conclusion</h2>
+        <p>
+          Embarking on the DASH diet is about more than just food; it’s a
+          lifestyle change that can lead to better health and a happier you.
+          With its focus on whole foods and balanced nutrition, the DASH diet
+          can help you feel your best while enjoying a diverse array of
+          delicious meals.
           <br />
-          <br />
-          <h2 id="conclusion">Conclusion</h2>
-          <p>
-            Embarking on the DASH diet is about more than just food; it’s a
-            lifestyle change that can lead to better health and a happier you.
-            With its focus on whole foods and balanced nutrition, the DASH diet
-            can help you feel your best while enjoying a diverse array of
-            delicious meals.
-            <br />
-            So, what are you waiting for? Dive into the world of DASH, savor
-            every bite, and watch as you take strides toward a healthier,
-            happier life. Your journey to wellness starts with every meal.
-            Cheers to good health!
-          </p>
+          So, what are you waiting for? Dive into the world of DASH, savor
+          every bite, and watch as you take strides toward a healthier,
+          happier life. Your journey to wellness starts with every meal.
+          Cheers to good health!
+        </p>
 
-          <!-- Navigation Panel -->
-          <div class="nav-panel">
-            <ul>
-              <div class="lists">
-                <li>
-                  <a href="#intro">Introduction: Understanding the MIND Diet.</a>
-                </li>
-                <li><a href="#How">How Does the MIND Diet Work?</a></li>
-                <li>
-                  <a href="#started"
-                    >Scheduling: How to Get Started with the MIND Diet</a
-                  >
-                </li>
-                <li>
-                  <a href="#foods-you-can-eat"
-                    >Foods You Can Eat on the MIND Diet</a
-                  >
-                </li>
-                <li>
-                  <a href="#foods-to-limit">Foods to Limit or Avoid</a>
-                </li>
-                <li>
-                  <a href="#fun-tips">Fun Tips to Enjoy the MIND Diet</a>
-                </li>
-                <li><a href="#conclusion">Conclusion.</a></li>
-              </div>
-              <div class="line">
-                <hr />
-              </div>
-            </ul>
-          </div>
-
-          <script src="script/script.js"></script>
+        <!-- Navigation Panel -->
+        <div class="nav-panel">
+          <ul>
+            <div class="lists">
+              <li>
+                <a href="#intro">Introduction: Understanding the MIND Diet.</a>
+              </li>
+              <li><a href="#How">How Does the MIND Diet Work?</a></li>
+              <li>
+                <a href="#started">Scheduling: How to Get Started with the MIND Diet</a>
+              </li>
+              <li>
+                <a href="#foods-you-can-eat">Foods You Can Eat on the MIND Diet</a>
+              </li>
+              <li>
+                <a href="#foods-to-limit">Foods to Limit or Avoid</a>
+              </li>
+              <li>
+                <a href="#fun-tips">Fun Tips to Enjoy the MIND Diet</a>
+              </li>
+              <li><a href="#conclusion">Conclusion.</a></li>
+            </div>
+            <div class="line">
+              <hr />
+            </div>
+          </ul>
         </div>
+
       </div>
-    </main>
-  </body>
+    </div>
+  </main>
+
+  <script src="script/script.js"></script>
+  <script>
+    // Function to load and display the profile picture from localStorage
+    function loadProfilePicture() {
+      const storedImage = localStorage.getItem("profilePic");
+      const profileImages = document.querySelectorAll(".profileImage");
+
+      if (storedImage) {
+        profileImages.forEach(img => img.src = storedImage);
+      } else {
+        profileImages.forEach(img => img.src = "default-profile.png"); // Set a default image if none is stored
+      }
+    }
+
+    // Load the profile picture when the page loads
+    document.addEventListener("DOMContentLoaded", loadProfilePicture);
+  </script>
+</body>
+
 </html>

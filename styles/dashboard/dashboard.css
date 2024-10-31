@@ -100,11 +100,9 @@ button {
   background: white;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   display: flex;
-  flex-direction: row;
-  height: fit-content;
+  flex-direction: column;
   gap: 1rem;
   padding: 1rem;
-  align-items: center;
 }
 
 .sidebar-toggle {
@@ -143,9 +141,10 @@ button {
   align-items: center;
 }
 
-.aside-top h1{
-    color: var(--light-green-bg);
+.aside-top h1 {
+  color: var(--light-green-bg);
 }
+
 .aside-top img {
   width: 3.5rem;
 }
@@ -163,13 +162,16 @@ button {
   gap: 10px;
   font-size: large;
 }
+
 .closebtn {
   font-size: 2rem;
   color: var(--button-bg);
 }
+
 .closebtn:hover {
   color: var(--button-bg-hover);
 }
+
 .main-content {
   transition: margin-left 0.5s ease-in-out;
 }
@@ -242,11 +244,19 @@ button {
   border-bottom: 1px solid var(--button-bg);
   border-bottom: 1px solid gray;
   padding-bottom: 1rem;
+  width: 100%;
 }
 
 .user-profile {
-  display: flex;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
   align-items: center;
+}
+
+.user-profile .welcome-message h2 {
+  /* width: 60%; */
+  text-wrap: wrap;
 }
 
 .profile-pic {
@@ -260,7 +270,7 @@ button {
 }
 
 .progress-bar {
-  width: 100%;
+  /* width: 100%; */
   background: #e0e0e0;
   border-radius: 5px;
   overflow: hidden;
@@ -348,6 +358,7 @@ canvas {
 }
 
 @media (max-width: 768px) {
+
   .close-btn,
   .open-btn {
     display: block;
@@ -374,7 +385,7 @@ canvas {
     padding: 10px;
   }
 
-  .menu-toggle.active + .nav-list {
+  .menu-toggle.active+.nav-list {
     display: flex;
   }
 
@@ -402,17 +413,46 @@ canvas {
 }
 
 @media (max-width: 480px) {
-  .sidebar {
+  #header {
+    height: fit-content;
+  }
+
+  .closebtn {
+    position: absolute;
+    right: 0;
+  }
+
+  .text {
     display: none;
+  }
+
+  #progress-container {
+    background: #e0e0e0;
+    overflow: hidden;
+    border-radius: 5px;
+    height: 20px;
+    /* width: 55%; */
+  }
+
+  #progress-bar {
+    height: 100%;
+    background: #4CAF50;
+    transition: width 0.5s ease;
+    width: 0;
+  }
+
+  .sidebar {
+    /* display: none; */
+    left: -255px;
     /*============================= Hide sidebar on small screens =============================*/
   }
 
   .main-content {
     margin-left: 0;
-    /*============================= Full width for main content =============================*/
+  }
 
-    padding: 10px;
-    /*============================= Reduced padding =============================*/
+  .after-header-contents {
+    padding: 0rem;
   }
 
   .content-header h1 {
@@ -420,8 +460,20 @@ canvas {
     /*============================= Smaller font size =============================*/
   }
 
+  .progress-section,
+  .welcome-message,
+  .profile-container {
+    width: 67%;
+  }
+
+  .user-profile {
+    width: 67%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+    align-items: center;
+  }
+
   .card {
     padding: 15px;
-    /*============================= Reduced padding =============================*/
   }
 }
