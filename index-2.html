@@ -67,8 +67,8 @@
       </ul>
       <div class="action-btn-container">
         <a href="customer-dashboard.html" class="user-profile">
-          <img src="assets/img-1.jpg" alt="user-profile" />
-          <!-- <i class="fas fa-user"></i> -->
+          <img class="profileImage" src="" class="profile-pic" alt="Profile Picture"
+            style="width: 50px; height: 50px;" />
         </a>
         <div class="menu-toggle" id="mobile-menu" onclick="toggleNavbar()">
           <i class="fas fa-bars">=</i>
@@ -457,6 +457,23 @@
         },
       });
     });
+  </script>
+
+  <script>
+    // Function to load and display the profile picture from localStorage
+    function loadProfilePicture() {
+      const storedImage = localStorage.getItem("profilePic");
+      const profileImages = document.querySelectorAll(".profileImage");
+
+      if (storedImage) {
+        profileImages.forEach(img => img.src = storedImage);
+      } else {
+        profileImages.forEach(img => img.src = "default-profile.png"); // Set a default image if none is stored
+      }
+    }
+
+    // Load the profile picture when the page loads
+    document.addEventListener("DOMContentLoaded", loadProfilePicture);
   </script>
 </body>
 

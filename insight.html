@@ -1,243 +1,201 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>NourishWise - Insights</title>
-    <link rel="icon" href="assets/diet_logo_t.png" />
 
-    <link rel="stylesheet" href="styles/style.css" />
-    <link rel="stylesheet" href="styles/insight.css" />
-    <link rel="stylesheet" href="styles/responsive.css" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NourishWise - Insights</title>
+  <link rel="icon" href="assets/diet_logo_t.png" />
 
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-      integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMDE8cvdRa7zBbb4T3N6g5RhiB2V1Knq8MkHx6"
-      crossorigin="anonymous"
-    />
-    <script
-      src="https://kit.fontawesome.com/f70dd16b18.js"
-      crossorigin="anonymous"
-    ></script>
+  <link rel="stylesheet" href="styles/style.css" />
+  <link rel="stylesheet" href="styles/insight.css" />
+  <link rel="stylesheet" href="styles/responsive.css" />
 
-    <style>
-      #header nav {
-        align-items: center;
-      }
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMDE8cvdRa7zBbb4T3N6g5RhiB2V1Knq8MkHx6" crossorigin="anonymous" />
+  <script src="https://kit.fontawesome.com/f70dd16b18.js" crossorigin="anonymous"></script>
 
-      #header {
-        transition: height 0.3s ease;
-      }
+  <style>
+    #header nav {
+      align-items: center;
+    }
 
-      .nav-list li {
-        margin: 10px 0;
-      }
+    #header {
+      transition: height 0.3s ease;
+    }
 
-      .nav-list a {
-        text-decoration: none;
-      }
+    .nav-list li {
+      margin: 10px 0;
+    }
 
-      .menu-toggle {
-        cursor: pointer;
-        color: white;
-        margin-top: 10px;
-      }
+    .nav-list a {
+      text-decoration: none;
+    }
 
-      .main {
-        transition: margin-top 0.3s ease;
-        padding: 20px;
-      }
-    </style>
-  </head>
+    .menu-toggle {
+      cursor: pointer;
+      color: white;
+      margin-top: 10px;
+    }
 
-  <body>
-    <header id="header">
-      <nav>
-        <div class="logo">
-          <img src="assets/diet_logo_t.png" alt="NourishWise logo" />
+    .main {
+      transition: margin-top 0.3s ease;
+      padding: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <header id="header">
+    <nav>
+      <div class="logo">
+        <img src="assets/diet_logo_t.png" alt="NourishWise logo" />
+      </div>
+      <ul class="nav-list" id="nav-list">
+        <li><a href="index-2.html">Home</a></li>
+        <li><a href="diet-plan.html">Diet Plan</a></li>
+        <li><a href="#" id="active">Insights</a></li>
+        <li><a href="dieticians.html">Dieticians</a></li>
+        <li><a href="contactUs.html" class="btn">Contact Us</a></li>
+      </ul>
+      <div class="action-btn-container">
+        <a href="customer-dashboard.html" class="user-profile">
+          <img class="profileImage" src="" class="profile-pic" alt="Profile Picture"
+            style="width: 50px; height: 50px;" />
+        </a>
+        <div class="menu-toggle" id="mobile-menu" onclick="toggleNavbar()">
+          <i class="fas fa-bars">=</i>
         </div>
-        <ul class="nav-list" id="nav-list">
-          <li><a href="index-2.html">Home</a></li>
-          <li><a href="diet-plan.html">Diet Plan</a></li>
-          <li><a href="#" id="active">Insights</a></li>
-          <li><a href="dieticians.html">Dieticians</a></li>
-          <li><a href="contactUs.html" class="btn">Contact Us</a></li>
-        </ul>
-        <div class="action-btn-container">
-          <a href="customer-dashboard.html" class="user-profile">
-            <!-- <img src="assets/img-1.jpg" alt="user-profile" /> -->
-            <i class="fas fa-user"></i>
-          </a>
-          <div class="menu-toggle" id="mobile-menu" onclick="toggleNavbar()">
-            <i class="fas fa-bars">=</i>
-          </div>
-        </div>
-      </nav>
-    </header>
+      </div>
+    </nav>
+  </header>
 
-    <main id="main-Container">
-      <section class="container insight">
-        <header>
-          <h1>Nutrition Insights</h1>
+  <main id="main-Container">
+    <section class="container insight">
+      <header>
+        <h1>Nutrition Insights</h1>
+        <p>
+          <strong>Stay informed with the latest nutrition tips, healthy recipes,
+            and expert advice.</strong>
+        </p>
+      </header>
+
+      <div class="insight-list">
+        <article class="insight-card">
+          <h3>What is dieting</h3>
           <p>
-            <strong
-              >Stay informed with the latest nutrition tips, healthy recipes,
-              and expert advice.</strong
-            >
+            Dieting is more than just a temporary change in eating habits;
+            it’s a structured approach to nourishing your body based...
           </p>
-        </header>
+          <a href="Article-dieting_intro.html" class="btn">Read More</a>
+        </article>
 
-        <div class="insight-list">
-          <article class="insight-card">
-            <h3>What is dieting</h3>
-            <p>
-              Dieting is more than just a temporary change in eating habits;
-              it’s a structured approach to nourishing your body based...
-            </p>
-            <a href="Article-dieting_intro.html" class="btn"
-              >Read More</a
-            >
-          </article>
+        <article class="insight-card">
+          <h3>5 Foods to Boost Your Immune System</h3>
+          <p>
+            Discover nutrient-rich foods that help keep your immune system
+            strong.
+          </p>
+          <a href="https://www.healthline.com/health/food-nutrition/foods-that-boost-the-immune-system" target="_blank"
+            class="btn">Read More</a>
+        </article>
 
-          <article class="insight-card">
-            <h3>5 Foods to Boost Your Immune System</h3>
-            <p>
-              Discover nutrient-rich foods that help keep your immune system
-              strong.
-            </p>
-            <a
-              href="https://www.healthline.com/health/food-nutrition/foods-that-boost-the-immune-system"
-              target="_blank"
-              class="btn"
-              >Read More</a
-            >
-          </article>
+        <article class="insight-card">
+          <h3>The Benefits of a Balanced Diet</h3>
+          <p>
+            Learn why a balanced diet is crucial for overall health and
+            well-being.
+          </p>
+          <a href="https://www.who.int/news-room/fact-sheets/detail/healthy-diet" target="_blank" class="btn">Read
+            More</a>
+        </article>
 
-          <article class="insight-card">
-            <h3>The Benefits of a Balanced Diet</h3>
-            <p>
-              Learn why a balanced diet is crucial for overall health and
-              well-being.
-            </p>
-            <a
-              href="https://www.who.int/news-room/fact-sheets/detail/healthy-diet"
-              target="_blank"
-              class="btn"
-              >Read More</a
-            >
-          </article>
+        <article class="insight-card">
+          <h3>Healthy Snack Ideas for Busy Days</h3>
+          <p>
+            Find quick and nutritious snack ideas that keep you energized on
+            the go.
+          </p>
+          <a href="https://www.eatthis.com/grab-and-go" target="_blank" class="btn">Read More</a>
+        </article>
 
-          <article class="insight-card">
-            <h3>Healthy Snack Ideas for Busy Days</h3>
-            <p>
-              Find quick and nutritious snack ideas that keep you energized on
-              the go.
-            </p>
-            <a
-              href="https://www.eatthis.com/grab-and-go"
-              target="_blank"
-              class="btn"
-              >Read More</a
-            >
-          </article>
+        <article class="insight-card">
+          <h3>How to Hydrate Properly</h3>
+          <p>
+            Learn the best practices for staying hydrated throughout the day.
+          </p>
+          <a href="https://www.heart.org/en/healthy-living/fitness/fitness-basics/staying-hydrated-staying-healthy"
+            target="_blank" class="btn">Read More</a>
+        </article>
 
-          <article class="insight-card">
-            <h3>How to Hydrate Properly</h3>
-            <p>
-              Learn the best practices for staying hydrated throughout the day.
-            </p>
-            <a
-              href="https://www.heart.org/en/healthy-living/fitness/fitness-basics/staying-hydrated-staying-healthy"
-              target="_blank"
-              class="btn"
-              >Read More</a
-            >
-          </article>
+        <article class="insight-card">
+          <h3>Nutritionists vs. Dietitians</h3>
+          <p>A common mistake, understand the difference between the two.</p>
+          <a href="https://www.goodrx.com/well-being/diet-nutrition/dietitian-vs-nutritionist" target="_blank"
+            class="btn">Read More</a>
+        </article>
 
-          <article class="insight-card">
-            <h3>Nutritionists vs. Dietitians</h3>
-            <p>A common mistake, understand the difference between the two.</p>
-            <a
-              href="https://www.goodrx.com/well-being/diet-nutrition/dietitian-vs-nutritionist"
-              target="_blank"
-              class="btn"
-              >Read More</a
-            >
-          </article>
+        <article class="insight-card">
+          <h3>Simple Ways To Stick To A Diet</h3>
+          <p>
+            Starting a diet is one thing, sticking to it a whole other thing.
+          </p>
+          <a href="https://www.healthline.com/nutrition/14-ways-to-stick-to-a-diet" target="_blank" class="btn">Read
+            More</a>
+        </article>
 
-          <article class="insight-card">
-            <h3>Simple Ways To Stick To A Diet</h3>
-            <p>
-              Starting a diet is one thing, sticking to it a whole other thing.
-            </p>
-            <a
-              href="https://www.healthline.com/nutrition/14-ways-to-stick-to-a-diet"
-              target="_blank"
-              class="btn"
-              >Read More</a
-            >
-          </article>
+        <article class="insight-card">
+          <h3>How To Lose Weight Naturally</h3>
+          <p>Things to note down in order to attain a healthy life-style.</p>
+          <a href="https://www.healthline.com/nutrition/30-ways-to-lose-weight-naturally" target="_blank"
+            class="btn">Read More</a>
+        </article>
 
-          <article class="insight-card">
-            <h3>How To Lose Weight Naturally</h3>
-            <p>Things to note down in order to attain a healthy life-style.</p>
-            <a
-              href="https://www.healthline.com/nutrition/30-ways-to-lose-weight-naturally"
-              target="_blank"
-              class="btn"
-              >Read More</a
-            >
-          </article>
-
-          <article class="insight-card">
-            <h3>Diet And Weight Loss</h3>
-            <p>Learn more on dieting and weight loss with Harvard Health.</p>
-            <a
-              href="https://www.health.harvard.edu/topics/diet-and-weight-loss"
-              target="_blank"
-              class="btn"
-              >Read More</a
-            >
-          </article>
-        </div>
-      </section>
-    </main>
-
-    <footer class="footer">
-      <div class="footer-content">
-        <p>&copy; 2024 NourishWise. All rights reserved.</p>
-        <ul class="footer-links">
-          <li><a href="privacy.html">Privacy Policy</a></li>
-          <li><a href="terms.html">Terms of Service</a></li>
-          <li><a href="contact.html">Contact Us</a></li>
-        </ul>
+        <article class="insight-card">
+          <h3>Diet And Weight Loss</h3>
+          <p>Learn more on dieting and weight loss with Harvard Health.</p>
+          <a href="https://www.health.harvard.edu/topics/diet-and-weight-loss" target="_blank" class="btn">Read More</a>
+        </article>
       </div>
-      <div class="social-media">
-        <a
-          href="https://linkedin.com"
-          target="_blank"
-          class="fab fa-linkedin"
-        ></a>
-        <a href="https://wa.me/" target="_blank" class="fab fa-whatsapp"></a>
-        <a
-          href="https://facebook.com"
-          target="_blank"
-          class="fab fa-facebook"
-        ></a>
-        <a
-          href="https://twitter.com"
-          target="_blank"
-          class="fab fa-twitter"
-        ></a>
-        <a
-          href="https://instagram.com"
-          target="_blank"
-          class="fab fa-instagram"
-        ></a>
-      </div>
-    </footer>
+    </section>
+  </main>
 
-    <script src="script/script.js"></script>
-  </body>
+  <footer class="footer">
+    <div class="footer-content">
+      <p>&copy; 2024 NourishWise. All rights reserved.</p>
+      <ul class="footer-links">
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="terms.html">Terms of Service</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </div>
+    <div class="social-media">
+      <a href="https://linkedin.com" target="_blank" class="fab fa-linkedin"></a>
+      <a href="https://wa.me/" target="_blank" class="fab fa-whatsapp"></a>
+      <a href="https://facebook.com" target="_blank" class="fab fa-facebook"></a>
+      <a href="https://twitter.com" target="_blank" class="fab fa-twitter"></a>
+      <a href="https://instagram.com" target="_blank" class="fab fa-instagram"></a>
+    </div>
+  </footer>
+
+  <script src="script/script.js"></script>
+
+  <script>
+    // Function to load and display the profile picture from localStorage
+    function loadProfilePicture() {
+      const storedImage = localStorage.getItem("profilePic");
+      const profileImages = document.querySelectorAll(".profileImage");
+
+      if (storedImage) {
+        profileImages.forEach(img => img.src = storedImage);
+      } else {
+        profileImages.forEach(img => img.src = "default-profile.png"); // Set a default image if none is stored
+      }
+    }
+
+    // Load the profile picture when the page loads
+    document.addEventListener("DOMContentLoaded", loadProfilePicture);
+  </script>
+</body>
+
 </html>

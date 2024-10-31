@@ -9,7 +9,6 @@
   <link rel="icon" href="assets/diet_logo_t.png">
   <link rel="stylesheet" href="styles/style.css">
   <link rel="stylesheet" href="styles/diet-plan.css">
-  <!-- <link rel="stylesheet" href="styles/test.css"> -->
   <link rel="stylesheet" href="styles/dashboard/dashboard.css">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
@@ -220,11 +219,12 @@
       <li><a href="#dashboard" class="active" onclick="showSection('dashboard')"><i class="fas fa-tachometer-alt"></i>
           Dashboard </a></li>
       <li><a href="#home" onclick="showSection('home')"><i class="fas fa-house"></i> Home </a></li>
-      <li><a href="login.html" onclick="showSection('logout')"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
-    </ul>
-    <a class="user-profile">
-      <img src="assets/img-1.jpg" alt="user-profile">
-    </a>
+      <li><a href="#setting" onclick="showSection('setting')"><i class="fas fa-gear"></i> Setting</a></li>
+      <li><a href="#login" onclick="showSection('logout')"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+      <li class="user-profile">
+        <img class="profileImage" src="" class="profile-pic" alt="Profile Picture"
+          style="width: 120px; height: 120px;" />
+        </li>
     </ul>
   </aside>
 
@@ -243,9 +243,12 @@
         <div class="after-header-contents">
           <div class="profile-header">
             <div class="user-profile">
-              <img src="assets/img-1.jpg" alt="User Profile Picture" class="profile-pic">
+              <div class="profile-container">
+                <img class="profileImage" src="" class="profile-pic" alt="Profile Picture"
+                  style="width: 120px; height: 120px;" />
+              </div>
               <div class="welcome-message">
-                <h2>Welcome, ....<span id="userName"></span></h2>
+                <h2>Welcome, <span id="userName">....</span></h2>
               </div>
             </div>
             <div class="progress-section">
@@ -345,7 +348,7 @@
 
       <h2>Calories Consumed</h2>
       <canvas id="calories-chart"></canvas>
-      </div>
+      <div>
       </div>
     </section>
 
@@ -353,6 +356,19 @@
     <section id="home" class="content-section" style="display: none;">
       <h2>Want to go back home?</h2>
       <h4>Click <a href="index-2.html"> here</a> to go back to your main personal page.</h4>
+    </section>
+
+    <!-- Setting section -->
+    <section id="setting" class="content-section" style="display: none;">
+      <h2>Here you can add or change you user profile picture</h2>
+      <div class="profile-container">
+        <img class="profileImage" src="" class="profile-pic" alt="Profile Picture"
+          style="width: 120px; height: 120px;" />
+      </div>
+      <!-- Button to Add Profile Picture -->
+      <button onclick="document.getElementById('profilePicInput').click()">Add Profile Picture</button>
+      <!-- Hidden File Input -->
+      <input type="file" id="profilePicInput" accept="image/*" style="display: none;" />
     </section>
 
     <!-- Logout section -->
@@ -373,6 +389,8 @@
   <!-- Firebase SDKs -->
   <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js"></script>
+
 
   <script type="module">
     import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js';
@@ -420,10 +438,49 @@
     onAuthStateChanged(auth, (user) => {
       if (user) {
         fetchUserData(user);
+        loadProfilePicture(user.uid);
       } else {
         console.log("No user is signed in.");
       }
     });
+  </script>
+  <script>
+    // Function to load and display the profile picture from localStorage in multiple places
+    function loadProfilePicture() {
+      const storedImage = localStorage.getItem("profilePic");
+      const profileImages = document.querySelectorAll(".profileImage");
+
+      if (storedImage) {
+        profileImages.forEach(img => img.src = storedImage);
+      } else {
+        profileImages.forEach(img => img.src = "default-profile.png"); // Set a default image if none is stored
+      }
+    }
+
+    // Function to save the profile picture to localStorage and update all image elements
+    function saveImage() {
+      const fileInput = document.getElementById("profilePicInput").files[0];
+      if (fileInput) {
+        const reader = new FileReader();
+        reader.onload = function (event) {
+          // Save the image as a Base64 string to localStorage
+          localStorage.setItem("profilePic", event.target.result);
+
+          // Update all elements with the class 'profileImage' immediately
+          const profileImages = document.querySelectorAll(".profileImage");
+          profileImages.forEach(img => img.src = event.target.result);
+        };
+        reader.readAsDataURL(fileInput);
+      } else {
+        alert("Please select an image first.");
+      }
+    }
+
+    // Load the profile picture when the page loads
+    document.addEventListener("DOMContentLoaded", loadProfilePicture);
+
+    // Trigger `saveImage` after a file is selected
+    document.getElementById("profilePicInput").addEventListener("change", saveImage);
   </script>
 </body>
 
