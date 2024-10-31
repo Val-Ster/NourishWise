@@ -122,6 +122,9 @@ header nav ul li a {
   text-transform: uppercase;
   border-bottom: 2px solid transparent;
 }
+ .aside-top {
+   display: none;
+ }
 
 .action-btn-container {
   display: flex;

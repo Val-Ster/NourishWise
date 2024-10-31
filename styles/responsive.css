@@ -5,14 +5,45 @@
 
   /* Media query for mobile screens */
   .nav-list {
-    display: none;
+    /* display: none; */
+    display: block;
     flex-direction: column;
-    position: absolute;
-    background-color: #fff;
-    top: 4.9rem;
-    right: 0;
-    width: 100%;
-    z-index: 10;
+    top: 0rem;
+    width: 250px;
+    height: 100vh;
+    color: #fff;
+    position: fixed;
+    transition: width 0.3s;
+    gap: 2rem;
+    left: 0;
+    overflow: hidden;
+    z-index: 1000;
+    transition: all 400ms ease;
+    color: var(--dark-text);
+    padding: 1rem;
+    box-sizing: border-box;
+    background: wheat;
+  }
+
+  .aside-top {
+    display: flex;
+    align-items: center;
+  }
+
+  .aside-top h1{
+      color: var(--light-green-bg);
+  }
+  .aside-top img {
+    width: 3.5rem;
+  }
+
+  .closebtn {
+    font-size: 2rem;
+    color: var(--button-bg);
+  }
+
+  .closebtn:hover {
+    color: var(--button-bg-hover);
   }
 
   .nav-list li {

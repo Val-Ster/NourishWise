@@ -27,117 +27,31 @@
   --container-padding: 5rem 10rem;
 
   /* Gradient color*/
-  --gradient-border: linear-gradient(
-    to right,
-    #a8e6cf,
-    #dcedc1,
-    #ffd54f,
-    #ffab91,
-    #ff8c94
-  );
-}
-
-/* =================== HEADER ====================*/
-#header {
-  z-index: 100;
-  height: 5rem;
-}
-
-header {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  position: fixed;
-  left: 0;
-  right: 0;
-  top: 0;
-  padding: 0.3rem 2rem;
-  background: wheat;
-}
-
-header nav {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
-
-header nav ul {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  gap: 3rem;
-}
-
-header nav ul li a {
-  display: block;
-  color: var(--dark-text);
-  font-weight: bold;
-  text-transform: uppercase;
-  border-bottom: 2px solid transparent;
-}
-
-.action-btn-container {
-  display: flex;
-  flex-direction: row;
-  align-content: center;
-  justify-content: center;
-}
-
-.menu-toggle {
-  font-size: 2.5rem;
-}
-
-nav {
-  display: none;
-}
-
-header nav ul li #active,
-header nav ul li a:hover {
-  border-bottom: 2px solid var(--dark-green-bg);
-  color: var(--dark-green-bg);
-}
-
-header nav ul li:last-child a {
-  background: var(--button-bg);
-  padding: 0.7rem 1rem;
-  color: var(--white-text);
-  border-radius: 100px;
-}
-
-/* Header logo style */
-header .logo img {
-  width: 4rem;
-}
-
-/* Header profile image style */
-header .user-profile img {
-  width: 3rem;
-  border-radius: 50%;
-  transition: 0.2s ease;
-  border: 3px solid transparent;
-}
-
-/* Header profile image style on hover*/
-header .user-profile img:hover {
-  border: 3px solid var(--button-bg);
-  transform: scale(1.1);
-  overflow: hidden;
-  border-radius: 50%;
+  --gradient-border: linear-gradient(to right,
+      #a8e6cf,
+      #dcedc1,
+      #ffd54f,
+      #ffab91,
+      #ff8c94);
 }
 
 /* =================== FORM ====================*/
 
 body {
   background-image: url("../assets/contact-us.jpeg");
-  background-size: cover; /* Scales the image to cover the entire area */
-  background-position: center; /* Centers the image */
-  background-repeat: no-repeat; /* Prevents the image from repeating */
+  background-size: cover;
+  /* Scales the image to cover the entire area */
+  background-position: center;
+  /* Centers the image */
+  background-repeat: no-repeat;
+  /* Prevents the image from repeating */
 }
+
 h1 {
   color: var(--light-green-bg);
-  padding: 0 0 20px 0;
   text-align: center;
 }
+
 .contact-container {
   border: 2px solid;
   background-color: rgba(255, 255, 255, 0.1);
@@ -153,8 +67,10 @@ h1 {
 
 input[type="text"],
 input[type="email"] {
-  width: 100%; /* Full width of the container */
-  height: 40px; /* Height of the field */
+  width: 100%;
+  /* Full width of the container */
+  height: 40px;
+  /* Height of the field */
   padding: 6px 8px;
   font-size: 16px;
   border-radius: 6px;
@@ -175,13 +91,16 @@ input[type="submit"] {
 }
 
 #message {
-  padding: 5px; /* Inner padding */
+  padding: 5px;
+  /* Inner padding */
   width: 100%;
   height: 120px;
   text-align: justify;
   line-height: 1.5;
-  overflow-wrap: break-word; /* Ensures long words wrap */
-  resize: none; /* Dissallows people from resizing */
+  overflow-wrap: break-word;
+  /* Ensures long words wrap */
+  resize: none;
+  /* Dissallows people from resizing */
 }
 
 /* ============================= FOOTER SECTION

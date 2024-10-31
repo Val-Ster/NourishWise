@@ -100,6 +100,11 @@
         <img src="assets/diet_logo_t.png" alt="NourishWise logo">
       </div>
       <ul class="nav-list" id="nav-list">
+        <div class="aside-top">
+          <img src="assets/diet_logo_t.png" alt="">
+          <h1>NourishWise</h1>
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNavPanel()">×</a>
+        </div>
         <li>
           <a href="index-2.html">Home</a>
         </li>
@@ -108,15 +113,15 @@
         <li><a href="dieticians.html">Dieticians</a></li>
         <li><a href="contactUs.html" class="btn">Contact Us</a></li>
       </ul>
-        <div class="action-btn-container">
-          <a href="customer-dashboard.html" class="user-profile">
-            <!-- <img src="assets/img-1.jpg" alt="user-profile" /> -->
-            <i class="fas fa-user"></i>
-          </a>
-          <div class="menu-toggle" id="mobile-menu" onclick="toggleNavbar()">
-            <i class="fas fa-bars">=</i>
-          </div>
+      <div class="action-btn-container">
+        <a href="customer-dashboard.html" class="user-profile">
+          <img class="profileImage" src="" class="profile-pic" alt="Profile Picture"
+            style="width: 50px; height: 50px;" />
+        </a>
+        <div class="menu-toggle">
+          <span style="font-size:30px;cursor:pointer" onclick="openNavPanel()">☰</span>
         </div>
+      </div>
     </nav>
   </header>
 
@@ -271,6 +276,24 @@
   </main>
 
   <script src="script/script.js"></script>
+
+  <script>
+    // Function to load and display the profile picture from localStorage
+    function loadProfilePicture() {
+      const storedImage = localStorage.getItem("profilePic");
+      const profileImages = document.querySelectorAll(".profileImage");
+
+      if (storedImage) {
+        profileImages.forEach(img => img.src = storedImage);
+      } else {
+        profileImages.forEach(img => img.src = "default-profile.png"); // Set a default image if none is stored
+      }
+    }
+
+    // Load the profile picture when the page loads
+    document.addEventListener("DOMContentLoaded", loadProfilePicture);
+  </script>
+
 </body>
 
 </html>

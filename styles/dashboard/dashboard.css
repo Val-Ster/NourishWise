@@ -146,6 +146,9 @@ button {
   align-items: center;
 }
 
+.aside-top h1{
+    color: var(--light-green-bg);
+}
 .aside-top img {
   width: 3.5rem;
 }

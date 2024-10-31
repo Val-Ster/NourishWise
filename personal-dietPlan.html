@@ -10,6 +10,7 @@
   <!-- Stylesheets -->
   <link rel="stylesheet" href="styles/style.css">
   <link rel="stylesheet" href="styles/diet-plan.css">
+  <link rel="stylesheet" href="styles/responsive.css">
 
   <!-- Fontawesome Icon link -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
@@ -192,8 +193,16 @@
     }
 
     main {
-
       padding: var(--container-padding);
+    }
+
+    @media (max-width: 480px) {
+
+      /* ============================= HERO SECTION
+   =============================*/
+      main {
+        padding: 5rem 1rem;
+      }
     }
   </style>
 
@@ -206,6 +215,11 @@
         <img src="assets/diet_logo_t.png" alt="NourishWise logo">
       </div>
       <ul class="nav-list" id="nav-list">
+        <div class="aside-top">
+          <img src="assets/diet_logo_t.png" alt="">
+          <h1>NourishWise</h1>
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNavPanel()">×</a>
+        </div>
         <li><a href="index-2.html">Home</a></li>
         <li><a href="#" id="active">Diet Plan</a></li>
         <li><a href="insight.html">Insights</a></li>
@@ -216,8 +230,8 @@
         <a href="customer-dashboard.html" class="user-profile">
           <img src="assets/img-1.jpg" alt="user-profile" />
         </a>
-        <div class="menu-toggle" id="mobile-menu" onclick="toggleNavbar()">
-          <i class="fas fa-bars">=</i>
+        <div class="menu-toggle">
+          <span style="font-size:30px;cursor:pointer" onclick="openNavPanel()">☰</span>
         </div>
       </div>
     </nav>
@@ -279,7 +293,7 @@
     }
   </script>
 
-  <!-- Firebase SDKs -->
+  <script src="script/script.js"></script> <!-- Firebase SDKs -->
   <script type="module">
     // Import Firebase modules
     import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js';

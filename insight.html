@@ -14,35 +14,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMDE8cvdRa7zBbb4T3N6g5RhiB2V1Knq8MkHx6" crossorigin="anonymous" />
   <script src="https://kit.fontawesome.com/f70dd16b18.js" crossorigin="anonymous"></script>
-
-  <style>
-    #header nav {
-      align-items: center;
-    }
-
-    #header {
-      transition: height 0.3s ease;
-    }
-
-    .nav-list li {
-      margin: 10px 0;
-    }
-
-    .nav-list a {
-      text-decoration: none;
-    }
-
-    .menu-toggle {
-      cursor: pointer;
-      color: white;
-      margin-top: 10px;
-    }
-
-    .main {
-      transition: margin-top 0.3s ease;
-      padding: 20px;
-    }
-  </style>
 </head>
 
 <body>
@@ -52,6 +23,12 @@
         <img src="assets/diet_logo_t.png" alt="NourishWise logo" />
       </div>
       <ul class="nav-list" id="nav-list">
+        <div class="aside-top">
+          <img src="assets/diet_logo_t.png" alt="">
+          <h1>NourishWise</h1>
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNavPanel()">×</a>
+        </div>
+
         <li><a href="index-2.html">Home</a></li>
         <li><a href="diet-plan.html">Diet Plan</a></li>
         <li><a href="#" id="active">Insights</a></li>
@@ -63,8 +40,8 @@
           <img class="profileImage" src="" class="profile-pic" alt="Profile Picture"
             style="width: 50px; height: 50px;" />
         </a>
-        <div class="menu-toggle" id="mobile-menu" onclick="toggleNavbar()">
-          <i class="fas fa-bars">=</i>
+        <div class="menu-toggle">
+          <span style="font-size:30px;cursor:pointer" onclick="openNavPanel()">☰</span>
         </div>
       </div>
     </nav>

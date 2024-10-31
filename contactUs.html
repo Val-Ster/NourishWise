@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="styles/style.css" />
   <link rel="stylesheet" href="styles/contactUs.css" />
+  <link rel="stylesheet" href="styles/responsive.css" />
   <title>NourishWise Contact Us</title>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
@@ -21,24 +22,25 @@
         <img src="assets/diet_logo_t.png" alt="NourishWise logo" />
       </div>
       <ul class="nav-list" id="nav-list">
-        <li>
-          <!-- <i class="fas fa-bars"></i> -->
-          <a href="index-2.html">Home</a>
-        </li>
+        <div class="aside-top">
+          <img src="assets/diet_logo_t.png" alt="">
+          <h1>NourishWise</h1>
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNavPanel()">×</a>
+        </div>
+
+        <li><a href="index-2.html">Home</a></li>
         <li><a href="diet-plan.html">Diet Plan</a></li>
-        <li><a href="insight.html">Insights</a></li>
+        <li><a href="#">Insights</a></li>
         <li><a href="dieticians.html">Dieticians</a></li>
-        <li>
-          <a href="contactUs.html" class="btn">Contact Us</a>
-        </li>
+        <li><a href="contactUs.html" class="btn">Contact Us</a></li>
       </ul>
       <div class="action-btn-container">
         <a href="customer-dashboard.html" class="user-profile">
           <img class="profileImage" src="" class="profile-pic" alt="Profile Picture"
             style="width: 50px; height: 50px;" />
         </a>
-        <div class="menu-toggle" id="mobile-menu" onclick="toggleNavbar()">
-          <i class="fas fa-bars">=</i>
+        <div class="menu-toggle">
+          <span style="font-size:30px;cursor:pointer" onclick="openNavPanel()">☰</span>
         </div>
       </div>
     </nav>
@@ -63,6 +65,7 @@
     </form>
   </div>
 
+  <script src="script/script.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       document
