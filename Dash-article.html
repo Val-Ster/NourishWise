@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NourishWise - DASH Diet</title>
+    <link rel="icon" href="assets/diet_logo_t.png" />
+
+    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="styles/responsive.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMDE8cvdRa7zBbb4T3N6g5RhiB2V1Knq8MkHx6"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://kit.fontawesome.com/f70dd16b18.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <style>
+      * {
+        scroll-behavior: smooth;
+      }
+
+      img {
+        float: right;
+        margin: 0.5rem;
+        /* width: 25rem; */
+      }
+
+      .article-container {
+        flex-direction: row;
+        padding: 100px 200px 50px 20px;
+      }
+
+      .article {
+        width: 84%;
+      }
+
+      .nav-panel {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        width: 20rem;
+      }
+
+      .nav-panel ul {
+        display: flex;
+        height: 100%;
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+      }
+
+      .nav-panel hr {
+        width: 1px;
+        height: 10rem;
+        background: gray;
+      }
+
+      .nav-panel ul li {
+        padding: 1rem;
+      }
+
+      .nav-panel ul li a {
+        color: black;
+      }
+
+      .nav-panel ul li a:hover {
+        color: darkgreen;
+      }
+
+      /* Responsive styles */
+      /* Media query for mobile screens */
+      @media (max-width: 768px) {
+        main {
+          padding: 2rem 0;
+        }
+
+        .container {
+          padding: 2rem;
+        }
+
+        .article {
+          width: 100%;
+        }
+
+        .nav-panel {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header id="header">
+      <nav>
+        <div class="logo">
+          <img src="assets/diet_logo_t.png" alt="NourishWise logo" />
+        </div>
+        <ul class="nav-list" id="nav-list">
+          <li>
+            <a href="index-2.html">Home</a>
+          </li>
+          <li><a href="diet-plan.html">Diet Plan</a></li>
+          <li><a href="insight.html" id="active">Insights</a></li>
+          <li><a href="dieticians.html">Dieticians</a></li>
+          <li><a href="contactUs.html" class="btn">Contact Us</a></li>
+        </ul>
+        <div class="action-btn-container">
+          <a href="customer-dashboard.html" class="user-profile">
+            <!-- <img src="assets/img-1.jpg" alt="user-profile" /> -->
+            <i class="fas fa-user"></i>
+          </a>
+          <div class="menu-toggle" id="mobile-menu" onclick="toggleNavbar()">
+            <i class="fas fa-bars">=</i>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <div class="container article-container">
+        <div class="article">
+          <article id="intro">
+            <!-- <img src="assets/diet_logo_t.png" alt=""> -->
+            <h1>DASH Diet:</h1>
+            <br />
+            <img src="assets/dash-diet.jpeg" alt="" />
+            <h2>Understanding the DASH Diet</h2>
+            <p>
+              Welcome to the world of the DASH diet—a vibrant, delicious
+              approach to eating that not only tantalizes your taste buds but
+              also promotes heart health and overall well-being. Whether you're
+              looking to lower your blood pressure, improve your nutrition, or
+              just want to eat better, DASH (Dietary Approaches to Stop
+              Hypertension) has you covered. So, grab a snack (preferably
+              healthy!) and let’s dive in!
+            </p>
+            <br />
+            <br />
+            <h2>What is the DASH Diet?</h2>
+            <p>
+              At its core, the DASH diet emphasizes wholesome, nutrient-rich
+              foods that can help you reduce your sodium intake and manage
+              hypertension (high blood pressure). Developed by the National
+              Heart, Lung, and Blood Institute (NHLBI), the DASH diet isn't just
+              about cutting back on salt—it's a lifestyle change that focuses on
+              eating a balanced diet rich in fruits, vegetables, whole grains,
+              lean proteins, and healthy fats.
+            </p>
+            <br />
+            <p>
+              Think of the DASH diet as a colorful plate filled with a variety
+              of foods. It’s not about deprivation; instead, it’s all about
+              making healthier choices that you can enjoy. The idea is to
+              nourish your body while also satisfying your cravings. Sounds
+              good, right?
+            </p>
+          </article>
+          <br />
+          <br />
+          <h2 id="How">How Does the DASH Diet Work?</h2>
+          <img src="assets/dash-pyramid.jpg" alt="" />
+          <br />
+          <p>
+            The DASH diet works by promoting foods that are naturally low in
+            sodium and high in potassium, calcium, and magnesium—all essential
+            nutrients for heart health. By incorporating more fruits,
+            vegetables, whole grains, and low-fat dairy into your meals, you can
+            naturally lower your blood pressure and improve your cardiovascular
+            health.
+          </p>
+          <br />
+          <p>
+            The magic of the DASH diet lies in its flexibility. You can
+            customize it to fit your personal preferences, making it easier to
+            stick to in the long run. Plus, it encourages a variety of flavors
+            and textures, so you’ll never feel bored with your meals!
+          </p>
+          <br />
+          <br />
+          <h2 id="started">Scheduling: How to Get Started with DASH</h2>
+          <img src="assets/dash.PNG" alt="" />
+          <br />
+          <p>
+            Starting the DASH diet doesn’t have to be overwhelming. Here’s a
+            simple guide to help you ease into this healthier lifestyle:
+          </p>
+          <ul>
+            <br />
+            <li>
+              1. <strong>Set Your Goals:</strong> Determine what you want to
+              achieve with the DASH diet—whether it’s lowering blood pressure,
+              losing weight, or simply eating healthier.
+            </li>
+            <br />
+            <li>
+              2. <strong>Plan Your Meals:</strong> Start by creating a meal plan
+              for the week. Include a variety of foods from different food
+              groups to keep your meals exciting.
+            </li>
+            <br />
+            <li>
+              3. <strong>Grocery Shopping:</strong> Stock up on DASH-friendly
+              foods. Make a list to avoid impulse buys that can derail your
+              healthy eating habits
+            </li>
+            <br />
+            <li>
+              4. <strong>Prep Your Meals:</strong> Meal prep can save you time
+              during busy weekdays. Chop veggies, cook grains, and prepare
+              snacks in advance so you have healthy options ready to go.
+            </li>
+            <br />
+            <li>
+              5. <strong>Mindful Eating:</strong>Pay attention to portion sizes
+              and savor each bite. Mindful eating can help you enjoy your food
+              and recognize when you're full.
+            </li>
+            <br />
+            <li>
+              6. <strong>Track your journey:</strong> This is where NourishWise
+              comes in, make sure to log in your daily meals and calorie intake
+              as often as possible. Tracking your progression, or even
+              regression, helps to not only keep you motivated and accountable,
+              but helps you notice any missteps to be able to solve them early.
+            </li>
+          </ul>
+
+          <br />
+          <br />
+          <h2 id="foods-you-can-eat">Foods You Can Eat on the DASH Diet</h2>
+          <img src="assets/dash-2.webp" alt="" />
+          <p>Embrace the following food groups as part of your DASH journey:</p>
+          <ul>
+            <br />
+            <li>
+              1. <strong>Fruits and Vegetables:</strong> Aim for 4-5 servings of
+              each per day. Think berries, apples, leafy greens, carrots, and
+              bell peppers.
+            </li>
+            <br />
+            <li>
+              2. <strong>Whole Grains:</strong> Choose whole-grain bread, brown
+              rice, quinoa, and oatmeal. Aim for 6-8 servings a day.
+            </li>
+            <br />
+            <li>
+              3. <strong>Lean Proteins:</strong> Incorporate fish, poultry,
+              beans, lentils, and tofu. Aim for 2 or fewer servings of meat per
+              day.
+            </li>
+            <br />
+            <li>
+              4. <strong>Low-Fat Dairy:</strong> Enjoy yogurt, milk, and cheese,
+              aiming for 2-3 servings each day.
+            </li>
+            <br />
+            <li>
+              5. <strong>Nuts and Seeds:</strong> Snack on unsalted nuts and
+              seeds, keeping it to about 4-5 servings per week.
+            </li>
+            <br />
+            <li>
+              6. <strong>Healthy Fats:</strong> Use healthy oils like olive oil,
+              and limit saturated and trans fats.
+            </li>
+          </ul>
+          <br />
+          <br />
+          <h2 id="foods-to-limit">Foods to Limit or Avoid</h2>
+          <img src="assets/dash-3.jpeg" alt="" />
+          <p>
+            While the DASH diet is about enjoying a variety of foods, there are
+            some items you should limit or avoid:
+          </p>
+          <ul>
+            <br />
+            <li>
+              1. <strong>Salt:</strong> Aim for no more than 2,300 mg of sodium
+              per day, or ideally 1,500 mg if you have high blood pressure.
+            </li>
+            <br />
+            <li>
+              2. <strong>Added Sugars:</strong> Cut back on sugary beverages,
+              desserts, and processed snacks.
+            </li>
+            <br />
+            <li>
+              3. <strong>Red and Processed Meats:</strong> Limit these to less
+              than 6 ounces per week.
+            </li>
+            <br />
+            <li>
+              4. <strong>Full-Fat Dairy:</strong> Choose low-fat or fat-free
+              options instead.
+            </li>
+            <br />
+            <li>
+              5. <strong>High-Fat and Fried Foods:</strong> These can contribute
+              to higher blood pressure and are best limited.
+            </li>
+          </ul>
+          <br />
+          <br />
+          <h2 id="fun-tips">Fun Tips to Enjoy the DASH Diet</h2>
+          <img src="assets/dash-4.jpeg" alt="" />
+          <p>Here are some enjoyable ways to embrace the DASH diet:</p>
+          <ul>
+            <br />
+            <li>
+              1. <strong>Experiment with Herbs and Spices:</strong> Instead of
+              salt, enhance your dishes with flavorful herbs and spices.
+            </li>
+            <br />
+            <li>
+              2. <strong>Join a Cooking Class:</strong> Learn new ways to
+              prepare DASH-friendly meals while having fun.
+            </li>
+            <br />
+            <li>
+              3. <strong>Make it Social:</strong> Share your DASH journey with
+              friends and family. Host a healthy potluck or dinner party!
+            </li>
+            <br />
+            <li>
+              4. <strong>Keep it Colorful:</strong> A colorful plate often means
+              a variety of nutrients. Aim to eat the rainbow!
+            </li>
+          </ul>
+          <br />
+          <br />
+          <h2 id="conclusion">Conclusion</h2>
+          <p>
+            Embarking on the DASH diet is about more than just food; it’s a
+            lifestyle change that can lead to better health and a happier you.
+            With its focus on whole foods and balanced nutrition, the DASH diet
+            can help you feel your best while enjoying a diverse array of
+            delicious meals.
+            <br />
+            So, what are you waiting for? Dive into the world of DASH, savor
+            every bite, and watch as you take strides toward a healthier life.
+            Remember, it’s not just about the destination; it’s about enjoying
+            the journey along the way!
+          </p>
+
+          <div class="nav-panel">
+            <ul>
+              <div class="lists">
+                <li><a href="#intro">Introduction: What is Dieting?</a></li>
+                <li><a href="#How">How Does the DASH Diet Work?</a></li>
+                <li>
+                  <a href="#started"
+                    >Scheduling: How to Get Started with DASH</a
+                  >
+                </li>
+                <li>
+                  <a href="#foods-you-can-eat"
+                    >Foods You Can Eat on the DASH Diet</a
+                  >
+                </li>
+                <li>
+                  <a href="#foods-to-limit">Foods to Limit or Avoid</a>
+                </li>
+                <li>
+                  <a href="#fun-tips">Fun Tips to Enjoy the DASH Diet</a>
+                </li>
+                <li><a href="#conclusion">Conclusion.</a></li>
+              </div>
+              <div class="line">
+                <hr />
+              </div>
+            </ul>
+          </div>
+
+          <script src="script/script.js"></script>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
