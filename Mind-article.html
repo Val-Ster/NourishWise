@@ -1,427 +1,432 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>NourishWise - DASH Diet</title>
-    <link rel="icon" href="assets/diet_logo_t.png" />
 
-    <link rel="stylesheet" href="styles/style.css" />
-    <link rel="stylesheet" href="styles/responsive.css" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NourishWise - DASH Diet</title>
+  <link rel="icon" href="assets/diet_logo_t.png" />
 
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-      integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMDE8cvdRa7zBbb4T3N6g5RhiB2V1Knq8MkHx6"
-      crossorigin="anonymous"
-    />
-    <script
-      src="https://kit.fontawesome.com/f70dd16b18.js"
-      crossorigin="anonymous"
-    ></script>
+  <link rel="stylesheet" href="styles/style.css" />
+  <link rel="stylesheet" href="styles/responsive.css" />
 
-    <style>
-      * {
-        scroll-behavior: smooth;
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMDE8cvdRa7zBbb4T3N6g5RhiB2V1Knq8MkHx6" crossorigin="anonymous" />
+  <script src="https://kit.fontawesome.com/f70dd16b18.js" crossorigin="anonymous"></script>
+
+  <style>
+    * {
+      scroll-behavior: smooth;
+    }
+
+    img {
+      float: right;
+      margin: 0.5rem;
+      /* width: 25rem; */
+    }
+
+    .article-container {
+      flex-direction: row;
+      padding: 100px 200px 50px 20px;
+    }
+
+    .article {
+      width: 84%;
+    }
+
+    .nav-panel {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      width: 20rem;
+    }
+
+    .nav-panel ul {
+      display: flex;
+      height: 100%;
+      display: flex;
+      flex-direction: row-reverse;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      padding: 2rem;
+    }
+
+    .nav-panel hr {
+      width: 1px;
+      height: 10rem;
+      background: gray;
+    }
+
+    .nav-panel ul li {
+      padding: 0.5rem;
+    }
+
+    .nav-panel ul li a {
+      color: black;
+    }
+
+    .nav-panel ul li a:hover {
+      color: darkgreen;
+    }
+
+    /* Responsive styles */
+    /* Media query for mobile screens */
+    @media (max-width: 768px) {
+      main {
+        padding: 2rem 0;
       }
 
-      img {
-        float: right;
-        margin: 0.5rem;
-        /* width: 25rem; */
-      }
-
-      .article-container {
-        flex-direction: row;
-        padding: 100px 200px 50px 20px;
-      }
-
-      .article {
-        width: 84%;
-      }
-
-      .nav-panel {
-        position: fixed;
-        top: 0;
-        bottom: 0;
-        right: 0;
-        width: 20rem;
-      }
-
-      .nav-panel ul {
-        display: flex;
-        height: 100%;
-        display: flex;
-        flex-direction: row-reverse;
-        align-items: center;
-        justify-content: center;
-        gap: 1rem;
+      .container {
         padding: 2rem;
       }
 
-      .nav-panel hr {
-        width: 1px;
-        height: 10rem;
-        background: gray;
+      .article {
+        width: 100%;
       }
 
-      .nav-panel ul li {
-        padding: 0.5rem;
+      .nav-panel {
+        display: none;
       }
+    }
+  </style>
+</head>
 
-      .nav-panel ul li a {
-        color: black;
-      }
-
-      .nav-panel ul li a:hover {
-        color: darkgreen;
-      }
-
-      /* Responsive styles */
-      /* Media query for mobile screens */
-      @media (max-width: 768px) {
-        main {
-          padding: 2rem 0;
-        }
-
-        .container {
-          padding: 2rem;
-        }
-
-        .article {
-          width: 100%;
-        }
-
-        .nav-panel {
-          display: none;
-        }
-      }
-    </style>
-  </head>
-
-  <body>
-    <header id="header">
-      <nav>
-        <div class="logo">
-          <img src="assets/diet_logo_t.png" alt="NourishWise logo" />
+<body>
+  <header id="header">
+    <nav>
+      <div class="logo">
+        <img src="assets/diet_logo_t.png" alt="NourishWise logo" />
+      </div>
+      <ul class="nav-list" id="nav-list">
+        <div class="aside-top">
+          <img src="assets/diet_logo_t.png" alt="">
+          <h1>NourishWise</h1>
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNavPanel()">×</a>
         </div>
-        <ul class="nav-list" id="nav-list">
-          <li>
-            <a href="index-2.html">Home</a>
-          </li>
-          <li><a href="diet-plan.html">Diet Plan</a></li>
-          <li><a href="insight.html" id="active">Insights</a></li>
-          <li><a href="dieticians.html">Dieticians</a></li>
-          <li><a href="contactUs.html" class="btn">Contact Us</a></li>
-        </ul>
-        <div class="action-btn-container">
-          <a href="customer-dashboard.html" class="user-profile">
-            <!-- <img src="assets/img-1.jpg" alt="user-profile" /> -->
-            <i class="fas fa-user"></i>
-          </a>
-          <div class="menu-toggle" id="mobile-menu" onclick="toggleNavbar()">
-            <i class="fas fa-bars">=</i>
-          </div>
-        </div>
-      </nav>
-    </header>
 
-    <main>
-      <div class="container article-container">
-        <div class="article">
-          <article id="intro">
-            <h1>MIND Diet:</h1>
-            <br />
-            <img src="assets/mind-diet.jpg" alt="MIND Diet Image" />
-            <h2>Understanding the MIND Diet</h2>
-            <p>
-              The MIND diet, short for “Mediterranean-DASH Intervention for
-              Neurodegenerative Delay,” was designed to boost brain health by
-              focusing on foods that support cognitive function. Created by
-              nutritionist Martha Clare Morris and her team, the MIND diet
-              combines the best parts of the Mediterranean and DASH diets, both
-              renowned for promoting heart health, but with a unique twist: it
-              aims to prevent Alzheimer’s and cognitive decline.
-            </p>
-            <br />
-            <br />
-            <h2>What is the MIND Diet?</h2>
-            <p>
-              The MIND diet is built around ten brain-healthy foods and five
-              categories of foods to limit. Research suggests that those who
-              follow the MIND diet, even partially, can reduce their risk of
-              Alzheimer’s by up to 35%, while those who strictly adhere to it
-              can see up to a 53% reduction. This diet focuses on keeping the
-              brain sharp while allowing room for balance and enjoyment in your
-              meals.
-            </p>
-            <br />
-            <p>
-              Unlike other diets that may require drastic changes, the MIND diet
-              is flexible and easy to follow. Think of it as a lifestyle shift
-              rather than a strict regimen. You’ll explore new, tasty foods that
-              can help nourish your brain while still enjoying the flavors you
-              love.
-            </p>
-          </article>
-          <br />
-          <br />
-          <h2 id="How">How Does the MIND Diet Work?</h2>
-          <img src="assets/mind-pyramid.jpg" alt="MIND Diet Food Pyramid" />
-          <br />
-          <p>
-            The MIND diet operates by encouraging nutrient-dense, whole foods
-            known for their brain-boosting properties. The main idea is to
-            include foods rich in antioxidants, vitamins, and healthy fats while
-            reducing foods high in saturated fats and sugars. The foods in the
-            MIND diet are grouped into “brain-healthy” and “brain-unhealthy”
-            categories.
-          </p>
-          <br />
-          <p>
-            While there are guidelines, you can customize the MIND diet to suit
-            your tastes. The diet doesn’t demand total elimination of certain
-            foods but recommends limiting them, making it easier to stick to in
-            the long run. This approach ensures that your brain gets all the
-            nutrients it needs to function at its best without feeling
-            restricted.
-          </p>
-          <br />
-          <br />
-          <h2 id="started">
-            Scheduling: How to Get Started with the MIND Diet
-          </h2>
-          <img
-            src="assets/mind-getting-started.png"
-            alt="MIND Diet Scheduling"
-          />
-          <br />
-          <p>
-            Starting the MIND diet is straightforward and enjoyable. Here’s a
-            simple guide to help you dive into this brain-friendly way of
-            eating:
-          </p>
-          <ul>
-            <br />
-            <li>
-              1. <strong>Plan Your Weekly Meals:</strong> Begin by creating a
-              weekly meal plan focused on the ten brain-healthy foods (like
-              berries, leafy greens, and nuts). Try to limit the
-              “brain-unhealthy” foods to occasional treats.
-            </li>
-            <br />
-            <li>
-              2. <strong>Grocery Shop with a Purpose:</strong> Stock up on
-              brain-boosting foods like fresh vegetables, nuts, whole grains,
-              and lean proteins. Don’t forget to grab some berries—they’re a
-              MIND diet favorite!
-            </li>
-            <br />
-            <li>
-              3. <strong>Prep Meals in Advance:</strong> Make it easy to stick
-              to the diet by prepping meals and snacks ahead of time. This can
-              include making a big batch of leafy green salads, chopping
-              vegetables, or preparing fish fillets for quick access.
-            </li>
-            <br />
-            <li>
-              4. <strong>Enjoy Your Food:</strong> The MIND diet encourages you
-              to eat mindfully, savoring every bite and noticing how your meals
-              make you feel. This helps reinforce positive eating habits over
-              time.
-            </li>
-            <br />
-            <li>
-              5. <strong>Track Your Progress:</strong> Use NourishWise to record
-              your daily meals. This will help you stay on track, see your
-              progress, and make adjustments as needed to maximize brain
-              benefits.
-            </li>
-          </ul>
-          <br />
-          <br />
-          <h2 id="foods-you-can-eat">Foods You Can Eat on the MIND Diet</h2>
-          <img
-            src="assets/mind-foods.jpg"
-            alt="Foods You Can Eat on the MIND Diet"
-          />
-          <p>
-            Here’s a breakdown of the ten brain-boosting foods in the MIND diet:
-          </p>
-          <ul>
-            <br />
-            <li>
-              1. <strong>Leafy Green Vegetables:</strong> Aim for six servings a
-              week. Think spinach, kale, and collards—they’re packed with
-              nutrients that protect brain function.
-            </li>
-            <br />
-            <li>
-              2. <strong>Other Vegetables:</strong> Include at least one serving
-              a day of colorful vegetables like bell peppers, carrots, or
-              tomatoes.
-            </li>
-            <br />
-            <li>
-              3. <strong>Berries:</strong> Go for two servings of berries per
-              week, such as blueberries, strawberries, or blackberries, known
-              for their antioxidant properties.
-            </li>
-            <br />
-            <li>
-              4. <strong>Nuts:</strong> Snack on a handful of nuts daily, such
-              as almonds, walnuts, or pecans, for healthy fats and
-              brain-supporting nutrients.
-            </li>
-            <br />
-            <li>
-              5. <strong>Olive Oil:</strong> Use olive oil as your primary
-              cooking fat—it’s a cornerstone of the MIND diet.
-            </li>
-            <br />
-            <li>
-              6. <strong>Whole Grains:</strong> Choose whole grains like brown
-              rice, quinoa, or whole-wheat bread, aiming for three servings per
-              day.
-            </li>
-            <br />
-            <li>
-              7. <strong>Fish:</strong> Try to eat fish, like salmon or
-              sardines, at least once a week for brain-healthy omega-3 fatty
-              acids.
-            </li>
-            <br />
-            <li>
-              8. <strong>Beans:</strong> Aim for four servings of beans per
-              week, such as lentils, black beans, or chickpeas.
-            </li>
-            <br />
-            <li>
-              9. <strong>Poultry:</strong> Enjoy lean poultry, like chicken or
-              turkey, twice a week as a protein option.
-            </li>
-            <br />
-            <li>
-              10. <strong>Wine (Optional):</strong> You can have up to one glass
-              of wine per day if desired. Red wine contains resveratrol, an
-              antioxidant that may support brain health.
-            </li>
-          </ul>
-          <br />
-          <br />
-          <h2 id="foods-to-limit">Foods to Limit or Avoid</h2>
-          <img
-            src="assets/mind-avoid.jpg"
-            alt="Foods to Limit on the MIND Diet"
-          />
-          <p>
-            While the MIND diet allows for flexibility, limiting the following
-            foods can help you maximize its benefits:
-          </p>
-          <ul>
-            <br />
-            <li>
-              1. <strong>Butter and Margarine:</strong> Try to use less than one
-              tablespoon per day. Replace these with olive oil where possible.
-            </li>
-            <br />
-            <li>
-              2. <strong>Cheese:</strong> Enjoy cheese in moderation—less than
-              once a week if possible.
-            </li>
-            <br />
-            <li>
-              3. <strong>Red Meat:</strong> Limit red meat, aiming for no more
-              than three servings per week.
-            </li>
-            <br />
-            <li>
-              4. <strong>Fried Foods and Fast Foods:</strong> Try to eat these
-              as rarely as possible, ideally less than once a week.
-            </li>
-            <br />
-            <li>
-              5. <strong>Sweets and Pastries:</strong> Limit sweets, aiming to
-              enjoy them less than five times a week.
-            </li>
-          </ul>
-          <br />
-          <br />
-          <h2 id="fun-tips">Fun Tips to Enjoy the MIND Diet</h2>
-          <img src="assets/mind-tips.jpg" alt="MIND Diet Fun Tips" />
-          <p>Here are some enjoyable ways to embrace the MIND diet:</p>
-          <ul>
-            <br />
-            <li>
-              1. <strong>Experiment with New Recipes:</strong> Try making
-              brain-boosting dishes like a leafy green salad with berries and
-              nuts or a grain bowl with beans and veggies.
-            </li>
-            <br />
-            <li>
-              2. <strong>Make it Social:</strong> Cook a MIND diet-inspired meal
-              with friends or family to share the experience and support each
-              other in healthy eating.
-            </li>
-            <br />
-            <li>
-              3. <strong>Track Your Brain Health Progress:</strong> Notice how
-              your focus, memory, and mood improve over time by following the
-              MIND diet.
-            </li>
-          </ul>
-
-          <br />
-          <br />
-          <h2 id="conclusion">Conclusion</h2>
-          <p>
-            Embarking on the DASH diet is about more than just food; it’s a
-            lifestyle change that can lead to better health and a happier you.
-            With its focus on whole foods and balanced nutrition, the DASH diet
-            can help you feel your best while enjoying a diverse array of
-            delicious meals.
-            <br />
-            So, what are you waiting for? Dive into the world of DASH, savor
-            every bite, and watch as you take strides toward a healthier,
-            happier life. Your journey to wellness starts with every meal.
-            Cheers to good health!
-          </p>
-
-          <!-- Navigation Panel -->
-          <div class="nav-panel">
-            <ul>
-              <div class="lists">
-                <li>
-                  <a href="#intro">Introduction: Understanding the MIND Diet.</a>
-                </li>
-                <li><a href="#How">How Does the MIND Diet Work?</a></li>
-                <li>
-                  <a href="#started"
-                    >Scheduling: How to Get Started with the MIND Diet</a
-                  >
-                </li>
-                <li>
-                  <a href="#foods-you-can-eat"
-                    >Foods You Can Eat on the MIND Diet</a
-                  >
-                </li>
-                <li>
-                  <a href="#foods-to-limit">Foods to Limit or Avoid</a>
-                </li>
-                <li>
-                  <a href="#fun-tips">Fun Tips to Enjoy the MIND Diet</a>
-                </li>
-                <li><a href="#conclusion">Conclusion.</a></li>
-              </div>
-              <div class="line">
-                <hr />
-              </div>
-            </ul>
-          </div>
-
-          <script src="script/script.js"></script>
+        <li>
+          <a href="index-2.html">Home</a>
+        </li>
+        <li><a href="diet-plan.html">Diet Plan</a></li>
+        <li><a href="insight.html" id="active">Insights</a></li>
+        <li><a href="dieticians.html">Dieticians</a></li>
+        <li><a href="contactUs.html" class="btn">Contact Us</a></li>
+      </ul>
+      <div class="action-btn-container">
+        <a href="customer-dashboard.html" class="user-profile">
+          <img class="profileImage" src="" class="profile-pic" alt="Profile Picture"
+            style="width: 50px; height: 50px;" />
+        </a>
+        <div class="menu-toggle">
+          <span style="font-size:30px;cursor:pointer" onclick="openNavPanel()">☰</span>
         </div>
       </div>
-    </main>
-  </body>
+    </nav>
+  </header>
+
+  <main>
+    <div class="container article-container">
+      <div class="article">
+        <article id="intro">
+          <h1>MIND Diet:</h1>
+          <br />
+          <img src="assets/mind-diet.jpg" alt="MIND Diet Image" />
+          <h2>Understanding the MIND Diet</h2>
+          <p>
+            The MIND diet, short for “Mediterranean-DASH Intervention for
+            Neurodegenerative Delay,” was designed to boost brain health by
+            focusing on foods that support cognitive function. Created by
+            nutritionist Martha Clare Morris and her team, the MIND diet
+            combines the best parts of the Mediterranean and DASH diets, both
+            renowned for promoting heart health, but with a unique twist: it
+            aims to prevent Alzheimer’s and cognitive decline.
+          </p>
+          <br />
+          <br />
+          <h2>What is the MIND Diet?</h2>
+          <p>
+            The MIND diet is built around ten brain-healthy foods and five
+            categories of foods to limit. Research suggests that those who
+            follow the MIND diet, even partially, can reduce their risk of
+            Alzheimer’s by up to 35%, while those who strictly adhere to it
+            can see up to a 53% reduction. This diet focuses on keeping the
+            brain sharp while allowing room for balance and enjoyment in your
+            meals.
+          </p>
+          <br />
+          <p>
+            Unlike other diets that may require drastic changes, the MIND diet
+            is flexible and easy to follow. Think of it as a lifestyle shift
+            rather than a strict regimen. You’ll explore new, tasty foods that
+            can help nourish your brain while still enjoying the flavors you
+            love.
+          </p>
+        </article>
+        <br />
+        <br />
+        <h2 id="How">How Does the MIND Diet Work?</h2>
+        <img src="assets/mind-pyramid.jpg" alt="MIND Diet Food Pyramid" />
+        <br />
+        <p>
+          The MIND diet operates by encouraging nutrient-dense, whole foods
+          known for their brain-boosting properties. The main idea is to
+          include foods rich in antioxidants, vitamins, and healthy fats while
+          reducing foods high in saturated fats and sugars. The foods in the
+          MIND diet are grouped into “brain-healthy” and “brain-unhealthy”
+          categories.
+        </p>
+        <br />
+        <p>
+          While there are guidelines, you can customize the MIND diet to suit
+          your tastes. The diet doesn’t demand total elimination of certain
+          foods but recommends limiting them, making it easier to stick to in
+          the long run. This approach ensures that your brain gets all the
+          nutrients it needs to function at its best without feeling
+          restricted.
+        </p>
+        <br />
+        <br />
+        <h2 id="started">
+          Scheduling: How to Get Started with the MIND Diet
+        </h2>
+        <img src="assets/mind-getting-started.png" alt="MIND Diet Scheduling" />
+        <br />
+        <p>
+          Starting the MIND diet is straightforward and enjoyable. Here’s a
+          simple guide to help you dive into this brain-friendly way of
+          eating:
+        </p>
+        <ul>
+          <br />
+          <li>
+            1. <strong>Plan Your Weekly Meals:</strong> Begin by creating a
+            weekly meal plan focused on the ten brain-healthy foods (like
+            berries, leafy greens, and nuts). Try to limit the
+            “brain-unhealthy” foods to occasional treats.
+          </li>
+          <br />
+          <li>
+            2. <strong>Grocery Shop with a Purpose:</strong> Stock up on
+            brain-boosting foods like fresh vegetables, nuts, whole grains,
+            and lean proteins. Don’t forget to grab some berries—they’re a
+            MIND diet favorite!
+          </li>
+          <br />
+          <li>
+            3. <strong>Prep Meals in Advance:</strong> Make it easy to stick
+            to the diet by prepping meals and snacks ahead of time. This can
+            include making a big batch of leafy green salads, chopping
+            vegetables, or preparing fish fillets for quick access.
+          </li>
+          <br />
+          <li>
+            4. <strong>Enjoy Your Food:</strong> The MIND diet encourages you
+            to eat mindfully, savoring every bite and noticing how your meals
+            make you feel. This helps reinforce positive eating habits over
+            time.
+          </li>
+          <br />
+          <li>
+            5. <strong>Track Your Progress:</strong> Use NourishWise to record
+            your daily meals. This will help you stay on track, see your
+            progress, and make adjustments as needed to maximize brain
+            benefits.
+          </li>
+        </ul>
+        <br />
+        <br />
+        <h2 id="foods-you-can-eat">Foods You Can Eat on the MIND Diet</h2>
+        <img src="assets/mind-foods.jpg" alt="Foods You Can Eat on the MIND Diet" />
+        <p>
+          Here’s a breakdown of the ten brain-boosting foods in the MIND diet:
+        </p>
+        <ul>
+          <br />
+          <li>
+            1. <strong>Leafy Green Vegetables:</strong> Aim for six servings a
+            week. Think spinach, kale, and collards—they’re packed with
+            nutrients that protect brain function.
+          </li>
+          <br />
+          <li>
+            2. <strong>Other Vegetables:</strong> Include at least one serving
+            a day of colorful vegetables like bell peppers, carrots, or
+            tomatoes.
+          </li>
+          <br />
+          <li>
+            3. <strong>Berries:</strong> Go for two servings of berries per
+            week, such as blueberries, strawberries, or blackberries, known
+            for their antioxidant properties.
+          </li>
+          <br />
+          <li>
+            4. <strong>Nuts:</strong> Snack on a handful of nuts daily, such
+            as almonds, walnuts, or pecans, for healthy fats and
+            brain-supporting nutrients.
+          </li>
+          <br />
+          <li>
+            5. <strong>Olive Oil:</strong> Use olive oil as your primary
+            cooking fat—it’s a cornerstone of the MIND diet.
+          </li>
+          <br />
+          <li>
+            6. <strong>Whole Grains:</strong> Choose whole grains like brown
+            rice, quinoa, or whole-wheat bread, aiming for three servings per
+            day.
+          </li>
+          <br />
+          <li>
+            7. <strong>Fish:</strong> Try to eat fish, like salmon or
+            sardines, at least once a week for brain-healthy omega-3 fatty
+            acids.
+          </li>
+          <br />
+          <li>
+            8. <strong>Beans:</strong> Aim for four servings of beans per
+            week, such as lentils, black beans, or chickpeas.
+          </li>
+          <br />
+          <li>
+            9. <strong>Poultry:</strong> Enjoy lean poultry, like chicken or
+            turkey, twice a week as a protein option.
+          </li>
+          <br />
+          <li>
+            10. <strong>Wine (Optional):</strong> You can have up to one glass
+            of wine per day if desired. Red wine contains resveratrol, an
+            antioxidant that may support brain health.
+          </li>
+        </ul>
+        <br />
+        <br />
+        <h2 id="foods-to-limit">Foods to Limit or Avoid</h2>
+        <img src="assets/mind-avoid.jpg" alt="Foods to Limit on the MIND Diet" />
+        <p>
+          While the MIND diet allows for flexibility, limiting the following
+          foods can help you maximize its benefits:
+        </p>
+        <ul>
+          <br />
+          <li>
+            1. <strong>Butter and Margarine:</strong> Try to use less than one
+            tablespoon per day. Replace these with olive oil where possible.
+          </li>
+          <br />
+          <li>
+            2. <strong>Cheese:</strong> Enjoy cheese in moderation—less than
+            once a week if possible.
+          </li>
+          <br />
+          <li>
+            3. <strong>Red Meat:</strong> Limit red meat, aiming for no more
+            than three servings per week.
+          </li>
+          <br />
+          <li>
+            4. <strong>Fried Foods and Fast Foods:</strong> Try to eat these
+            as rarely as possible, ideally less than once a week.
+          </li>
+          <br />
+          <li>
+            5. <strong>Sweets and Pastries:</strong> Limit sweets, aiming to
+            enjoy them less than five times a week.
+          </li>
+        </ul>
+        <br />
+        <br />
+        <h2 id="fun-tips">Fun Tips to Enjoy the MIND Diet</h2>
+        <img src="assets/mind-tips.jpg" alt="MIND Diet Fun Tips" />
+        <p>Here are some enjoyable ways to embrace the MIND diet:</p>
+        <ul>
+          <br />
+          <li>
+            1. <strong>Experiment with New Recipes:</strong> Try making
+            brain-boosting dishes like a leafy green salad with berries and
+            nuts or a grain bowl with beans and veggies.
+          </li>
+          <br />
+          <li>
+            2. <strong>Make it Social:</strong> Cook a MIND diet-inspired meal
+            with friends or family to share the experience and support each
+            other in healthy eating.
+          </li>
+          <br />
+          <li>
+            3. <strong>Track Your Brain Health Progress:</strong> Notice how
+            your focus, memory, and mood improve over time by following the
+            MIND diet.
+          </li>
+        </ul>
+
+        <br />
+        <br />
+        <h2 id="conclusion">Conclusion</h2>
+        <p>
+          Embarking on the DASH diet is about more than just food; it’s a
+          lifestyle change that can lead to better health and a happier you.
+          With its focus on whole foods and balanced nutrition, the DASH diet
+          can help you feel your best while enjoying a diverse array of
+          delicious meals.
+          <br />
+          So, what are you waiting for? Dive into the world of DASH, savor
+          every bite, and watch as you take strides toward a healthier,
+          happier life. Your journey to wellness starts with every meal.
+          Cheers to good health!
+        </p>
+
+        <!-- Navigation Panel -->
+        <div class="nav-panel">
+          <ul>
+            <div class="lists">
+              <li>
+                <a href="#intro">Introduction: Understanding the MIND Diet.</a>
+              </li>
+              <li><a href="#How">How Does the MIND Diet Work?</a></li>
+              <li>
+                <a href="#started">Scheduling: How to Get Started with the MIND Diet</a>
+              </li>
+              <li>
+                <a href="#foods-you-can-eat">Foods You Can Eat on the MIND Diet</a>
+              </li>
+              <li>
+                <a href="#foods-to-limit">Foods to Limit or Avoid</a>
+              </li>
+              <li>
+                <a href="#fun-tips">Fun Tips to Enjoy the MIND Diet</a>
+              </li>
+              <li><a href="#conclusion">Conclusion.</a></li>
+            </div>
+            <div class="line">
+              <hr />
+            </div>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <script src="script/script.js"></script>
+  <script>
+    // Function to load and display the profile picture from localStorage
+    function loadProfilePicture() {
+      const storedImage = localStorage.getItem("profilePic");
+      const profileImages = document.querySelectorAll(".profileImage");
+
+      if (storedImage) {
+        profileImages.forEach(img => img.src = storedImage);
+      } else {
+        profileImages.forEach(img => img.src = "default-profile.png"); // Set a default image if none is stored
+      }
+    }
+
+    // Load the profile picture when the page loads
+    document.addEventListener("DOMContentLoaded", loadProfilePicture);
+  </script>
+</body>
+
 </html>

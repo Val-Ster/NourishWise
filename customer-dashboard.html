@@ -20,22 +20,18 @@
   <style>
     #progress-container {
       background: #e0e0e0;
-      border-radius: 5px;
       overflow: hidden;
+      border-radius: 5px;
       height: 20px;
-      margin: 10px 0;
+      width: 100%;
     }
 
     #progress-bar {
-      background: #4CAF50;
       height: 100%;
-      width: 0;
+      background: #4CAF50;
       transition: width 0.5s ease;
+      width: 0;
     }
-
-    /*#progress-summary {
-       margin-bottom: 20px; 
-    }*/
 
     .day-section {
       margin-bottom: 20px;
@@ -205,6 +201,13 @@
     .dietPlan-card button:hover {
       background-color: darkred;
     }
+
+    .top {
+      display: flex;
+      align-items: center;
+      height: fit-content;
+      flex-direction: row;
+    }
   </style>
 </head>
 
@@ -225,7 +228,7 @@
       <li class="user-profile">
         <img class="profileImage" src="" class="profile-pic" alt="Profile Picture"
           style="width: 120px; height: 120px;" />
-        </li>
+      </li>
     </ul>
   </aside>
 
@@ -233,9 +236,11 @@
     <section id="dashboard" class="content-section">
       <div class="dashboard-container">
         <div id="header">
-          <span style="font-size:30px;cursor:pointer" onclick="openNavPanel()">☰</span>
-          <div class="text">
+          <div class="top">
+            <span style="font-size:30px;cursor:pointer" onclick="openNavPanel()">☰</span>
             <h2>NourishWise Dashboard</h2>
+          </div>
+          <div class="text">
             <p>Welcome to your dashboard! Here you can find a quick overview of your recent activity, statistics, and
               essential information.</p>
           </div>
@@ -355,12 +360,16 @@
 
     <!-- Home Section (index-2.html) -->
     <section id="home" class="content-section" style="display: none;">
+      <span style="font-size:30px;cursor:pointer" onclick="openNavPanel()">☰</span>
+
       <h2>Want to go back home?</h2>
       <h4>Click <a href="index-2.html"> here</a> to go back to your main personal page.</h4>
     </section>
 
     <!-- Setting section -->
     <section id="setting" class="content-section" style="display: none;">
+            <span style="font-size:30px;cursor:pointer" onclick="openNavPanel()">☰</span>
+
       <h2>Here you can add or change you user profile picture</h2>
       <div class="profile-container">
         <img class="profileImage" src="" class="profile-pic" alt="Profile Picture"
@@ -374,6 +383,7 @@
 
     <!-- Logout section -->
     <section id="logout" class="content-section" style="display: none;">
+      <span style="font-size:30px;cursor:pointer" onclick="openNavPanel()">☰</span>
       <h2>Want to logout or sign-in into other account?</h2>
       <h4>Click <a href="login.html"> here</a> to logout.</h4>
     </section>
