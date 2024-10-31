@@ -154,7 +154,7 @@ header nav ul li:last-child a {
 /* Header logo style */
 header .logo a,
 header .logo img {
-  width: 4rem;
+  width: 4rem; 
 }
 
 /* Header profile image style */
@@ -186,7 +186,13 @@ header .user-profile img {
   transition: 0.2s ease;
   border: 3px solid transparent;
 }
-
+ .profile-pic {
+   width: 120px;
+   height: 120px;
+   border-radius: 50%;
+   object-fit: cover;
+   margin-bottom: 15px;
+ }
 /* Header profile image style on hover*/
 header .user-profile img:hover {
   border: 3px solid var(--button-bg);
