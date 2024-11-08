@@ -58,6 +58,11 @@
         <img src="assets/diet_logo_t.png" alt="NourishWise logo" />
       </div>
       <ul class="nav-list" id="nav-list">
+        <div class="aside-top">
+          <img src="assets/diet_logo_t.png" alt="">
+          <h1>NourishWise</h1>
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNavPanel()">×</a>
+        </div>
         <li> <a href="" id="active">Home</a></li>
         <li><a href="sign-up.html">Diet Plan</a></li>
         <li><a href="sign-up.html">Insights</a></li>
@@ -68,8 +73,8 @@
         <a href="login.html" class="user-profile">
           <i class="fas fa-user"></i>
         </a>
-        <div class="menu-toggle" id="mobile-menu" onclick="toggleNavbar()">
-          <i class="fas fa-bars">=</i>
+        <div class="menu-toggle">
+          <span style="font-size:30px;cursor:pointer" onclick="openNavPanel()">☰</span>
         </div>
       </div>
     </nav>
