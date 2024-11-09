@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NourishWise - Dieting Intro</title>
+    <link rel="icon" href="assets/diet_logo_t.png" />
+
+    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="styles/responsive.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMDE8cvdRa7zBbb4T3N6g5RhiB2V1Knq8MkHx6"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://kit.fontawesome.com/f70dd16b18.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <style>
+      * {
+        scroll-behavior: smooth;
+      }
+
+      img {
+        float: right;
+        margin: 0.5rem;
+        /* width: 25rem; */
+      }
+
+      .article-container {
+        flex-direction: row;
+        padding: 100px 200px 50px 20px;
+      }
+
+      .article {
+        width: 84%;
+      }
+
+      .nav-panel {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        width: 20rem;
+      }
+
+      .nav-panel ul {
+        display: flex;
+        height: 100%;
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+      }
+
+      .nav-panel hr {
+        width: 1px;
+        height: 10rem;
+        background: gray;
+      }
+
+      .nav-panel ul li {
+        padding: 1rem;
+      }
+
+      .nav-panel ul li a {
+        color: black;
+      }
+
+      .nav-panel ul li a:hover {
+        color: darkgreen;
+      }
+
+      /* Responsive styles */
+      /* Media query for mobile screens */
+      @media (max-width: 768px) {
+        main {
+          padding: 2rem 0;
+        }
+
+        .container {
+          padding: 2rem;
+        }
+
+        .article {
+          width: 100%;
+        }
+
+        .nav-panel {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header id="header">
+      <nav>
+        <div class="logo">
+          <img src="assets/diet_logo_t.png" alt="NourishWise logo" />
+        </div>
+        <ul class="nav-list" id="nav-list">
+          <div class="aside-top">
+            <img src="assets/diet_logo_t.png" alt="" />
+            <h1>NourishWise</h1>
+            <a
+              href="javascript:void(0)"
+              class="closebtn"
+              onclick="closeNavPanel()"
+              >×</a
+            >
+          </div>
+          <div class="aside-top">
+            <img src="assets/diet_logo_t.png" alt="" />
+            <h1>NourishWise</h1>
+            <a
+              href="javascript:void(0)"
+              class="closebtn"
+              onclick="closeNavPanel()"
+              >×</a
+            >
+          </div>
+          <li>
+            <a href="index-2.html">Home</a>
+          </li>
+          <li><a href="diet-plan.html">Diet Plan</a></li>
+          <li><a href="insight.html" id="active">Insights</a></li>
+          <li><a href="dieticians.html">Dieticians</a></li>
+          <li><a href="contactUs.html" class="btn">Contact Us</a></li>
+        </ul>
+        <div class="action-btn-container">
+          <a href="customer-dashboard.html" class="user-profile">
+            <img
+              class="profileImage"
+              src=""
+              class="profile-pic"
+              alt="Profile Picture"
+              style="width: 50px; height: 50px"
+            />
+          </a>
+          <div class="menu-toggle">
+            <span
+              style="font-size: 30px; cursor: pointer"
+              onclick="openNavPanel()"
+              >☰</span
+            >
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    ```html
+    <main>
+      <div class="container article-container">
+        <div class="article">
+          <article id="intro">
+            <!-- <img src="assets/diet_logo_t.png" alt=""> -->
+            <h1>Fruitarian Diet</h1>
+            <br />
+            <img
+              src="assets/fruitarian-diet.jpg"
+              alt="A variety of fruits arranged beautifully on a platter"
+            />
+            <h2>What is the Fruitarian Diet?</h2>
+            <p>
+              The fruitarian diet is a fascinating and unique approach to eating
+              that centers around the consumption of fruits, often making up
+              50-75% of one's daily intake. This vibrant diet appeals to those
+              who love fresh, sweet flavors and are looking for a minimalist,
+              plant-based approach. In addition to fruits, some fruitarians
+              include nuts, seeds, and minimal vegetables, though preferences
+              can vary widely. Curious if this diet could be a match for you?
+              Let's explore!
+            </p>
+            <br />
+            <br />
+            <h2 id="benefits">The Benefits of a Fruitarian Diet</h2>
+            <p>
+              The fruitarian diet is rich in antioxidants, fiber, and essential
+              vitamins, making it beneficial for those aiming to enhance their
+              nutrient intake. Fruits like berries, citrus, and tropical fruits
+              are known for their high levels of vitamins C and A, potassium,
+              and other micronutrients that support immune health, skin
+              vibrancy, and digestive wellness. Additionally, the diet’s high
+              fiber content can aid digestion and help maintain a healthy
+              weight.
+            </p>
+            <br />
+            <p>
+              Since fruit is naturally low in calories and free from processed
+              sugars, the diet can be a way to reduce calorie intake while still
+              feeling satisfied. Furthermore, it emphasizes whole foods,
+              encourages hydration, and can even help cultivate mindfulness
+              around eating choices. For many, this diet offers a path to
+              simplicity, relying primarily on nature’s sweetness.
+            </p>
+          </article>
+          <br />
+          <br />
+          <h2 id="how-it-works">How Does the Fruitarian Diet Work?</h2>
+          <img
+            src="assets/fruitarian-pyramid.jpg"
+            alt="Fruitarian food pyramid illustration"
+          />
+          <br />
+          <p>
+            The fruitarian diet follows a straightforward principle: prioritize
+            raw fruits as the bulk of each meal. While there are no strict
+            rules, most fruitarians consume fruits as their main energy source
+            and may add nuts, seeds, and occasional raw vegetables. Eating
+            primarily raw and unprocessed foods is key, allowing for maximum
+            nutrient retention and simplicity. Some follow a more regimented
+            structure, while others incorporate flexibility with foods such as
+            avocados, cucumbers, and tomatoes.
+          </p>
+          <br />
+          <p>
+            Many fruitarians approach eating intuitively, listening to their
+            bodies to decide which fruits and how much to eat. This diet's
+            structure allows for a customized approach, letting individuals
+            choose fruits that fit their seasonal preferences and regional
+            availability.
+          </p>
+          <br />
+          <br />
+          <h2 id="getting-started">Getting Started with the Fruitarian Diet</h2>
+          <img
+            src="assets/fruit-plate.jpg"
+            alt="Colorful plate with assorted fruits"
+          />
+          <br />
+          <p>
+            Embarking on a fruitarian journey doesn’t have to be daunting. Here
+            are some tips to get started with ease:
+          </p>
+          <ul>
+            <br />
+            <li>
+              1. <strong>Set Your Intentions:</strong> Define why you want to
+              try the fruitarian diet. Are you looking to detox, simplify, or
+              explore plant-based options?
+            </li>
+            <br />
+            <li>
+              2. <strong>Start Gradually:</strong> Begin by incorporating more
+              fruits into your meals before fully committing. Experiment with
+              fruit-based breakfasts and snacks to ease into the lifestyle.
+            </li>
+            <br />
+            <li>
+              3. <strong>Choose Your Favorites:</strong> Stock up on fruits you
+              love. Seasonal, organic options often offer the best taste and
+              nutritional value.
+            </li>
+            <br />
+            <li>
+              4. <strong>Mix and Match:</strong> Experiment with different fruit
+              combinations to keep meals enjoyable and satisfying.
+            </li>
+            <br />
+            <li>
+              5. <strong>Track Your Progress:</strong> Using an app like
+              NourishWise monitor your progression. Keep track of your energy
+              levels, digestion, and overall well-being as you transition to
+              this diet.
+            </li>
+          </ul>
+          <br />
+          <br />
+          <h2 id="foods-you-can-eat">Foods You Can Eat on a Fruitarian Diet</h2>
+          <img
+            src="assets/fruit-selection.jpg"
+            alt="Assorted fruits for fruitarian diet"
+          />
+          <p>Enjoy these foods as staples in your fruitarian lifestyle:</p>
+          <ul>
+            <br />
+            <li>
+              1. <strong>Fresh Fruits:</strong> Apples, bananas, oranges,
+              berries, mangoes, and pineapples.
+            </li>
+            <br />
+            <li>
+              2. <strong>Tropical Fruits:</strong> Papaya, guava, coconuts, and
+              dragon fruit.
+            </li>
+            <br />
+            <li>
+              3. <strong>Melons:</strong> Watermelon, cantaloupe, honeydew.
+            </li>
+            <br />
+            <li>
+              4. <strong>Nuts and Seeds:</strong> Almonds, sunflower seeds, and
+              walnuts for added protein and healthy fats.
+            </li>
+            <br />
+            <li>
+              5. <strong>Optional Raw Vegetables:</strong> Tomatoes, avocados,
+              and cucumbers as flexible additions.
+            </li>
+          </ul>
+          <br />
+          <br />
+          <h2 id="foods-to-limit">Foods to Limit or Avoid</h2>
+          <img
+            src="assets/foods-to-limit.jpg"
+            alt="Foods to avoid on the fruitarian diet"
+          />
+          <p>
+            Minimize or avoid these foods for a purer fruitarian experience:
+          </p>
+          <ul>
+            <br />
+            <li>
+              1. <strong>Cooked Foods:</strong> Stick to raw, whole fruits for
+              maximum nutrients.
+            </li>
+            <br />
+            <li>
+              2. <strong>Processed Sugars:</strong> Avoid packaged fruit juices
+              and added sugars.
+            </li>
+            <br />
+            <li>
+              3. <strong>Animal Products:</strong> A true fruitarian diet is
+              plant-based, without meat, dairy, or eggs.
+            </li>
+            <br />
+            <li>
+              4. <strong>Grains:</strong> Limit intake of grains, as the focus
+              is on raw fruits and nuts.
+            </li>
+          </ul>
+          <br />
+          <br />
+          <h2 id="fun-tips">Fun Tips to Enjoy the Fruitarian Diet</h2>
+          <img
+            src="assets/fruit-smoothies.jpg"
+            alt="Assorted fruit smoothies"
+          />
+          <p>
+            Make the fruitarian diet a fun and colorful experience with these
+            tips:
+          </p>
+          <ul>
+            <br />
+            <li>
+              1. <strong>Blend Smoothies:</strong> Combine different fruits to
+              create refreshing smoothies.
+            </li>
+            <br />
+            <li>
+              2. <strong>Make Fruit Bowls:</strong> Add a variety of fruits to a
+              bowl for a delicious and satisfying meal.
+            </li>
+            <br />
+            <li>
+              3. <strong>Explore Fruit-Based Recipes:</strong> Try raw fruit
+              pies, salads, and sorbets for creative meals.
+            </li>
+            <br />
+            <li>
+              4. <strong>Eat Seasonally:</strong> Enjoy fruits that are in
+              season for the best flavors and nutrition.
+            </li>
+          </ul>
+          <br />
+          <br />
+          <h2 id="conclusion">Conclusion</h2>
+          <p>
+            The fruitarian diet offers a delightful and refreshing approach to
+            eating, centered on simplicity and whole foods. By focusing on
+            nature’s bounty, this lifestyle can be both nutritious and
+            enjoyable. If you’re looking for a new way to nourish your body with
+            a colorful, fruit-filled journey, the fruitarian diet may be for
+            you. So go ahead, pick your favorite fruits, savor each bite, and
+            explore the unique benefits of this pure, plant-based lifestyle!
+          </p>
+
+          <div class="nav-panel">
+            <ul>
+              <div class="lists">
+                <li>
+                  <a href="#intro"
+                    >Introduction: What is the Fruitarian Diet?</a
+                  >
+                </li>
+                <li>
+                  <a href="#benefits">The Benefits of a Fruitarian Diet</a>
+                </li>
+                <li>
+                  <a href="#how-it-works">How Does the Fruitarian Diet Work?</a>
+                </li>
+                <li>
+                  <a href="#getting-started"
+                    >Getting Started with the Fruitarian Diet</a
+                  >
+                </li>
+                <li>
+                  <a href="#foods-you-can-eat"
+                    >Foods You Can Eat on a Fruitarian Diet</a
+                  >
+                </li>
+                <li><a href="#foods-to-limit">Foods to Limit or Avoid</a></li>
+                <li>
+                  <a href="#fun-tips">Fun Tips to Enjoy the Fruitarian Diet</a>
+                </li>
+                <li><a href="#conclusion">Conclusion</a></li>
+              </div>
+              <div class="line">
+                <hr />
+              </div>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="script/script.js"></script>
+
+    <script>
+      // Function to load and display the profile picture from localStorage
+      function loadProfilePicture() {
+        const storedImage = localStorage.getItem("profilePic");
+        const profileImages = document.querySelectorAll(".profileImage");
+
+        if (storedImage) {
+          profileImages.forEach((img) => (img.src = storedImage));
+        } else {
+          profileImages.forEach((img) => (img.src = "default-profile.png")); // Set a default image if none is stored
+        }
+      }
+
+      // Load the profile picture when the page loads
+      document.addEventListener("DOMContentLoaded", loadProfilePicture);
+    </script>
+  </body>
+</html>
