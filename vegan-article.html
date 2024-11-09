@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NourishWise - DASH Diet</title>
+    <link rel="icon" href="assets/diet_logo_t.png" />
+
+    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="styles/responsive.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMDE8cvdRa7zBbb4T3N6g5RhiB2V1Knq8MkHx6"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://kit.fontawesome.com/f70dd16b18.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <style>
+      * {
+        scroll-behavior: smooth;
+      }
+
+      img {
+        float: right;
+        margin: 0.5rem;
+        /* width: 25rem; */
+      }
+
+      .article-container {
+        flex-direction: row;
+        padding: 100px 200px 50px 20px;
+      }
+
+      .article {
+        width: 84%;
+      }
+
+      .nav-panel {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        width: 20rem;
+      }
+
+      .nav-panel ul {
+        display: flex;
+        height: 100%;
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        padding: 2rem;
+      }
+
+      .nav-panel hr {
+        width: 1px;
+        height: 10rem;
+        background: gray;
+      }
+
+      .nav-panel ul li {
+        padding: 0.5rem;
+      }
+
+      .nav-panel ul li a {
+        color: black;
+      }
+
+      .nav-panel ul li a:hover {
+        color: darkgreen;
+      }
+
+      /* Responsive styles */
+      /* Media query for mobile screens */
+      @media (max-width: 768px) {
+        main {
+          padding: 2rem 0;
+        }
+
+        .container {
+          padding: 2rem;
+        }
+
+        .article {
+          width: 100%;
+        }
+
+        .nav-panel {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header id="header">
+      <nav>
+        <div class="logo">
+          <img src="assets/diet_logo_t.png" alt="NourishWise logo" />
+        </div>
+        <ul class="nav-list" id="nav-list">
+          <div class="aside-top">
+            <img src="assets/diet_logo_t.png" alt="" />
+            <h1>NourishWise</h1>
+            <a
+              href="javascript:void(0)"
+              class="closebtn"
+              onclick="closeNavPanel()"
+              >×</a
+            >
+          </div>
+          <li>
+            <a href="index-2.html">Home</a>
+          </li>
+          <li><a href="diet-plan.html">Diet Plan</a></li>
+          <li><a href="insight.html" id="active">Insights</a></li>
+          <li><a href="dieticians.html">Dieticians</a></li>
+          <li><a href="contactUs.html" class="btn">Contact Us</a></li>
+        </ul>
+        <div class="action-btn-container">
+          <a href="customer-dashboard.html" class="user-profile">
+            <img
+              class="profileImage"
+              src=""
+              class="profile-pic"
+              alt="Profile Picture"
+              style="width: 50px; height: 50px"
+            />
+          </a>
+          <div class="menu-toggle">
+            <span
+              style="font-size: 30px; cursor: pointer"
+              onclick="openNavPanel()"
+              >☰</span
+            >
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <div class="container article-container">
+        <div class="article">
+          <article id="intro">
+            <h1>The Vegan Diet</h1>
+            <br />
+            <img
+              src="assets/vegan-diet.jpeg"
+              alt="A colorful arrangement of plant-based foods"
+            />
+            <h2>What is the Vegan Diet?</h2>
+            <p>
+              The vegan diet is a popular plant-based eating lifestyle that
+              excludes all animal products, including meat, dairy, and eggs.
+              This diet focuses on consuming fruits, vegetables, grains, nuts,
+              and seeds, making it ideal for individuals looking to adopt a
+              health-conscious and environmentally friendly lifestyle. Whether
+              for ethical, environmental, or health reasons, veganism has gained
+              global appeal as a sustainable diet choice. Let's dive into what
+              makes this diet unique and beneficial.
+            </p>
+            <br />
+            <br />
+            <h2 id="benefits">The Benefits of a Vegan Diet</h2>
+            <p>
+              A vegan diet is rich in essential nutrients, such as fiber,
+              vitamins C and E, and antioxidants, all of which support overall
+              health and vitality. Studies show that vegans tend to have a lower
+              risk of heart disease, diabetes, and certain cancers due to the
+              reduced intake of saturated fats and processed foods.
+              Additionally, the plant-based nature of the diet supports better
+              digestion, improved skin health, and a lower carbon footprint,
+              making it a win for both personal health and the environment.
+            </p>
+            <br />
+            <p>
+              Since vegan diets focus on whole, unprocessed foods, they can be
+              an effective way to maintain a healthy weight while feeling full
+              and energized. Furthermore, this diet encourages creativity in the
+              kitchen, with a variety of plant-based foods and recipes that are
+              both satisfying and nutrient-dense.
+            </p>
+          </article>
+          <br />
+          <br />
+          <h2 id="how-it-works">How Does the Vegan Diet Work?</h2>
+          <img
+            src="assets/vegan-pyramid.jfif"
+            alt="Vegan food pyramid illustration"
+          />
+          <br />
+          <p>
+            The vegan diet centers around whole plant foods. Vegans typically
+            base their meals on vegetables, legumes, grains, and protein-rich
+            plant sources like tofu and lentils. Plant-based alternatives, such
+            as almond or soy milk, provide options for traditional dairy
+            products. Unlike many diets, veganism is more a lifestyle choice,
+            focusing on ethical, environmental, and health benefits associated
+            with reducing animal products.
+          </p>
+          <br />
+          <p>
+            Vegans also avoid all animal-derived ingredients, like honey or
+            gelatin. As a result, the diet relies on a variety of fruits,
+            vegetables, and legumes, making it both diverse and adaptable for
+            personal preferences and seasonal produce availability.
+          </p>
+          <br />
+          <br />
+          <h2 id="getting-started">Getting Started with the Vegan Diet</h2>
+          <img
+            src="assets/vegan-meal.jpg"
+            alt="Assorted vegan meals on a table"
+          />
+          <br />
+          <p>Transitioning to a vegan diet can be simple with these steps:</p>
+          <ul>
+            <br />
+            <li>
+              1. <strong>Educate Yourself:</strong> Learn about vegan sources of
+              protein, vitamins, and minerals to ensure balanced nutrition.
+            </li>
+            <br />
+            <li>
+              2. <strong>Stock Your Pantry:</strong> Keep essentials like
+              legumes, whole grains, nuts, and fresh produce at hand to make
+              quick, nutritious meals.
+            </li>
+            <br />
+            <li>
+              3. <strong>Experiment with Recipes:</strong> Try new vegan recipes
+              to find meals you love and can make a staple in your diet.
+            </li>
+            <br />
+            <li>
+              4. <strong>Gradual Transition:</strong> Consider starting with one
+              vegan day a week and slowly increasing to ease into the lifestyle.
+            </li>
+            <br />
+            <li>
+              5. <strong>Use Substitutes:</strong> Explore plant-based
+              alternatives for milk, cheese, and meat to make the switch easier.
+            </li>
+          </ul>
+          <br />
+          <br />
+          <h2 id="foods-you-can-eat">Foods You Can Eat on a Vegan Diet</h2>
+          <img
+            src="assets/vegan-food-selection.jpg"
+            alt="Assorted plant-based foods"
+          />
+          <p>Here are staples you can enjoy on a vegan diet:</p>
+          <ul>
+            <br />
+            <li>
+              1. <strong>Fruits and Vegetables:</strong> Berries, leafy greens,
+              and citrus fruits.
+            </li>
+            <br />
+            <li>
+              2. <strong>Whole Grains:</strong> Brown rice, oats, quinoa, and
+              barley.
+            </li>
+            <br />
+            <li>
+              3. <strong>Legumes:</strong> Lentils, chickpeas, and black beans.
+            </li>
+            <br />
+            <li>
+              4. <strong>Nuts and Seeds:</strong> Almonds, chia seeds, and hemp
+              seeds.
+            </li>
+            <br />
+            <li>
+              5. <strong>Plant-Based Proteins:</strong> Tofu, tempeh, and
+              seitan.
+            </li>
+          </ul>
+          <br />
+          <br />
+          <h2 id="foods-to-limit">Foods to Limit or Avoid</h2>
+          <img
+            src="assets/foods-to-limit.jpg"
+            alt="Foods to avoid on a vegan diet"
+          />
+          <p>For a complete vegan diet, avoid these foods:</p>
+          <ul>
+            <br />
+            <li>
+              1. <strong>Animal Products:</strong> Meat, dairy, eggs, and fish.
+            </li>
+            <br />
+            <li>
+              2. <strong>Processed Foods:</strong> Limit foods high in added
+              sugars, refined oils, and preservatives.
+            </li>
+            <br />
+            <li>
+              3. <strong>Honey:</strong> Some vegans choose to avoid honey as it
+              is animal-derived.
+            </li>
+          </ul>
+          <br />
+          <br />
+          <h2 id="fun-tips">Fun Tips to Enjoy the Vegan Diet</h2>
+          <img
+            src="assets/vegan-smoothies.jpg"
+            alt="Assorted vegan smoothies"
+          />
+          <p>Add creativity and fun to your vegan journey with these tips:</p>
+          <ul>
+            <br />
+            <li>
+              1. <strong>Make Smoothies:</strong> Blend fruits and vegetables
+              for nutritious smoothies.
+            </li>
+            <br />
+            <li>
+              2. <strong>Experiment with Meat Alternatives:</strong> Try
+              plant-based meats to make familiar dishes vegan-friendly.
+            </li>
+            <br />
+            <li>
+              3. <strong>Explore Global Cuisines:</strong> Many international
+              dishes are naturally vegan or can be easily adapted.
+            </li>
+            <br />
+            <li>
+              4. <strong>Eat Seasonally:</strong> Choose seasonal produce for
+              fresh, flavorful meals.
+            </li>
+          </ul>
+          <br />
+          <br />
+          <h2 id="conclusion">Conclusion</h2>
+          <p>
+            The vegan diet offers a healthy and eco-conscious approach to
+            eating, focusing on plant-based whole foods. With its numerous
+            health benefits and versatility, a vegan lifestyle is accessible and
+            rewarding for many. If you're considering a shift to plant-based
+            eating, explore the array of vibrant, delicious foods available, and
+            enjoy the journey of nourishing yourself and the planet!
+          </p>
+
+          <div class="nav-panel">
+            <ul>
+              <div class="lists">
+                <li>
+                  <a href="#intro">Introduction: What is the Vegan Diet?</a>
+                </li>
+                <li><a href="#benefits">The Benefits of a Vegan Diet</a></li>
+                <li>
+                  <a href="#how-it-works">How Does the Vegan Diet Work?</a>
+                </li>
+                <li>
+                  <a href="#getting-started"
+                    >Getting Started with the Vegan Diet</a
+                  >
+                </li>
+                <li>
+                  <a href="#foods-you-can-eat"
+                    >Foods You Can Eat on a Vegan Diet</a
+                  >
+                </li>
+                <li><a href="#foods-to-limit">Foods to Limit or Avoid</a></li>
+                <li>
+                  <a href="#fun-tips">Fun Tips to Enjoy the Vegan Diet</a>
+                </li>
+                <li><a href="#conclusion">Conclusion</a></li>
+              </div>
+              <div class="line">
+                <hr />
+              </div>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="script/script.js"></script>
+    <script>
+      // Function to load and display the profile picture from localStorage
+      function loadProfilePicture() {
+        const storedImage = localStorage.getItem("profilePic");
+        const profileImages = document.querySelectorAll(".profileImage");
+
+        if (storedImage) {
+          profileImages.forEach((img) => (img.src = storedImage));
+        } else {
+          profileImages.forEach((img) => (img.src = "default-profile.png")); // Set a default image if none is stored
+        }
+      }
+
+      // Load the profile picture when the page loads
+      document.addEventListener("DOMContentLoaded", loadProfilePicture);
+    </script>
+  </body>
+</html>
