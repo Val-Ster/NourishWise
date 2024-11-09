@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NourishWise - DASH Diet</title>
+    <link rel="icon" href="assets/diet_logo_t.png" />
+
+    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="styles/responsive.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMDE8cvdRa7zBbb4T3N6g5RhiB2V1Knq8MkHx6"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://kit.fontawesome.com/f70dd16b18.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <style>
+      * {
+        scroll-behavior: smooth;
+      }
+
+      img {
+        float: right;
+        margin: 0.5rem;
+        /* width: 25rem; */
+      }
+
+      .article-container {
+        flex-direction: row;
+        padding: 100px 200px 50px 20px;
+      }
+
+      .article {
+        width: 84%;
+      }
+
+      .nav-panel {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        width: 20rem;
+      }
+
+      .nav-panel ul {
+        display: flex;
+        height: 100%;
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        padding: 2rem;
+      }
+
+      .nav-panel hr {
+        width: 1px;
+        height: 10rem;
+        background: gray;
+      }
+
+      .nav-panel ul li {
+        padding: 0.5rem;
+      }
+
+      .nav-panel ul li a {
+        color: black;
+      }
+
+      .nav-panel ul li a:hover {
+        color: darkgreen;
+      }
+
+      /* Responsive styles */
+      /* Media query for mobile screens */
+      @media (max-width: 768px) {
+        main {
+          padding: 2rem 0;
+        }
+
+        .container {
+          padding: 2rem;
+        }
+
+        .article {
+          width: 100%;
+        }
+
+        .nav-panel {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header id="header">
+      <nav>
+        <div class="logo">
+          <img src="assets/diet_logo_t.png" alt="NourishWise logo" />
+        </div>
+        <ul class="nav-list" id="nav-list">
+          <div class="aside-top">
+            <img src="assets/diet_logo_t.png" alt="" />
+            <h1>NourishWise</h1>
+            <a
+              href="javascript:void(0)"
+              class="closebtn"
+              onclick="closeNavPanel()"
+              >×</a
+            >
+          </div>
+          <li>
+            <a href="index-2.html">Home</a>
+          </li>
+          <li><a href="diet-plan.html">Diet Plan</a></li>
+          <li><a href="insight.html" id="active">Insights</a></li>
+          <li><a href="dieticians.html">Dieticians</a></li>
+          <li><a href="contactUs.html" class="btn">Contact Us</a></li>
+        </ul>
+        <div class="action-btn-container">
+          <a href="customer-dashboard.html" class="user-profile">
+            <img
+              class="profileImage"
+              src=""
+              class="profile-pic"
+              alt="Profile Picture"
+              style="width: 50px; height: 50px"
+            />
+          </a>
+          <div class="menu-toggle">
+            <span
+              style="font-size: 30px; cursor: pointer"
+              onclick="openNavPanel()"
+              >☰</span
+            >
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <div class="container article-container">
+        <div class="article">
+          <article id="intro">
+            <h1>Keto Diet</h1>
+            <br />
+            <img
+              src="assets/keto-diet.jpg"
+              alt="A plate of low-carb foods suitable for a keto diet"
+            />
+            <h2>What is the Keto Diet?</h2>
+            <p>
+              The ketogenic (keto) diet is a low-carbohydrate, high-fat eating
+              plan designed to help the body enter a metabolic state called
+              ketosis. In this state, the body primarily burns fat for energy
+              instead of carbohydrates, leading to significant fat loss and
+              improved health markers. While the diet includes moderate protein
+              and high fat consumption, carbs are limited to 5-10% of daily
+              intake, promoting fat-based fuel usage. Wondering if keto could be
+              the right choice for you? Let’s delve deeper!
+            </p>
+            <br />
+            <br />
+            <h2 id="benefits">The Benefits of a Keto Diet</h2>
+            <p>
+              The keto diet offers numerous potential benefits, especially for
+              weight loss and metabolic health. By reducing carb intake and
+              relying on fats, it can help control blood sugar levels, reduce
+              insulin spikes, and encourage the body to use stored fat as
+              energy. This can result in rapid weight loss and a steady energy
+              flow throughout the day.
+            </p>
+            <br />
+            <p>
+              Additionally, the diet may support improved mental clarity,
+              decreased hunger, and potentially better cholesterol and blood
+              pressure levels. Due to its blood sugar management benefits, keto
+              is often recommended for individuals with type 2 diabetes or
+              insulin resistance.
+            </p>
+          </article>
+          <br />
+          <br />
+          <h2 id="how-it-works">How Does the Keto Diet Work?</h2>
+          <img
+            src="assets/keto-food-pyramid.jpg"
+            alt="Keto diet food pyramid illustration"
+          />
+          <br />
+          <p>
+            The keto diet works by drastically reducing carbohydrates and
+            replacing them with fats. As carb levels drop, the body begins
+            producing ketones, a type of fuel derived from stored fat, which
+            supplies energy in the absence of glucose. With continuous
+            adherence, the body becomes more efficient at burning fat and
+            producing ketones, entering a sustained state of ketosis.
+          </p>
+          <br />
+          <p>
+            This metabolic adaptation allows for reduced appetite and encourages
+            fat loss, with the added benefit of sustained energy throughout the
+            day. It’s essential to limit carbohydrate intake and prioritize
+            healthy fats such as avocados, nuts, and olive oil to maintain
+            effective ketosis.
+          </p>
+          <br />
+          <br />
+          <h2 id="getting-started">Getting Started with the Keto Diet</h2>
+          <img
+            src="assets/keto-meal.jpg"
+            alt="A well-balanced keto meal with healthy fats"
+          />
+          <br />
+          <p>
+            Transitioning into a keto lifestyle may feel challenging at first,
+            but these steps can help ease the process:
+          </p>
+          <ul>
+            <br />
+            <li>
+              1. <strong>Understand the Basics:</strong> Familiarize yourself
+              with low-carb foods and high-fat options to build balanced
+              keto-friendly meals.
+            </li>
+            <br />
+            <li>
+              2. <strong>Stock Up on Essentials:</strong> Purchase foods rich in
+              healthy fats like avocados, eggs, nuts, and leafy greens to
+              prepare for your new eating routine.
+            </li>
+            <br />
+            <li>
+              3. <strong>Track Your Carbs:</strong> Monitoring your carb intake
+              is vital to achieving and maintaining ketosis. Consider using a
+              keto tracking app for convenience.
+            </li>
+            <br />
+            <li>
+              4. <strong>Stay Hydrated:</strong> Drinking plenty of water
+              supports metabolism and can ease the initial “keto flu” symptoms
+              some experience when starting the diet.
+            </li>
+          </ul>
+          <br />
+          <br />
+          <h2 id="foods-you-can-eat">Foods You Can Eat on a Keto Diet</h2>
+          <img
+            src="assets/keto-approved-foods.jpg"
+            alt="Various foods suitable for the keto diet"
+          />
+          <p>Here are staple foods for your keto journey:</p>
+          <ul>
+            <br />
+            <li>
+              1. <strong>Healthy Fats:</strong> Olive oil, coconut oil, and
+              avocados provide quality fats for energy.
+            </li>
+            <br />
+            <li>
+              2. <strong>Protein Sources:</strong> Meat, poultry, fish, and eggs
+              make up the protein aspect of your meals.
+            </li>
+            <br />
+            <li>
+              3. <strong>Non-Starchy Vegetables:</strong> Leafy greens,
+              broccoli, and zucchini are low-carb options.
+            </li>
+            <br />
+            <li>
+              4. <strong>Nuts and Seeds:</strong> Almonds, chia seeds, and
+              flaxseeds for added nutrients and healthy fats.
+            </li>
+            <br />
+            <li>
+              5. <strong>Dairy:</strong> Cheese, butter, and cream in moderation
+              can be part of a keto meal plan.
+            </li>
+          </ul>
+          <br />
+          <br />
+          <h2 id="foods-to-limit">Foods to Limit or Avoid</h2>
+          <img
+            src="assets/foods-to-avoid.jpg"
+            alt="Foods to avoid on the keto diet"
+          />
+          <p>To stay in ketosis, it’s essential to avoid the following:</p>
+          <ul>
+            <br />
+            <li>
+              1. <strong>High-Carb Foods:</strong> Bread, pasta, rice, and
+              grains should be avoided.
+            </li>
+            <br />
+            <li>
+              2. <strong>Sugary Foods:</strong> Candy, sodas, and sweetened
+              drinks can hinder ketosis.
+            </li>
+            <br />
+            <li>
+              3. <strong>Starchy Vegetables:</strong> Potatoes, corn, and
+              carrots are higher in carbs.
+            </li>
+            <br />
+            <li>
+              4. <strong>Processed Foods:</strong> Packaged snacks often contain
+              added sugars or carbs.
+            </li>
+          </ul>
+          <br />
+          <br />
+          <h2 id="fun-tips">Fun Tips to Enjoy the Keto Diet</h2>
+          <img
+            src="assets/keto-snacks.jpg"
+            alt="Assorted keto-friendly snacks"
+          />
+          <p>Make the keto journey more enjoyable with these tips:</p>
+          <ul>
+            <br />
+            <li>
+              1. <strong>Try Keto Recipes:</strong> Experiment with recipes like
+              cauliflower pizza or almond flour pancakes.
+            </li>
+            <br />
+            <li>
+              2. <strong>Use Low-Carb Substitutes:</strong> Swap carbs for
+              alternatives like zucchini noodles or lettuce wraps.
+            </li>
+            <br />
+            <li>
+              3. <strong>Make It Colorful:</strong> Add variety with colorful
+              vegetables and keto-friendly snacks.
+            </li>
+            <br />
+            <li>
+              4. <strong>Plan Ahead:</strong> Preparing meals in advance ensures
+              you have keto options readily available.
+            </li>
+          </ul>
+          <br />
+          <br />
+          <h2 id="conclusion">Conclusion</h2>
+          <p>
+            The keto diet is a unique, low-carb lifestyle that prioritizes fats
+            for energy, supporting weight loss and improved metabolic health. If
+            you're interested in trying keto, start by learning the basics and
+            stocking up on healthy fats and low-carb foods. With dedication and
+            variety, the keto diet can become a delicious, satisfying way to
+            nourish your body. Ready to give keto a go? Dive into its world and
+            explore the potential benefits of a low-carb lifestyle!
+          </p>
+
+          <div class="nav-panel">
+            <ul>
+              <div class="lists">
+                <li>
+                  <a href="#intro">Introduction: What is the Keto Diet?</a>
+                </li>
+                <li>
+                  <a href="#benefits">The Benefits of a Keto Diet</a>
+                </li>
+                <li>
+                  <a href="#how-it-works">How Does the Keto Diet Work?</a>
+                </li>
+                <li>
+                  <a href="#getting-started"
+                    >Getting Started with the Keto Diet</a
+                  >
+                </li>
+                <li>
+                  <a href="#foods-you-can-eat"
+                    >Foods You Can Eat on a Keto Diet</a
+                  >
+                </li>
+                <li><a href="#foods-to-limit">Foods to Limit or Avoid</a></li>
+                <li><a href="#fun-tips">Fun Tips to Enjoy the Keto Diet</a></li>
+                <li><a href="#conclusion">Conclusion</a></li>
+              </div>
+              <br />
+            </ul>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="script/script.js"></script>
+    <script>
+      // Function to load and display the profile picture from localStorage
+      function loadProfilePicture() {
+        const storedImage = localStorage.getItem("profilePic");
+        const profileImages = document.querySelectorAll(".profileImage");
+
+        if (storedImage) {
+          profileImages.forEach((img) => (img.src = storedImage));
+        } else {
+          profileImages.forEach((img) => (img.src = "default-profile.png")); // Set a default image if none is stored
+        }
+      }
+
+      // Load the profile picture when the page loads
+      document.addEventListener("DOMContentLoaded", loadProfilePicture);
+    </script>
+  </body>
+</html>
